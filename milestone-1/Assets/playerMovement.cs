@@ -5,11 +5,17 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour {
 
     public CharacterController2D controller;
+    public static Animator animator;
 
     public float horizontalMove = 0F;
     public float runSpeed = 40F;
     bool jump = false;
 
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+    
     // Update is called once per frame
     void Update()
     {
