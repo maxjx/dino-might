@@ -8,7 +8,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
-	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
+	[SerializeField] private bool m_AirControl = true;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
@@ -20,6 +20,7 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	private Animator animator;
 
 	[Header("Events")]
 	[Space]
@@ -35,6 +36,7 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -115,11 +117,11 @@ public class CharacterController2D : MonoBehaviour
 			// If the input is moving the player...
 			if (move != 0) 
 			{
-				playerMovement.animator.SetInteger("runCondition", 1);
+				animator.SetBool("isRunning", true);	//animate running
 			}
 			else
 			{
-				playerMovement.animator.SetInteger("runCondition", 0);
+				animator.SetBool("isRunning", false);	//animate standing still
 			}
 
 			// If the input is moving the player right and the player is facing left...
@@ -135,6 +137,22 @@ public class CharacterController2D : MonoBehaviour
 				Flip();
 			}
 		}
+
+		if (m_Rigidbody2D.velocity.y == 0)	// Player is grounded
+		{
+			animator.SetBool("isJumping", false);
+			animator.SetBool("isFalling", false);
+		}
+		if (m_Rigidbody2D.velocity.y > 0)	// Player is moving upwards
+		{
+			animator.SetBool("isJumping", true);
+		}
+		if (m_Rigidbody2D.velocity.y < 0)	// Player is moving downwards
+		{
+			animator.SetBool("isJumping", false);
+			animator.SetBool("isFalling", true);
+		}
+
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
