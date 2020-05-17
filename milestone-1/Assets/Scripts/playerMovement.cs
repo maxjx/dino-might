@@ -44,12 +44,13 @@ public class playerMovement : MonoBehaviour {
         animator.SetBool("isJumping", false);
     }
 
-    public void OnCrouching(bool isCrouching) {
-        Debug.Log(isCrouching);
+    public void OnCrouching(bool isCrouching)
+    {
         animator.SetBool("isCrouching", isCrouching);
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
