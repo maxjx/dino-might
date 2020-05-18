@@ -5,10 +5,10 @@ using UnityEngine;
 public class FireBall : MonoBehaviour
 {
     public float speed = 20f;
-    public int damage = 40;
+    public int damage = 3;
     public Rigidbody2D rb;
     public GameObject impactEffect; // A GameObject just to animate the impact effect at the point of collision
-    public float travellingDistance = 1;
+    public float travellingDistance = 2;
     private Vector3 initialPosition;
 
     void Start()
@@ -23,12 +23,11 @@ public class FireBall : MonoBehaviour
     // Called when this GameObject enters the trigger collider of another GameObject, basically they collide
     // hitInfo refers to the GameObject which is hit
     void OnTriggerEnter2D(Collider2D hitInfo) {
-        // code to damage enemy by calling enemy script component but theres no enemy created yet
-        // Enemy enemy = hitInfo.GetComponent<Enemy>();
-        // if (enemy != null)
-        // {
-        //     enemy.TakeDamage(damage);    // TakeDamage has to be a public method
-        // }
+        // Only hits one enemy, if any. See Attack.kick() for AOE damage
+        if (hitInfo.tag == "Enemy")
+        {
+            hitInfo.GetComponent<Health>().TakeDamage(damage);
+        }
         Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
