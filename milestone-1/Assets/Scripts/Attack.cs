@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     public GameObject bulletPrefab; // The prefab used as a bullet when firing
     public Transform kickPoint;     // Point at which the kick hits another object
     public GameObject kickEffect;   // Kick effect
+    public GameObject kickHitEffect; // When the kick hits an enemy
     public Animator animator;
     public float kickRange = 0.2f;
     public int kickDamage = 1;
@@ -46,7 +47,7 @@ public class Attack : MonoBehaviour
         }
         if (kick)
         {
-            animator.SetTrigger("Kick");
+            animator.SetTrigger("kick");
             Instantiate(kickEffect, kickPoint.position, kickPoint.rotation);
 
             // Detect enemies in a circle with center kickpoint and radius kickRange (AOE attack)
@@ -55,6 +56,7 @@ public class Attack : MonoBehaviour
             // Damage all enemies in range
             foreach (Collider2D enemy in hitEnemies)
             {
+                Instantiate(kickHitEffect, kickPoint.position, kickPoint.rotation);
                 enemy.GetComponent<Health>().TakeDamage(kickDamage);
             }
 

@@ -24,7 +24,7 @@ public class FireBall : MonoBehaviour
     // hitInfo refers to the GameObject which is hit
     void OnTriggerEnter2D(Collider2D hitInfo) {
         // Only hits one enemy, if any. See Attack.kick() for AOE damage
-        if (hitInfo.tag == "Enemy")
+        if (hitInfo.CompareTag("Enemy"))
         {
             hitInfo.GetComponent<Health>().TakeDamage(damage);
         }
