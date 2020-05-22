@@ -1006,7 +1006,7 @@ Transform:
   - {fileID: 600285298}
   - {fileID: 37662507}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787594139
 GameObject:
@@ -1044,6 +1044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
+  deathPrefab: {fileID: 1803701912274905777, guid: 3c27a9ff247585743a56a12bb37b9081,
+    type: 3}
 --- !u!50 &787594141
 Rigidbody2D:
   serializedVersion: 4
@@ -1127,7 +1129,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &787594144
 MonoBehaviour:
@@ -1572,6 +1574,7 @@ Transform:
   - {fileID: 398811389}
   - {fileID: 805327574}
   - {fileID: 1331367885}
+  - {fileID: 1405836020}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1744,7 +1747,7 @@ Transform:
   - {fileID: 1450110445}
   - {fileID: 649859162}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1214885743
 Animator:
@@ -6677,11 +6680,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405836018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6767583, y: -3.777564, z: 0}
+  m_LocalPosition: {x: 4.796929, y: -4.429462, z: 1.5869141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1187672320}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1405836021
 BoxCollider2D:
@@ -6956,7 +6959,7 @@ Transform:
   - {fileID: 188953534}
   - {fileID: 1405383942}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1417599180
 Rigidbody2D:
@@ -7101,6 +7104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
+  deathPrefab: {fileID: 3805308594577563534, guid: 942d742119ba4394f9e88f6f24f74d85,
+    type: 3}
 --- !u!1 &1450110443
 GameObject:
   m_ObjectHideFlags: 0
@@ -7336,7 +7341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LookaheadTime: 0.7
-  m_LookaheadSmoothing: 15
+  m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 1
   m_XDamping: 3
   m_YDamping: 3
@@ -7523,7 +7528,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 1417599179}
   m_Follow: {fileID: 1417599179}
   m_Lens:
     FieldOfView: 60

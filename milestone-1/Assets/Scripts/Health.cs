@@ -6,6 +6,8 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 5;
     public int currentHealth;
+    public GameObject deathPrefab;  // Death animation, intentionally seperated from player
+
     private Animator animator;
     private Rigidbody2D rigidbody;
 
@@ -16,7 +18,8 @@ public class Health : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
-        rigidbody.AddForce(new Vector2(300f, 200f));
+        // For knockback (currently not working on enemies bc enemies use transform)
+        rigidbody.AddForce(new Vector2(-300f, 300f));
         currentHealth -= damage;
         animator.SetTrigger("hurt");
         if (currentHealth <= 0) {
@@ -28,7 +31,9 @@ public class Health : MonoBehaviour
     // Player's mobNumber = 0
     void Die(int mobNumber) {
         gameObject.SetActive(false);
-        //Instantiate(deadprefab
+
+        Instantiate(deathPrefab, transform.position, transform.rotation);
+
         Respawner.RespawnCharacter(gameObject, mobNumber);
         currentHealth = maxHealth;
     }

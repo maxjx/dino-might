@@ -62,5 +62,6 @@ public class Attack : MonoBehaviour
 
             kick = false;
         }
+        animator.ResetTrigger("kick");
     }
 }
