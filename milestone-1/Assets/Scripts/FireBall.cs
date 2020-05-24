@@ -8,13 +8,14 @@ public class FireBall : MonoBehaviour
     public int damage = 40;
     public Rigidbody2D rb;
     public GameObject impactEffect; // A GameObject just to animate the impact effect at the point of collision
-    public float distance = 1;
+    public float travellingDistance = 1;
     private Vector3 initialPosition;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Records initial position to calculate distance to destroy this fireball later on
         initialPosition = transform.position;
+
         // Gives the rigidbody assigned to this GameObject a velocity of speed in the direction of right, which is the red axis
         rb.velocity = transform.right * speed;
     }
@@ -34,7 +35,7 @@ public class FireBall : MonoBehaviour
 
     void FixedUpdate() {
         // Destroys GameObject after set displacement to free heap space and prevent undesired effects outside screen
-        if (Vector3.Distance(initialPosition, transform.position) > distance) {
+        if (Vector3.Distance(initialPosition, transform.position) > travellingDistance) {
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
