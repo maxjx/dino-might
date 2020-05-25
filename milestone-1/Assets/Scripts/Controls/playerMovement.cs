@@ -54,4 +54,16 @@ public class playerMovement : MonoBehaviour {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
+
+    // Character follows momentum of a moving platform
+    void OnCollisionEnter2D(Collision2D collide) {
+        if (collide.gameObject.tag == "Moving platform") {
+            this.transform.parent = collide.transform;
+        }
+    }
+    void OnCollisionExit2D(Collision2D collide) {
+        if (collide.gameObject.tag == "Moving platform") {
+            this.transform.parent = null;
+        }
+    }
 }
