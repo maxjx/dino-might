@@ -57,12 +57,12 @@ public class playerMovement : MonoBehaviour {
 
     // Character follows momentum of a moving platform
     void OnCollisionEnter2D(Collision2D collide) {
-        if (collide.gameObject.tag == "Moving platform") {
+        if (collide.gameObject.CompareTag("Moving platform")) {
             this.transform.parent = collide.transform;
         }
     }
     void OnCollisionExit2D(Collision2D collide) {
-        if (collide.gameObject.tag == "Moving platform") {
+        if (collide.gameObject.CompareTag("Moving platform")) {
             this.transform.parent = null;
         }
     }
