@@ -38,6 +38,7 @@ public class Attack : MonoBehaviour
 
     void FixedUpdate()
     {
+        animator.ResetTrigger("kick");
         if (shoot)
         {
             // Creates a bulletPrefab object at the position and rotation of the firePoint
@@ -62,6 +63,5 @@ public class Attack : MonoBehaviour
 
             kick = false;
         }
-        animator.ResetTrigger("kick");
     }
 }
