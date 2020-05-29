@@ -7,7 +7,7 @@ public class backend : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(GetRequest("http://192.168.64.2/dinomightbackend/GetDate.php"));
+        StartCoroutine(GetRequest("https://dinomight.000webhostapp.com/backend/GetData.php"));
     }
 
     IEnumerator GetRequest(string uri)
