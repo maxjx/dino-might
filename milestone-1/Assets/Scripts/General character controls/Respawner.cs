@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class Respawner : MonoBehaviour
 {
-    public static Respawner respawner;
-    void Start()
-    {
-        if (respawner == null)
-        {
-            respawner = this;
-        }
-    }
-
     public Transform playerSpawnPoint;
     public List<Transform> mobSpawnPoint;
 
-    public static void RespawnCharacter(GameObject obj, int mobNumber)
+    public void RespawnCharacter(GameObject obj, int mobNumber)
     {
         // Player's mobNumber = 0
         if (mobNumber == 0)
         {
-            respawner.StartCoroutine(respawner.RespawnPlayer(obj));
+            StartCoroutine(RespawnPlayer(obj));
         }
         else
         {
-            respawner.StartCoroutine(respawner.RespawnMob(obj, mobNumber));
+            StartCoroutine(RespawnMob(obj, mobNumber));
         }
     }
 
