@@ -1,6 +1,7 @@
 # Team Cook
-<p><b>Proposed level of achievment:</b> Artemis</p>
+<i>Lim Junxue and Max Ng</i>
 <p><b>Project:</b> DinoMight - A 2D platformer with an interactive storyline which aims to promote effective habits that reduces stress.</p>
+<p><b>Proposed level of achievment:</b> Artemis</p>
 <p><b>Project scope:</b> O</p> 
 
 <h2> Milestone 1 (Ideation)</h2>
