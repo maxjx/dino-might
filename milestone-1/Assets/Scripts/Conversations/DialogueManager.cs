@@ -6,6 +6,7 @@ public class DialogueManager : MonoBehaviour
 {
     public Dialogue currentDialogue;
     public GameObject NPCCamera;
+    public Animator dialogueBackground;
 
     private GameObject player;
     private playerMovement pm;
@@ -20,8 +21,9 @@ public class DialogueManager : MonoBehaviour
         h = player.GetComponent<Health>();
     }
 
-    public void NextDialogue()
+    public void StartDialogue()
     {
+        //dialogueBackground.SetTrigger("entry");
         NPCCamera.SetActive(true);
         ToggleEnablePlayer();
         currentDialogue.NextSentence();
@@ -29,13 +31,14 @@ public class DialogueManager : MonoBehaviour
 
     void ToggleEnablePlayer()
     {
-        pm.enabled = !pm.enabled;
+        pm.ToggleStartStopMovement();
         a.enabled = !a.enabled;
         h.enabled = !h.enabled;
     }
 
     public void EndDialogues()
     {
+        //dialogueBackground.SetTrigger("exit");
         NPCCamera.SetActive(false);
         ToggleEnablePlayer();
     }

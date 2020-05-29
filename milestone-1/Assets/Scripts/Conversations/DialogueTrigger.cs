@@ -18,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour
         if (prompt.activeSelf && Input.GetKeyDown("c"))
         {
             prompt.SetActive(false);
-            manager.NextDialogue();
+            manager.StartDialogue();
         }
     }
 
