@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class backend : MonoBehaviour
-{
+public class backend : MonoBehaviour {
+/*
+    // Purely for debugging purposes
     void Start()
     {
-        //StartCoroutine(GetRequest("https://dinomight.000webhostapp.com/backend/GetData.php"));
-        //StartCoroutine(Login("testuser", "12345"));
+        StartCoroutine(GetRequest("https://dinomight.000webhostapp.com/backend/GetData.php"));
+        StartCoroutine(Login("testuser", "12345"));
         StartCoroutine(Registration("testuser", "12345"));
-
     }
+*/
 
     IEnumerator GetRequest(string uri)
     {
@@ -34,7 +35,7 @@ public class backend : MonoBehaviour
         }
     }
 
-    IEnumerator Login(string username, string password)
+    public IEnumerator Login(string username, string password)
     {
         WWWForm form = new WWWForm();
         form.AddField("inputUsername", username);
@@ -55,7 +56,7 @@ public class backend : MonoBehaviour
         }
     }
 
-    IEnumerator Registration(string username, string password)
+    public IEnumerator Registration(string username, string password)
     {
         WWWForm form = new WWWForm();
         form.AddField("inputUsername", username);
