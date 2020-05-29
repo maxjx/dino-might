@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue()
     {
-        //dialogueBackground.SetTrigger("entry");
+        dialogueBackground.SetTrigger("entry");
         NPCCamera.SetActive(true);
         ToggleEnablePlayer();
         currentDialogue.NextSentence();
@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogues()
     {
-        //dialogueBackground.SetTrigger("exit");
+        dialogueBackground.SetTrigger("exit");
         NPCCamera.SetActive(false);
         ToggleEnablePlayer();
     }
