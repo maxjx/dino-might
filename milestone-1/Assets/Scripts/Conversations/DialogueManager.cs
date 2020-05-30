@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     private playerMovement pm;
     private Attack a;
     private Health h;
+    private bool dialogueStarted;
 
     void Start()
     {
@@ -21,8 +22,16 @@ public class DialogueManager : MonoBehaviour
         h = player.GetComponent<Health>();
     }
 
+    void Update()
+    {
+        if (dialogueStarted && Input.GetButtonDown("Cancel"))
+        {
+            EndDialogues();
+        }
+    }
     public void StartDialogue()
     {
+        dialogueStarted = true;
         dialogueBackground.SetTrigger("entry");
         NPCCamera.SetActive(true);
         ToggleEnablePlayer();
@@ -38,6 +47,9 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogues()
     {
+        dialogueStarted = false;
+        currentDialogue.ClearText();
+        currentDialogue.HideChoices();
         dialogueBackground.SetTrigger("exit");
         NPCCamera.SetActive(false);
         ToggleEnablePlayer();
