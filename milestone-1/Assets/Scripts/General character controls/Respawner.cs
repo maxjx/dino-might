@@ -7,16 +7,16 @@ public class Respawner : MonoBehaviour
     public Transform playerSpawnPoint;
     public List<Transform> mobSpawnPoint;
 
-    public void RespawnCharacter(GameObject obj, int mobNumber)
+    public void RespawnCharacter(GameObject obj, int spawnPointNumber)
     {
-        // Player's mobNumber = 0
-        if (mobNumber == 0)
+        // Player's spawnPointNumber = 0
+        if (spawnPointNumber == 0)
         {
             StartCoroutine(RespawnPlayer(obj));
         }
         else
         {
-            StartCoroutine(RespawnMob(obj, mobNumber));
+            StartCoroutine(RespawnMob(obj, spawnPointNumber));
         }
     }
 
@@ -27,10 +27,10 @@ public class Respawner : MonoBehaviour
         obj.SetActive(true);
     }
 
-    public IEnumerator RespawnMob(GameObject obj, int mobNumber)
+    public IEnumerator RespawnMob(GameObject obj, int spawnPointNumber)
     {
         yield return new WaitForSeconds(5);
-        Transform sp = mobSpawnPoint[mobNumber - 1];
+        Transform sp = mobSpawnPoint[spawnPointNumber - 1];
         obj.transform.position = sp.position;
         obj.SetActive(true);
     }

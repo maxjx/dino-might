@@ -16,6 +16,7 @@ public class Mob1Movement : MonoBehaviour
     private Transform player;
     private Vector2 target;
     private Animator animator;
+    private PlayerHealth playerHealth;
 
     private float step;    // Distance per frame used in the function MoveTowards
     private bool facingRight = true;        // Rotate the sprite to face target which can be a roaming-end or player
@@ -26,6 +27,7 @@ public class Mob1Movement : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerHealth = player.GetComponent<PlayerHealth>();
         animator = GetComponent<Animator>();
 
         Vector2 startingpt = transform.position;    // Rigidbody2D's Y position is frozen to maintain a straight line of roaming
@@ -88,6 +90,7 @@ public class Mob1Movement : MonoBehaviour
             Flip();
         }
 
+        //animator.ResetTrigger("attack");
         // When mob is close enough to player, set trigger of hurt animation state
         if (sqdistanceFromPlayer < 0.1f * 0.1f && player.gameObject.activeInHierarchy)
         {
@@ -98,10 +101,10 @@ public class Mob1Movement : MonoBehaviour
 
     public void Hurt()
     {
-        animator.ResetTrigger("attack");
+        // activeInHierarchy ensures that player does not takedamage while dead, else might respawn with low health
         if (player.gameObject.activeInHierarchy)
         {
-            player.GetComponent<Health>().TakeDamage(damage);
+            playerHealth.TakeDamage(damage);
         }
     }
 
@@ -110,5 +113,11 @@ public class Mob1Movement : MonoBehaviour
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    // Used at the last frame of mob attack to prevent double count
+    public void ResetTrigger()
+    {
+        animator.ResetTrigger("attack");
     }
 }
