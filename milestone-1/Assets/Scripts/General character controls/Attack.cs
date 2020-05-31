@@ -58,7 +58,7 @@ public class Attack : MonoBehaviour
             foreach (Collider2D enemy in hitEnemies)
             {
                 Instantiate(kickHitEffect, kickPoint.position, kickPoint.rotation);
-                enemy.GetComponent<Health>().TakeDamage(kickDamage);
+                enemy.GetComponent<IHealth>().TakeDamage(kickDamage);
             }
 
             kick = false;

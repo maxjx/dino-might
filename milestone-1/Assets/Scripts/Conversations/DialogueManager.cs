@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     private GameObject player;
     private playerMovement pm;
     private Attack a;
-    private Health h;
+    private PlayerHealth h;
     private bool dialogueStarted;
 
     void Start()
@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         pm = player.GetComponent<playerMovement>();
         a = player.GetComponent<Attack>();
-        h = player.GetComponent<Health>();
+        h = player.GetComponent<PlayerHealth>();
     }
 
     void Update()

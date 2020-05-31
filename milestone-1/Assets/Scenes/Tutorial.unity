@@ -9505,6 +9505,7 @@ MonoBehaviour:
   currentHealth: 0
   deathPrefab: {fileID: 3805308594577563534, guid: 942d742119ba4394f9e88f6f24f74d85,
     type: 3}
+  respawner: {fileID: 0}
 --- !u!114 &1026776946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15138,7 +15139,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
