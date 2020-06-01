@@ -24,8 +24,7 @@ public class MobHealth : MonoBehaviour, IHealth
     }
 
     public void TakeDamage(int damage) {
-        // For knockback (currently not working on enemies bc enemies use transform)
-        m_rigidbody.AddForce(new Vector2(300f, 300f));
+        m_rigidbody.AddForce(new Vector2(300f, 300f));      // knockback
         currentHealth -= damage;
         animator.SetTrigger("hurt");
         if (currentHealth <= 0) {
