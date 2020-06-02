@@ -9,7 +9,6 @@ public class Login : MonoBehaviour
     public InputField Username;
     public InputField Password;
     public Button LoginButton;
-    public Button RegistrationButton;
     public GameObject loadingCircle;
     public Text errorMessage;
     public GameObject playMenu;
