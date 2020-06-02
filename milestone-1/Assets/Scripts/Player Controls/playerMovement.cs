@@ -26,13 +26,13 @@ public class playerMovement : MonoBehaviour
                 animator.SetBool("isJumping", true);
             }
 
-            if (Input.GetButtonDown("Crouch"))
-            {
-                crouch = true;
-            }
-            else if (Input.GetButtonUp("Crouch"))
+            if (Input.GetButtonUp("Crouch"))
             {
                 crouch = false;
+            }
+            else if (Input.GetButtonDown("Crouch"))
+            {
+                crouch = true;
             }
         }
         else
@@ -62,6 +62,11 @@ public class playerMovement : MonoBehaviour
         animator.SetBool("isCrouching", isCrouching);
     }
 
+    void OnEnable()
+    {
+        crouch = false;
+    }
+    
     void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);

@@ -15,17 +15,19 @@ public class Mob1Movement : MonoBehaviour
     private Vector2 roamLeftEnd;
     private Vector2 roamRightEnd;
     private Transform player;
-    private Vector2 target;
     private Animator animator;
     private PlayerHealth playerHealth;
     private Rigidbody2D rigidBody;      // of this mob
 
     private float step;     // Distance per fixedUpdate used in calculating velocity change
     private Vector2 targetVelocity;         // Displacement per fixedUpdate
+    private Vector2 leftVelocity;           // Displacement in the left direction per step
+    private Vector2 rightVelocity;
+    private Vector2 currentVelocity = Vector2.zero;
     private bool facingRight = true;        // Rotate the sprite to face target which can be a roaming-end or player
     private bool wasRoamingRight = true;    // To remember the end that it was heading towards so that it can turn back
     private float raycastDistance = 1f;     // Distance that raycast detects for ground
-    private Vector2 currentVelocity = Vector2.zero;
+    private bool attackRightwards;          // If true, mob is attacking to the right
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,8 @@ public class Mob1Movement : MonoBehaviour
         roamRightEnd = new Vector2(startingpt.x + roamingRange, startingpt.y);
 
         step = speed * Time.fixedDeltaTime * 10f;
+        leftVelocity = new Vector2(-step, 0);
+        rightVelocity = new Vector2(step, 0);
     }
 
     void FixedUpdate()
@@ -58,11 +62,11 @@ public class Mob1Movement : MonoBehaviour
         {
             if (position.x - playerPos.x > 0.1f)   // Player is to the left
             {
-                targetVelocity = new Vector2(-step, 0);
+                targetVelocity = leftVelocity;
             }
             else if (position.x - playerPos.x < -0.1f)     // Player is to the right
             {
-                targetVelocity = new Vector2(step, 0);
+                targetVelocity = rightVelocity;
             }
             else    // position.x is close enough to playerPos.x
             {
@@ -76,12 +80,12 @@ public class Mob1Movement : MonoBehaviour
             // If current position is further left or at the left end of the roaming range, ...
             if (position.x <= roamLeftEnd.x)
             {
-                targetVelocity = new Vector2(step, 0);     // Go to the right
+                targetVelocity = rightVelocity;     // Go to the right
                 wasRoamingRight = true;
             }   // If current position is further right or at the right end of the roaming range, ...
             else if (position.x >= roamRightEnd.x)
             {
-                targetVelocity = new Vector2(-step, 0);      // Go to the left
+                targetVelocity = leftVelocity;      // Go to the left
                 wasRoamingRight = false;
             }
             // Else targetVelocity is the same as previous fixedUpdate if position is within roaming ends
@@ -92,14 +96,14 @@ public class Mob1Movement : MonoBehaviour
             {
                 // target = roamRightEnd
                 if (position.x < roamRightEnd.x)
-                    targetVelocity = new Vector2(step, 0);
+                    targetVelocity = rightVelocity;
                 // else (position.x >= roamRightEnd.x)
             }
             else
             {
                 // target = roamLeftEnd
                 if (position.x > roamLeftEnd.x)
-                    targetVelocity = new Vector2(-step, 0);
+                    targetVelocity = leftVelocity;
                 // else (position.x <= roamLeftEnd.x)
             }
 
@@ -123,11 +127,26 @@ public class Mob1Movement : MonoBehaviour
 
         //animator.ResetTrigger("attack");
         // When mob is close enough to player, set trigger of hurt animation state
-        if (sqdistanceFromPlayer < 0.1f && player.gameObject.activeInHierarchy)
+        if (sqdistanceFromPlayer < 0.2f && player.gameObject.activeInHierarchy)
         {
             // Set condition to animation state that invokes Hurt() via an event, to time attack frequency
             animator.SetTrigger("attack");
+            rigidBody.velocity = Vector2.zero;
+
+            // Determine direction of attack
+            if (playerPos.x < position.x)
+            {
+                attackRightwards = false;
+            }
+            else
+            {
+                attackRightwards = true;
+            }
         }
+
+        // Switch animation state from idle to/from walking
+        float speed = rigidBody.velocity.x;
+        animator.SetFloat("speed", speed < 0 ? -speed : speed);     // More efficient than Mathf.Abs()
     }
 
     public void Hurt()
@@ -135,7 +154,7 @@ public class Mob1Movement : MonoBehaviour
         // activeInHierarchy ensures that player does not takedamage while dead, else might respawn with low health
         if (player.gameObject.activeInHierarchy)
         {
-            playerHealth.TakeDamage(damage);
+            playerHealth.TakeDamage(damage, attackRightwards);
         }
     }
 
