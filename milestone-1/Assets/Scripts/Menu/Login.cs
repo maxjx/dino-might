@@ -2,18 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class Login : MonoBehaviour
 {
     public InputField Username;
     public InputField Password;
     public Button LoginButton;
-    public Button RegistrationButton;
-    void Start()
+    public GameObject loadingCircle;
+    public Text errorMessage;
+    public GameObject playMenu;
+    public GameObject loginMenu;
+    public void OnLoginButton() {
+        LoginButton.interactable = false;
+        loadingCircle.SetActive(true);
+        StartCoroutine(LoginForm(Username.text, Password.text));
+    }
+
+    public IEnumerator LoginForm(string username, string password)
     {
-        LoginButton.onClick.AddListener(() => {
-            StartCoroutine(Main.Instance.backend.Login(Username.text, Password.text));
-        });
+        WWWForm form = new WWWForm();
+        form.AddField("inputUsername", username);
+        form.AddField("inputPassword", password);
+
+        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Login.php", form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError) {
+                errorMessage.text = www.error;
+            } else {
+                if (www.isDone) {
+                    if (www.downloadHandler.text.Contains("Welcome")) {
+                        playMenu.SetActive(true);
+                        www.Dispose();
+                        loginMenu.SetActive(false);
+                    } else {
+                        errorMessage.text = www.downloadHandler.text;
+                    }
+                }
+            }
+            LoginButton.interactable = true;
+            loadingCircle.SetActive(false);
+            www.Dispose();
+        }
     }
 
 }
