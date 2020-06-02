@@ -28,6 +28,7 @@ public class Mob1Movement : MonoBehaviour
     private bool wasRoamingRight = true;    // To remember the end that it was heading towards so that it can turn back
     private float raycastDistance = 1f;     // Distance that raycast detects for ground
     private bool attackRightwards;          // If true, mob is attacking to the right
+    private bool attacking = false;                 // If true, mob is still in the attacking state and should not move especially when player is no longer in attack range
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +59,7 @@ public class Mob1Movement : MonoBehaviour
         bool withinChasingRange = sqdistanceFromPlayer <= chasingRange * chasingRange;
 
         // If player is within chasing range and this mob is on a platform, ...
-        if (withinChasingRange && groundHit)
+        if (withinChasingRange && groundHit && !attacking)
         {
             if (position.x - playerPos.x > 0.1f)   // Player is to the left
             {
@@ -75,7 +76,7 @@ public class Mob1Movement : MonoBehaviour
             rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity * 2, ref currentVelocity, movementSmoothing); // To chase faster
         }
         // Not chasing and should return to opposite roam end
-        else if (!withinChasingRange)
+        else if (!withinChasingRange && !attacking)
         {
             // If current position is further left or at the left end of the roaming range, ...
             if (position.x <= roamLeftEnd.x)
@@ -108,10 +109,12 @@ public class Mob1Movement : MonoBehaviour
             }
 
             rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity, ref currentVelocity, movementSmoothing);
-        
-        }   // else chasing but on platform edge, remain stationary until player goes out of chasing range
+
+        }
         else
-        {
+        {   
+            // else chasing but on platform edge, remain stationary until player goes out of chasing range
+            // or attacking
             rigidBody.velocity = Vector2.zero;
         }
 
@@ -131,7 +134,10 @@ public class Mob1Movement : MonoBehaviour
         {
             // Set condition to animation state that invokes Hurt() via an event, to time attack frequency
             animator.SetTrigger("attack");
+
+            // Stationary when attacking even when player goes out of attacking range
             rigidBody.velocity = Vector2.zero;
+            attacking = true;
 
             // Determine direction of attack
             if (playerPos.x < position.x)
@@ -169,5 +175,6 @@ public class Mob1Movement : MonoBehaviour
     public void ResetTrigger()
     {
         animator.ResetTrigger("attack");
+        attacking = false;
     }
 }
