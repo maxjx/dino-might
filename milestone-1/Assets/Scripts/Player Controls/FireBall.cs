@@ -9,7 +9,8 @@ public class FireBall : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject impactEffect; // A GameObject just to animate the impact effect at the point of collision
     public float travellingDistance = 2;
-    private Vector3 initialPosition;
+    private Vector2 initialPosition;
+    private bool attackRightwards; // If true, fireball is heading to the right
 
     void Start()
     {
@@ -22,19 +23,33 @@ public class FireBall : MonoBehaviour
 
     // Called when this GameObject enters the trigger collider of another GameObject, basically they collide
     // hitInfo refers to the GameObject which is hit
-    void OnTriggerEnter2D(Collider2D hitInfo) {
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        // Determine relative direction of attack
+        if (initialPosition.x < transform.position.x)
+        {
+            attackRightwards = true;
+        }
+        else
+        {
+            attackRightwards = false;
+        }
+
         // Only hits one enemy, if any. See Attack.kick() for AOE damage
         if (hitInfo.CompareTag("Enemy"))
         {
-            hitInfo.GetComponent<IHealth>().TakeDamage(damage);
+            hitInfo.GetComponent<IHealth>().TakeDamage(damage, attackRightwards);
         }
+        
         Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         // Destroys GameObject after set displacement to free heap space and prevent undesired effects outside screen
-        if (Vector3.Distance(initialPosition, transform.position) > travellingDistance) {
+        if (initialPosition.x - transform.position.x > travellingDistance)
+        {
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }

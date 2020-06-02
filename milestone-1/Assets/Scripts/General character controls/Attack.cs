@@ -19,6 +19,13 @@ public class Attack : MonoBehaviour
     private float timer = 0f;
     private bool kick = false;      // To pass button input from Update into FIxedUpdate
     private bool shoot = false;     // To pass button input from Update into FIxedUpdate
+    private Vector2 playerPos;    // Player position to find relative direction of attack
+    private bool attackRightwards;  // If true, player is attacking to the right
+
+    void Start()
+    {
+        playerPos = GetComponent<Transform>().position;     // Cannot simply use transform.position
+    }
 
     // Update is called once per frame
     void Update()
@@ -54,11 +61,21 @@ public class Attack : MonoBehaviour
             // Detect enemies in a circle with center kickpoint and radius kickRange (AOE attack)
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(kickPoint.position, kickRange, enemyLayers);
 
+            // Determine relative direction of attack
+            if (playerPos.x < kickPoint.position.x)
+            {
+                attackRightwards = true;
+            }
+            else
+            {
+                attackRightwards = false;
+            }
+
             // Damage all enemies in range
             foreach (Collider2D enemy in hitEnemies)
             {
                 Instantiate(kickHitEffect, kickPoint.position, kickPoint.rotation);
-                enemy.GetComponent<IHealth>().TakeDamage(kickDamage);
+                enemy.GetComponent<IHealth>().TakeDamage(kickDamage, attackRightwards);
             }
 
             kick = false;

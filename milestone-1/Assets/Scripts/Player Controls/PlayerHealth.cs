@@ -23,13 +23,22 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage) {
-        m_rigidbody.AddForce(new Vector2(-300f, 300f));     // Knockback
+    public void TakeDamage(int damage, bool attackRightwards) {
         currentHealth -= damage;
-
         Debug.Log(currentHealth);
         
         animator.SetTrigger("hurt");
+
+        // Determine direction of knockback
+        if (attackRightwards)
+        {
+            m_rigidbody.AddForce(new Vector2(300f, 0));      // knockback to the right
+        }
+        else
+        {
+            m_rigidbody.AddForce(new Vector2(-300f, 0));      // knockback
+        }
+        
         if (currentHealth <= 0) {
             animator.SetBool("dead", true);     // Animator state calls Die() manually
         }
