@@ -98,4 +98,16 @@ public class playerMovement : MonoBehaviour
     {
         canMove = !canMove;
     }
+
+    public void CrouchOnce()
+    {
+        StartCoroutine(CrouchOnceCoroutine());
+    }
+
+    IEnumerator CrouchOnceCoroutine()
+    {
+        crouch = true;
+        yield return new WaitForSeconds(0.2f);
+        crouch = false;
+    }
 }
