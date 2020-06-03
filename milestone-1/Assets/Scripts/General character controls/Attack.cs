@@ -11,7 +11,7 @@ public class Attack : MonoBehaviour
     public GameObject kickEffect;   // Kick effect
     public GameObject kickHitEffect; // When the kick hits an enemy
     public Animator animator;
-    public float kickRange = 0.2f;
+    public float kickRange = 0.3f;
     public int kickDamage = 1;
     public LayerMask enemyLayers;   // Contains info of all objects with specified layer
 
@@ -21,10 +21,12 @@ public class Attack : MonoBehaviour
     private bool shoot = false;     // To pass button input from Update into FIxedUpdate
     private Vector2 playerPos;    // Player position to find relative direction of attack
     private bool attackRightwards;  // If true, player is attacking to the right
+    private playerMovement playerMovementControl;
 
     void Start()
     {
         playerPos = GetComponent<Transform>().position;     // Cannot simply use transform.position
+        playerMovementControl = GetComponent<playerMovement>();
     }
 
     // Update is called once per frame
@@ -50,7 +52,8 @@ public class Attack : MonoBehaviour
         {
             // Creates a bulletPrefab object at the position and rotation of the firePoint
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            
+            playerMovementControl.CrouchOnce();
+
             shoot = false;
         }
         if (kick)
