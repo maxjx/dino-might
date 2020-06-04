@@ -9,5 +9,5 @@ public interface IHealth
     // Affects direction of knockback
     void TakeDamage(int damage, bool attackRightwards);
 
-    void Die(int spawnPointNumber);
+    void Die();
 }

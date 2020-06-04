@@ -30,7 +30,7 @@ public class Respawner : MonoBehaviour
     public IEnumerator RespawnMob(GameObject obj, int spawnPointNumber)
     {
         yield return new WaitForSeconds(5);
-        Transform sp = mobSpawnPoint[spawnPointNumber - 1];
+        Transform sp = mobSpawnPoint[spawnPointNumber-1];
         obj.transform.position = sp.position;
         obj.SetActive(true);
     }

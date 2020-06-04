@@ -17,7 +17,7 @@ public class Mob1Movement : MonoBehaviour
     private Transform player;
     private Animator animator;
     private PlayerHealth playerHealth;
-    private Rigidbody2D rigidBody;      // of this mob
+    private Rigidbody2D rb;      // of this mob
 
     private float step;     // Distance per fixedUpdate used in calculating velocity change
     private Vector2 targetVelocity;         // Displacement per fixedUpdate
@@ -36,7 +36,7 @@ public class Mob1Movement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         playerHealth = player.GetComponent<PlayerHealth>();
         animator = GetComponent<Animator>();
-        rigidBody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
 
         Vector2 startingpt = transform.position;    // Rigidbody2D's Y position is frozen to maintain a straight line of roaming
 
@@ -73,7 +73,7 @@ public class Mob1Movement : MonoBehaviour
             {
                 targetVelocity = Vector2.zero;   // zero velocity
             }
-            rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity * 2, ref currentVelocity, movementSmoothing); // To chase faster
+            rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity * 2, ref currentVelocity, movementSmoothing); // To chase faster
         }
         // Not chasing and should return to opposite roam end
         else if (!withinChasingRange && !attacking)
@@ -108,14 +108,14 @@ public class Mob1Movement : MonoBehaviour
                 // else (position.x <= roamLeftEnd.x)
             }
 
-            rigidBody.velocity = Vector2.SmoothDamp(rigidBody.velocity, targetVelocity, ref currentVelocity, movementSmoothing);
+            rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref currentVelocity, movementSmoothing);
 
         }
         else
         {   
             // else chasing but on platform edge, remain stationary until player goes out of chasing range
             // or attacking
-            rigidBody.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
         }
 
         // Rotate mob according to its target
@@ -136,7 +136,7 @@ public class Mob1Movement : MonoBehaviour
             animator.SetTrigger("attack");
 
             // Stationary when attacking even when player goes out of attacking range
-            rigidBody.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
             attacking = true;
 
             // Determine direction of attack
@@ -151,7 +151,7 @@ public class Mob1Movement : MonoBehaviour
         }
 
         // Switch animation state from idle to/from walking
-        float speed = rigidBody.velocity.x;
+        float speed = rb.velocity.x;
         animator.SetFloat("speed", speed < 0 ? -speed : speed);     // More efficient than Mathf.Abs()
     }
 
