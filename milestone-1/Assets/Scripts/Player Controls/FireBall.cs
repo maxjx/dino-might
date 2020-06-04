@@ -7,7 +7,6 @@ public class FireBall : MonoBehaviour
     public float speed = 20f;
     public int damage = 3;
     public Rigidbody2D rb;
-    public GameObject impactEffect; // A GameObject just to animate the impact effect at the point of collision
     public float travellingDistance = 4;
     private Vector2 initialPosition;
     private bool attackRightwards; // If true, fireball is heading to the right
@@ -40,9 +39,10 @@ public class FireBall : MonoBehaviour
         {
             hitInfo.GetComponent<IHealth>().TakeDamage(damage, attackRightwards);
         }
-        
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
+
+        // Animate impact effect on collision
+        ObjectPooler.Instance.SpawnFromPool("FireballImpact", transform.position, transform.rotation);
+        gameObject.SetActive(false);
     }
 
     void FixedUpdate()
@@ -52,8 +52,9 @@ public class FireBall : MonoBehaviour
         // Destroys GameObject after set displacement to free heap space and prevent undesired effects outside screen
         if (displacement > travellingDistance)
         {
-            Instantiate(impactEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            // Animate impact effect on collision
+            ObjectPooler.Instance.SpawnFromPool("FireballImpact", transform.position, transform.rotation);
+            gameObject.SetActive(false);
         }
     }
 }

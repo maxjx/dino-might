@@ -11,15 +11,13 @@ public class ObjectPooler : MonoBehaviour
         public GameObject prefab;
         public int pooledAmount;
 
-        //public List<GameObject> pooledObjectList;
+        public List<GameObject> pooledObjectList;
     }
 
     public static ObjectPooler Instance;
     public List<Pool> pools;
     [Tooltip("Allows dynamic creation of objects when the all other objects in the pool are fully utilised")]
-    public bool poolCanGrow = true;
-    public Dictionary<string, List<GameObject>> pooledObjectDictionary;
-    //private Dictionary<string, Pool> poolDataDictionary;
+    public bool poolsCanGrow = true;
 
     void Awake()
     {
@@ -29,42 +27,38 @@ public class ObjectPooler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pooledObjectDictionary = new Dictionary<string, List<GameObject>>();
-        //poolDataDictionary = new Dictionary<string, Pool>();
-
         // For each type of object listed in pools,
         foreach (Pool pool in pools)
         {
             // Make a list and instantiate and store the gameobjects
-            List<GameObject> pooledObjectList = new List<GameObject>();
+            List<GameObject> newPooledObjectList = new List<GameObject>();
 
             for (int x = 0; x < pool.pooledAmount; x++)
             {
                 GameObject obj = Instantiate(pool.prefab);
                 obj.SetActive(false);
-                pooledObjectList.Add(obj);
+                newPooledObjectList.Add(obj);
             }
 
-            pooledObjectDictionary.Add(pool.tag, pooledObjectList);
-
-            // Supplying the poolDataDictionary so that its data such as prefab and poolCanGrow can be referenced easily
-            //poolDataDictionary.Add(pool.tag, pool);
+            pool.pooledObjectList = newPooledObjectList;
         }
     }
 
     // Acts like Instantiate() but by identifying the prefab with its tag as provided in the ObjectPooler instance
     public GameObject SpawnFromPool(string tag, Vector2 position, Quaternion rotation)
     {
-        if (!pooledObjectDictionary.ContainsKey(tag))
+        Pool pool = SearchTag(tag);
+
+        if (pool == null)
         {
             Debug.LogWarning("orhor here got no such tag called " + tag + " leh");
             return null;
         }
 
-        List<GameObject> pooledObjectList = pooledObjectDictionary[tag];
+        List<GameObject> existingPooledObjectList = pool.pooledObjectList;
 
         // foreach object in the list with the tag
-        foreach (GameObject obj in pooledObjectList)
+        foreach (GameObject obj in existingPooledObjectList)
         {
             // If obj is inactive, return obj to be spawned
             if (!obj.activeInHierarchy)
@@ -78,17 +72,37 @@ public class ObjectPooler : MonoBehaviour
 
         // If no object in the pool is inactive and available for use, 
         // then check if the pool is able to grow to allow instantiation of more objects.
-        // if (pool.poolCanGrow)
-        // {
-        //     GameObject objectToSpawn = Instantiate(pool.prefab);
-        //     return objectToSpawn;
-        // }
+        if (poolsCanGrow)
+        {
+            GameObject objectToSpawn = Instantiate(pool.prefab);
+            objectToSpawn.transform.position = position;
+            objectToSpawn.transform.rotation = rotation;
 
-        // There is no such tag, all objects in the pool are active and the pool cannot grow
-        GameObject objectToSpawn = pooledObjectList[0];
-        objectToSpawn.transform.position = position;
-        objectToSpawn.transform.rotation = rotation;
-        objectToSpawn.SetActive(true);
-        return objectToSpawn;
+            existingPooledObjectList.Add(objectToSpawn);
+            return objectToSpawn;
+        }
+        else    // the pool cannot grow
+        {
+            GameObject objectToRespawn = existingPooledObjectList[0];
+            objectToRespawn.transform.position = position;
+            objectToRespawn.transform.rotation = rotation;
+            objectToRespawn.SetActive(true);
+
+            return objectToRespawn;
+        }
+    }
+
+    // Returns Pool with the associated tag from the list of pools
+    Pool SearchTag(string tag)
+    {
+        foreach (Pool pool in pools)
+        {
+            if (pool.tag == tag)
+            {
+                return pool;
+            }
+        }
+
+        return null;
     }
 }
