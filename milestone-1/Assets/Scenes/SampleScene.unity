@@ -8711,15 +8711,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 545406376}
-  bulletPrefab: {fileID: 3068890444456946000, guid: e407bdfcbbf724c47b7f2478dbb3e25c,
-    type: 3}
   kickPoint: {fileID: 1470164105}
-  kickEffect: {fileID: 2028320502648659650, guid: 7bb9cb31c12e33b49bff99a236e651ce,
-    type: 3}
   kickHitEffect: {fileID: 5056157742705652748, guid: cea510b56e254194d96e13a9d3b3250e,
     type: 3}
   animator: {fileID: 1417599177}
-  kickRange: 0.3
+  kickRange: 0.5
   kickDamage: 1
   enemyLayers:
     serializedVersion: 2
@@ -9230,6 +9226,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1417599179}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1687624689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1687624691}
+  - component: {fileID: 1687624690}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1687624690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687624689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 268f6e6c5e88fc1489ac93c06517c4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Fireball
+    prefab: {fileID: 3068890444456946000, guid: e407bdfcbbf724c47b7f2478dbb3e25c,
+      type: 3}
+    pooledAmount: 2
+    pooledObjectList: []
+  - tag: Kick
+    prefab: {fileID: 2028320502648659650, guid: 7bb9cb31c12e33b49bff99a236e651ce,
+      type: 3}
+    pooledAmount: 1
+    pooledObjectList: []
+  - tag: FireballImpact
+    prefab: {fileID: 1803701912274905777, guid: 3c27a9ff247585743a56a12bb37b9081,
+      type: 3}
+    pooledAmount: 2
+    pooledObjectList: []
+  poolsCanGrow: 1
+--- !u!4 &1687624691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687624689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8983898, y: -0.5062193, z: -931.9338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1698011060
 GameObject:

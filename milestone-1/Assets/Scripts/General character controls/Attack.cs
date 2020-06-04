@@ -6,12 +6,10 @@ public class Attack : MonoBehaviour
 {
 
     public Transform firePoint;     // Point at which the bulletPrefab appears
-    public GameObject bulletPrefab; // The prefab used as a bullet when firing
     public Transform kickPoint;     // Point at which the kick hits another object
-    public GameObject kickEffect;   // Kick effect
     public GameObject kickHitEffect; // When the kick hits an enemy
     public Animator animator;
-    public float kickRange = 0.3f;
+    public float kickRange = 0.5f;
     public int kickDamage = 1;
     public LayerMask enemyLayers;   // Contains info of all objects with specified layer
 
@@ -50,16 +48,16 @@ public class Attack : MonoBehaviour
         animator.ResetTrigger("kick");
         if (shoot)
         {
-            // Creates a bulletPrefab object at the position and rotation of the firePoint
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            playerMovementControl.CrouchOnce();
+            // Spawns Fireball object at the position and rotation of the firePoint
+            ObjectPooler.Instance.SpawnFromPool("Fireball", firePoint.position, firePoint.rotation);
+            playerMovementControl.CrouchOnce();     // For shooting animation
 
             shoot = false;
         }
         if (kick)
         {
             animator.SetTrigger("kick");
-            Instantiate(kickEffect, kickPoint.position, kickPoint.rotation);
+            ObjectPooler.Instance.SpawnFromPool("Kick", kickPoint.position, kickPoint.rotation);
 
             // Detect enemies in a circle with center kickpoint and radius kickRange (AOE attack)
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(kickPoint.position, kickRange, enemyLayers);
