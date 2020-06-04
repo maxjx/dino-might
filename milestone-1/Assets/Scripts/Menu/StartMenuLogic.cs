@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartMenuLogic : MonoBehaviour {
+    public GameObject transition;
     public void Play() {
-        SceneManager.LoadScene(1);
+        transition.GetComponent<LevelLoader>().NextLevelAnimation(1);
     }
     public void Quit() {
         Application.Quit();
