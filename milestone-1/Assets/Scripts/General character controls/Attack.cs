@@ -8,7 +8,6 @@ public class Attack : MonoBehaviour
     public Transform firePoint;     // Point at which the bulletPrefab appears
     public Transform kickPoint;     // Point at which the kick hits another object
     public GameObject kickHitEffect; // When the kick hits an enemy
-    public Animator animator;
     public float kickRange = 0.5f;
     public int kickDamage = 1;
     public LayerMask enemyLayers;   // Contains info of all objects with specified layer
@@ -20,11 +19,13 @@ public class Attack : MonoBehaviour
     private Vector2 playerPos;    // Player position to find relative direction of attack
     private bool attackRightwards;  // If true, player is attacking to the right
     private playerMovement playerMovementControl;
+    private Animator animator;
 
     void Start()
     {
         playerPos = GetComponent<Transform>().position;     // Cannot simply use transform.position
         playerMovementControl = GetComponent<playerMovement>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
