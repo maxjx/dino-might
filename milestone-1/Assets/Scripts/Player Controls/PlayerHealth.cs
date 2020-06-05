@@ -12,21 +12,23 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private Animator animator;
     private Rigidbody2D m_rigidbody;
 
-    void Start() {
+    void Start()
+    {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
     }
-    
+
     void OnEnable()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage, bool attackRightwards) {
+    public void TakeDamage(int damage, bool attackRightwards)
+    {
         currentHealth -= damage;
         Debug.Log(currentHealth);
-        
+
         animator.SetTrigger("hurt");
 
         // Determine direction of knockback
@@ -38,17 +40,19 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             m_rigidbody.AddForce(new Vector2(-300f, 0));      // knockback
         }
-        
-        if (currentHealth <= 0) {
+
+        if (currentHealth <= 0)
+        {
             animator.SetBool("dead", true);     // Animator state calls Die() manually
         }
     }
 
-    // spawnPointNumber indicates where its corresponding spawn point is, cached in the Respawner
-    // Player's spawnPointNumber = 0
-    public void Die(int spawnPointNumber) {
+    public void Die()
+    {
         Instantiate(deathPrefab, transform.position, transform.rotation);
 
+        // 2nd argument is spawnPointNumber, indicates where its corresponding spawn point is, cached in the Respawner
+        // Player's spawnPointNumber = 0
         respawner.RespawnCharacter(gameObject, 0);
 
         gameObject.SetActive(false);

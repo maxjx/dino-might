@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MobHealth : MonoBehaviour, IHealth
 {
+    [Tooltip("Like an ID for the mob. Tells respawner which spawn point to spawn at.")]
+    public int spawnNumber;
     public int maxHealth = 1;
     public int currentHealth;
     public GameObject deathPrefab;  // Death animation, intentionally seperated from character
@@ -45,12 +47,12 @@ public class MobHealth : MonoBehaviour, IHealth
         }
     }
 
-    // spawnPointNumber indicates where its corresponding spawn point is, cached in the Respawner
-    public void Die(int spawnPointNumber)
+    // spawnNumber indicates where its corresponding spawn point is, cached in the Respawner
+    public void Die()
     {
         Instantiate(deathPrefab, transform.position, transform.rotation);
 
-        respawner.RespawnCharacter(gameObject, spawnPointNumber);
+        respawner.RespawnCharacter(gameObject, spawnNumber);
 
         gameObject.SetActive(false);
     }

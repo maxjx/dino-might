@@ -7,6 +7,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public DialogueManager manager;
     public GameObject prompt;
+    public string NPCName;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             prompt.SetActive(false);
             manager.StartDialogue();
+            manager.ToggleDisplayName(NPCName);
         }
     }
 
