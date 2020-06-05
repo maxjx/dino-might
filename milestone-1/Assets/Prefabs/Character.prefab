@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77078538032848416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0.63, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 77078539316099916}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77078538389295161}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: kickPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,9 +83,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77078538389295162}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.321, y: -0.141, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.456, y: -0.099, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 77078539316099916}
   m_RootOrder: 3
@@ -4891,7 +4891,7 @@ GameObject:
   - component: {fileID: 77078539316099913}
   - component: {fileID: 77078539316099918}
   - component: {fileID: 77078539316099927}
-  - component: {fileID: 77078539316099926}
+  - component: {fileID: 9205085100882291654}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -4907,7 +4907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77078539316099904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.336, y: -0.236, z: 0}
+  m_LocalPosition: {x: 6.15, y: 3.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 77078537980310016}
@@ -5044,7 +5044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cea968c8c8e44ffe8d14c9e6202d26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 600
+  m_JumpForce: 700
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -5130,20 +5130,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 77078538032848431}
-  bulletPrefab: {fileID: 3068890444456946000, guid: e407bdfcbbf724c47b7f2478dbb3e25c,
-    type: 3}
   kickPoint: {fileID: 77078538389295161}
-  kickEffect: {fileID: 2028320502648659650, guid: 7bb9cb31c12e33b49bff99a236e651ce,
-    type: 3}
   kickHitEffect: {fileID: 5056157742705652748, guid: cea510b56e254194d96e13a9d3b3250e,
     type: 3}
   animator: {fileID: 77078539316099918}
-  kickRange: 0.2
+  kickRange: 0.5
   kickDamage: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &77078539316099926
+--- !u!114 &9205085100882291654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5152,10 +5148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 77078539316099904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2afd1d927167abe4486bec5ab1c4bf90, type: 3}
+  m_Script: {fileID: 11500000, guid: aee0bd053b590b04986302d60267226f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  currentHealth: 0
   deathPrefab: {fileID: 3805308594577563534, guid: 942d742119ba4394f9e88f6f24f74d85,
     type: 3}
+  respawner: {fileID: 0}
