@@ -15,7 +15,7 @@ public class Registration : MonoBehaviour {
     public GameObject loginMenu;
     public GameObject registrationMenu;
     public void OnRegistrationButtonClick() {
-        if (password.text.Length <= 7 || username.text.Length <=5) {
+        if (password.text.Length <= 5 || username.text.Length <=7) {
             errorText.text = "Username and Password must be at least 6 and 8 characters respectively";
         } else if (password.text.Equals(reconfirmPassword.text)) {
             registrationButton.interactable = false;
