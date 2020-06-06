@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public static int currentHealth;
     public GameObject deathPrefab;  // Death animation, intentionally seperated from player
     public Respawner respawner;
+    public HealthBar healthBar;     // This is a health bar object that needs to be created externally.
 
     private Animator animator;
     private Rigidbody2D m_rigidbody;
@@ -17,6 +18,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
+        healthBar.setMaxHealth(maxHealth);
     }
 
     void OnEnable()
@@ -27,7 +29,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void TakeDamage(int damage, bool attackRightwards)
     {
         currentHealth -= damage;
-        Debug.Log(currentHealth);
+        healthBar.setHealth(currentHealth);     // Edited for health bar inclusion
+        Debug.Log(currentHealth);               // For debugging
 
         animator.SetTrigger("hurt");
 
