@@ -15,5 +15,7 @@ public class LevelLoader : MonoBehaviour {
         transition.SetTrigger("start");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(levelIndex);
+        Debug.Log("passed loading of tut code");
+        yield break;
     }
 }
