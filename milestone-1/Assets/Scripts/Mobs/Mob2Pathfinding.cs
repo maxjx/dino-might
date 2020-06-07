@@ -10,14 +10,12 @@ public class Mob2Pathfinding : MonoBehaviour
     public float speed = 300f;
     public float nextWaypointDistance = 3f;
 
-    //public Transform mobGFX;
+    private Path path;
+    private int currentWaypoint = 0;
+    private bool facingRight;
 
-    Path path;
-    int currentWaypoint = 0;
-    //bool reachedEndOfPath = false;
-
-    Seeker seeker;
-    Rigidbody2D rb;
+    private Seeker seeker;
+    private Rigidbody2D rb;
 
     void Start()
     {
@@ -50,15 +48,11 @@ public class Mob2Pathfinding : MonoBehaviour
             return;
         }
 
+        // If the path to the target is reached,
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            //reachedEndOfPath = true;
             return;
         }
-        // else
-        // {
-        //     reachedEndOfPath = false;
-        // }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
@@ -71,13 +65,21 @@ public class Mob2Pathfinding : MonoBehaviour
             currentWaypoint++;
         }
 
-        if (force.x >= 0.01f)
+        if (force.x >= 0.01f && !facingRight)
         {
-            transform.localScale = new Vector2(-4f, 4f);
+            Flip();
         }
-        else if (force.x <= -0.01f)
+        else if (force.x <= -0.01f && facingRight)
         {
-            transform.localScale = new Vector2(4f, 4f);
+            Flip();
         }
+    }
+
+
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 }

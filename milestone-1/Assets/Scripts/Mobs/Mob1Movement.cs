@@ -28,7 +28,7 @@ public class Mob1Movement : MonoBehaviour
     private bool wasRoamingRight = true;    // To remember the end that it was heading towards so that it can turn back
     private float raycastDistance = 1f;     // Distance that raycast detects for ground
     private bool attackRightwards;          // If true, mob is attacking to the right
-    private bool attacking = false;                 // If true, mob is still in the attacking state and should not move especially when player is no longer in attack range
+    private bool attacking = false;         // If true, mob is still in the attacking state and should not move especially when player is no longer in attack range
 
     // Start is called before the first frame update
     void Start()
