@@ -8,7 +8,7 @@ public class MobHealth : MonoBehaviour, IHealth
     public int spawnNumber;
     public int maxHealth = 1;
     public int currentHealth;
-    public GameObject deathPrefab;  // Death animation, intentionally seperated from character
+    public ParticleSystem deathExplosion;
     public Respawner respawner;
 
     private Animator animator;
@@ -50,7 +50,8 @@ public class MobHealth : MonoBehaviour, IHealth
     // spawnNumber indicates where its corresponding spawn point is, cached in the Respawner
     public void Die()
     {
-        Instantiate(deathPrefab, transform.position, transform.rotation);
+        deathExplosion.transform.position = transform.position;
+        deathExplosion.Play();
 
         respawner.RespawnCharacter(gameObject, spawnNumber);
 

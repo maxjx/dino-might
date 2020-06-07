@@ -16,14 +16,14 @@ public class Attack : MonoBehaviour
     private float timer = 0f;
     private bool kick = false;      // To pass button input from Update into FIxedUpdate
     private bool shoot = false;     // To pass button input from Update into FIxedUpdate
-    private Vector2 playerPos;    // Player position to find relative direction of attack
+    private Transform playerTransform;    // Player position to find relative direction of attack
     private bool attackRightwards;  // If true, player is attacking to the right
     private playerMovement playerMovementControl;
     private Animator animator;
 
     void Start()
     {
-        playerPos = GetComponent<Transform>().position;     // Cannot simply use transform.position
+        playerTransform = GetComponent<Transform>();     // Cannot simply use transform.position
         playerMovementControl = GetComponent<playerMovement>();
         animator = GetComponent<Animator>();
     }
@@ -64,7 +64,7 @@ public class Attack : MonoBehaviour
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(kickPoint.position, kickRange, enemyLayers);
 
             // Determine relative direction of attack
-            if (playerPos.x < kickPoint.position.x)
+            if (playerTransform.position.x < kickPoint.position.x)
             {
                 attackRightwards = true;
             }
