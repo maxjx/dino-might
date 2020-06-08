@@ -14,9 +14,11 @@ public class StartMenuLogic : MonoBehaviour {
 
     public void Play() {
         transition.GetComponent<LevelLoader>().NextLevelAnimation(1);
+        Debug.Log(Global.playerId);
     }
     public void PlayImmediate() {
         SceneManager.LoadScene(1);
+        Debug.Log(Global.playerId);
     }
 
     public void Load() {
@@ -43,7 +45,9 @@ public class StartMenuLogic : MonoBehaviour {
                 } else {
                     var textArray = JSON.Parse(www.downloadHandler.text);
                     int index = textArray[0]["level"];
-                    transition.GetComponent<LevelLoader>().NextLevelAnimation(index);
+                    float x = textArray[0]["Xcoordinate"];
+                    float y = textArray[0]["Ycoordinate"];
+                    transition.GetComponent<LevelLoader>().NextLevelAnimationLoad(index, x, y);
                 }
             }
         }

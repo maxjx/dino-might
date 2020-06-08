@@ -14,7 +14,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM loaddata WHERE id = '". $playerId. "'";
+$sql = "SELECT * FROM loaddata WHERE playerId = '". $playerId. "'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
