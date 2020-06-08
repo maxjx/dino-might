@@ -22,6 +22,7 @@ public class CharacterController2D : MonoBehaviour
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded = true;            // Whether or not the player is grounded.
+    private bool falling = false;
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -54,6 +55,15 @@ public class CharacterController2D : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
+        if (m_Rigidbody2D.velocity.y < 0f)
+        {
+            falling = true;
+        }
+        else
+        {
+            falling = false;
+        }
+
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -62,9 +72,10 @@ public class CharacterController2D : MonoBehaviour
             if (!colliders[i].gameObject.CompareTag("Player"))
             {
                 m_Grounded = true;
-                if (!wasGrounded && m_Rigidbody2D.velocity.y < 0f)
+                if (!wasGrounded && falling)
                 {
                     OnLandEvent.Invoke();
+                    falling = false;
 
                     CreateDust();
                 }
