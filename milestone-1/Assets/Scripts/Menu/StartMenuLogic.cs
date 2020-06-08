@@ -7,6 +7,10 @@ public class StartMenuLogic : MonoBehaviour {
     public GameObject transition;
     public void Play() {
         transition.GetComponent<LevelLoader>().NextLevelAnimation(1);
+        Debug.Log("play click registered");
+    }
+    public void PlayImmediate() {
+        SceneManager.LoadScene(1);
     }
     public void Quit() {
         Application.Quit();

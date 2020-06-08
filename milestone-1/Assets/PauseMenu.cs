@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject levelTransition;
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -30,7 +31,9 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void LoadMenu() {
-        SceneManager.LoadScene("Start menu");
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        levelTransition.GetComponent<LevelLoader>().NextLevelAnimation(0);
     }
 
     public void QuitGame() {
