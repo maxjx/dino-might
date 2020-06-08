@@ -7,5 +7,5 @@ public static class Global {
     public static int playerHealth;
     public static int playerLevel;
     public static float Xcoordinate;
-    public static float yCoordinate;
+    public static float Ycoordinate;
 }
