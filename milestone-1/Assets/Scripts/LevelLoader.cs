@@ -11,18 +11,26 @@ public class LevelLoader : MonoBehaviour {
 
     public void NextLevelAnimation(int index) {
         StartCoroutine(LoadLevel(index));
-        Debug.Log("coroutine called");
+        Debug.Log(Global.playerLevel);
     }
-    public void NextLevelAnimationTest(int sceneIndex) {
-        StartCoroutine(LoadLevel(sceneIndex));
-        Debug.Log("coroutine called");
+    public void NextLevelAnimationLoad(int sceneIndex, float x, float y) {
+        StartCoroutine(LoadLevelLoad(sceneIndex, x, y));
     }
+
     IEnumerator LoadLevel(int levelIndex) {
         transition.SetTrigger("start");
         yield return new WaitForSeconds(1);
         transition.SetTrigger("End");
         SceneManager.LoadSceneAsync(levelIndex);
-        Debug.Log("passed loading of tut code");
         yield break;
+    }
+    IEnumerator LoadLevelLoad(int levelIndex, float x, float y) {
+        transition.SetTrigger("start");
+        yield return new WaitForSeconds(1);
+        transition.SetTrigger("End");
+        SceneManager.LoadScene(levelIndex);
+        // GameObject player = GameObject.FindWithTag("Player");
+        // player.transform.position = new Vector3(x, y, 0);
+        // yield break;
     }
 }
