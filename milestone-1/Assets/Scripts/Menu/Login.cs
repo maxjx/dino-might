@@ -33,7 +33,8 @@ public class Login : MonoBehaviour
                 errorMessage.text = www.error;
             } else {
                 if (www.isDone) {
-                    if (www.downloadHandler.text.Contains("Welcome")) {
+                    if (!www.downloadHandler.text.Contains(".")) {
+                        Global.playerId = int.Parse(www.downloadHandler.text);
                         playMenu.SetActive(true);
                         www.Dispose();
                         loginMenu.SetActive(false);

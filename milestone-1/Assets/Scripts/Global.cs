@@ -5,5 +5,7 @@ using UnityEngine;
 public static class Global {
     public static int playerId;
     public static int playerHealth;
-    public static float[] playerPosition;
+    public static int playerLevel;
+    public static float Xcoordinate;
+    public static float Ycoordinate;
 }
