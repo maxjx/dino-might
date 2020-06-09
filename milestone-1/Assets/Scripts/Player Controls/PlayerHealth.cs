@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     void OnEnable()
     {
         currentHealth = maxHealth;
+        healthBar.setHealth(currentHealth); 
     }
 
     public void TakeDamage(int damage, bool attackRightwards)

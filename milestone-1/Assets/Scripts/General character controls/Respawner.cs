@@ -34,5 +34,17 @@ public class Respawner : MonoBehaviour
         obj.transform.position = sp.position;
         obj.SetActive(true);
     }
+
+    public void RespawnThing(GameObject obj)
+    {
+        StartCoroutine(RespawnThingCoroutine(obj));
+    }
+
+    private IEnumerator RespawnThingCoroutine(GameObject obj)
+    {
+        obj.SetActive(false);
+        yield return new WaitForSeconds(7);
+        obj.SetActive(true);
+    }
 }
 
