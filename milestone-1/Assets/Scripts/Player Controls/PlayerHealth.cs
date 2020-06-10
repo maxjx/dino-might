@@ -13,18 +13,15 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private Animator animator;
     private Rigidbody2D m_rigidbody;
 
+    // I can handle passing health data across scenes and setting global values and health bar dependency
+    // after static global script implementation is generally decided on. 
+    // Consequently, playerhealth will be depending on global.
     void Start()
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
         healthBar.setMaxHealth(maxHealth);
-    }
-
-    void OnEnable()
-    {
-        currentHealth = maxHealth;
-        healthBar.setHealth(currentHealth); 
     }
 
     public void TakeDamage(int damage, bool attackRightwards)
@@ -58,7 +55,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
         // 2nd argument is spawnPointNumber, indicates where its corresponding spawn point is, cached in the Respawner
         // Player's spawnPointNumber = 0
         respawner.RespawnCharacter(gameObject, 0);
+        FullHealth();
 
         gameObject.SetActive(false);
+    }
+
+    void FullHealth()
+    {
+        currentHealth = maxHealth;
+        healthBar.setHealth(currentHealth);
     }
 }
