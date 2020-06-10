@@ -55,7 +55,7 @@ public class CharacterController2D : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
-        if (m_Rigidbody2D.velocity.y <= 0f)
+        if (m_Rigidbody2D.velocity.y < 0f)
         {
             falling = true;
         }
