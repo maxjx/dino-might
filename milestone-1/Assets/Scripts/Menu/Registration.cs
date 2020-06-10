@@ -26,7 +26,7 @@ public class Registration : MonoBehaviour {
         }
     }
 
-    public IEnumerator RegistrationForm() {
+    private IEnumerator RegistrationForm() {
         WWWForm form = new WWWForm();
         form.AddField("inputUsername", username.text);
         form.AddField("inputPassword", password.text);
