@@ -8,6 +8,7 @@ public class FireBall : MonoBehaviour
     public int damage = 3;
     public Rigidbody2D rb;
     public float travellingDistance = 4;
+    public LayerMask whatCanHit;    // Specifies what layers can be hit by fireball
     private Vector2 initialPosition;
     private bool attackRightwards; // If true, fireball is heading to the right
 
@@ -34,15 +35,18 @@ public class FireBall : MonoBehaviour
             attackRightwards = false;
         }
 
-        // Only hits one enemy, if any. See Attack.kick() for AOE damage
-        if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("spawned"))
+        if (whatCanHit == (whatCanHit | (1 << hitInfo.gameObject.layer)))
         {
-            hitInfo.GetComponent<IHealth>().TakeDamage(damage, attackRightwards);
-        }
+            // Only hits one enemy, if any. See Attack.kick() for AOE damage
+            if (hitInfo.CompareTag("Enemy"))
+            {
+                hitInfo.GetComponent<IHealth>().TakeDamage(damage, attackRightwards);
+            }
 
-        // Animate impact effect on collision
-        ObjectPooler.Instance.SpawnFromPool("FireballImpact", transform.position, transform.rotation);
-        gameObject.SetActive(false);
+            // Animate impact effect on collision
+            ObjectPooler.Instance.SpawnFromPool("FireballImpact", transform.position, transform.rotation);
+            gameObject.SetActive(false);
+        }
     }
 
     void FixedUpdate()

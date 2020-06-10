@@ -21,11 +21,17 @@ public class Attack : MonoBehaviour
     private playerMovement playerMovementControl;
     private Animator animator;
 
+    private Vector3 rightDisplacement;      // To calculate displacement of hit effect from hit point
+    private Vector3 leftDisplacement;
+
     void Start()
     {
         playerTransform = GetComponent<Transform>();     // Cannot simply use transform.position
         playerMovementControl = GetComponent<playerMovement>();
         animator = GetComponent<Animator>();
+
+        rightDisplacement = new Vector3(kickRange, 0, 0);
+        leftDisplacement = new Vector3(-kickRange, 0, 0);
     }
 
     // Update is called once per frame
@@ -58,7 +64,7 @@ public class Attack : MonoBehaviour
         if (kick)
         {
             animator.SetTrigger("kick");
-            ObjectPooler.Instance.SpawnFromPool("Kick", kickPoint.position, kickPoint.rotation);
+            //ObjectPooler.Instance.SpawnFromPool("Kick", kickPoint.position, kickPoint.rotation);
 
             // Detect enemies in a circle with center kickpoint and radius kickRange (AOE attack)
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(kickPoint.position, kickRange, enemyLayers);
@@ -73,11 +79,24 @@ public class Attack : MonoBehaviour
                 attackRightwards = false;
             }
 
-            // Damage all enemies in range
-            foreach (Collider2D enemy in hitEnemies)
+            // Displace kickHitEffect from kickPoint according to direction of attack
+            if (attackRightwards)
             {
-                Instantiate(kickHitEffect, kickPoint.position, kickPoint.rotation);
-                enemy.GetComponent<IHealth>().TakeDamage(kickDamage, attackRightwards);
+                // Damage all enemies in range
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    Instantiate(kickHitEffect, kickPoint.position + rightDisplacement, kickPoint.rotation);
+                    enemy.GetComponent<IHealth>().TakeDamage(kickDamage, attackRightwards);
+                }
+            }
+            else
+            {
+                // Damage all enemies in range
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    Instantiate(kickHitEffect, kickPoint.position + leftDisplacement, kickPoint.rotation);
+                    enemy.GetComponent<IHealth>().TakeDamage(kickDamage, attackRightwards);
+                }
             }
 
             kick = false;
