@@ -28,4 +28,9 @@ public class KingHealth : MonoBehaviour {
 		GetComponent<Animator>().SetBool("IsDead", true);
 	}
 
+	void TeleportTree() {
+		GameObject obj = GameObject.FindWithTag("TeleportTree");
+		obj.SetActive(true);
+	}
+
 }
