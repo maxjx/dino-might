@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KingHealth : MonoBehaviour {
+public class KingHealth : MonoBehaviour, IHealth {
 	public int health = 50;
 	public GameObject deathEffect;
 	public bool isInvulnerable = false;
 
-	public void TakeDamage(int damage) {
+	private GameObject tree;
+
+	private void Start() {
+		tree = GameObject.FindGameObjectWithTag("TeleportTree");
+
+		tree.SetActive(false);
+	}
+
+	public void TakeDamage(int damage, bool attackRightwards) {
 		if (isInvulnerable) {
 			return;
         }
@@ -23,14 +31,13 @@ public class KingHealth : MonoBehaviour {
 		}
 	}
 
-	void Die()
+	public void Die()
 	{
-		GetComponent<Animator>().SetBool("IsDead", true);
+		GetComponent<Animator>().SetBool("isDead", true);
 	}
 
 	void TeleportTree() {
-		GameObject obj = GameObject.FindWithTag("TeleportTree");
-		obj.SetActive(true);
+		tree.SetActive(true);
 	}
 
 }

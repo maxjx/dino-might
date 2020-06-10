@@ -35,7 +35,7 @@ public class FireBall : MonoBehaviour
         }
 
         // Only hits one enemy, if any. See Attack.kick() for AOE damage
-        if (hitInfo.CompareTag("Enemy"))
+        if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("spawned"))
         {
             hitInfo.GetComponent<IHealth>().TakeDamage(damage, attackRightwards);
         }
