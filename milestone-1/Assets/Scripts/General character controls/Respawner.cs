@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Respawner : MonoBehaviour
 {
     public Transform playerSpawnPoint;
+    public CinemachineVirtualCameraBase playerVcam;
     public List<Transform> mobSpawnPoint;
 
     public void RespawnCharacter(GameObject obj, int spawnPointNumber)
@@ -23,8 +25,13 @@ public class Respawner : MonoBehaviour
     public IEnumerator RespawnPlayer(GameObject obj)
     {
         yield return new WaitForSeconds(2);
+        // To "teleport" the camera
+        playerVcam.gameObject.SetActive(false);
+        
         obj.transform.position = playerSpawnPoint.position;
         obj.SetActive(true);
+
+        playerVcam.gameObject.SetActive(true);
     }
 
     public IEnumerator RespawnMob(GameObject obj, int spawnPointNumber)

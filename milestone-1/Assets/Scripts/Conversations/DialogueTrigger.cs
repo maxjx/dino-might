@@ -34,6 +34,9 @@ public class DialogueTrigger : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        prompt.SetActive(false);
+        if (collider.CompareTag("Player"))
+        {
+            prompt.SetActive(false);
+        }
     }
 }
