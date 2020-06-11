@@ -13,9 +13,9 @@ public class Monologger : MonoBehaviour
     private int index = 0;
     private bool played = false;        // Monologue has been played
 
-    private void OnTriggerEnter2D()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (!played)
+        if (!played && collider.CompareTag("Player"))
         {
             MonologueBackgroundAnim.SetTrigger("entry");
             played = true;
