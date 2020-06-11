@@ -64,7 +64,6 @@ public class Attack : MonoBehaviour
         if (kick)
         {
             animator.SetTrigger("kick");
-            //ObjectPooler.Instance.SpawnFromPool("Kick", kickPoint.position, kickPoint.rotation);
 
             // Detect enemies in a circle with center kickpoint and radius kickRange (AOE attack)
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(kickPoint.position, kickRange, enemyLayers);
