@@ -8,4 +8,5 @@ public static class Global {
     public static int playerLevel;
     public static float Xcoordinate;
     public static float Ycoordinate;
+    public static bool isLoad;
 }
