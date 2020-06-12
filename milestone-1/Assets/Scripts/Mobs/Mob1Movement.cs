@@ -33,8 +33,11 @@ public class Mob1Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        playerHealth = player.GetComponent<PlayerHealth>();
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            playerHealth = player.GetComponent<PlayerHealth>();
+        }
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -117,7 +120,7 @@ public class Mob1Movement : MonoBehaviour
 
         }
         else
-        {   
+        {
             // else chasing but on platform edge, remain stationary until player goes out of chasing range
             // or attacking
             rb.velocity = Vector2.zero;
