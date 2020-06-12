@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class Respawner : MonoBehaviour
 {
-    public Transform playerSpawnPoint;
+    public List<Transform> playerSpawnPoints;
     public CinemachineVirtualCameraBase playerVcam;
     public List<Transform> mobSpawnPoint;
 
@@ -28,9 +28,24 @@ public class Respawner : MonoBehaviour
         // To "teleport" the camera
         playerVcam.gameObject.SetActive(false);
         
-        obj.transform.position = playerSpawnPoint.position;
+        // Find respawn point based on distance from player
+        Vector3 closestPoint = playerSpawnPoints[0].position;
+        float diff = obj.transform.position.x - closestPoint.x;
+        float shortestDisplacement = diff < 0 ? -diff : diff;
+        foreach (Transform point in playerSpawnPoints)
+        {
+            float pointdiff = obj.transform.position.x - point.position.x;
+            float pointdisplacement = pointdiff < 0 ? -pointdiff : pointdiff;
+            if (pointdisplacement <= shortestDisplacement)
+            {
+                closestPoint = point.position;
+                shortestDisplacement = pointdisplacement;
+            }
+        }
+        obj.transform.position = closestPoint;
         obj.SetActive(true);
 
+        // To "teleport" the camera
         playerVcam.gameObject.SetActive(true);
     }
 

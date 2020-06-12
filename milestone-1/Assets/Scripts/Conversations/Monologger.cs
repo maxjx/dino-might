@@ -13,6 +13,16 @@ public class Monologger : MonoBehaviour
     private int index = 0;
     private bool played = false;        // Monologue has been played
 
+    public void ManualTrigger()
+    {
+        if (!played)
+        {
+            MonologueBackgroundAnim.SetTrigger("entry");
+            played = true;
+            StartCoroutine(PlayMonologue());
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (!played && collider.CompareTag("Player"))
