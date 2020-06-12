@@ -11,21 +11,25 @@ public class King_walk : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        rb = animator.GetComponent<Rigidbody2D>();
-        king = animator.GetComponent<KingLogic>();
+        if (GameObject.FindGameObjectWithTag("Player") != null) {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+            rb = animator.GetComponent<Rigidbody2D>();
+            king = animator.GetComponent<KingLogic>();
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector2 target = new Vector2(player.position.x, rb.position.y);
-        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
-        rb.MovePosition(newPos);
-        king.LookAtPlayer();
+        if (GameObject.FindGameObjectWithTag("Player") != null) {
+            Vector2 target = new Vector2(player.position.x, rb.position.y);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
+            rb.MovePosition(newPos);
+            king.LookAtPlayer();
 
-        if (Vector2.Distance(player.position, rb.position) <= attackRange) {
-            animator.SetTrigger("Attack");
+            if (Vector2.Distance(player.position, rb.position) <= attackRange) {
+                animator.SetTrigger("Attack");
+            }
         }
     }
 
