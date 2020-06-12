@@ -51,6 +51,11 @@ public class Mob1Movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 position = transform.position;  // Current position
+
+        if (player == null)
+        {
+            return;
+        }
         Vector2 playerPos = player.position;
 
         bool groundHit = Physics2D.Raycast(groundDetector.position, Vector2.down, raycastDistance);     // Returns true if raycast hits a collider
