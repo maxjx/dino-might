@@ -5,9 +5,12 @@ using UnityEngine;
 public class MonologueManualTrigger : MonoBehaviour
 {
     public Monologger monologue;
-    
+
     void OnDisable()
     {
-        monologue.ManualTrigger();
+        if (monologue != null)
+        {
+            monologue.ManualTrigger();
+        }
     }
 }
