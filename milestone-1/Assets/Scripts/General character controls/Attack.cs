@@ -38,12 +38,12 @@ public class Attack : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (Input.GetButtonDown("Fire1") && timer >= attackRate)
+        if (Input.GetButtonDown("Fire2") && timer >= attackRate)
         {
             shoot = true;
             timer = 0;
         }
-        if (Input.GetButtonDown("Fire2") && timer >= attackRate)
+        if (Input.GetButtonDown("Fire1") && timer >= attackRate)
         {
             kick = true;     // IMPERFECT KICK TRANSITION (take into account crouching and knockback and jumping)
             timer = 0;

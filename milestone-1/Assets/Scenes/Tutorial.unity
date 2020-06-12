@@ -563,6 +563,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1857173640}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &71969218 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 71969218, guid: 0392ea912bf582e428d9be63f1e7bf1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1817812995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &72791396
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,12 +739,12 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6800001
+      value: 30.02
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.0399997
+      value: -4.4999995
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -1786,37 +1792,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1252924666190637528, guid: 6abf4b1ceb05bae4b936273d16ba7094,
         type: 3}
-      propertyPath: sentences.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252924666190637528, guid: 6abf4b1ceb05bae4b936273d16ba7094,
-        type: 3}
-      propertyPath: sentences.Array.data[0]
-      value: Better get back home soon...
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252924666190637528, guid: 6abf4b1ceb05bae4b936273d16ba7094,
-        type: 3}
-      propertyPath: sentences.Array.data[1]
-      value: There's still so much work to do, my boss is gonna kill me!
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252924666190637528, guid: 6abf4b1ceb05bae4b936273d16ba7094,
-        type: 3}
-      propertyPath: sentences.Array.data[2]
-      value: Just wanted to take a stroll to let off some steam and I can't believe
-        I wasted so much time!
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252924666190637528, guid: 6abf4b1ceb05bae4b936273d16ba7094,
-        type: 3}
-      propertyPath: sentences.Array.data[3]
-      value: I'm such a loser...
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252924666190637528, guid: 6abf4b1ceb05bae4b936273d16ba7094,
-        type: 3}
-      propertyPath: sentenceDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252924666190637528, guid: 6abf4b1ceb05bae4b936273d16ba7094,
-        type: 3}
       propertyPath: textbox
       value: 
       objectReference: {fileID: 836291711}
@@ -1824,12 +1799,7 @@ PrefabInstance:
         type: 3}
       propertyPath: MonologueBackgroundAnim
       value: 
-      objectReference: {fileID: 1272101836}
-    - target: {fileID: 1252924666190637528, guid: 6abf4b1ceb05bae4b936273d16ba7094,
-        type: 3}
-      propertyPath: typingSpeed
-      value: 0.03
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 71969218}
     - target: {fileID: 1252924666190637529, guid: 6abf4b1ceb05bae4b936273d16ba7094,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1884,11 +1854,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1252924666190637534, guid: 6abf4b1ceb05bae4b936273d16ba7094,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 3.19
       objectReference: {fileID: 0}
     - target: {fileID: 1252924666190637535, guid: 6abf4b1ceb05bae4b936273d16ba7094,
         type: 3}
@@ -5810,124 +5775,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6783704596287994102, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596287994102, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596287994103, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6783704596287994103, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
         type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 294904215}
-    - target: {fileID: 6783704596287994103, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.data[0]
-      value: Ah Martin eh. Just walk using the WASD keys and go straight ahead at
-        the big tree.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596287994103, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596829764064, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: m_text
-      value: 'My name is jeff. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596873467844, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: m_Name
-      value: Villager intro
-      objectReference: {fileID: 0}
     - target: {fileID: 6783704596873467864, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596873467864, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: choices.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596873467864, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 294904215}
-    - target: {fileID: 6783704596873467864, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.data[1]
-      value: To fall asleep while on a walk?? Whatever floats your boat...
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596873467864, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.data[2]
-      value: But it's getting late yaknow... Don't want you to get lost in these
-        woods yaknow...
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596873467864, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.data[0]
-      value: Hey hey kid, you alright?
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704596873467864, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: choices.Array.data[0]
-      value: 
-      objectReference: {fileID: 1321143973}
-    - target: {fileID: 6783704596873467864, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.data[3]
-      value: What's your name? I'll guide you out.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704597376064092, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: m_text
-      value: I'm...
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704597394201220, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704597394201220, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704597394201221, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704597394201221, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
         type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 294904215}
     - target: {fileID: 6783704597394201221, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
         type: 3}
-      propertyPath: sentences.Array.data[1]
-      value: Stay safe, these woods are alive.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783704597394201221, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-        type: 3}
-      propertyPath: sentences.Array.data[0]
-      value: Ah Martin eh. Just walk using the WASD keys and go straight ahead at
-        the big tree.
-      objectReference: {fileID: 0}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 294904215}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5, type: 3}
 --- !u!1 &811461007
@@ -9170,12 +9032,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1272101836 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7048490107965290567, guid: 0392ea912bf582e428d9be63f1e7bf1f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1817812995}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1294196348
 GameObject:
   m_ObjectHideFlags: 0
@@ -9500,24 +9356,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320452239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6800001, y: -1.0399997, z: -10}
+  m_LocalPosition: {x: 30.02, y: -3.0956836, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1321143973 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6783704597146950912, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 795475594}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1323865939
 GameObject:
   m_ObjectHideFlags: 0
@@ -11184,7 +11028,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1224461397}
   levelTransition: {fileID: 423839323}
   informText: {fileID: 719193038}
-  player: {fileID: 0}
+  player: {fileID: 1863710938}
 --- !u!114 &1537674042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13319,12 +13163,12 @@ PrefabInstance:
     - target: {fileID: 1471507954652336056, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.68
+      value: 30.02
       objectReference: {fileID: 0}
     - target: {fileID: 1471507954652336056, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.04
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1471507954652336056, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
@@ -13386,6 +13230,12 @@ PrefabInstance:
 --- !u!4 &1863710937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1471507954652336056, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863710936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1863710938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1471507954652336052, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
     type: 3}
   m_PrefabInstance: {fileID: 1863710936}
   m_PrefabAsset: {fileID: 0}
