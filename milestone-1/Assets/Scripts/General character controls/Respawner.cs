@@ -51,7 +51,7 @@ public class Respawner : MonoBehaviour
 
     public IEnumerator RespawnMob(GameObject obj, int spawnPointNumber)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
         Transform sp = mobSpawnPoint[spawnPointNumber-1];
         obj.transform.position = sp.position;
         obj.SetActive(true);
@@ -65,7 +65,7 @@ public class Respawner : MonoBehaviour
     private IEnumerator RespawnThingCoroutine(GameObject obj)
     {
         obj.SetActive(false);
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(5);
         obj.SetActive(true);
     }
 }
