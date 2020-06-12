@@ -33,4 +33,8 @@ public class LevelLoader : MonoBehaviour {
         // player.transform.position = new Vector3(x, y, 0);
         // yield break;
     }
+    public void loadFromDatabase() {
+        GameObject player = GameObject.FindWithTag("Player");
+        player.transform.position = new Vector3(Global.Xcoordinate, Global.Ycoordinate, 0);
+    }
 }
