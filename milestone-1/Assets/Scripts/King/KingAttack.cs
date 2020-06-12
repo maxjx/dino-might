@@ -60,9 +60,11 @@ public class KingAttack : MonoBehaviour
 	private void FistAttack() {
 		fistTime = 0f;
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		Transform playerInfo = player.GetComponent<Transform>();
-		float pos = playerInfo.position.x;
-		StartCoroutine(summonFist(fist, pos));
+		if (player != null) {
+			Transform playerInfo = player.GetComponent<Transform>();
+			float pos = playerInfo.position.x;
+			StartCoroutine(summonFist(fist, pos));
+		}
 	}
 
 	private IEnumerator summonFist(Transform _fist, float pos) {
