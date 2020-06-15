@@ -6,6 +6,7 @@ public class KingHealth : MonoBehaviour, IHealth {
 	public int health = 50;
 	public GameObject deathEffect;
 	public bool isInvulnerable = false;
+	public HealthBar healthBar;
 
 	private GameObject tree;
 
@@ -13,18 +14,16 @@ public class KingHealth : MonoBehaviour, IHealth {
 		tree = GameObject.FindGameObjectWithTag("TeleportTree");
 
 		tree.SetActive(false);
+		healthBar.setMaxHealth(health);
 	}
 
 	public void TakeDamage(int damage, bool attackRightwards) {
 		if (isInvulnerable) {
 			return;
         }
-		health -= damage;
 
-//		if (health <= 200)
-//		{
-//			GetComponent<Animator>().SetBool("IsEnraged", true);
-//		}
+		health -= damage;
+		healthBar.setHealth(health);
 
 		if (health <= 0) {
 			Die();
