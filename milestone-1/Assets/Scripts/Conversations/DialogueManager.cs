@@ -5,7 +5,7 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Dialogue currentDialogue;
+    public Dialogue currentDialogue;    // Insert intro dialogue here which will lead to all the other dialogues
     public GameObject NPCCamera;
     public Animator dialogueBackground;
     public TextMeshProUGUI nameBox;     // TMPro textbox for name

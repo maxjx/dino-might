@@ -6,13 +6,14 @@ using TMPro;
 public class Monologger : MonoBehaviour
 {
     public string[] sentences;
-    public float sentenceDuration = 3f;
+    public float sentenceDuration = 3f;     // Time from current sentence completely typed out until the next sentence is typed out
     public float typingSpeed = 0.02f;
     public TextMeshProUGUI textbox;
     public Animator MonologueBackgroundAnim;
     private int index = 0;
     private bool played = false;        // Monologue has been played
 
+    // Triggered by another object when a specific event happens such as mob dying
     public void ManualTrigger()
     {
         if (!played)
@@ -23,6 +24,7 @@ public class Monologger : MonoBehaviour
         }
     }
 
+    // Triggers monologue when player steps into this collider
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (!played && collider.CompareTag("Player"))
