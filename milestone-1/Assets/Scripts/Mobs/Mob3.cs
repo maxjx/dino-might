@@ -25,6 +25,7 @@ public class Mob3 : MonoBehaviour
     private bool movingRight = true;
     private Vector2 targetPos;          // The target position is should move towards
     private bool shooting = false;
+    private float step;                 // speed * fixed delta time
 
     // Laser variables
     Vector2 laserPos;
@@ -46,6 +47,7 @@ public class Mob3 : MonoBehaviour
 
         leftEnd = new Vector2(startingpt.x - roamingRange, startingpt.y);
         rightEnd = new Vector2(startingpt.x + roamingRange, startingpt.y);
+        step = speed * Time.fixedDeltaTime;
     }
 
     void FixedUpdate()
@@ -83,11 +85,11 @@ public class Mob3 : MonoBehaviour
             // Determines its target position. Also accounts for the starting direction when currPos is btw the 2 roamEnds
             if (movingRight)
             {
-                targetPos = Vector2.MoveTowards(rb.position, rightEnd, speed * Time.fixedDeltaTime);
+                targetPos = Vector2.MoveTowards(rb.position, rightEnd, step);
             }
             else
             {
-                targetPos = Vector2.MoveTowards(rb.position, leftEnd, speed * Time.fixedDeltaTime);
+                targetPos = Vector2.MoveTowards(rb.position, leftEnd, step);
             }
 
             rb.MovePosition(targetPos);
@@ -110,8 +112,8 @@ public class Mob3 : MonoBehaviour
         laserEmission.Play();
 
         // Angle the particle system in the dir of the laser
-        Vector3 rotateDir = Quaternion.Euler(0, 0, 90) * dir;
-        laserEmission.transform.rotation = Quaternion.LookRotation(Vector3.forward, rotateDir);
+        // Vector3 rotateDir = Quaternion.Euler(0, 0, 90) * dir;
+        laserEmission.transform.rotation = Quaternion.LookRotation(dir);
 
         if (hit)
         {
@@ -132,6 +134,8 @@ public class Mob3 : MonoBehaviour
             yield return new WaitForSeconds(1f);    // Activate laser burst after 1s
         }
         laserLength = (laserPos - endPoint).magnitude;
+        laserBurst.startWidth = 0.3f;
+        laserBurst.endWidth = 0.3f;
         laserBurst.enabled = true;
 
         // Laser collide with floor etc particle system
