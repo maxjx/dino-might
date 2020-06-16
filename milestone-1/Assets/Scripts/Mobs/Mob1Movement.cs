@@ -14,7 +14,7 @@ public class Mob1Movement : MonoBehaviour
     // Coordinates of roaming boundary ends and player GameObject
     private Vector2 roamLeftEnd;
     private Vector2 roamRightEnd;
-    private Transform player;
+    private GameObject player;
     private Animator animator;
     private PlayerHealth playerHealth;
     private Rigidbody2D rb;      // of this mob
@@ -35,7 +35,7 @@ public class Mob1Movement : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            player = GameObject.FindGameObjectWithTag("Player");
             playerHealth = player.GetComponent<PlayerHealth>();
         }
         animator = GetComponent<Animator>();
@@ -59,11 +59,10 @@ public class Mob1Movement : MonoBehaviour
         {
             return;
         }
-        Vector2 playerPos = player.position;
+        Vector2 playerPos = player.transform.position;
 
         bool groundHit = Physics2D.Raycast(groundDetector.position, Vector2.down, raycastDistance);     // Returns true if raycast hits a collider
-        Vector2 displacementFromPlayer = playerPos - position;
-        float sqdistanceFromPlayer = displacementFromPlayer.sqrMagnitude;   // Used square instead of Vector2.Distance for optimization
+        float sqdistanceFromPlayer = (playerPos - position).sqrMagnitude;   // Used square instead of Vector2.Distance for optimization
         bool withinChasingRange = sqdistanceFromPlayer <= chasingRange * chasingRange;
 
         // If player is within chasing range and this mob is on a platform, ...
@@ -138,7 +137,7 @@ public class Mob1Movement : MonoBehaviour
 
         //animator.ResetTrigger("attack");
         // When mob is close enough to player, set trigger of hurt animation state
-        if (sqdistanceFromPlayer < 0.2f && player.gameObject.activeInHierarchy)
+        if (sqdistanceFromPlayer < 0.2f && player.activeInHierarchy)
         {
             // Set condition to animation state that invokes Hurt() via an event, to time attack frequency
             animator.SetTrigger("attack");
@@ -166,7 +165,7 @@ public class Mob1Movement : MonoBehaviour
     public void Hurt()
     {
         // activeInHierarchy ensures that player does not takedamage while dead, else might respawn with low health
-        if (player.gameObject.activeInHierarchy)
+        if (player.activeInHierarchy)
         {
             playerHealth.TakeDamage(damage, attackRightwards);
         }

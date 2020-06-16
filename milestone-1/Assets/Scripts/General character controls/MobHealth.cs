@@ -53,7 +53,10 @@ public class MobHealth : MonoBehaviour, IHealth
         deathExplosion.transform.position = transform.position;
         deathExplosion.Play();
 
-        respawner.RespawnCharacter(gameObject, spawnNumber);
+        if (respawner != null)
+        {
+            respawner.RespawnCharacter(gameObject, spawnNumber);
+        }
 
         gameObject.SetActive(false);
     }

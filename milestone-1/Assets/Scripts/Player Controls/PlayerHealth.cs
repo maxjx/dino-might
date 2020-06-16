@@ -74,4 +74,15 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
         gameObject.SetActive(false);
     }
+
+    public void AddHealth(int health)
+    {
+        currentHealth += health;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.setHealth(currentHealth);
+        Global.playerHealth = currentHealth;
+    }
 }
