@@ -6,7 +6,6 @@ public class KingAttack : MonoBehaviour
 {
 	public int attackDamage = 5;
 	public int enragedAttackDamage = 8;
-
 	public Vector3 attackOffset;
 	public float attackRange = 1f;
 	public LayerMask attackMask;
