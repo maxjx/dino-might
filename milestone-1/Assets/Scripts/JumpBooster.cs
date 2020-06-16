@@ -24,7 +24,7 @@ public class JumpBooster : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
-        if (rb != null && !used)
+        if (rb != null && !used && collider.CompareTag("Player"))
         {
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(horizontalForce, verticalForce));

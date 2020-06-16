@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class Respawner : MonoBehaviour
 {
-    public List<Transform> playerSpawnPoints;
+    public List<Transform> playerSpawnPoints;       // List of points should be in the order of the direction the player is travelling, smallest being at the start
     public CinemachineVirtualCameraBase playerVcam;
     public List<Transform> mobSpawnPoint;
 
@@ -30,16 +30,30 @@ public class Respawner : MonoBehaviour
         
         // Find respawn point based on distance from player
         Vector3 closestPoint = playerSpawnPoints[0].position;
-        float diff = obj.transform.position.x - closestPoint.x;
-        float shortestDisplacement = diff < 0 ? -diff : diff;
-        foreach (Transform point in playerSpawnPoints)
+        float pointdiff = obj.transform.position.x - closestPoint.x;    // Distance from player to respawn point
+        float shortestDisplacement = pointdiff < 0 ? -pointdiff : pointdiff;
+        for (int i = 1; i < playerSpawnPoints.Count; i++)
         {
-            float pointdiff = obj.transform.position.x - point.position.x;
-            float pointdisplacement = pointdiff < 0 ? -pointdiff : pointdiff;
+            Transform point = playerSpawnPoints[i];
+            float currPointDiff = obj.transform.position.x - point.position.x;
+            // If distance between points have different signs, take the previous closest point
+            if ((pointdiff < 0 && currPointDiff > 0) || (pointdiff > 0 && currPointDiff < 0))
+            {
+                break;
+            }
+
+            float pointdisplacement = currPointDiff < 0 ? -currPointDiff : currPointDiff;
             if (pointdisplacement <= shortestDisplacement)
             {
                 closestPoint = point.position;
                 shortestDisplacement = pointdisplacement;
+            }   
+            else
+            {
+                // Since the first and current respawn points (rp) are in the same direction from the player, 
+                // and the current respawn point is further than the first respawn point,
+                // then the rest of the rp should be further and there is no need to check anymore.
+                break;
             }
         }
         obj.transform.position = closestPoint;
