@@ -13,8 +13,14 @@ public class playerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
     private bool canMove = true;
+    public PhysicsMaterial2D friction;
+    public PhysicsMaterial2D noFriction;
+    private Rigidbody2D rbPlayer;
 
-    // Update is called once per frame
+
+    void Start() {
+        rbPlayer = gameObject.GetComponent<Rigidbody2D>();
+    }
     void Update() {
         if (canMove) {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -35,8 +41,10 @@ public class playerMovement : MonoBehaviour
         // If the input is moving the player...
         if (horizontalMove == 0) {
             animator.SetBool("isRunning", false);   //animate standing still
+            rbPlayer.sharedMaterial = friction;
         } else {
             animator.SetBool("isRunning", true);    //animate running
+            rbPlayer.sharedMaterial = noFriction;
         }
 
         // EVERYTHING BELOW THIS LINE MUST BE DELETED FOR FINAL PRODUCT
