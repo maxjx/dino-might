@@ -15,40 +15,49 @@ public class playerMovement : MonoBehaviour
     private bool canMove = true;
 
     // Update is called once per frame
-    void Update()
-    {
-        if (canMove)
-        {
+    void Update() {
+        if (canMove) {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-            if (Input.GetButtonDown("Jump"))
-            {
+            if (Input.GetButtonDown("Jump")) {
                 jump = true;
                 animator.SetBool("isJumping", true);
             }
 
-            if (Input.GetButtonUp("Crouch"))
-            {
+            if (Input.GetButtonUp("Crouch")) {
                 crouch = false;
-            }
-            else if (Input.GetButtonDown("Crouch"))
-            {
+            } else if (Input.GetButtonDown("Crouch")) {
                 crouch = true;
             }
-        }
-        else
-        {
+        } else {
             horizontalMove = 0;
         }
 
         // If the input is moving the player...
-        if (horizontalMove == 0)
-        {
+        if (horizontalMove == 0) {
             animator.SetBool("isRunning", false);   //animate standing still
-        }
-        else
-        {
+        } else {
             animator.SetBool("isRunning", true);    //animate running
         }
+
+        // EVERYTHING BELOW THIS LINE MUST BE DELETED FOR FINAL PRODUCT
+        // Demo hack teleport script
+        if (Input.GetKey("1")) {
+            Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
+            transform.position = new Vector3(46.5f, -3f, 0f);
+        }
+        if (Input.GetKey("2")) {
+            Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
+            transform.position = new Vector3(65.5f, 18f, 0f);
+        }
+        if (Input.GetKey("3")) {
+            Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
+            transform.position = new Vector3(0f, 5f, 0f);
+        }
+        if (Input.GetKey("4")) {
+            Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
+            transform.position = new Vector3(101f, 9f, 0f);
+        }
+        // EVERYTHING ABOVE THIS LINE MUST BE DELETED FOR FINAL PRODUCT
 
     }
 
