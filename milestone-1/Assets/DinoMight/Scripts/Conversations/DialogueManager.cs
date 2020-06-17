@@ -9,20 +9,20 @@ public class DialogueManager : MonoBehaviour
     public GameObject NPCCamera;
     public Animator dialogueBackground;
     public TextMeshProUGUI nameBox;     // TMPro textbox for name
-
-    private GameObject player;
+    public GameObject player;
+    
     private playerMovement pm;
-    private Attack a;
-    private PlayerHealth h;
+    private Attack attack;
+    private PlayerHealth health;
+    private bool immune = false;        // to toggle health
     private bool dialogueStarted;
     private bool nameDisplayed = false;
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
         pm = player.GetComponent<playerMovement>();
-        a = player.GetComponent<Attack>();
-        h = player.GetComponent<PlayerHealth>();
+        attack = player.GetComponent<Attack>();
+        health = player.GetComponent<PlayerHealth>();
     }
 
     void Update()
@@ -32,6 +32,7 @@ public class DialogueManager : MonoBehaviour
             EndDialogues();
         }
     }
+
     public void StartDialogue()
     {
         // For exiting conversation from Update
@@ -50,8 +51,9 @@ public class DialogueManager : MonoBehaviour
     void ToggleEnablePlayer()
     {
         pm.ToggleStartStopMovement();
-        a.enabled = !a.enabled;
-        h.enabled = !h.enabled;
+        attack.enabled = !attack.enabled;
+        immune = !immune;
+        health.Immunity(immune);
     }
 
     public void EndDialogues()
