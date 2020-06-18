@@ -26,7 +26,11 @@ public class Dialogue : MonoBehaviour
     {
         if (!typing && conversing && Input.anyKeyDown)
         {
-            manager.currentDialogue = this;
+            if (Input.GetMouseButtonDown(0)
+                || Input.GetMouseButtonDown(1)
+                || Input.GetMouseButtonDown(2))
+                return;
+
             StartCoroutine(NextSentenceCoroutine());
         }
     }
@@ -42,6 +46,7 @@ public class Dialogue : MonoBehaviour
         if (index < sentences.Length)
         {
             conversing = true;
+            manager.UpdateDialogueRef(this);        // Tells manager that this is the latest dialogue
             textBox.text = "";
             yield return StartCoroutine(Type());    // Waits for typing to finish
             index++;
@@ -64,7 +69,7 @@ public class Dialogue : MonoBehaviour
 
     private IEnumerator Type()
     {
-        typing = true; 
+        typing = true;
         foreach (char letter in sentences[index].ToCharArray())
         {
             textBox.text += letter;
@@ -89,8 +94,11 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void ClearText()
+    public void EndDialogue()
     {
+        conversing = false;
+        StopCoroutine(NextSentenceCoroutine());
         textBox.text = "";
+        HideChoices();
     }
 }
