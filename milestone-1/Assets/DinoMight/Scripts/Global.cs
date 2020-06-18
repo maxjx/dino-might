@@ -9,4 +9,5 @@ public static class Global {
     public static float Xcoordinate;
     public static float Ycoordinate;
     public static bool isLoad;
+    public static Dictionary<string, int> NPCDialogueDict;      // Key: NPC's name, Value: corresponding dialogue id
 }
