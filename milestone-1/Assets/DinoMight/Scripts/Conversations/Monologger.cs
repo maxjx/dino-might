@@ -5,6 +5,7 @@ using TMPro;
 
 public class Monologger : MonoBehaviour
 {
+    public string id;                   // Can be any name as long as it is unique to all monologgers, used to record monologue in Global
     public string[] sentences;
     public float sentenceDuration = 3f;     // Time from current sentence completely typed out until the next sentence is typed out
     public float typingSpeed = 0.02f;
@@ -12,6 +13,15 @@ public class Monologger : MonoBehaviour
     public Animator MonologueBackgroundAnim;
     private int index = 0;
     private bool played = false;        // Monologue has been played
+
+    void Start()
+    {
+        // Check Global if played
+        if (Global.playedMonologueList.Contains(id))
+        {
+            played = true;
+        }
+    }
 
     // Triggered by another object when a specific event happens such as mob dying
     public void ManualTrigger()
@@ -37,8 +47,14 @@ public class Monologger : MonoBehaviour
 
     private IEnumerator PlayMonologue()
     {
-        while (index < sentences.Length)
+        int sentencesLen = sentences.Length;
+        while (index < sentencesLen)
         {
+            if (index == sentencesLen - 1)
+            {
+                // It is the last sentence so record it to Global even if monologue is prematurely ended
+                Global.playedMonologueList.Add(id);
+            }
             textbox.text = "";
             yield return StartCoroutine(Type());
             yield return new WaitForSeconds(sentenceDuration);
