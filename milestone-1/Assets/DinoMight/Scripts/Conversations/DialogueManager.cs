@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameBox;         // TMPro textbox for name
     public Animator escapeButton;
     public GameObject player;
-    
+    public bool recordConvo = true;
+
     private Dialogue currentDialogue;
     private List<Dialogue> dialogueList = new List<Dialogue>();    // list of dialogues under canvas that are entry points to the dialogue thread
     private string DM_tag;    // this gameobject's own tag
@@ -22,46 +24,60 @@ public class DialogueManager : MonoBehaviour
     private bool immune = false;            // to toggle health
     private bool nameDisplayed = false;
 
+    void Awake()
+    {
+        pm = player.GetComponent<playerMovement>();
+        attack = player.GetComponent<Attack>();
+        health = player.GetComponent<PlayerHealth>();
+    }
+
     void Start()
     {
-        DM_tag = gameObject.tag;
-
-        // Initialise list of dialogues
-        foreach (Transform child in dialogueCanvas.transform)       // Transform works as an enumerable apparently
+        if (recordConvo)
         {
-            if (child.gameObject.CompareTag("DialogueEntryPoint"))
+            DM_tag = gameObject.tag;
+
+            // Initialise list of dialogues
+            foreach (Transform child in dialogueCanvas.transform)       // Transform works as an enumerable apparently
             {
-                // only dialogues that are tagged will be needed
-                dialogueList.Add(child.GetComponent<Dialogue>());
+                if (child.gameObject.CompareTag("DialogueEntryPoint"))
+                {
+                    // only dialogues that are tagged will be needed
+                    dialogueList.Add(child.GetComponent<Dialogue>());
+                }
             }
-        }
 
-        // Find latest dialogue id from global dictionary and add keyvaluepair if not present
-        int currDialogueId;
-        if (Global.NPCDialogueDict != null)
-        {
+            // Find latest dialogue id from global dictionary and add keyvaluepair if not present
+            int currDialogueId = 0;
             if (!Global.NPCDialogueDict.TryGetValue(DM_tag, out currDialogueId))
             {
                 // this NPC's key is not in the dictionary
                 Global.NPCDialogueDict.Add(DM_tag, 0);     // 0 is the first Dialogue in the dialogueList
             }
             // else currDialogueId is now the value in the global dictionary
+
+            // Load dialogue into currentDialogue with dialogue id which has been determined
+            try
+            {
+                currentDialogue = dialogueList[currDialogueId];
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("{0} , means dialogueList is empty so dialogues under canvas need to be tagged as DialogueEntryPoints", e);
+            }
         }
         else
         {
-            // make dictionary with its first keyvaluepair being this npc's
-            Global.NPCDialogueDict = new Dictionary<string, int>(){
-                {DM_tag, 0}
-            };
-            currDialogueId = 0;
+            // Not recording convo to Global, get first DialogueEntryPoint in the canvas
+            foreach (Transform child in dialogueCanvas.transform)
+            {
+                if (child.gameObject.CompareTag("DialogueEntryPoint"))
+                {
+                    currentDialogue = child.GetComponent<Dialogue>();
+                    break;
+                }
+            }
         }
-
-        // Load dialogue into currentDialogue with dialogue id which has been determined
-        currentDialogue = dialogueList[currDialogueId];
-
-        pm = player.GetComponent<playerMovement>();
-        attack = player.GetComponent<Attack>();
-        health = player.GetComponent<PlayerHealth>();
     }
 
 
@@ -88,32 +104,35 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogues()
     {
-        int currDialogueId = -1;
-        // Determine current dialogue id
-        for (int i = 0; i < dialogueList.Count; i++)
+        if (recordConvo)
         {
-            // ds.gameObject.GetInstanceId() == currentDialogue.gameObject.GetInstanceId()
-            if (dialogueList[i] == currentDialogue)
+            int currDialogueId = -1;
+            // Determine current dialogue id
+            for (int i = 0; i < dialogueList.Count; i++)
             {
-                currDialogueId = i;
-                break;
+                // ds.gameObject.GetInstanceId() == currentDialogue.gameObject.GetInstanceId()
+                if (dialogueList[i] == currentDialogue)
+                {
+                    currDialogueId = i;
+                    break;
+                }
             }
-        }
 
-        if (currDialogueId < 0)
-        {
-            throw new System.ArgumentOutOfRangeException("ah end dialogue liao but current dialogue wasn't found in the the initialised list leh");
-        }
+            if (currDialogueId < 0)
+            {
+                throw new System.ArgumentOutOfRangeException("ah end dialogue liao but current dialogue wasn't found in the the initialised list leh");
+            }
 
-        // Update global dialogue dictionary with current dialogue's id
-        Global.NPCDialogueDict[DM_tag] = currDialogueId;
+            // Update global dialogue dictionary with current dialogue's id
+            Global.NPCDialogueDict[DM_tag] = currDialogueId;
+        }
 
         escapeButton.SetTrigger("exit");
 
         // clear dialogue box
         currentDialogue.EndDialogue();
         ToggleDisplayName("");          // Blank for NPC name textbox, should be ending dialogue anyway
-        
+
         dialogueBackground.SetTrigger("exit");
 
         // Pan camera back to normal view
