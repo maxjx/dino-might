@@ -98,7 +98,9 @@ public class Dialogue : MonoBehaviour
     {
         conversing = false;
         StopCoroutine(NextSentenceCoroutine());
+        StopCoroutine(Type());
         textBox.text = "";
         HideChoices();
+        index = 0;
     }
 }
