@@ -12,8 +12,7 @@ public class Registration : MonoBehaviour {
     public Text errorText;
     public Text informText;
     public GameObject loadingCircle;
-    public GameObject loginMenu;
-    public GameObject registrationMenu;
+    public GameObject canvas;
     public void OnRegistrationButtonClick() {
         if (password.text.Length <= 7 || username.text.Length <=5) {
             errorText.text = "Username and Password must be at least 6 and 8 characters respectively";
@@ -40,10 +39,9 @@ public class Registration : MonoBehaviour {
             } else {
                 if (www.isDone) {
                     if (www.downloadHandler.text.Contains("successfully")) {
-                        loginMenu.SetActive(true);
                         informText.text = www.downloadHandler.text;
                         www.Dispose();
-                        registrationMenu.SetActive(false);
+                        canvas.GetComponent<MainPageManager>().RegisterSuccess();
                     } else {
                         errorText.text = www.downloadHandler.text;
                     }
