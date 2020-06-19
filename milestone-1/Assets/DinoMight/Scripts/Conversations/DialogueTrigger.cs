@@ -8,6 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     public DialogueManager manager;
     public GameObject prompt;
     public string NPCName;
+    public bool autoTrigger = false;        // For making dialogues with ownself
 
     void Start()
     {
@@ -16,7 +17,8 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        if (prompt.activeSelf && Input.GetKeyDown("c"))
+        // If prompt is active (Player is in collider), and either "c" is pressed or it is auto triggered,
+        if (prompt.activeSelf && (Input.GetKeyDown("c") || autoTrigger))
         {
             prompt.SetActive(false);
             manager.StartDialogue();

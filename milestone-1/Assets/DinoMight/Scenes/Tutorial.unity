@@ -11168,7 +11168,7 @@ GameObject:
   - component: {fileID: 1379288878}
   m_Layer: 5
   m_Name: Escape button
-  m_TagString: Untagged
+  m_TagString: EscapeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17388,7 +17388,7 @@ GameObject:
   - component: {fileID: 6783704596819426625}
   m_Layer: 5
   m_Name: Name
-  m_TagString: Untagged
+  m_TagString: NameTextbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17455,7 +17455,7 @@ GameObject:
   - component: {fileID: 6783704596994719246}
   m_Layer: 5
   m_Name: Dialogue background
-  m_TagString: Untagged
+  m_TagString: DialogueBackground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17725,6 +17725,7 @@ MonoBehaviour:
   currentHealth: 0
   deathExplosion: {fileID: 722979918}
   respawner: {fileID: 596900714}
+  allowKnockback: 1
 --- !u!1 &8898324806272356433
 GameObject:
   m_ObjectHideFlags: 0

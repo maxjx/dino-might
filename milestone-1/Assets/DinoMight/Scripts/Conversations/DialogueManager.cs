@@ -8,13 +8,13 @@ using System;
 public class DialogueManager : MonoBehaviour
 {
     public Canvas dialogueCanvas;
-    public GameObject NPCCamera;
-    public Animator dialogueBackground;
-    public TextMeshProUGUI nameBox;         // TMPro textbox for name
-    public Animator escapeButton;
+    public GameObject NPCCamera;            // Optional, depends on whether there is a need for zooming in
     public GameObject player;
     public bool recordConvo = true;
 
+    private Animator dialogueBackground;
+    private TextMeshProUGUI nameBox;         // TMPro textbox for name
+    private Animator escapeButton;
     private Dialogue currentDialogue;
     private List<Dialogue> dialogueList = new List<Dialogue>();    // list of dialogues under canvas that are entry points to the dialogue thread
     private string DM_tag;    // this gameobject's own tag
@@ -33,9 +33,35 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        // Set up references under dialogue canvas
+        foreach (Transform child in dialogueCanvas.transform)
+        {
+            if (child.gameObject.CompareTag("DialogueBackground"))
+            {
+                dialogueBackground = child.GetComponent<Animator>();
+                continue;
+            }
+            if (child.gameObject.CompareTag("NameTextbox"))
+            {
+                nameBox = child.GetComponent<TextMeshProUGUI>();
+                continue;
+            }
+            if (child.gameObject.CompareTag("EscapeButton"))
+            {
+                escapeButton = child.GetComponent<Animator>();
+                continue;
+            }
+        }
+
+        // set up link to Global
         if (recordConvo)
         {
             DM_tag = gameObject.tag;
+            // Ensure tag is appropriate for recording purposes
+            if (DM_tag == "Untagged")
+            {
+                Debug.LogWarning("Tag for DialogueManager is Untagged. Recording this to Global might cause undesirable side effects.");
+            }
 
             // Initialise list of dialogues
             foreach (Transform child in dialogueCanvas.transform)       // Transform works as an enumerable apparently
@@ -87,7 +113,10 @@ public class DialogueManager : MonoBehaviour
         escapeButton.SetTrigger("entry");
 
         // Pan camera into NPC view
-        NPCCamera.SetActive(true);
+        if (NPCCamera != null)
+        {
+            NPCCamera.SetActive(true);
+        }
 
         // Disables/Enables player
         ToggleEnablePlayer();
@@ -136,7 +165,10 @@ public class DialogueManager : MonoBehaviour
         dialogueBackground.SetTrigger("exit");
 
         // Pan camera back to normal view
-        NPCCamera.SetActive(false);
+        if (NPCCamera != null)
+        {
+            NPCCamera.SetActive(false);
+        }
         ToggleEnablePlayer();
     }
 
