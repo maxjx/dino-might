@@ -10,9 +10,11 @@ public class MobHealth : MonoBehaviour, IHealth
     public int currentHealth;
     public ParticleSystem deathExplosion;
     public Respawner respawner;
+    public bool allowKnockback = true;
 
     private Animator animator;
     private Rigidbody2D m_rigidbody;
+    private bool wasHurt = false;
 
     void Start()
     {
@@ -24,23 +26,28 @@ public class MobHealth : MonoBehaviour, IHealth
     void OnEnable()
     {
         currentHealth = maxHealth;
+        wasHurt = false;
     }
 
     public void TakeDamage(int damage, bool attackRightwards)
     {
         currentHealth -= damage;
         animator.SetTrigger("hurt");
+        wasHurt = true;
 
-        // Determine direction of knockback
-        if (attackRightwards)
+        if (allowKnockback)
         {
-            m_rigidbody.AddForce(new Vector2(300f, 0));      // knockback to the right
+            // Determine direction of knockback
+            if (attackRightwards)
+            {
+                m_rigidbody.AddForce(new Vector2(300f, 0));      // knockback to the right
+            }
+            else
+            {
+                m_rigidbody.AddForce(new Vector2(-300f, 0));      // knockback
+            }
         }
-        else
-        {
-            m_rigidbody.AddForce(new Vector2(-300f, 0));      // knockback
-        }
-        
+
         if (currentHealth <= 0)
         {
             animator.SetBool("dead", true);     // Animator state calls Die() manually
@@ -59,6 +66,11 @@ public class MobHealth : MonoBehaviour, IHealth
         }
 
         gameObject.SetActive(false);
+    }
+
+    public bool WasHurt()
+    {
+        return wasHurt;
     }
 }
 

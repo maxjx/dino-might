@@ -4960,7 +4960,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 23
+    m_Bits: 4119
   m_GroundCheck: {fileID: 1471507953848487343}
   m_CeilingCheck: {fileID: 1471507955010782964}
   m_CrouchResizeCollider: {fileID: 1471507954652336059}
@@ -5008,6 +5008,8 @@ MonoBehaviour:
   controller: {fileID: 1471507954652336062}
   animator: {fileID: 1471507954652336058}
   runSpeed: 20
+  friction: {fileID: 0}
+  noFriction: {fileID: 0}
 --- !u!95 &1471507954652336058
 Animator:
   serializedVersion: 3
