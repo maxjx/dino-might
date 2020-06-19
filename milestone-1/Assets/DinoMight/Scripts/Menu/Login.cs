@@ -11,8 +11,7 @@ public class Login : MonoBehaviour
     public Button LoginButton;
     public GameObject loadingCircle;
     public Text errorMessage;
-    public GameObject playMenu;
-    public GameObject loginMenu;
+    public GameObject canvas;
     
     public void OnLoginButton() {
         LoginButton.interactable = false;
@@ -36,9 +35,9 @@ public class Login : MonoBehaviour
                 if (www.isDone) {
                     if (!www.downloadHandler.text.Contains(".")) {
                         Global.playerId = int.Parse(www.downloadHandler.text);
-                        playMenu.SetActive(true);
                         www.Dispose();
-                        loginMenu.SetActive(false);
+                        Global.isLoggedIn = true;
+                        canvas.GetComponent<MainPageManager>().LoginSuccess();
                     } else {
                         errorMessage.text = www.downloadHandler.text;
                     }
