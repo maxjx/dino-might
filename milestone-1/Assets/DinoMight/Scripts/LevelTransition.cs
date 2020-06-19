@@ -12,4 +12,9 @@ public class LevelTransition : MonoBehaviour {
             otherObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
         }
     }
+
+    public void ManualTransition()
+    {
+        otherObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
+    }
 }
