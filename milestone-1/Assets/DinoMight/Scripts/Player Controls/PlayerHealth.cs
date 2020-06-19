@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     private Animator animator;
     private Rigidbody2D m_rigidbody;
+    private bool immune;
 
     void Awake()
     {
@@ -38,6 +39,11 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public void TakeDamage(int damage, bool attackRightwards)
     {
+        if (immune)
+        {
+            return;
+        }
+
         currentHealth -= damage;
         Global.playerHealth = currentHealth;
         healthBar.setHealth(currentHealth);     // Edited for health bar inclusion
@@ -84,5 +90,10 @@ public class PlayerHealth : MonoBehaviour, IHealth
         }
         healthBar.setHealth(currentHealth);
         Global.playerHealth = currentHealth;
+    }
+
+    public void Immunity(bool b)
+    {
+        immune = b;
     }
 }
