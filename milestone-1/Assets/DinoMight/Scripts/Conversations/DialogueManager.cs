@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     private Animator dialogueBackground;
     private TextMeshProUGUI nameBox;         // TMPro textbox for name
-    private Animator escapeButton;
+    //private Animator escapeButton;
     private Dialogue currentDialogue;
     private List<Dialogue> dialogueList = new List<Dialogue>();    // list of dialogues under canvas that are entry points to the dialogue thread
     private string DM_tag;    // this gameobject's own tag
@@ -46,11 +46,11 @@ public class DialogueManager : MonoBehaviour
                 nameBox = child.GetComponent<TextMeshProUGUI>();
                 continue;
             }
-            if (child.gameObject.CompareTag("EscapeButton"))
-            {
-                escapeButton = child.GetComponent<Animator>();
-                continue;
-            }
+            // if (child.gameObject.CompareTag("EscapeButton"))
+            // {
+            //     escapeButton = child.GetComponent<Animator>();
+            //     continue;
+            // }
         }
 
         // set up link to Global
@@ -110,7 +110,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue()
     {
         dialogueBackground.SetTrigger("entry");
-        escapeButton.SetTrigger("entry");
+        //escapeButton.SetTrigger("entry");
 
         // Pan camera into NPC view
         if (NPCCamera != null)
@@ -156,7 +156,7 @@ public class DialogueManager : MonoBehaviour
             Global.NPCDialogueDict[DM_tag] = currDialogueId;
         }
 
-        escapeButton.SetTrigger("exit");
+        //escapeButton.SetTrigger("exit");
 
         // clear dialogue box
         currentDialogue.EndDialogue();

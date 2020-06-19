@@ -26,10 +26,10 @@ public class Dialogue : MonoBehaviour
     {
         if (!typing && conversing && Input.anyKeyDown)
         {
-            if (Input.GetMouseButtonDown(0)
-                || Input.GetMouseButtonDown(1)
-                || Input.GetMouseButtonDown(2))
-                return;
+            // if (Input.GetMouseButtonDown(0)
+            //     || Input.GetMouseButtonDown(1)
+            //     || Input.GetMouseButtonDown(2))
+            //     return;
 
             StartCoroutine(NextSentenceCoroutine());
         }
