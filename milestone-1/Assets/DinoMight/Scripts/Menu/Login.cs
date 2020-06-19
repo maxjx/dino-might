@@ -39,6 +39,7 @@ public class Login : MonoBehaviour
                         playMenu.SetActive(true);
                         www.Dispose();
                         loginMenu.SetActive(false);
+                        Global.isLoggedIn = true;
                     } else {
                         errorMessage.text = www.downloadHandler.text;
                     }
