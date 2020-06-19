@@ -9,18 +9,22 @@ public class Mob2Pathfinding : MonoBehaviour
 
     public float speed = 300f;
     public float nextWaypointDistance = 3f;
-
+    public float distanceToEngageTarget = 10f;
+    public bool engageTarget = false;
+    
     private Path path;
     private int currentWaypoint = 0;
     private bool facingRight;
 
     private Seeker seeker;
     private Rigidbody2D rb;
+    private MobHealth health;
 
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        health = GetComponent<MobHealth>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
@@ -54,24 +58,32 @@ public class Mob2Pathfinding : MonoBehaviour
             return;
         }
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
-        rb.AddForce(force);
-
-        float sqdistance = (rb.position - (Vector2)path.vectorPath[currentWaypoint]).sqrMagnitude;
-
-        if (sqdistance < nextWaypointDistance * nextWaypointDistance)
+        // If distance from target is more than distance to engage, 
+        if ((transform.position - target.position).sqrMagnitude >= distanceToEngageTarget * distanceToEngageTarget)
         {
-            currentWaypoint++;
+            return;
         }
+        else if (engageTarget || health.WasHurt())
+        {
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 force = direction * speed * Time.deltaTime;
+            rb.AddForce(force);
 
-        if (force.x >= 0.01f && !facingRight)
-        {
-            Flip();
-        }
-        else if (force.x <= -0.01f && facingRight)
-        {
-            Flip();
+            float sqdistance = (rb.position - (Vector2)path.vectorPath[currentWaypoint]).sqrMagnitude;
+
+            if (sqdistance < nextWaypointDistance * nextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+
+            if (force.x >= 0.01f && !facingRight)
+            {
+                Flip();
+            }
+            else if (force.x <= -0.01f && facingRight)
+            {
+                Flip();
+            }
         }
     }
 
@@ -81,5 +93,10 @@ public class Mob2Pathfinding : MonoBehaviour
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    public void EngageTarget()
+    {
+        engageTarget = true;
     }
 }
