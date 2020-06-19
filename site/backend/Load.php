@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
   }
   echo json_encode($rows);
 } else {
-  echo "0";
+  echo "No saved data found";
 }
 $conn->close();
 
