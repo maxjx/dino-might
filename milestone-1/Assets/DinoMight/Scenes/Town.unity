@@ -2366,9 +2366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f91df3edb987642b14db76f6eb49bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 174162316}
   prompt: {fileID: 1488817226}
   NPCName: Level 5 Guard
+  autoTrigger: 0
 --- !u!61 &210559972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2481,6 +2482,75 @@ Transform:
   m_Father: {fileID: 68970777}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &289600026
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518194, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378731523766518207, guid: 031b6c6aaf99e514ab4eda82855724b2,
+        type: 3}
+      propertyPath: m_Name
+      value: EventSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 031b6c6aaf99e514ab4eda82855724b2, type: 3}
 --- !u!114 &295392217 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
@@ -9171,6 +9241,7 @@ MonoBehaviour:
   manager: {fileID: 295392217}
   prompt: {fileID: 1979802849}
   NPCName: Level 1 Guard
+  autoTrigger: 0
 --- !u!61 &1277125651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13253,9 +13324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f91df3edb987642b14db76f6eb49bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 1566913810}
   prompt: {fileID: 1017328309047325960}
   NPCName: Level 3 Guard
+  autoTrigger: 0
 --- !u!1 &1017328310911631990
 GameObject:
   m_ObjectHideFlags: 0
