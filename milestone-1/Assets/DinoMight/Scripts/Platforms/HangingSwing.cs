@@ -4,30 +4,37 @@ using UnityEngine;
 
 public class HangingSwing : MonoBehaviour {
 
-    public Rigidbody2D body;
-    public EdgeCollider2D edgeCollider;
-    public float leftPushRange;
-    public float rightPushRange;
+    private Rigidbody2D body;
+    private HingeJoint2D joint;
+    private float startAngle;
+    public float range;
     public float maxVelocity;
     public int damage;
     void Start() {
         body = GetComponent<Rigidbody2D>();
         body.angularVelocity = maxVelocity;
+        joint = GetComponent<HingeJoint2D>();
+        startAngle = joint.jointAngle;
     }
 
-    void Update() {
+    void FixedUpdate() {
         // On every update the pendulum should have some force pushing?
         Push();
     }
 
     private void Push() {
+        // Assume that jointAngle becomes negative as it rotates to the right
+        float tempAngle = joint.jointAngle - startAngle;
+
         // Let the force only be pushing near the bottom and let natural gravity pull it back
-        if (transform.rotation.z < 0 && transform.rotation.z > leftPushRange
-                && body.angularVelocity > maxVelocity * -1 && body.angularVelocity < 0) {
-            body.angularVelocity = maxVelocity * -1;
-        } else if (transform.rotation.z > 0 && transform.rotation.z > rightPushRange
-                && body.angularVelocity < maxVelocity && body.angularVelocity > 0) { 
+        if (tempAngle < 0 && tempAngle > -1 * range
+                && body.angularVelocity < maxVelocity && body.angularVelocity > 0) {
+            // Logic for right push
             body.angularVelocity = maxVelocity;
+        } else if (tempAngle > 0 && tempAngle < range
+                && body.angularVelocity > -1 * maxVelocity && body.angularVelocity < 0) {
+            // Logic for left push
+            body.angularVelocity = -1 * maxVelocity;
         }
     }
 
