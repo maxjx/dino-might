@@ -15,9 +15,9 @@ public class Mob2Pathfinding : MonoBehaviour
     private Path path;
     private int currentWaypoint = 0;
     private bool facingRight;
-    private float idleDuration = 3f;    // Time taken for eagle to move to another random spot
-    private float timer;                // For idling around
-    private int count;                  // Count number of times it moved to a random idle spot
+    // private float idleDuration = 3f;    // Time taken for eagle to move to another random spot
+    // private float timer;                // For idling around
+    // private int count;                  // Count number of times it moved to a random idle spot
     private Vector2 idletarget;
     private Vector2 origPos;
 
