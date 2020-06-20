@@ -168,10 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c680ecc58e7f4f678d9f58d0a622f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 0}
-  edgeCollider: {fileID: 0}
-  leftPushRange: -0.3
-  rightPushRange: 0.3
+  leftPushRange: 0
+  rightPushRange: 0
   maxVelocity: 120
   damage: 1
 --- !u!233 &19506742
@@ -3496,12 +3494,12 @@ PrefabInstance:
     - target: {fileID: 1471507954652336056, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5
+      value: 32.46
       objectReference: {fileID: 0}
     - target: {fileID: 1471507954652336056, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 1471507954652336056, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
@@ -3552,12 +3550,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: ab94edb78a16c48a29bd5e10b8cb324d, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471507954652336060, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1471507954652336061, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: friction
+      value: 
+      objectReference: {fileID: 6200000, guid: e988cd1341bbb4e68ac06520a73339dd, type: 2}
+    - target: {fileID: 1471507954652336061, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: noFriction
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e0fee93324e78b49ae8f2c595ccda51, type: 2}
     - target: {fileID: 1471507954652336063, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: ab94edb78a16c48a29bd5e10b8cb324d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: respawner
@@ -4972,7 +4985,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1221001868}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 64b0baf92434b4f61b441f18153fe69c, type: 2}
+  m_Material: {fileID: 6200000, guid: e988cd1341bbb4e68ac06520a73339dd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6416,10 +6429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c680ecc58e7f4f678d9f58d0a622f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 0}
-  edgeCollider: {fileID: 0}
-  leftPushRange: -0.3
-  rightPushRange: 0.3
+  leftPushRange: 30
+  rightPushRange: 30
   maxVelocity: 120
   damage: 2
 --- !u!1 &1577111816
@@ -6483,12 +6494,12 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5
+      value: 32.46
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3000007
+      value: 3.2900002
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -8754,7 +8765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137386203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.650223, y: 5.69125, z: -10}
+  m_LocalPosition: {x: 32.46, y: 5.69125, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1282851967}
