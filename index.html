@@ -11,6 +11,13 @@
     <script>
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/dino-might-1.json", {onProgress: UnityProgress});
     </script>
+    <style>
+      #bug-form {
+        position: absolute;
+        left: 100px;
+        top: 750px;
+      }
+    </style>
   </head>
   <body>
     <h2>DinoMight Minimum Viable Product v2.0</h2>
@@ -22,13 +29,13 @@
         <div class="title">Click here for fullscreen --></div>
       </div>
     </div>
-    <div id = "bug form">
+    <div id = "bug-form">
       <h2>HTML Forms</h2>
       <form action="/submission.php">
         <label for="fname">Name:</label><br>
-        <input type="text" id="fname" name="fname" value="John"><br>
+        <input type="text" id="fname" name="fname" value=""><br>
         <label for="lname">Bug/Feedback:</label><br>
-        <input type="textarea" rows="10" cols="30" id="lname" name="lname" value=""><br><br>
+        <textarea rows="10" cols="30" id="lname" name="lname" value=""><br><br>
         <input type="submit" value="Submit">
       </form>
       <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
