@@ -27,12 +27,13 @@ public class Mob2_idle : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Vector2 currPos = currtransform.position;
-        if (count == 4)
-        {
-            mobMovement.GoBackToOrigPos();
-            count = 0;
-        }
-        else if (timer <= 0f)
+        // if (count == 4)
+        // {
+        //     mobMovement.GoBackToOrigPos();
+        //     count = 0;
+        // }
+        // else 
+        if (timer <= 0f)
         {
             if ((currPos - target).sqrMagnitude < 0.05f)
             {
