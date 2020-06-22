@@ -6,7 +6,7 @@ public class KingHealth : MonoBehaviour, IHealth {
 	public int health = 50;
 	public GameObject deathEffect;
 	public bool isInvulnerable = false;
-	public HealthBar healthBar;
+	public BossHealthBar healthBar;
 
 	private GameObject tree;
 
