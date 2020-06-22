@@ -39,4 +39,8 @@ public class KingHealth : MonoBehaviour, IHealth {
 		tree.SetActive(true);
 	}
 
+	private void DestroySelf() {
+		Destroy(gameObject);
+	}
+
 }

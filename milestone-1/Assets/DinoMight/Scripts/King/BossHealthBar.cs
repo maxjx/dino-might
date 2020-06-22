@@ -20,6 +20,9 @@ public class BossHealthBar : MonoBehaviour
     }
 
     public void setHealth(int health) {
+        if (health < 0) {
+            health = 0;
+        }
         fill.value = health;
         fillColor.color = gradient.Evaluate(fill.normalizedValue);
         value.text = health.ToString() + " / " + maxHealth.ToString();
