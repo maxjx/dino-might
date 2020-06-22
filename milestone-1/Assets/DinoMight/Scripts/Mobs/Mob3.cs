@@ -112,7 +112,6 @@ public class Mob3 : MonoBehaviour
         laserEmission.Play();
 
         // Angle the particle system in the dir of the laser
-        // Vector3 rotateDir = Quaternion.Euler(0, 0, 90) * dir;
         laserEmission.transform.rotation = Quaternion.LookRotation(dir);
 
         if (hit)
@@ -134,8 +133,6 @@ public class Mob3 : MonoBehaviour
             yield return new WaitForSeconds(1f);    // Activate laser burst after 1s
         }
         laserLength = (laserPos - endPoint).magnitude;
-        laserBurst.startWidth = 0.3f;
-        laserBurst.endWidth = 0.3f;
         laserBurst.enabled = true;
 
         // Laser collide with floor etc particle system
