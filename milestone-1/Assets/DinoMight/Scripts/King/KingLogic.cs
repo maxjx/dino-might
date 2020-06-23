@@ -31,6 +31,5 @@ public class KingLogic : MonoBehaviour {
 	// Called on King_teleportEnd animation frame
 	public void TeleportBack() {
 		king.transform.position = new Vector3(68f, 2.68f, 0f);
-		Debug.Log("tele back");
 	}
 }
