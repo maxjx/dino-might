@@ -11,10 +11,14 @@ public class Dialogue : MonoBehaviour
     [TextArea(3, 5)]
     public string[] sentences;
     public Button[] choices;
+    public bool tutorial = false;                   // To toggle tutorial instruction
+    public Image tutorialInstruction;     // "Press any key to continue"
+
     private TextMeshProUGUI textBox;
     private int index = 0;
     private bool conversing = false;
     private bool typing;
+    private Coroutine typingcoroutine;      // reference used to stop this coroutine
 
     void Start()
     {
@@ -33,6 +37,15 @@ public class Dialogue : MonoBehaviour
 
             StartCoroutine(NextSentenceCoroutine());
         }
+        // else if (typing)
+        // {
+        //     if (Input.GetMouseButtonDown(0)
+        //         || Input.GetMouseButtonDown(1)
+        //         || Input.GetMouseButtonDown(2))
+        //         {
+        //             FinishSentence();
+        //         }
+        // }
     }
 
     // Is accessed by DialogueTrigger and Buttons
@@ -45,10 +58,25 @@ public class Dialogue : MonoBehaviour
     {
         if (index < sentences.Length)
         {
+            if (tutorial && index == 1)
+            {
+                tutorialInstruction.gameObject.SetActive(false);
+                tutorial = false;
+            }
+
             conversing = true;
             manager.UpdateDialogueRef(this);        // Tells manager that this is the latest dialogue
             textBox.text = "";
-            yield return StartCoroutine(Type());    // Waits for typing to finish
+            typingcoroutine = StartCoroutine(Type());
+            yield return typingcoroutine;    // Waits for typing to finish
+
+            // Show "press any key to continue"
+            if (tutorial && index == 0)
+            {
+                yield return new WaitForSeconds(0.5f);
+                tutorialInstruction.gameObject.SetActive(true);
+            }
+
             index++;
         }
         else   // If last sentence was displayed
@@ -78,6 +106,14 @@ public class Dialogue : MonoBehaviour
         typing = false;
     }
 
+    // void FinishSentence()
+    // {
+    //     StopCoroutine(typingcoroutine);
+    //     textBox.text = sentences[index];
+    //     index++;
+    //     typing = false;
+    // }
+
     public void HideChoices()
     {
         foreach (Button choice in choices)
@@ -98,9 +134,9 @@ public class Dialogue : MonoBehaviour
     {
         conversing = false;
         StopCoroutine(NextSentenceCoroutine());
-        StopCoroutine(Type());
-        textBox.text = "";
+        StopCoroutine(typingcoroutine);
         HideChoices();
         index = 0;
+        textBox.text = "";
     }
 }
