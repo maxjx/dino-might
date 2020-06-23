@@ -29,7 +29,6 @@ public class AudioManager : MonoBehaviour
     private AudioSource effectSource;
     private int currSource = 0;
     private float musicVolume = 1f;
-    private AudioSource
     #endregion
 
     private void Awake() {
@@ -86,9 +85,6 @@ public class AudioManager : MonoBehaviour
         effectSource.PlayOneShot(musicClip, volume);
     }
 
-    private Update() {
-
-    }
     public void SetMusicVolume(float vol) {
         musicVolume = vol;
         Debug.Log(musicVolume);
