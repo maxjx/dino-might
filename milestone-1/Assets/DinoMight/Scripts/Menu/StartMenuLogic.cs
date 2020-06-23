@@ -11,12 +11,15 @@ public class StartMenuLogic : MonoBehaviour {
     public GameObject transition;
     public Text errorMessage;
     public Button play, settings, credits, load, quit;
+    [SerializeField] private AudioClip musicClip;
 
     public void Play() {
+        AudioManager.Instance.PlayMusicWithFade(musicClip, 1f);
         transition.GetComponent<LevelLoader>().NextLevelAnimation(1);
         Debug.Log(Global.playerId);
     }
     public void PlayImmediate() {
+        AudioManager.Instance.PlayMusicWithFade(musicClip, 1f);
         SceneManager.LoadScene(1);
         Debug.Log(Global.playerId);
     }
