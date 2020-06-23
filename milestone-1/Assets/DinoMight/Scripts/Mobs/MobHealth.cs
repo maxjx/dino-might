@@ -31,7 +31,7 @@ public class MobHealth : MonoBehaviour, IHealth
 
     public void TakeDamage(int damage, bool attackRightwards)
     {
-        currentHealth -= damage;
+        currentHealth = Health.MinusHealth(currentHealth, damage);
         animator.SetTrigger("hurt");
         wasHurt = true;
 
