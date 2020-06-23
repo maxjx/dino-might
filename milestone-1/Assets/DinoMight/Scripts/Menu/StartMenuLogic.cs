@@ -11,6 +11,7 @@ public class StartMenuLogic : MonoBehaviour {
     public GameObject transition;
     public Text errorMessage;
     public Button play, settings, credits, load, quit;
+    [SerializeField] private AudioClip musicClip;
 
     public void Play() {
         transition.GetComponent<LevelLoader>().NextLevelAnimation(1);
@@ -19,6 +20,7 @@ public class StartMenuLogic : MonoBehaviour {
     public void PlayImmediate() {
         SceneManager.LoadScene(1);
         Debug.Log(Global.playerId);
+        AudioManager.Instance.PlayMusicWithFade(musicClip, 1f);
     }
 
     public void Load() {
