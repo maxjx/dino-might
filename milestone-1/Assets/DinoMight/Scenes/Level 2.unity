@@ -588,6 +588,7 @@ GameObject:
   - component: {fileID: 210689480}
   - component: {fileID: 210689479}
   - component: {fileID: 210689478}
+  - component: {fileID: 210689482}
   m_Layer: 1
   m_Name: Dungeon Door
   m_TagString: Untagged
@@ -700,6 +701,19 @@ Transform:
   m_Father: {fileID: 1524803935}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210689482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210689477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: b81c072c3160241c196803f8290d8223, type: 3}
 --- !u!4 &212215077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 744191470292385958, guid: 356b3c6bcf7ba4cc194f32b42d3bf7dd,
@@ -4836,7 +4850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941184706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.073257, y: 4.2900033, z: -10}
+  m_LocalPosition: {x: 56.078003, y: 4.2900033, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 761340310}
