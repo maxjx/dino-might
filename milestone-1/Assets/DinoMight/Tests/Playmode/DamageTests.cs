@@ -10,27 +10,35 @@ namespace Tests
     public class DamageTests
     {
         private GameObject player;
+        private GameObject mob;
+        private PlayerHealth playerHealth;
 
         [SetUp]
         public void Setup()
         {
             player = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DinoMight/Prefabs/Character (pf).prefab"));
+            playerHealth = player.GetComponent<PlayerHealth>();
 
+            mob = new GameObject();
+            ProximityAttack pa = mob.AddComponent<ProximityAttack>();
+            pa.player = player.GetComponent<Transform>();
         }
 
-        [UnityTest]
-        public IEnumerator Testmob()
+        [Test]
+        public void PlayerGetsHurtByProximityAttackManually()
         {
-            GameObject mob = new GameObject();
-            mob.AddComponent<ProximityAttack>();
-            yield return null;
+            int beforeHealth = playerHealth.currentHealth;
+            mob.GetComponent<ProximityAttack>().Hurt();
+            int afterHealth = playerHealth.currentHealth;
+
+            Assert.AreEqual(beforeHealth, afterHealth - 1);
         }
 
         [TearDown]
         public void Teardown()
         {
             GameObject.Destroy(player);
-            //GameObject.Destroy(mob);
+            GameObject.Destroy(mob);
         }
     }
 }
