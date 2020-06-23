@@ -1148,7 +1148,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1321463314}
-        m_MethodName: PlayImmediate
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1730,6 +1730,11 @@ PrefabInstance:
       propertyPath: screen
       value: 
       objectReference: {fileID: 1943020906}
+    - target: {fileID: 5749333925638417297, guid: d73cb74195fce4ea287d06638831691b,
+        type: 3}
+      propertyPath: sceneIndex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d73cb74195fce4ea287d06638831691b, type: 3}
 --- !u!1 &432491793
@@ -4044,6 +4049,7 @@ MonoBehaviour:
   credits: {fileID: 2145224730}
   load: {fileID: 180878549}
   quit: {fileID: 934708775}
+  musicClip: {fileID: 8300000, guid: f6f82b17eb8ea4a048db43334280f8fe, type: 3}
 --- !u!1 &1359476003
 GameObject:
   m_ObjectHideFlags: 0
