@@ -2347,6 +2347,7 @@ GameObject:
   - component: {fileID: 453213245}
   - component: {fileID: 453213244}
   - component: {fileID: 453213243}
+  - component: {fileID: 453213247}
   m_Layer: 0
   m_Name: tileset_tree
   m_TagString: TeleportTree
@@ -2459,6 +2460,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &453213247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453213242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 02cdec15998cb4bc58d2dcce6174f686, type: 3}
 --- !u!1001 &485441645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4607,7 +4621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941184706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.23478, y: 4.15148, z: -10}
+  m_LocalPosition: {x: 58.401447, y: 4.15148, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 761340310}
