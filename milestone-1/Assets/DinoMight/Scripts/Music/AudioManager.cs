@@ -87,6 +87,7 @@ public class AudioManager : MonoBehaviour
 
     public void SetMusicVolume(float vol) {
         musicVolume = vol;
+        Debug.Log(musicVolume);
     }
     public void SetEffectsVolume(float vol) {
         effectSource.volume = vol;
