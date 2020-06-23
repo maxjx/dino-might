@@ -14,13 +14,14 @@ public class StartMenuLogic : MonoBehaviour {
     [SerializeField] private AudioClip musicClip;
 
     public void Play() {
+        AudioManager.Instance.PlayMusicWithFade(musicClip, 1f);
         transition.GetComponent<LevelLoader>().NextLevelAnimation(1);
         Debug.Log(Global.playerId);
     }
     public void PlayImmediate() {
+        AudioManager.Instance.PlayMusicWithFade(musicClip, 1f);
         SceneManager.LoadScene(1);
         Debug.Log(Global.playerId);
-        AudioManager.Instance.PlayMusicWithFade(musicClip, 1f);
     }
 
     public void Load() {

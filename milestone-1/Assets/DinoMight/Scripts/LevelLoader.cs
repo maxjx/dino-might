@@ -10,6 +10,7 @@ public class LevelLoader : MonoBehaviour {
     public int sceneIndex;
 
     public void NextLevelAnimation(int index) {
+        gameObject.transform.GetChild(0).gameObject.GetComponent<Canvas>().sortingOrder = 1;
         StartCoroutine(LoadLevel(index));
         Debug.Log(Global.playerLevel);
     }
