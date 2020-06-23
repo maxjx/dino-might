@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class VolumeSetting : MonoBehaviour
 {
+    public AudioMixer audioMixer;
+
     public void SetMusicVolume(float vol) {
-        AudioManager.Instance.SetMusicVolume(vol);
+        audioMixer.SetFloat("music", vol);
     }
 
     public void SetEffectsVolume(float vol) {
