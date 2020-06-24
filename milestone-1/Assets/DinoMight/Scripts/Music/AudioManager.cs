@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     #region Fields
+
+    public AudioMixerGroup masterGroup;
+    public AudioMixer masterMixer;
+    public AudioMixerGroup musicGroup;
+    public AudioMixerGroup effectsGroup;
     private AudioSource musicSource;
     private AudioSource musicSource2;
     private AudioSource effectSource;
@@ -48,7 +54,7 @@ public class AudioManager : MonoBehaviour
             : musicSource2;
 
         activeSource.clip = musicClip;
-        activeSource.volume = musicVolume;
+        activeSource.outputAudioMixerGroup = musicGroup;
         activeSource.Play();
     }
     public void PlayMusicWithFade(AudioClip newClip, float transitionTime) {
@@ -56,6 +62,7 @@ public class AudioManager : MonoBehaviour
             ? musicSource
             : musicSource2;
 
+        activeSource.outputAudioMixerGroup = musicGroup;
         StartCoroutine(UpdateMusicWithFade(activeSource, newClip, transitionTime));
     }
     private IEnumerator UpdateMusicWithFade(AudioSource activeSource, AudioClip newClip, float transitionTime) {
@@ -79,17 +86,11 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayEffect(AudioClip musicClip) {
+        effectSource.outputAudioMixerGroup = effectsGroup;
         effectSource.PlayOneShot(musicClip);
     }
     public void PlayEffect(AudioClip musicClip, float volume) {
+        effectSource.outputAudioMixerGroup = effectsGroup;
         effectSource.PlayOneShot(musicClip, volume);
-    }
-
-    public void SetMusicVolume(float vol) {
-        musicVolume = vol;
-        Debug.Log(musicVolume);
-    }
-    public void SetEffectsVolume(float vol) {
-        effectSource.volume = vol;
     }
 }

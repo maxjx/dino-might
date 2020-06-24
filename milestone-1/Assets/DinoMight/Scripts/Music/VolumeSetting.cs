@@ -8,10 +8,14 @@ public class VolumeSetting : MonoBehaviour
     public AudioMixer audioMixer;
 
     public void SetMusicVolume(float vol) {
-        audioMixer.SetFloat("music", vol);
+        // Convert the volume slider to a linear adjustment since decibels is in log10
+        vol = Mathf.Log10(vol) * 40;
+        audioMixer.SetFloat("MusicVol", vol);
     }
 
     public void SetEffectsVolume(float vol) {
-        AudioManager.Instance.SetEffectsVolume(vol);
+        // Convert the volume slider to a linear adjustment since decibels is in log10
+        vol = Mathf.Log10(vol) * 40;
+        audioMixer.SetFloat("EffectsVol", vol);
     }
 }
