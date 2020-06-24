@@ -11,15 +11,15 @@ public class StartMenuLogic : MonoBehaviour {
     public GameObject transition;
     public Text errorMessage;
     public Button play, settings, credits, load, quit;
-    [SerializeField] private AudioClip musicClip;
+    [SerializeField] private GameObject loadMusic;
 
     public void Play() {
-        AudioManager.Instance.PlayMusicWithFade(musicClip, 1f);
+        loadMusic.GetComponent<MusicLoader>().PlayMusic(1);
         transition.GetComponent<LevelLoader>().NextLevelAnimation(1);
         Debug.Log(Global.playerId);
     }
     public void PlayImmediate() {
-        AudioManager.Instance.PlayMusicWithFade(musicClip, 1f);
+        loadMusic.GetComponent<MusicLoader>().PlayMusic(1);
         SceneManager.LoadScene(1);
         Debug.Log(Global.playerId);
     }
@@ -51,6 +51,7 @@ public class StartMenuLogic : MonoBehaviour {
                     float x = textArray[0]["Xcoordinate"];
                     float y = textArray[0]["Ycoordinate"];
                     transition.GetComponent<LevelLoader>().NextLevelAnimationLoad(index, x, y);
+                    loadMusic.GetComponent<MusicLoader>().PlayMusic(index);
                 }
             }
         }

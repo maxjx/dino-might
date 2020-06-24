@@ -34,7 +34,6 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicSource2;
     private AudioSource effectSource;
     private int currSource = 0;
-    private float musicVolume = 1f;
     #endregion
 
     private void Awake() {
@@ -71,7 +70,7 @@ public class AudioManager : MonoBehaviour
         }
 
         for (float t = 0f; t < transitionTime; t += Time.deltaTime) {
-            activeSource.volume = (musicVolume - (t / transitionTime) * musicVolume);
+            activeSource.volume = (1 - (t / transitionTime));
             yield return null;
         }
 
@@ -80,7 +79,7 @@ public class AudioManager : MonoBehaviour
         activeSource.Play();
 
         for (float t = 0f; t < transitionTime; t += Time.deltaTime) {
-            activeSource.volume = (t / transitionTime) * musicVolume;
+            activeSource.volume = (t / transitionTime);
             yield return null;
         }
     }
@@ -93,4 +92,5 @@ public class AudioManager : MonoBehaviour
         effectSource.outputAudioMixerGroup = effectsGroup;
         effectSource.PlayOneShot(musicClip, volume);
     }
+
 }
