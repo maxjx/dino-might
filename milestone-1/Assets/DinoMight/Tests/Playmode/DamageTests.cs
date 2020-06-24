@@ -16,8 +16,10 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            player = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DinoMight/Prefabs/Character (pf).prefab"));
-            playerHealth = player.GetComponent<PlayerHealth>();
+            //HealthBar hb = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DinoMight/Prefabs/HealthBar.prefab"));
+            player = new GameObject();
+            playerHealth = player.AddComponent<PlayerHealth>();
+            //playerHealth.healthBar = hb;
 
             mob = new GameObject();
             ProximityAttack pa = mob.AddComponent<ProximityAttack>();
