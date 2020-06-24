@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
             return;
         }
 
-        currentHealth -= damage;
+        currentHealth = Health.MinusHealth(currentHealth, damage);
         Global.playerHealth = currentHealth;
         healthBar.setHealth(currentHealth);     // Edited for health bar inclusion
 
@@ -72,22 +72,20 @@ public class PlayerHealth : MonoBehaviour, IHealth
         Global.playerHealth = currentHealth;
         healthBar.setHealth(currentHealth);
 
-        Instantiate(deathPrefab, transform.position, transform.rotation);
+        if (deathPrefab != null)
+            Instantiate(deathPrefab, transform.position, transform.rotation);
 
         // 2nd argument is spawnPointNumber, indicates where its corresponding spawn point is, cached in the Respawner
         // Player's spawnPointNumber = 0
-        respawner.RespawnCharacter(gameObject, 0);
+        if (respawner != null)
+            respawner.RespawnCharacter(gameObject, 0);
 
         gameObject.SetActive(false);
     }
 
-    public void AddHealth(int health)
+    public void AddHealth(int amount)
     {
-        currentHealth += health;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
+        currentHealth = Health.AddHealth(maxHealth, currentHealth, amount);
         healthBar.setHealth(currentHealth);
         Global.playerHealth = currentHealth;
     }

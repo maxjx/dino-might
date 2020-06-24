@@ -1,5 +1,5 @@
 {
-    "name": "Tests",
+    "name": "Playmode Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
@@ -11,7 +11,8 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "nunit.framework.dll",
-        "Pathfinding.Ionic.Zip.Reduced.dll"
+        "Pathfinding.Ionic.Zip.Reduced.dll",
+        "NSubstitute.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [
