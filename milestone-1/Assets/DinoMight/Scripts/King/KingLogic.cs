@@ -5,9 +5,14 @@ using UnityEngine;
 public class KingLogic : MonoBehaviour {
 
 	public Transform player;
-	public bool isFlipped = false;
+	private bool isFlipped = false;
 	public GameObject king;
+	private GameObject tree;
 
+	private void Start() {
+		tree = GameObject.FindGameObjectWithTag("TeleportTree");
+		tree.SetActive(false);
+	}
 	public void LookAtPlayer() {
 		Vector3 flipped = transform.localScale;
 		flipped.z *= -1f;
@@ -31,5 +36,9 @@ public class KingLogic : MonoBehaviour {
 	// Called on King_teleportEnd animation frame
 	public void TeleportBack() {
 		king.transform.position = new Vector3(68f, 2.68f, 0f);
+	}
+
+	void TeleportTree() {
+		tree.SetActive(true);
 	}
 }
