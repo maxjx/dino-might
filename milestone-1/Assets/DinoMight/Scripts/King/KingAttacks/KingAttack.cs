@@ -11,23 +11,25 @@ public class KingAttack : MonoBehaviour
 	public LayerMask attackMask;
 	public float teleportWaitTime;
 	public bool countdown = true;
-	public Transform enemy;
-	public Transform fist;
 	private float waitTime = 0f;
 	private float fistTime = 0f;
+	private KingSummonFactory summonHelper;
 
+	private void Start() {
+		summonHelper = gameObject.GetComponent<KingSummonFactory>();
+	}
 	public void Update() {
-		
+		// King counts down only when visible
 		if (countdown) {
 			waitTime += Time.deltaTime;
 			fistTime += Time.deltaTime;
 
 		}
-
+		// Countdown to next fist attack
 		if (fistTime > Random.Range(4f, 7f)) {
 			FistAttack();
 		}
-
+		// Countdown to next teleport attack
 		if (waitTime > teleportWaitTime) {
 			TeleportAttackSummon();
 			countdown = false;
@@ -58,39 +60,13 @@ public class KingAttack : MonoBehaviour
 
 	private void FistAttack() {
 		fistTime = 0f;
-		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		if (player != null) {
-			Transform playerInfo = player.GetComponent<Transform>();
-			float pos = playerInfo.position.x;
-			StartCoroutine(summonFist(fist, pos));
-		}
-	}
-
-	private IEnumerator summonFist(Transform _fist, float pos) {
-		Instantiate(_fist, new Vector3(pos, 7.05f, 0f), transform.rotation);
-		yield return new WaitForSeconds(0.4f);
-		Instantiate(_fist, new Vector3(pos + Random.Range(1.5f, 5f), 7.05f, 0f), transform.rotation);
-		yield return new WaitForSeconds(0.4f);
-		Instantiate(_fist, new Vector3(pos - Random.Range(1.5f, 5f), 7.05f, 0f), transform.rotation);
+		summonHelper.Summon("fist");
 	}
 
 	public void TeleportAttackSummon() {
 		GetComponent<Animator>().SetBool("teleportAttack", true);
 		waitTime = 0f;
-		SummonMobs(enemy);
-	}
-
-	private void SummonMobs(Transform _enemy) {
-		StartCoroutine(SummonChickenDelay(_enemy));
-	}
-
-	private IEnumerator SummonChickenDelay(Transform _enemy) {
-		yield return new WaitForSeconds(1.5f);
-		Instantiate(_enemy, new Vector3(55f, 2.75f, 0f), transform.rotation);
-		Instantiate(_enemy, new Vector3(60f, 2.75f, 0f), transform.rotation);
-		Instantiate(_enemy, new Vector3(65f, 2.75f, 0f), transform.rotation);
-		Instantiate(_enemy, new Vector3(69f, 2.75f, 0f), transform.rotation);
-		Instantiate(_enemy, new Vector3(72f, 2.75f, 0f), transform.rotation);
+		summonHelper.Summon("chicken");
 	}
 
 	public bool EnemyCleared() {
