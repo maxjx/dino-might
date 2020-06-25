@@ -63,7 +63,7 @@ public class KingAttack : MonoBehaviour
 		summonHelper.Summon("fist");
 	}
 
-	public void TeleportAttackSummon() {
+	private void TeleportAttackSummon() {
 		GetComponent<Animator>().SetBool("teleportAttack", true);
 		waitTime = 0f;
 		summonHelper.Summon("chicken");

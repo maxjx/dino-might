@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour {
+public class HealthBar : MonoBehaviour, IHealthBar {
     public Slider fill;
     public Gradient gradient;
     public Image fillColor;
