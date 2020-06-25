@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossHealthBar : MonoBehaviour
+public class BossHealthBar : MonoBehaviour, IHealthBar
 {
     public Slider fill;
     public Gradient gradient;
