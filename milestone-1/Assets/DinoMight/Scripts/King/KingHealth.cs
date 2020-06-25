@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class KingHealth : MonoBehaviour, IHealth {
 	public int health = 50;
-	public GameObject deathEffect;
 	public bool isInvulnerable = false;
 	public BossHealthBar healthBar;
 
-	private GameObject tree;
 
 	private void Start() {
-		tree = GameObject.FindGameObjectWithTag("TeleportTree");
-
-		tree.SetActive(false);
 		healthBar.setMaxHealth(health);
 	}
 
@@ -33,10 +28,6 @@ public class KingHealth : MonoBehaviour, IHealth {
 	public void Die()
 	{
 		GetComponent<Animator>().SetBool("isDead", true);
-	}
-
-	void TeleportTree() {
-		tree.SetActive(true);
 	}
 
 	private void DestroySelf() {
