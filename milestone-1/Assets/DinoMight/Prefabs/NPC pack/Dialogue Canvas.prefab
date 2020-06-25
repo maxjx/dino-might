@@ -256,7 +256,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -331,6 +331,8 @@ MonoBehaviour:
   sentences:
   - Have a nice day kid
   choices: []
+  tutorial: 0
+  tutorialInstruction: {fileID: 0}
 --- !u!1 &6951740204223690421
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +807,8 @@ MonoBehaviour:
   - Think he's here to get you
   choices:
   - {fileID: 6951740204223690423}
+  tutorial: 0
+  tutorialInstruction: {fileID: 0}
 --- !u!1 &6951740204686102742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,7 +1714,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1785,3 +1789,5 @@ MonoBehaviour:
   sentences:
   - cool
   choices: []
+  tutorial: 0
+  tutorialInstruction: {fileID: 0}

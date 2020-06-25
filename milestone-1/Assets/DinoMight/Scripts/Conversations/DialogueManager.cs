@@ -191,4 +191,22 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogue = d;
     }
+
+    public void UpdateGlobalChoice(int category)
+    {
+        switch (category)
+        {
+            case 1:
+                Global.priorities++;
+                break;
+            case 2:
+                Global.challenges++;
+                break;
+            case 3:
+                Global.habits++;
+                break;
+            default:
+                break;
+        }
+    }
 }
