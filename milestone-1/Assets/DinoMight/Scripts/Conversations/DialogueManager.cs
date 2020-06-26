@@ -7,11 +7,12 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Canvas dialogueCanvas;
+    public List<Canvas> dialogueCanvases;   // Each dialogue canvas stores the dialogues that form 1 whole conversation. 
     public GameObject NPCCamera;            // Optional, depends on whether there is a need for zooming in
     public GameObject player;
     public bool recordConvo = true;
 
+    private Canvas dialogueCanvas;           // This dialogueCanvas refers to the chosen 1 that fits the story at this point in time.
     private Animator dialogueBackground;
     private TextMeshProUGUI nameBox;         // TMPro textbox for name
     //private Animator escapeButton;
@@ -29,10 +30,38 @@ public class DialogueManager : MonoBehaviour
         pm = player.GetComponent<playerMovement>();
         attack = player.GetComponent<Attack>();
         health = player.GetComponent<PlayerHealth>();
+        DM_tag = gameObject.tag;
     }
 
     void Start()
     {
+        // Choose dialogue canvas from list
+        // Canvas to use: Global.questNumber == 0 || 1 - canvas[0], 2 || 3 - canvas[1], ...
+        if (dialogueCanvases.Count > 1)
+        {
+            switch (Global.questNumber)
+            {
+                case 0:
+                case 1:
+                    dialogueCanvas = dialogueCanvases[0];
+                    break;
+                case 2:
+                    dialogueCanvas = dialogueCanvases[1];
+                    // Restart dialogue since new dialogue
+                    RecordDialogueIdInGlobal(0);
+                    break;
+                case 3:
+                    dialogueCanvas = dialogueCanvases[1];
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            dialogueCanvas = dialogueCanvases[0];
+        }
+
         // Set up references under dialogue canvas
         foreach (Transform child in dialogueCanvas.transform)
         {
@@ -56,7 +85,6 @@ public class DialogueManager : MonoBehaviour
         // set up link to Global
         if (recordConvo)
         {
-            DM_tag = gameObject.tag;
             // Ensure tag is appropriate for recording purposes
             if (DM_tag == "Untagged")
             {
@@ -135,25 +163,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (recordConvo)
         {
-            int currDialogueId = -1;
-            // Determine current dialogue id
-            for (int i = 0; i < dialogueList.Count; i++)
-            {
-                // ds.gameObject.GetInstanceId() == currentDialogue.gameObject.GetInstanceId()
-                if (dialogueList[i] == currentDialogue)
-                {
-                    currDialogueId = i;
-                    break;
-                }
-            }
-
-            if (currDialogueId < 0)
-            {
-                throw new System.ArgumentOutOfRangeException("ah end dialogue liao but current dialogue wasn't found in the the initialised list leh");
-            }
-
-            // Update global dialogue dictionary with current dialogue's id
-            Global.NPCDialogueDict[DM_tag] = currDialogueId;
+            RecordDialogueIdInGlobal(-1);
         }
 
         //escapeButton.SetTrigger("exit");
@@ -207,6 +217,40 @@ public class DialogueManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    void RecordDialogueIdInGlobal(int id)
+    {
+
+        // id is to be determined
+        if (id < 0)
+        {
+            int currDialogueId = id;
+            // Determine current dialogue id
+            for (int i = 0; i < dialogueList.Count; i++)
+            {
+                // ds.gameObject.GetInstanceId() == currentDialogue.gameObject.GetInstanceId()
+                if (dialogueList[i] == currentDialogue)
+                {
+                    currDialogueId = i;
+                    break;
+                }
+            }
+
+            // Could not find current dialogue in list
+            if (currDialogueId < 0)
+            {
+                throw new System.ArgumentOutOfRangeException("ah end dialogue liao but current dialogue wasn't found in the the initialised list leh");
+            }
+
+            // Update global dialogue dictionary with current dialogue's id
+            Global.NPCDialogueDict[DM_tag] = currDialogueId;
+        }
+        else
+        {
+            // Update global dialogue dictionary with current dialogue's id
+            Global.NPCDialogueDict[DM_tag] = id;
         }
     }
 }

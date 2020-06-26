@@ -58,7 +58,7 @@ public class Dialogue : MonoBehaviour
     {
         if (index < sentences.Length)
         {
-            if (tutorial && index == 1)
+            if (tutorial && index >= 1)
             {
                 tutorialInstruction.gameObject.SetActive(false);
                 tutorial = false;
@@ -73,7 +73,7 @@ public class Dialogue : MonoBehaviour
             // Show "press any key to continue"
             if (tutorial && index == 0)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.3f);
                 tutorialInstruction.gameObject.SetActive(true);
             }
 
