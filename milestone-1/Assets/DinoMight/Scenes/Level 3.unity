@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 19506743}
   - component: {fileID: 19506742}
   - component: {fileID: 19506741}
+  - component: {fileID: 19506746}
   m_Layer: 0
   m_Name: Axe (1)
   m_TagString: Untagged
@@ -170,7 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 30
   maxVelocity: 120
-  damage: 1
 --- !u!233 &19506742
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -299,6 +299,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &19506746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19506739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4ee3b45531548818fb297082e4024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  duration: 1
 --- !u!1 &27220788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6066,6 +6080,7 @@ GameObject:
   - component: {fileID: 1542894084}
   - component: {fileID: 1542894083}
   - component: {fileID: 1542894088}
+  - component: {fileID: 1542894089}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -6229,7 +6244,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 30
   maxVelocity: 120
+--- !u!114 &1542894089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542894082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4ee3b45531548818fb297082e4024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   damage: 2
+  duration: 1
 --- !u!1 &1577111816
 GameObject:
   m_ObjectHideFlags: 0
