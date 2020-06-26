@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InflictDamage : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class InflictDamage : MonoBehaviour, IDamage
 {
     public int damage;
     public float duration = 0.5f;
