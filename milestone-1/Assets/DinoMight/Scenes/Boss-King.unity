@@ -470,9 +470,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712594729181431208, guid: 0275023642b044a85b8edfb5e35815a6,
         type: 3}
+      propertyPath: levelTransition
+      value: 
+      objectReference: {fileID: 568516835}
+    - target: {fileID: 3712594729181431208, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1535649592}
+      objectReference: {fileID: 1161194296}
     - target: {fileID: 5479546350987901134, guid: 0275023642b044a85b8edfb5e35815a6,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4578,7 +4583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdc8f40eab994ebb82654afbce4f2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1535649593}
+  player: {fileID: 1161194306}
   king: {fileID: 919980902}
 --- !u!114 &919980909
 MonoBehaviour:
