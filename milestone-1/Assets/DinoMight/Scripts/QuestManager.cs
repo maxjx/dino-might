@@ -62,6 +62,14 @@ public class QuestManager : MonoBehaviour
                 // after king is defeated
                 questBoardText.text = "Nice job defeating that! Find the old guy in town for more instructions to get home!";
                 break;
+            case 3:
+                // level 3 temp quest
+                questBoardText.text = "Old man tells you to go to the north east of the town to find your way home. Finally!";
+                break;
+            case 4:
+                // lvl 3 fin
+                questBoardText.text = "Why am i back here?? This might be a bug, tell the game masters!";
+                break;
             default:
                 questBoardText.text = "Someone in the town needs your help!";
                 break;

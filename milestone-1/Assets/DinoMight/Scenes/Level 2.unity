@@ -4314,6 +4314,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 533410013}
+    - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
+        type: 3}
+      propertyPath: dialogueCanvases.Array.data[0]
+      value: 
+      objectReference: {fileID: 7301570542661892726}
     - target: {fileID: 2810647202009954046, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: m_Name
@@ -7811,6 +7816,11 @@ PrefabInstance:
       propertyPath: recordConvo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
+        type: 3}
+      propertyPath: dialogueCanvases.Array.data[0]
+      value: 
+      objectReference: {fileID: 6694647343419553975}
     - target: {fileID: 2810647202009954046, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: m_Name
@@ -11796,6 +11806,7 @@ MonoBehaviour:
   typingSpeed: 0.01
   sentences:
   - That sounds convincing, thanks for the advice!
+  - By the way, you can right click to shoot a fireball. Awesome, right?
   choices: []
   tutorial: 0
   tutorialInstruction: {fileID: 0}
@@ -12644,6 +12655,7 @@ MonoBehaviour:
   sentences:
   - "Sigh, I will be so tired\u2026 Oh well\u2026 I'll listen to the words of a responsible
     mister."
+  - By the way, you can right click to shoot a fireball. Awesome, right?
   choices: []
   tutorial: 0
   tutorialInstruction: {fileID: 0}
