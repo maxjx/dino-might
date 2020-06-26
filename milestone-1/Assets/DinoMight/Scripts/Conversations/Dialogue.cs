@@ -37,15 +37,15 @@ public class Dialogue : MonoBehaviour
 
             StartCoroutine(NextSentenceCoroutine());
         }
-        // else if (typing)
-        // {
-        //     if (Input.GetMouseButtonDown(0)
-        //         || Input.GetMouseButtonDown(1)
-        //         || Input.GetMouseButtonDown(2))
-        //         {
-        //             FinishSentence();
-        //         }
-        // }
+        else if (typing)
+        {
+            if (Input.GetMouseButtonDown(0)
+                || Input.GetMouseButtonDown(1)
+                || Input.GetMouseButtonDown(2))
+                {
+                    FinishSentence();
+                }
+        }
     }
 
     // Is accessed by DialogueTrigger and Buttons
@@ -106,13 +106,13 @@ public class Dialogue : MonoBehaviour
         typing = false;
     }
 
-    // void FinishSentence()
-    // {
-    //     StopCoroutine(typingcoroutine);
-    //     textBox.text = sentences[index];
-    //     index++;
-    //     typing = false;
-    // }
+    void FinishSentence()
+    {
+        StopCoroutine(typingcoroutine);
+        textBox.text = sentences[index];
+        index++;
+        typing = false;
+    }
 
     public void HideChoices()
     {
