@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEditor;
 
 namespace Tests
 {
@@ -12,13 +13,14 @@ namespace Tests
 
         [SetUp]
         public void SetUp() {
-            movingPlatform = MonoBehaviour.Instantiate(
-                    Resources.Load<GameObject>("Assets/DinoMight/Prefabs/Tiles/Moving Tiles"));
+            movingPlatform = GameObject.Instantiate(AssetDatabase.
+                LoadAssetAtPath<GameObject>("Assets/DinoMight/Prefabs/Tiles/Moving Tile.prefab"));
         }
 
         [UnityTest]
         public IEnumerator PlatformExists() {
-            Assert.NotNull(movingPlatform.GetComponent<Rigidbody2D>());
+            Assert.NotNull(movingPlatform.GetComponent<Transform>());
+            yield return null;
         }
 
         [UnityTest]
@@ -27,7 +29,17 @@ namespace Tests
             Vector3 initPos = movingPlatform.transform.position;
             yield return new WaitForSeconds(0.1f);
 
+            Assert.AreNotEqual(initPos, movingPlatform.transform.position);
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator MovingPlatformIsMoving() {
+            Vector3 initPos = movingPlatform.transform.position;
+            yield return new WaitForSeconds(0.1f);
+
             Assert.AreEqual(initPos, movingPlatform.transform.position);
+            yield return null;
         }
 
         [TearDown]
