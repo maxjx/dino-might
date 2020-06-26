@@ -9,7 +9,7 @@ public class HangingSwing : MonoBehaviour {
     private float startAngle;
     public float range;
     public float maxVelocity;
-    public int damage;
+
     void Start() {
         body = GetComponent<Rigidbody2D>();
         body.angularVelocity = maxVelocity;
@@ -35,17 +35,6 @@ public class HangingSwing : MonoBehaviour {
                 && body.angularVelocity > -1 * maxVelocity && body.angularVelocity < 0) {
             // Logic for left push
             body.angularVelocity = -1 * maxVelocity;
-        }
-    }
-
-    public void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Player") {
-            GameObject player = other.gameObject;
-            if (body.angularVelocity < 0) {
-                player.GetComponent<PlayerHealth>().TakeDamage(damage, false);
-            } else {
-                player.GetComponent<PlayerHealth>().TakeDamage(damage, true);
-            }
         }
     }
 
