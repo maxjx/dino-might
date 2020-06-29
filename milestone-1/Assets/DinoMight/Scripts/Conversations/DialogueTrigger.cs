@@ -9,6 +9,7 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject prompt;
     public string NPCName;
     public bool autoTrigger = false;        // For making dialogues with ownself
+    private bool autoTriggered = false;
 
     void Start()
     {
@@ -17,13 +18,31 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        // If prompt is active (Player is in collider), and either "c" is pressed or it is auto triggered,
-        if (prompt.activeSelf && (Input.GetKeyDown("c") || autoTrigger))
+        // If prompt is active (Player is in collider),
+        if (prompt.activeSelf)
         {
-            prompt.SetActive(false);
-            manager.StartDialogue();
-            manager.ToggleDisplayName(NPCName);
+            if (autoTrigger)
+            {
+                if (!autoTriggered)         // not autoTriggered yet
+                {
+                    prompt.SetActive(false);
+                    TriggerDialogue();
+                    autoTriggered = true;
+                }
+            }
+            else if (Input.GetKeyDown("c")) // and not autotrigger
+            {
+                prompt.SetActive(false);
+                TriggerDialogue();
+            }
+            // else is not an autotrigger nor c was pressed
         }
+    }
+
+    void TriggerDialogue()
+    {
+        manager.StartDialogue();
+        manager.ToggleDisplayName(NPCName);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
