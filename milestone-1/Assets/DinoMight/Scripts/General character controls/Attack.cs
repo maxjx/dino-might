@@ -55,9 +55,7 @@ public class Attack : MonoBehaviour
         animator.ResetTrigger("kick");
         if (shoot)
         {
-            // Spawns Fireball object at the position and rotation of the firePoint
-            ObjectPooler.Instance.SpawnFromPool("Fireball", firePoint.position, firePoint.rotation);
-            playerMovementControl.CrouchOnce();     // For shooting animation
+            UseFireball();
 
             shoot = false;
         }
@@ -65,40 +63,52 @@ public class Attack : MonoBehaviour
         {
             animator.SetTrigger("kick");
 
-            // Detect enemies in a circle with center kickpoint and radius kickRange (AOE attack)
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(kickPoint.position, kickRange, enemyLayers);
-
-            // Determine relative direction of attack
-            if (playerTransform.position.x < kickPoint.position.x)
-            {
-                attackRightwards = true;
-            }
-            else
-            {
-                attackRightwards = false;
-            }
-
-            // Displace kickHitEffect from kickPoint according to direction of attack
-            if (attackRightwards)
-            {
-                // Damage all enemies in range
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    Instantiate(kickHitEffect, kickPoint.position + rightDisplacement, kickPoint.rotation);
-                    enemy.GetComponent<IHealth>().TakeDamage(kickDamage, attackRightwards);
-                }
-            }
-            else
-            {
-                // Damage all enemies in range
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    Instantiate(kickHitEffect, kickPoint.position + leftDisplacement, kickPoint.rotation);
-                    enemy.GetComponent<IHealth>().TakeDamage(kickDamage, attackRightwards);
-                }
-            }
+            UseKickAttack();
 
             kick = false;
+        }
+    }
+
+    public void UseFireball()
+    {
+        // Spawns Fireball object at the position and rotation of the firePoint
+        ObjectPooler.Instance.SpawnFromPool("Fireball", firePoint.position, firePoint.rotation);
+        playerMovementControl.CrouchOnce();     // For shooting animation
+    }
+
+    public void UseKickAttack()
+    {
+        // Detect enemies in a circle with center kickpoint and radius kickRange (AOE attack)
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(kickPoint.position, kickRange, enemyLayers);
+
+        // Determine relative direction of attack
+        if (playerTransform.position.x < kickPoint.position.x)
+        {
+            attackRightwards = true;
+        }
+        else
+        {
+            attackRightwards = false;
+        }
+
+        // Displace kickHitEffect from kickPoint according to direction of attack
+        if (attackRightwards)
+        {
+            // Damage all enemies in range
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                Instantiate(kickHitEffect, kickPoint.position + rightDisplacement, kickPoint.rotation);
+                enemy.GetComponent<IHealth>().TakeDamage(kickDamage, attackRightwards);
+            }
+        }
+        else
+        {
+            // Damage all enemies in range
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                Instantiate(kickHitEffect, kickPoint.position + leftDisplacement, kickPoint.rotation);
+                enemy.GetComponent<IHealth>().TakeDamage(kickDamage, attackRightwards);
+            }
         }
     }
 }
