@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7544031567860056716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.295, y: -0.091, z: -0.052078277}
+  m_LocalPosition: {x: -0.13, y: -0.091, z: -0.052078277}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 8898324807879782838}
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8898324807879782792}
   - component: {fileID: 8898324807879782793}
   - component: {fileID: 7544031567366639676}
+  - component: {fileID: 8823150360429853602}
   m_Layer: 9
   m_Name: Dumbass chicken
   m_TagString: Enemy
@@ -189,7 +190,6 @@ MonoBehaviour:
   chasingRange: 3
   speed: 5
   movementSmoothing: 0.05
-  damage: 1
   groundDetector: {fileID: 7544031567860056717}
 --- !u!114 &7544031567366639676
 MonoBehaviour:
@@ -209,3 +209,19 @@ MonoBehaviour:
   deathExplosion: {fileID: 1092818740741337389, guid: 2c3e0fe1190c48b4392e831a3cb3d6c3,
     type: 3}
   respawner: {fileID: 0}
+  allowKnockback: 1
+--- !u!114 &8823150360429853602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898324807879782834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f041f07353d9ee48be9a88d4296956c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  attackRange: 0.35
+  damage: 1
