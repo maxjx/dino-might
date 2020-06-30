@@ -8,7 +8,6 @@ public class Mob1Movement : MonoBehaviour
     public float chasingRange = 3f;     // Maximum distance from spawn point at which mob starts chasing player
     public float speed = 5f;
     [Range(0, .3f)] public float movementSmoothing = 0.05f;	// How much to smooth out the movement
-    public int damage = 1;
     public Transform groundDetector;    // Casts a ray from this point to detect ground so that it does not go off the platform
 
     // Coordinates of roaming boundary ends and player GameObject
@@ -16,7 +15,6 @@ public class Mob1Movement : MonoBehaviour
     private Vector2 roamRightEnd;
     private GameObject player;
     private Animator animator;
-    private PlayerHealth playerHealth;
     private Rigidbody2D rb;      // of this mob
 
     private float step;     // Distance per fixedUpdate used in calculating velocity change
@@ -27,17 +25,12 @@ public class Mob1Movement : MonoBehaviour
     private bool facingRight = true;        // Rotate the sprite to face target which can be a roaming-end or player
     private bool wasRoamingRight = true;    // To remember the end that it was heading towards so that it can turn back
     private float raycastDistance = 1f;     // Distance that raycast detects for ground
-    private bool attackRightwards;          // If true, mob is attacking to the right
-    private bool attacking = false;         // If true, mob is still in the attacking state and should not move especially when player is no longer in attack range
 
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-            playerHealth = player.GetComponent<PlayerHealth>();
-        }
+        player = GameObject.FindGameObjectWithTag("Player");
+        
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -57,7 +50,7 @@ public class Mob1Movement : MonoBehaviour
 
         if (player == null)
         {
-            return;
+            return;     // Wont move either
         }
         Vector2 playerPos = player.transform.position;
 
@@ -66,7 +59,7 @@ public class Mob1Movement : MonoBehaviour
         bool withinChasingRange = sqdistanceFromPlayer <= chasingRange * chasingRange;
 
         // If player is within chasing range and this mob is on a platform, ...
-        if (withinChasingRange && groundHit && !attacking)
+        if (withinChasingRange && groundHit)
         {
             if (position.x - playerPos.x > 0.1f)   // Player is to the left
             {
@@ -82,8 +75,26 @@ public class Mob1Movement : MonoBehaviour
             }
             rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity * 2, ref currentVelocity, movementSmoothing); // To chase faster
         }
+        // within chasing range of player and mob is at the edge of the platform,
+        else if (withinChasingRange && !groundHit)
+        {
+            // if player is to the left of mob, but facing right,
+            if (playerPos.x < position.x && facingRight)
+            {
+                targetVelocity = leftVelocity;      // Will Flip later and continue walking
+            }
+            else if (playerPos.x > position.x && !facingRight)
+            {
+                targetVelocity = rightVelocity;
+            }
+            // mob is facing player but there is no ground betwee them
+            else
+            {
+                rb.velocity = Vector2.zero;
+            }
+        }
         // Not chasing and should return to opposite roam end
-        else if (!withinChasingRange && !attacking)
+        else if (!withinChasingRange)
         {
             // If current position is further left or at the left end of the roaming range, ...
             if (position.x <= roamLeftEnd.x)
@@ -121,7 +132,6 @@ public class Mob1Movement : MonoBehaviour
         else
         {
             // else chasing but on platform edge, remain stationary until player goes out of chasing range
-            // or attacking
             rb.velocity = Vector2.zero;
         }
 
@@ -135,40 +145,9 @@ public class Mob1Movement : MonoBehaviour
             Flip();
         }
 
-        //animator.ResetTrigger("attack");
-        // When mob is close enough to player, set trigger of hurt animation state
-        if (sqdistanceFromPlayer < 0.2f && player.activeInHierarchy)
-        {
-            // Set condition to animation state that invokes Hurt() via an event, to time attack frequency
-            animator.SetTrigger("attack");
-
-            // Stationary when attacking even when player goes out of attacking range
-            rb.velocity = Vector2.zero;
-            attacking = true;
-
-            // Determine direction of attack
-            if (playerPos.x < position.x)
-            {
-                attackRightwards = false;
-            }
-            else
-            {
-                attackRightwards = true;
-            }
-        }
-
         // Switch animation state from idle to/from walking
         float speed = rb.velocity.x;
         animator.SetFloat("speed", speed < 0 ? -speed : speed);     // More efficient than Mathf.Abs()
-    }
-
-    public void Hurt()
-    {
-        // activeInHierarchy ensures that player does not takedamage while dead, else might respawn with low health
-        if (player.activeInHierarchy)
-        {
-            playerHealth.TakeDamage(damage, attackRightwards);
-        }
     }
 
     private void Flip()
@@ -176,12 +155,5 @@ public class Mob1Movement : MonoBehaviour
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
-    }
-
-    // Used at the last frame of mob attack to prevent double count
-    public void ResetTrigger()
-    {
-        animator.ResetTrigger("attack");
-        attacking = false;
     }
 }

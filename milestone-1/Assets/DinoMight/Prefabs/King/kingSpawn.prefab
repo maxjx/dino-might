@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 9187143732149804894}
   - component: {fileID: 9187143732149804895}
   - component: {fileID: -5344087753754562577}
+  - component: {fileID: -1569156056460420491}
   m_Layer: 9
   m_Name: kingSpawn
   m_TagString: spawned
@@ -189,7 +190,6 @@ MonoBehaviour:
   chasingRange: 3
   speed: 5
   movementSmoothing: 0.05
-  damage: 1
   groundDetector: {fileID: 7832799296119860315}
 --- !u!114 &-5344087753754562577
 MonoBehaviour:
@@ -208,3 +208,17 @@ MonoBehaviour:
   currentHealth: 0
   deathExplosion: {fileID: 1092818740741337389, guid: 2c3e0fe1190c48b4392e831a3cb3d6c3,
     type: 3}
+--- !u!114 &-1569156056460420491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187143732149804900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f041f07353d9ee48be9a88d4296956c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 0.35
+  damage: 1

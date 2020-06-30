@@ -22,8 +22,8 @@ namespace Tests
             //playerHealth.healthBar = hb;
 
             mob = new GameObject();
-            ProximityAttack pa = mob.AddComponent<ProximityAttack>();
-            pa.player = player.GetComponent<Transform>();
+            // ProximityAttack pa = mob.AddComponent<ProximityAttack>();
+            // pa.player = player.GetComponent<Transform>();
         }
 
         // [Test]
