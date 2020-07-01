@@ -17,7 +17,7 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            GameObject summaryCanvas = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DinoMight/Prefabs/Summary Canvas.prefab"));
+            GameObject summaryCanvas = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DinoMight/Prefabs/Testing prefabs/Summary Canvas.prefab"));
             Transform summaryCanvasTransform = summaryCanvas.transform;
             bar1 = summaryCanvasTransform.GetChild(3).GetComponent<Slider>();
             bar2 = summaryCanvasTransform.GetChild(4).GetComponent<Slider>();
@@ -42,7 +42,7 @@ namespace Tests
             Global.priorities = 1;
             Global.challenges = 2;
             Global.habits = 0;
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(1f);
 
             Assert.AreEqual(1, bar1.value);
             Assert.AreEqual(2, bar2.value);
@@ -55,7 +55,7 @@ namespace Tests
             Global.priorities = 1;
             Global.challenges = 2;
             Global.habits = 0;
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(1f);
 
             Assert.AreEqual(0.5f, bar1.normalizedValue);
             Assert.AreEqual(1, bar2.normalizedValue);
@@ -68,7 +68,7 @@ namespace Tests
             Global.priorities = 1;
             Global.challenges = 2;
             Global.habits = 0;
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(4f);
 
             // Manual visual check i guess
         }

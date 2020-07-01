@@ -7,7 +7,6 @@ public class QuestManager : MonoBehaviour
 {
     public GameObject questToggleButton;
     public TextMeshProUGUI questBoardText;
-    public GameObject questPrompt;
     public bool isInTown = false;
 
     private int questNumber;
@@ -17,28 +16,11 @@ public class QuestManager : MonoBehaviour
     {
         questNumber = Global.questNumber;
 
-        // If the first quest is not yet accepted && player is in town
-        if (questNumber == 0 && isInTown)
+        if (questNumber != 0 || !isInTown)
         {
-            ShowQuestPrompt();
-        }
-        else if ((questNumber%2 == 0) && isInTown)
-        {
-            ShowQuestPrompt();
             ShowQuestButton();
             UpdateQuestText();
         }
-        else
-        {
-            // not in town
-            ShowQuestButton();
-            UpdateQuestText();
-        }
-    }
-
-    void ShowQuestPrompt()
-    {
-        questPrompt.SetActive(true);
     }
 
     public void ShowQuestButton()
@@ -79,7 +61,6 @@ public class QuestManager : MonoBehaviour
     public void AcceptQuest()
     {
         questToggleButton.SetActive(true);
-        questPrompt.SetActive(false);
         Global.questNumber++;
         UpdateQuestText();
     }

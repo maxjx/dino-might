@@ -138,9 +138,12 @@ MonoBehaviour:
   damage: 3
   rb: {fileID: 3068890444456946015}
   travellingDistance: 4
-  whatCanHit:
+  whatLayerCanHit:
     serializedVersion: 2
     m_Bits: 535
+  whatTagCanDamage:
+  - Enemy
+  - spawned
 --- !u!95 &9157781070475333030
 Animator:
   serializedVersion: 3

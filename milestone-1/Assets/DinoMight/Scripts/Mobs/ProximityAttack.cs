@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ProximityAttack : MonoBehaviour
 {
-    public Transform player;
     public float attackRange = 0.2f;
     public int damage = 1;
 
+    private GameObject player;
     private Vector2 mobPosition;
     private Animator animator;
     private Vector2 playerPosition;
@@ -17,6 +17,7 @@ public class ProximityAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
         animator = GetComponent<Animator>();
     }
@@ -24,13 +25,17 @@ public class ProximityAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
         mobPosition = transform.position;
-        playerPosition = player.position;
+        playerPosition = player.transform.position;
 
         Vector2 displacementFromPlayer = playerPosition - mobPosition;
         float sqdistanceFromPlayer = displacementFromPlayer.sqrMagnitude;
 
-        if (sqdistanceFromPlayer < attackRange && player.gameObject.activeInHierarchy)
+        if (sqdistanceFromPlayer < attackRange && player.activeInHierarchy)
         {
             // Set condition to animation state that invokes Hurt() via an event, to time attack frequency
             animator.SetTrigger("attack");
@@ -50,7 +55,7 @@ public class ProximityAttack : MonoBehaviour
     public void Hurt()
     {
         // activeInHierarchy ensures that player does not takedamage while dead, else might respawn with low health
-        if (player.gameObject.activeInHierarchy)
+        if (player.activeInHierarchy)
         {
             playerHealth.TakeDamage(damage, attackRightwards);
         }
