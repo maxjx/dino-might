@@ -6,19 +6,26 @@ public class InteractLockedDoor : Interact
 {
     [SerializeField] private Key.KeyType keyType;
     [SerializeField] private GameObject noKeyMessage;
+    private LockedDoor door;
 
+    private void Awake()
+    {
+        door = gameObject.GetComponent<LockedDoor>();
+    }
     protected override void TriggerAction()
     {
-        LockedDoor door = gameObject.GetComponent<LockedDoor>();
+
         if (!door.isCurrentlyLocked())
         {
             return;
         }
 
         KeyHolder keyHolder = player.gameObject.GetComponent<KeyHolder>();
+
         if (keyHolder.KeyTypeIsPresent(keyType))
         {
-            gameObject.GetComponent<LockedDoor>().Toggle();
+            door.Toggle();
+            door.ManualTrigger();
             keyHolder.DeleteKey(keyType);
         }
         else

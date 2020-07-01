@@ -6,11 +6,16 @@ using UnityEngine;
 public class LockedDoor : MonoBehaviour
 {
     private bool isLocked = true;
-    [SerializeField] GameObject teleportTo;
+    [SerializeField] GameObject otherDoor;
 
     public void Toggle()
     {
         isLocked = !isLocked;
+        LockedDoor door = otherDoor.GetComponent<LockedDoor>();
+        if (!isLocked && door.isCurrentlyLocked())
+        {
+            door.Toggle();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D player) {
@@ -19,10 +24,17 @@ public class LockedDoor : MonoBehaviour
             return;
         }
 
-        player.transform.position = teleportTo.transform.position;
+        if (Input.GetKeyDown("c"))
+        player.transform.position = otherDoor.transform.position;
     }
 
     public bool isCurrentlyLocked() {
         return isLocked;
+    }
+
+    public void ManualTrigger()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = otherDoor.transform.position;
     }
 }
