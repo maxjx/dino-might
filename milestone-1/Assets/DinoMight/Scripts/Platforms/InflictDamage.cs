@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class InflictDamage : MonoBehaviour, IDamage
 {
     public int damage;
