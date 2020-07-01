@@ -25,7 +25,7 @@ public class InflictDamage : MonoBehaviour, IDamage
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (!coolingDown)
+        if (!coolingDown & other.gameObject.CompareTag("Player"))
         {
             Damage(other);
             coolingDown = true;
@@ -44,6 +44,7 @@ public class InflictDamage : MonoBehaviour, IDamage
             {
                 other.GetComponent<IHealth>().TakeDamage(damage, false);
             }
+            Debug.Log("called");
         }
     }
 }
