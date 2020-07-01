@@ -6,33 +6,40 @@ using TMPro;
 public class Interact : MonoBehaviour
 {
     [SerializeField] private GameObject prompt;
-    [SerializeField] private GameObject platform;
-    public bool autoTrigger = false;        // For making dialogues with ownself
 
-    void Start()
+    public bool autoTrigger = false;        // For making dialogues with ownself
+    protected Collider2D player;
+
+    protected void Start()
     {
         prompt.SetActive(false);
     }
 
-    void Update()
+    protected void Update()
     {
         // If prompt is active (Player is in collider), and either "c" is pressed or it is auto triggered,
         if (prompt.activeSelf && (Input.GetKeyDown("c") || autoTrigger))
         {
             prompt.SetActive(false);
-            platform.GetComponent<MovingPlatformWithLock>().toggleLock();
+            TriggerAction();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    protected virtual void TriggerAction()
+    {
+        return;
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Player"))
         {
+            player = collider;
             prompt.SetActive(true);
         }
     }
 
-    void OnTriggerExit2D(Collider2D collider)
+    protected void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.CompareTag("Player"))
         {
