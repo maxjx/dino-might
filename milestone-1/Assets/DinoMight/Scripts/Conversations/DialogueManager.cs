@@ -7,6 +7,7 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
+    public string DM_tag;    // this gameobject's own tag, make sure it is unique
     public List<Canvas> dialogueCanvases;   // Each dialogue canvas stores the dialogues that form 1 whole conversation. 
     public GameObject NPCCamera;            // Optional, depends on whether there is a need for zooming in
     public GameObject player;
@@ -18,7 +19,6 @@ public class DialogueManager : MonoBehaviour
     //private Animator escapeButton;
     private Dialogue currentDialogue;
     private List<Dialogue> dialogueList = new List<Dialogue>();    // list of dialogues under canvas that are entry points to the dialogue thread
-    private string DM_tag;    // this gameobject's own tag
     private playerMovement pm;
     private Attack attack;
     private PlayerHealth health;
@@ -30,7 +30,6 @@ public class DialogueManager : MonoBehaviour
         pm = player.GetComponent<playerMovement>();
         attack = player.GetComponent<Attack>();
         health = player.GetComponent<PlayerHealth>();
-        DM_tag = gameObject.tag;
     }
 
     void Start()
@@ -86,9 +85,9 @@ public class DialogueManager : MonoBehaviour
         if (recordConvo)
         {
             // Ensure tag is appropriate for recording purposes
-            if (DM_tag == "Untagged")
+            if (DM_tag == "")
             {
-                Debug.LogWarning("Tag for DialogueManager is Untagged. Recording this to Global might cause undesirable side effects.");
+                Debug.LogWarning("Tag for DialogueManager is null. Recording this to Global might cause undesirable side effects.");
             }
 
             // Initialise list of dialogues
