@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class FireBall : MonoBehaviour, IDamage
 {
     public float speed = 20f;
     public int damage = 3;
     public Rigidbody2D rb;
     public float travellingDistance = 4;
-    public LayerMask whatCanHit;    // Specifies what layers can be hit by fireball
+    public LayerMask whatLayerCanHit;       // Specifies what layers can be hit by fireball, not damage
+    public List<string> whatTagCanDamage;
+
     private Vector2 initialPosition;
-    private bool attackRightwards; // If true, fireball is heading to the right
+    private bool attackRightwards;          // If true, fireball is heading to the right
 
     void OnEnable()
     {
@@ -35,12 +37,12 @@ public class FireBall : MonoBehaviour
             attackRightwards = false;
         }
 
-        if (whatCanHit == (whatCanHit | (1 << hitInfo.gameObject.layer)))
+        if (whatLayerCanHit == (whatLayerCanHit | (1 << hitInfo.gameObject.layer)))
         {
             // Only hits one enemy, if any. See Attack.kick() for AOE damage
-            if (hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("spawned"))
+            if (whatTagCanDamage.Contains(hitInfo.tag)) //hitInfo.CompareTag("Enemy") || hitInfo.CompareTag("spawned"))
             {
-                hitInfo.GetComponent<IHealth>().TakeDamage(damage, attackRightwards);
+                Damage(hitInfo);
             }
 
             // Animate impact effect on collision
@@ -61,4 +63,10 @@ public class FireBall : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    public void Damage(Collider2D collider)
+    {
+        collider.GetComponent<IHealth>().TakeDamage(damage, attackRightwards);
+    }
+
 }
