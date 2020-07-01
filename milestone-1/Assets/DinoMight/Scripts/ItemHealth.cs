@@ -6,7 +6,7 @@ public class ItemHealth : MonoBehaviour, IHealth
 {
     public int maxHealth = 1;
     private int currHealth;
-    public ParticleSystem deathExplosion;
+    public GameObject deathExplosion;
 
     private void Start()
     {
@@ -24,8 +24,9 @@ public class ItemHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
-        deathExplosion.transform.position = transform.position;
-        deathExplosion.Play();
+        // Instantiate(deathExplosion);
+        // deathExplosion.transform.position = transform.position;
+        // deathExplosion.GetComponent<ParticleSystem>().Play();
 
         gameObject.SetActive(false);
     }
