@@ -13,16 +13,29 @@ enum Actions
 
 public class Boss2Logic : MonoBehaviour
 {
+    public GameObject player;
+
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FinishTalking()
     {
-        
+        animator.SetBool("talking", false);
+    }
+
+    public void DoNextAction()
+    {
+        animator.SetInteger("nextMove", CalculateBestMove());
+    }
+
+    private int CalculateBestMove()
+    {
+        return 0;
     }
 }
