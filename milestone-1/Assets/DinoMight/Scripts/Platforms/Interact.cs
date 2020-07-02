@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class Interact : MonoBehaviour
 {
     [SerializeField] private GameObject prompt;
