@@ -6,8 +6,9 @@ public class Boss2_JumpAttack : StateMachineBehaviour
 {
     Vector2 prevColliderSize = new Vector2(0.21f, 0.32f);
     Vector2 prevColliderOffset = Vector2.zero;
-    Vector2 newColliderSize = new Vector2(0.21f, 0.0001f);
-    Vector2 newColliderOffset = new Vector2(0, -0.16f);
+    Vector2 newColliderSize = new Vector2(0.21f, 0.01f);
+    Vector2 newColliderOffset = new Vector2(0, -0.15f);
+    Vector3 endPositionOffset = new Vector3(5.52f, 0, 0);
     private BoxCollider2D collider;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -29,6 +30,7 @@ public class Boss2_JumpAttack : StateMachineBehaviour
     {
         collider.size = prevColliderSize;
         collider.offset = prevColliderOffset;
+        animator.transform.position += endPositionOffset;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
