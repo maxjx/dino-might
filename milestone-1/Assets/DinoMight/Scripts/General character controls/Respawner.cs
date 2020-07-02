@@ -5,9 +5,15 @@ using Cinemachine;
 
 public class Respawner : MonoBehaviour
 {
+    public static Respawner Instance { get; private set; }
     public List<Transform> playerSpawnPoints;       // List of points should be in the order of the direction the player is travelling, smallest being at the start
     public CinemachineVirtualCameraBase playerVcam;
     public List<Transform> mobSpawnPoint;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     public void RespawnCharacter(GameObject obj, int spawnPointNumber)
     {
