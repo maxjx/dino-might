@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour {
     public int index;
-    public GameObject otherObj;
+    public GameObject levelTransitionObj;
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
-            otherObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
+            levelTransitionObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
         }
     }
 
     public void ManualTransition()
     {
-        otherObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
+        levelTransitionObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
     }
 }
