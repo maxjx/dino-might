@@ -46,7 +46,7 @@ public class FireBall : MonoBehaviour, IDamage
             }
 
             // Animate impact effect on collision
-            ObjectPooler.Instance.SpawnFromPool("FireballImpact", transform.position, transform.rotation);
+            TrySpawnFireball();
             gameObject.SetActive(false);
         }
     }
@@ -59,7 +59,7 @@ public class FireBall : MonoBehaviour, IDamage
         if (displacement > travellingDistance)
         {
             // Animate impact effect on collision
-            ObjectPooler.Instance.SpawnFromPool("FireballImpact", transform.position, transform.rotation);
+            TrySpawnFireball();
             gameObject.SetActive(false);
         }
     }
@@ -67,6 +67,15 @@ public class FireBall : MonoBehaviour, IDamage
     public void Damage(Collider2D collider)
     {
         collider.GetComponent<IHealth>().TakeDamage(damage, attackRightwards);
+    }
+
+    // Try spawning fireball from object pooler
+    private void TrySpawnFireball()
+    {
+        if (ObjectPooler.Instance != null)
+        {
+            ObjectPooler.Instance.SpawnFromPool("FireballImpact", transform.position, transform.rotation);
+        }
     }
 
 }
