@@ -68,6 +68,7 @@ public class MobHealth : MonoBehaviour, IHealth
         gameObject.SetActive(false);
     }
 
+    // Used to trigger mob movement, eg fly to player 
     public bool WasHurt()
     {
         return wasHurt;
