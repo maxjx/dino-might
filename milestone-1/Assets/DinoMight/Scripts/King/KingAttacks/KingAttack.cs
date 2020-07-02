@@ -12,7 +12,7 @@ public class KingAttack : MonoBehaviour
 	public float teleportWaitTime;
 	public bool countdown = true;
 	private float waitTime = 0f;
-	private float fistTime = 0f;
+	private float summonTime = 0f;
 	private KingSummonFactory summonHelper;
 
 	private void Start() {
@@ -22,11 +22,10 @@ public class KingAttack : MonoBehaviour
 		// King counts down only when visible
 		if (countdown) {
 			waitTime += Time.deltaTime;
-			fistTime += Time.deltaTime;
-
+			summonTime += Time.deltaTime;
 		}
 		// Countdown to next fist attack
-		if (fistTime > Random.Range(4f, 7f)) {
+		if (summonTime > Random.Range(4f, 7f)) {
 			FistAttack();
 		}
 		// Countdown to next teleport attack
@@ -59,8 +58,10 @@ public class KingAttack : MonoBehaviour
 	}
 
 	private void FistAttack() {
-		fistTime = 0f;
-		summonHelper.Summon("fist");
+		summonTime = 0f;
+		string[] attackTypes = new string[] {"fist", "cards"};
+		int result = Random.Range(0, 2);
+		summonHelper.Summon(attackTypes[result]);
 	}
 
 	private void TeleportAttackSummon() {
