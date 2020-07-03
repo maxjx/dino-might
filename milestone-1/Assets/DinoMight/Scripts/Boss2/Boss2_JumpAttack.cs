@@ -35,5 +35,8 @@ public class Boss2_JumpAttack : StateMachineBehaviour
         {
             tf.position = tf.position + endPositionOffset;
         }
+
+        // Reset collider offset. State invokes method to offset collider some time during the state, contained in logic script.
+        animator.GetComponent<BoxCollider2D>().offset = Vector2.zero;
     }
 }
