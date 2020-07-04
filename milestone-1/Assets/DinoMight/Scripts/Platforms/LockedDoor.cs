@@ -7,6 +7,7 @@ public class LockedDoor : MonoBehaviour
 {
     private bool isLocked = true;
     [SerializeField] GameObject otherDoor;
+    public ReEnable mainVCam;       // Component to reenable Player's virtual camera
 
     public void Toggle()
     {
@@ -25,7 +26,11 @@ public class LockedDoor : MonoBehaviour
         }
 
         if (Input.GetKeyDown("c"))
-        player.transform.position = otherDoor.transform.position;
+        {
+            player.transform.position = otherDoor.transform.position;
+            if (mainVCam != null)
+                mainVCam.ReEnableWithDelay(0.02f);
+        }
     }
 
     public bool isCurrentlyLocked() {

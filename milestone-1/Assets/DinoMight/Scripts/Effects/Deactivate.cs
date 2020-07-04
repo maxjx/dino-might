@@ -8,12 +8,11 @@ public class Deactivate : MonoBehaviour
     
     void OnEnable()
     {
-        StartCoroutine(DelayedDeactivateCoroutine());
+        Invoke("DeactivateThis", duration);
     }
 
-    IEnumerator DelayedDeactivateCoroutine()
+    void DeactivateThis()
     {
-        yield return new WaitForSeconds(duration);
         gameObject.SetActive(false);
     }
 }
