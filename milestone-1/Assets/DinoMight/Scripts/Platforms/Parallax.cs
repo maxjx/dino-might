@@ -16,8 +16,8 @@ public class Parallax : MonoBehaviour
         length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    // Update works better than fixed update ??
+    void Update()
     {
         float temp = camera.transform.position.x * (1-parallaxAmount);      // distance moved relative to camera
         float dist = camera.transform.position.x * parallaxAmount;          // position from startPos
