@@ -4,17 +4,40 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour {
-    public int index;
+    public int index = -1;
+    public string sceneName = "null";
     public GameObject levelTransitionObj;
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
-            levelTransitionObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
+            if (name != "null")
+            {
+                levelTransitionObj.GetComponent<LevelLoader>().NextLevelAnimation(sceneName);
+            }
+            else if (index != -1)
+            {
+                levelTransitionObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
+            }
+            else
+            {
+                Debug.Log("Invalid level input!");
+            }
         }
     }
 
     public void ManualTransition()
     {
-        levelTransitionObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
+        if (name != "null")
+        {
+            levelTransitionObj.GetComponent<LevelLoader>().NextLevelAnimation(sceneName);
+        }
+        else if (index != -1)
+        {
+            levelTransitionObj.GetComponent<LevelLoader>().NextLevelAnimation(index);
+        }
+        else
+        {
+            Debug.Log("Invalid level input!");
+        }
     }
 }
