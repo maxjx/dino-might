@@ -47,7 +47,6 @@ public class DialogueTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.name);
         if (collider.CompareTag("Player"))
         {
             prompt.SetActive(true);

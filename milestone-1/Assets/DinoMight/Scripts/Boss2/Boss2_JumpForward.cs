@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Boss2_JumpForward : StateMachineBehaviour
 {
+    Vector3 endPositionOffset = new Vector3(4.62f, 0, 0);
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    // override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    // {
+    // }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -17,20 +18,21 @@ public class Boss2_JumpForward : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Transform tf = animator.transform;
 
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
+        // teleports boss to the position that the animation ends
+        if (tf.rotation.y < 0)
+        {
+            tf.position = tf.position - endPositionOffset;
+        }
+        else
+        {
+            tf.position = tf.position + endPositionOffset;
+        }
 
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
+        // Reset collider offset. State invokes method to offset collider some time during the state, contained in logic script.
+        animator.GetComponent<BoxCollider2D>().offset = Vector2.zero;
+    }
 }
