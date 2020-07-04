@@ -730,6 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 5
+  sceneName: null
   levelTransitionObj: {fileID: 568516835}
 --- !u!61 &210689479
 BoxCollider2D:
@@ -2054,7 +2055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312726901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.48000002, y: 1.61, z: 0}
+  m_LocalPosition: {x: -16.560001, y: 1.61, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children:
   - {fileID: 1627345900}
@@ -2073,8 +2074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b670a18ded0c03d479cdd2217affdb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 941184706}
-  parallaxAmount: 0
+  parallaxAmount: {x: 0.2, y: 0.2}
 --- !u!212 &312726904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2149,7 +2149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355247677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.69, z: 0}
+  m_LocalPosition: {x: 0, y: -0.69, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 312726902}
@@ -2835,6 +2835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 4
+  sceneName: null
   levelTransitionObj: {fileID: 568516835}
 --- !u!61 &453213244
 BoxCollider2D:
@@ -3248,7 +3249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556774627}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34, y: 3.47, z: 0}
+  m_LocalPosition: {x: -16.7, y: 3.47, z: 0}
   m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_Children:
   - {fileID: 282337333}
@@ -3268,8 +3269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b670a18ded0c03d479cdd2217affdb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 941184706}
-  parallaxAmount: 1
+  parallaxAmount: {x: 0, y: 0}
 --- !u!212 &556774630
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5502,7 +5502,7 @@ MonoBehaviour:
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
-  m_BlendUpdateMethod: 0
+  m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
@@ -6372,7 +6372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133637261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.48, y: 4.81, z: 0}
+  m_LocalPosition: {x: -16.560001, y: 4.81, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children:
   - {fileID: 690475526}
@@ -6392,8 +6392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b670a18ded0c03d479cdd2217affdb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 941184706}
-  parallaxAmount: 0.31
+  parallaxAmount: {x: 0.15, y: 0.15}
 --- !u!212 &1133637264
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7585,7 +7584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414035759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 4.34, z: 0}
+  m_LocalPosition: {x: -17.140001, y: 4.34, z: 0}
   m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_Children:
   - {fileID: 737385435}
@@ -7605,8 +7604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b670a18ded0c03d479cdd2217affdb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 941184706}
-  parallaxAmount: 0.712
+  parallaxAmount: {x: 0.1, y: 0.1}
 --- !u!212 &1414035762
 SpriteRenderer:
   m_ObjectHideFlags: 0
