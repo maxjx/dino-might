@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
@@ -76,8 +77,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
         // 2nd argument is spawnPointNumber, indicates where its corresponding spawn point is, cached in the Respawner
         // Player's spawnPointNumber = 0
-        if (Respawner.Instance != null)
+        try
+        {
             Respawner.Instance.RespawnCharacter(gameObject, 0);
+        }
+        catch (NullReferenceException e)
+        {
+            Console.WriteLine("{0}, respawner not found in scene", e);
+        }
 
         gameObject.SetActive(false);
     }
