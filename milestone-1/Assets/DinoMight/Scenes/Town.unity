@@ -217,8 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b670a18ded0c03d479cdd2217affdb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1721580559}
-  parallaxAmount: 0.31
+  parallaxAmount: {x: 0, y: 0}
 --- !u!1 &31732288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3556,7 +3555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 7
-  sceneName: null
+  sceneName: Level 2 - 2
   levelTransitionObj: {fileID: 452277695}
 --- !u!61 &385325593
 BoxCollider2D:
@@ -4982,8 +4981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b670a18ded0c03d479cdd2217affdb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1721580559}
-  parallaxAmount: 0
+  parallaxAmount: {x: 0, y: 0}
 --- !u!1 &508639013
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,8 +5596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b670a18ded0c03d479cdd2217affdb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1721580559}
-  parallaxAmount: 0.712
+  parallaxAmount: {x: 0, y: 0}
 --- !u!1001 &605699892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7213,8 +7210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b670a18ded0c03d479cdd2217affdb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1721580559}
-  parallaxAmount: 1
+  parallaxAmount: {x: 0, y: 0}
 --- !u!1 &867041307
 GameObject:
   m_ObjectHideFlags: 0
@@ -7816,8 +7812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6a5a6c2d0704c16b4cf891c617c6a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 3
-  sceneName: null
+  index: -1
+  sceneName: Level 1 - 1
   levelTransitionObj: {fileID: 452277695}
 --- !u!61 &955947279
 BoxCollider2D:
@@ -16522,8 +16518,8 @@ MonoBehaviour:
   prompt: {fileID: 883597634}
   autoTrigger: 0
   index: -1
-  sceneName: M - Candy
-  levelTransitionObj: {fileID: 0}
+  sceneName: Wizard Tower
+  levelTransitionObj: {fileID: 452277695}
 --- !u!61 &2021599000
 BoxCollider2D:
   m_ObjectHideFlags: 0
