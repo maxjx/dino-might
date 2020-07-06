@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
     public int maxHealth = 5;
     public int currentHealth;
     public GameObject deathPrefab;  // Death animation, intentionally seperated from player
-    public Respawner respawner;
     public HealthBar healthBar;     // This is a health bar object that needs to be created externally.
 
     private Animator animator;
@@ -77,8 +77,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
         // 2nd argument is spawnPointNumber, indicates where its corresponding spawn point is, cached in the Respawner
         // Player's spawnPointNumber = 0
-        if (respawner != null)
-            respawner.RespawnCharacter(gameObject, 0);
+        try
+        {
+            Respawner.Instance.RespawnCharacter(gameObject, 0);
+        }
+        catch (NullReferenceException e)
+        {
+            Console.WriteLine("{0}, respawner not found in scene", e);
+        }
 
         gameObject.SetActive(false);
     }
