@@ -2,26 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Actions
-{
-    JumpAttack,     //0
-    Attack,         //1
-    JumpForward,    //2
-    Summon,         //3
-    Walk            //4
-}
-
 public class Boss2Logic : MonoBehaviour
 {
     public GameObject player;
 
     private Animator animator;
+    private BoxCollider2D thisCollider;
+    private Vector2 jumpAttackColliderOffset = new Vector2(1.14f, 0);
+    private Vector2 jumpForwardColliderOffset = new Vector2(0.924f, 0);
+
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        
+        thisCollider = GetComponent<BoxCollider2D>();
     }
 
     public void FinishTalking()
@@ -31,11 +26,29 @@ public class Boss2Logic : MonoBehaviour
 
     public void DoNextAction()
     {
-        animator.SetInteger("nextMove", CalculateBestMove());
+        float distanceFromPlayer = (transform.position - player.transform.position).magnitude;
+        Debug.Log(distanceFromPlayer);
+        animator.SetFloat("distanceFromPlayer", distanceFromPlayer);
     }
 
-    private int CalculateBestMove()
+    public void ToggleCollider()
     {
-        return 0;
+        thisCollider.enabled = !(thisCollider.enabled);
+    }
+
+    // for jumping animation states
+    public void OffsetCollider(int index)
+    {
+        switch (index)
+        {
+            case 1:
+                thisCollider.offset = jumpAttackColliderOffset;
+                break;
+            case 2:
+                thisCollider.offset = jumpForwardColliderOffset;
+                break;
+            default:
+                break;
+        }
     }
 }
