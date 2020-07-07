@@ -71,7 +71,10 @@ public class CharacterController2D : MonoBehaviour
         {
             if (!colliders[i].gameObject.CompareTag("Player"))
             {
-                m_Grounded = true;
+                if (m_Rigidbody2D.velocity.y == 0)
+                {
+                    m_Grounded = true;
+                }
                 if (!wasGrounded && falling)
                 {
                     OnLandEvent.Invoke();
