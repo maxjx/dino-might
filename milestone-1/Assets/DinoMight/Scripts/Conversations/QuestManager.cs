@@ -7,7 +7,6 @@ public class QuestManager : MonoBehaviour
 {
     public GameObject questToggleButton;
     public TextMeshProUGUI questBoardText;
-    public bool isInTown = false;
 
     private int questNumber;
 
@@ -16,7 +15,7 @@ public class QuestManager : MonoBehaviour
     {
         questNumber = Global.questNumber;
 
-        if (questNumber != 0 || !isInTown)
+        if (questNumber != 0)
         {
             ShowQuestButton();
             UpdateQuestText();
@@ -58,7 +57,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void AcceptQuest()
+    public void IncrementQuest()
     {
         questToggleButton.SetActive(true);
         Global.questNumber++;
