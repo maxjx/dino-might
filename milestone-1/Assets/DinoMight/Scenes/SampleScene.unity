@@ -9664,8 +9664,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.8
+      scalar: 0.4
+      minScalar: 0.6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10242,7 +10242,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.24
+      value: 0.33
       mode: 0
       spread: 0
       speed:
@@ -10361,7 +10361,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -10487,12 +10487,12 @@ ParticleSystem:
           outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: -2
-          outSlope: -2
+          value: 0.6351368
+          inSlope: -1.2173793
+          outSlope: -1.2173793
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.15540552
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -10800,7 +10800,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.975422, g: 1, b: 0.740566, a: 1}
-        key1: {r: 1, g: 0.6064774, b: 0.36320752, a: 0}
+        key1: {r: 1, g: 0.7466807, b: 0.5896226, a: 0}
         key2: {r: 1, g: 0.6084906, b: 0.6084906, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -10815,7 +10815,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 29491
+        atime0: 36237
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -14194,7 +14194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991410582}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.24, y: 4.46, z: -3.9990234}
+  m_LocalPosition: {x: -4.14, y: 4.46, z: -3.9990234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

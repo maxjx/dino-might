@@ -60,4 +60,9 @@ public class DialogueTrigger : MonoBehaviour
             prompt.SetActive(false);
         }
     }
+
+    public void TurnOnPrompt()
+    {
+        prompt.SetActive(true);
+    }
 }
