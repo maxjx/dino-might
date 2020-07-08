@@ -41,7 +41,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void TriggerDialogue()
     {
-        manager.StartDialogue();
+        manager.StartDialogue(this);
         manager.ToggleDisplayName(NPCName);
     }
 

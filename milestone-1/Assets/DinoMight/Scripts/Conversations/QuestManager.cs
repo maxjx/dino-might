@@ -36,18 +36,22 @@ public class QuestManager : MonoBehaviour
         switch (questNumber)
         {
             case 1:
+                // tutorial level
+                questBoardText.text = "Follow the path towards the right for now and step past the tree at the end of the path.";
+                break;
+            case 2:
                 // king quest
                 questBoardText.text = "Your boss is calling you and he sounds angry!\nFind him down the path to the west of the town, all the way down!";
                 break;
-            case 2:
+            case 3:
                 // after king is defeated
                 questBoardText.text = "Nice job defeating that! Find the old guy in town for more instructions to get home!";
                 break;
-            case 3:
+            case 4:
                 // level 3 temp quest
                 questBoardText.text = "Old man tells you to go to the north east of the town to find your way home. Finally!";
                 break;
-            case 4:
+            case 5:
                 // lvl 3 fin
                 questBoardText.text = "Why am i back here?? This might be a bug, tell the game masters!";
                 break;

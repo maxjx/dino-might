@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour
     //private Animator escapeButton;
     private Dialogue currentDialogue;
     private List<Dialogue> dialogueList = new List<Dialogue>();    // list of dialogues under canvas that are entry points to the dialogue thread
+    private DialogueTrigger npcTrigger;     //DEPENDENCY
+    
     private playerMovement pm;
     private Attack attack;
     private PlayerHealth health;
@@ -134,8 +136,13 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public void StartDialogue()
+    public void StartDialogue(DialogueTrigger trigger)
     {
+        if (npcTrigger == null)
+        {
+            npcTrigger = trigger;
+        }
+
         dialogueBackground.SetTrigger("entry");
         //escapeButton.SetTrigger("entry");
 
@@ -179,6 +186,11 @@ public class DialogueManager : MonoBehaviour
             NPCCamera.SetActive(false);
         }
         ToggleEnablePlayer();
+
+        if (npcTrigger != null)
+        {
+            npcTrigger.TurnOnPrompt();
+        }
     }
 
     public void ToggleDisplayName(string NPCName)

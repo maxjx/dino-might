@@ -5,7 +5,7 @@ using UnityEngine;
 public class ToggleActivation : MonoBehaviour
 {
     public bool activated = false;
-    public float delayedDeactivateDuration = 3f;
+    public float delayedDeactivateDuration = 1.5f;
     public bool delaying = false;
     
     private float timer = 0;
