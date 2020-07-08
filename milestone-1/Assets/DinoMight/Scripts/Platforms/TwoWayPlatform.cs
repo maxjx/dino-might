@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TwoWay : MonoBehaviour
+public class TwoWayPlatform : MonoBehaviour
 {
     private PlatformEffector2D effector;
     // Start is called before the first frame update
@@ -14,22 +14,16 @@ public class TwoWay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.DownArrow) ||
-            Input.GetKeyDown(KeyCode.S)) {
-            effector.rotationalOffset = 180f;
-            StartCoroutine(Reset());
+        if(Input.GetKey(KeyCode.DownArrow) ||
+            Input.GetKey(KeyCode.S)) {
+            effector.rotationalOffset = 180f; 
         }
 
-        // Bug resolved in the charactercontroller2D script
+        // Potentially might have bug, resolve by delaying rotation back to normal?
         if(Input.GetKey(KeyCode.UpArrow) ||
             Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)) {
             effector.rotationalOffset = 0f;
         }
     }
 
-    private IEnumerator Reset()
-    {
-        yield return new WaitForSeconds(0.3f);
-        effector.rotationalOffset = 0f;
-    }
 }
