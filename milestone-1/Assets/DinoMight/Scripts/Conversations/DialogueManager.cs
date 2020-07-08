@@ -207,7 +207,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // used by Dialogue to tell this manager that that Dialogue is the current and latest Dialogue triggered
+    // used by Dialogue script to tell this manager that that Dialogue is the current and latest Dialogue triggered
     public void UpdateDialogueRef(Dialogue d)
     {
         currentDialogue = d;
