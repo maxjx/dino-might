@@ -12,7 +12,7 @@ public class Dialogue : MonoBehaviour
     public string[] sentences;
     public Button[] choices;
     public bool tutorial = false;                   // To toggle tutorial instruction
-    public Image tutorialInstruction;     // "Press any key to continue"
+    public ToggleActivation tutorialInstruction;     // "Press any key to continue"
 
     private TextMeshProUGUI textBox;
     private int index = 0;
@@ -39,12 +39,10 @@ public class Dialogue : MonoBehaviour
         }
         else if (typing)
         {
-            if (Input.GetMouseButtonDown(0)
-                || Input.GetMouseButtonDown(1)
-                || Input.GetMouseButtonDown(2))
-                {
-                    FinishSentence();
-                }
+            if (Input.anyKeyDown)
+            {
+                FinishSentence();
+            }
         }
     }
 
@@ -58,12 +56,6 @@ public class Dialogue : MonoBehaviour
     {
         if (index < sentences.Length)
         {
-            if (tutorial && index >= 1)
-            {
-                tutorialInstruction.gameObject.SetActive(false);
-                tutorial = false;
-            }
-
             conversing = true;
             manager.UpdateDialogueRef(this);        // Tells manager that this is the latest dialogue
             textBox.text = "";
@@ -73,8 +65,9 @@ public class Dialogue : MonoBehaviour
             // Show "press any key to continue"
             if (tutorial && index == 0)
             {
-                yield return new WaitForSeconds(0.3f);
-                tutorialInstruction.gameObject.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+                tutorialInstruction.Activate();
+                tutorial = false;
             }
 
             index++;
@@ -109,6 +102,11 @@ public class Dialogue : MonoBehaviour
     void FinishSentence()
     {
         StopCoroutine(typingcoroutine);
+
+        if (index >= sentences.Length)
+        {
+            index = sentences.Length - 1;
+        }
         textBox.text = sentences[index];
         index++;
         typing = false;

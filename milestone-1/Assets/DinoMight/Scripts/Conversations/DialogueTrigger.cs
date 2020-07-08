@@ -41,7 +41,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void TriggerDialogue()
     {
-        manager.StartDialogue();
+        manager.StartDialogue(this);
         manager.ToggleDisplayName(NPCName);
     }
 
@@ -59,5 +59,10 @@ public class DialogueTrigger : MonoBehaviour
         {
             prompt.SetActive(false);
         }
+    }
+
+    public void TurnOnPrompt()
+    {
+        prompt.SetActive(true);
     }
 }

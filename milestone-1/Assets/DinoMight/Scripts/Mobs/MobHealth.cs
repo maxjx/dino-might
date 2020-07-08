@@ -10,6 +10,7 @@ public class MobHealth : MonoBehaviour, IHealth
     public int currentHealth;
     public ParticleSystem deathExplosion;
     public bool allowKnockback = true;
+    public bool canRespawn = true;
 
     private Animator animator;
     private Rigidbody2D m_rigidbody;
@@ -59,7 +60,7 @@ public class MobHealth : MonoBehaviour, IHealth
         deathExplosion.transform.position = transform.position;
         deathExplosion.Play();
 
-        if (Respawner.Instance != null)
+        if (Respawner.Instance != null && canRespawn)
         {
             Respawner.Instance.RespawnCharacter(gameObject, spawnNumber);
         }
