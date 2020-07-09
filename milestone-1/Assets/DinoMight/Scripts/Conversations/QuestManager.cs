@@ -42,15 +42,15 @@ public class QuestManager : MonoBehaviour
             case 2:
                 // out of tutorial
                 questBoardText.text = "Someone in town with the yellow '!' needs your help!";
-                break;      //Your boss is calling you and he sounds angry!\nFind him down the path to the west of the town, all the way down!
+                break;
             case 3:
-                // after king is defeated
-                questBoardText.text = "Nice job defeating that! Find the old guy in town for more instructions to get home!";
+                // king quest
+                questBoardText.text = "Find the King of west to the west of the town!";
                 break;
             case 4:
-                // level 3 temp quest
-                questBoardText.text = "Old man tells you to go to the north east of the town to find your way home. Finally!";
-                break;
+                // king defeated
+                questBoardText.text = "Nice job defeating that! Find the wizard in town for more instructions to get home!";
+                break;      //Old man tells you to go to the north east of the town to find your way home. Finally!
             case 5:
                 // lvl 3 fin
                 questBoardText.text = "Why am i back here?? This might be a bug, tell the game masters!";

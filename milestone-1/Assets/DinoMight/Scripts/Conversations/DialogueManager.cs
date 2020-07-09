@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
 {
     public string DM_tag;    // this gameobject's own tag, make sure it is unique
     public List<Canvas> dialogueCanvases;   // Each dialogue canvas stores the dialogues that form 1 whole conversation. 
+    public List<int> dialogueCanvasesTaskValue;     // Each Value corresponds to the task number that the same element in dialogue canvases corresponds to.
     public GameObject NPCCamera;            // Optional, depends on whether there is a need for zooming in
     public GameObject player;
     public bool recordConvo = true;
@@ -20,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue currentDialogue;
     private List<Dialogue> dialogueList = new List<Dialogue>();    // list of dialogues under canvas that are entry points to the dialogue thread
     private DialogueTrigger npcTrigger;     //DEPENDENCY
-    
+
     private playerMovement pm;
     private Attack attack;
     private PlayerHealth health;
@@ -40,22 +41,39 @@ public class DialogueManager : MonoBehaviour
         // Canvas to use: Global.questNumber == 0 || 1 - canvas[0], 2 || 3 - canvas[1], ...
         if (dialogueCanvases.Count > 1)
         {
-            switch (Global.questNumber)
+            // switch (Global.questNumber)
+            // {
+            //     case 0:
+            //     case 1:
+            //         dialogueCanvas = dialogueCanvases[0];
+            //         break;
+            //     case 2:
+            //         dialogueCanvas = dialogueCanvases[1];
+            //         // Restart dialogue since new dialogue
+            //         RecordDialogueIdInGlobal(0);
+            //         break;
+            //     case 3:
+            //         dialogueCanvas = dialogueCanvases[1];
+            //         break;
+            //     default:
+            //         break;
+            // }
+            int index = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
+            if (index != null)
             {
-                case 0:
-                case 1:
-                    dialogueCanvas = dialogueCanvases[0];
-                    break;
-                case 2:
-                    dialogueCanvas = dialogueCanvases[1];
-                    // Restart dialogue since new dialogue
-                    RecordDialogueIdInGlobal(0);
-                    break;
-                case 3:
-                    dialogueCanvas = dialogueCanvases[1];
-                    break;
-                default:
-                    break;
+                dialogueCanvas = dialogueCanvases[index];
+            }
+            else
+            {
+                // quest number must be nearest value but smaller to use that canvas
+                for (int i = 0; i < dialogueCanvasesTaskValue.Count; i++)
+                {
+                    if (Global.questNumber < dialogueCanvasesTaskValue[i])
+                    {
+                        dialogueCanvas = dialogueCanvases[i];
+                        break;
+                    }
+                }
             }
         }
         else
