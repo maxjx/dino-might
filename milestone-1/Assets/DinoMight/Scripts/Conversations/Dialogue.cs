@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class Dialogue : MonoBehaviour
 {
     public DialogueManager manager;
+    public string altName;                // alternate name for 2 way conversation. Once written, all subsequent dialogues must be given altNames.
     public float typingSpeed = 0.01f;
     [TextArea(3, 5)]
     public string[] sentences;
     public Button[] choices;
+    public Dialogue nextDialogue;                   // Only used if choices size == 0 and nextDialogue != null
     public bool tutorial = false;                   // To toggle tutorial instruction
     public ToggleActivation tutorialInstruction;     // "Press any key to continue"
 
@@ -46,9 +48,13 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    // Is accessed by DialogueTrigger and Buttons
+    // Is accessed by DialogueTrigger and Buttons and flowing dialogues
     public void NextSentence()
     {
+        if (altName != "")
+        {
+            manager.SwitchName(altName);
+        }
         StartCoroutine(NextSentenceCoroutine());
     }
 
@@ -76,8 +82,16 @@ public class Dialogue : MonoBehaviour
         {
             if (choices.Length == 0)    // This is the last dialogue
             {
-                textBox.text = "";
-                manager.EndDialogues();
+                if (nextDialogue != null)
+                {
+                    this.EndDialogue();
+                    nextDialogue.NextSentence();
+                }
+                else
+                {
+                    textBox.text = "";
+                    manager.EndDialogues();
+                }
             }
             else
             {
