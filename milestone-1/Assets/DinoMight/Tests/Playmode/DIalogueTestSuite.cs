@@ -32,6 +32,17 @@ namespace Tests
             Assert.AreEqual(player.transform.position, npc.transform.position);
         }
 
+        [Test]
+        public void CorrectCanvasWhenQuestIsLessThanValues()
+        {
+            DialogueManager dm = new GameObject().AddComponent<DialogueManager>();
+            dm.player = player;
+            dm.dialogueCanvasesTaskValue = new List<int>(){ 2, 4 };
+            Global.questNumber = 1;
+
+            Assert.AreEqual(0, dm.GetIndex());
+        }
+
         // [UnityTest]
         // public IEnumerator PromptWhenPlayerIsInNPCCollider()
         // {
