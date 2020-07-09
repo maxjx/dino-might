@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject NPCCamera;            // Optional, depends on whether there is a need for zooming in
     public GameObject player;
     public bool recordConvo = true;
+    [Space]
+    public UnityEvent startDialoguesEvent;    // invokes these events when start dialogues triggered
+    public UnityEvent endDialoguesEvent;    // invokes these events when end dialogues triggered
 
     private Canvas dialogueCanvas;           // This dialogueCanvas refers to the chosen 1 that fits the story at this point in time.
     private Animator dialogueBackground;
@@ -33,10 +37,13 @@ public class DialogueManager : MonoBehaviour
         pm = player.GetComponent<playerMovement>();
         attack = player.GetComponent<Attack>();
         health = player.GetComponent<PlayerHealth>();
-    }
 
-    void Start()
-    {
+        if (endDialoguesEvent == null)
+            endDialoguesEvent = new UnityEvent();
+        // }
+
+        // void Start()
+        // {
         // Choose dialogue canvas from list
         // Canvas to use: Global.questNumber == 0 || 1 - canvas[0], 2 || 3 - canvas[1], ...
         if (dialogueCanvases.Count > 1)
@@ -58,23 +65,7 @@ public class DialogueManager : MonoBehaviour
             //     default:
             //         break;
             // }
-            int index = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
-            if (index != null)
-            {
-                dialogueCanvas = dialogueCanvases[index];
-            }
-            else
-            {
-                // quest number must be nearest value but smaller to use that canvas
-                for (int i = 0; i < dialogueCanvasesTaskValue.Count; i++)
-                {
-                    if (Global.questNumber < dialogueCanvasesTaskValue[i])
-                    {
-                        dialogueCanvas = dialogueCanvases[i];
-                        break;
-                    }
-                }
-            }
+            dialogueCanvas = dialogueCanvases[GetIndex()];
         }
         else
         {
@@ -153,9 +144,31 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public int GetIndex()
+    {
+        int index = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
+        if (index != -1)
+        {
+            return index;
+        }
+        else
+        {
+            // quest number must be nearest value but not smaller to use that canvas
+            for (int i = 0; i < dialogueCanvasesTaskValue.Count; i++)
+            {
+                if (Global.questNumber < dialogueCanvasesTaskValue[i])
+                {
+                    return i;
+                }
+            }
+            return dialogueCanvasesTaskValue.Count;
+        }
+    }
 
     public void StartDialogue(DialogueTrigger trigger)
     {
+        startDialoguesEvent.Invoke();
+
         if (npcTrigger == null)
         {
             npcTrigger = trigger;
@@ -209,6 +222,8 @@ public class DialogueManager : MonoBehaviour
         {
             npcTrigger.TurnOnPrompt();
         }
+
+        endDialoguesEvent.Invoke();
     }
 
     public void ToggleDisplayName(string NPCName)
@@ -221,6 +236,19 @@ public class DialogueManager : MonoBehaviour
         else
         {
             nameBox.text = NPCName;
+            nameDisplayed = true;
+        }
+    }
+
+    public void SwitchName(string name)
+    {
+        if (nameDisplayed)
+        {
+            nameBox.text = name;
+        }
+        else
+        {
+            nameBox.text = name;
             nameDisplayed = true;
         }
     }
