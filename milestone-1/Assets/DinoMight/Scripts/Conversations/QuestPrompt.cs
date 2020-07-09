@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestPrompt : MonoBehaviour
 {
+    public List<int> taskNumbers;       // List of task numbers that make the quest prompt show
     private int questNumber;
     private Animator animator;
 
@@ -13,7 +14,7 @@ public class QuestPrompt : MonoBehaviour
         questNumber = Global.questNumber;
         animator = GetComponent<Animator>();
 
-        if (questNumber%2 == 0)     // questNumber = 0 returns true
+        if (taskNumbers.Contains(questNumber))     // questNumber = 0 returns true
         {
             ShowQuestPrompt();
         }
