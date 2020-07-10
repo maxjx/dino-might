@@ -10853,12 +10853,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1630433171}
+  altName: 
   typingSpeed: 0.01
   sentences:
-  - A terrible enemy resides here, are you sure you want to enter?
+  - A terrible enemy resides here, are you sure you want to enter? Have you saved
+    the game?
   choices:
   - {fileID: 6694647344292453561}
   - {fileID: 6694647344098474710}
+  nextDialogue: {fileID: 0}
   tutorial: 0
   tutorialInstruction: {fileID: 0}
 --- !u!1 &6694647344054621821
@@ -11618,6 +11621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 813739997}
+  altName: 
   typingSpeed: 0.01
   sentences:
   - Oh hey we meet again... I'm kind of wondering...
@@ -11627,6 +11631,7 @@ MonoBehaviour:
   choices:
   - {fileID: 7301570542460067448}
   - {fileID: 7301570542251407383}
+  nextDialogue: {fileID: 0}
   tutorial: 0
   tutorialInstruction: {fileID: 0}
 --- !u!222 &7301570542199035041
@@ -12254,11 +12259,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 813739997}
+  altName: 
   typingSpeed: 0.01
   sentences:
   - That sounds convincing, thanks for the advice!
   - By the way, you can right click to shoot a fireball. Awesome, right?
   choices: []
+  nextDialogue: {fileID: 0}
   tutorial: 0
   tutorialInstruction: {fileID: 0}
 --- !u!222 &7301570542648638385
@@ -12944,12 +12951,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 813739997}
+  altName: 
   typingSpeed: 0.01
   sentences:
   - "Sigh, I will be so tired\u2026 Oh well\u2026 I'll listen to the words of a responsible
     mister."
   - By the way, you can right click to shoot a fireball. Awesome, right?
   choices: []
+  nextDialogue: {fileID: 0}
   tutorial: 0
   tutorialInstruction: {fileID: 0}
 --- !u!222 &7301570543826016767
