@@ -10,11 +10,12 @@ public class MiniRocksLogic : MonoBehaviour
     void OnEnable()
     {
         GetComponent<Rigidbody2D>().AddRelativeForce(transform.up*strength);
-        Invoke("Die", 3f);
+        StartCoroutine(Die());
     }
 
-    void Die()
+    IEnumerator Die()
     {
+        yield return new WaitForSeconds(3f);
         GetComponent<MobHealth>().Die();
     }
 }
