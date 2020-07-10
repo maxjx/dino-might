@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss2Logic : MonoBehaviour
 {
     public GameObject player;
+    public GameObject TeleportShrine;
 
     private Animator animator;
     private BoxCollider2D thisCollider;
@@ -19,15 +20,9 @@ public class Boss2Logic : MonoBehaviour
         thisCollider = GetComponent<BoxCollider2D>();
     }
 
-    public void FinishTalking()
-    {
-        animator.SetBool("talking", false);
-    }
-
     public void DoNextAction()
     {
         float distanceFromPlayer = (transform.position - player.transform.position).magnitude;
-        Debug.Log(distanceFromPlayer);
         animator.SetFloat("distanceFromPlayer", distanceFromPlayer);
     }
 
@@ -50,5 +45,10 @@ public class Boss2Logic : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void ActivateShrine()
+    {
+        TeleportShrine.SetActive(true);
     }
 }
