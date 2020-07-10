@@ -4866,7 +4866,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 2072640275240368233, guid: fe6dc15e757f34085883ee758eb6e805,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4960,7 +4960,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4119
+    m_Bits: 4117
   m_GroundCheck: {fileID: 1471507953848487343}
   m_CeilingCheck: {fileID: 1471507955010782964}
   m_CrouchResizeCollider: {fileID: 1471507954652336059}
@@ -5066,9 +5066,7 @@ MonoBehaviour:
   currentHealth: 0
   deathPrefab: {fileID: 3805308594577563534, guid: 942d742119ba4394f9e88f6f24f74d85,
     type: 3}
-  respawner: {fileID: 0}
-  healthBar: {fileID: 5126192519594144456, guid: e2ebb2fdbb2edb543b15dae300a15a3e,
-    type: 3}
+  healthBar: {fileID: 0}
 --- !u!1 &1471507954997537492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5141,7 +5139,7 @@ GameObject:
   m_Layer: 0
   m_Name: kickPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
