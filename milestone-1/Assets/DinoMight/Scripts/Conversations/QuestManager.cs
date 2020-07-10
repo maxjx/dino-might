@@ -16,7 +16,9 @@ public class QuestManager : MonoBehaviour
         "Find the King of west to the west of the town! Woowee, deeper into the forest~",           // king quest
         "Nice job defeating that! Find the wizard in town for more instructions to get home!",      // king defeated
         "Hone your skills in the upper lounge if you want to!",                                     // after giving W crown of time
-        "Head south east towards the right side of the town and get through the magical caves to find the master in the south." // 2nd arc
+        "Head south east towards the right side of the town and get through the magical caves to find the master in the south.", // 2nd arc
+        "Great! Now get the loot back to the wizard!",   // after defeating master
+        ""      // last boss
     };
 
     // Start is called before the first frame update

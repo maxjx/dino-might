@@ -40,7 +40,7 @@ namespace Tests
             dm.dialogueCanvasesTaskValue = new List<int>(){ 2, 4 };
             Global.questNumber = 1;
 
-            Assert.AreEqual(0, dm.GetIndex());
+            Assert.AreEqual(0, dm.GetCanvasIndex());
         }
 
         // [UnityTest]
