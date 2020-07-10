@@ -41,8 +41,8 @@ public class DialogueTrigger : MonoBehaviour
 
     void TriggerDialogue()
     {
-        manager.StartDialogue(this);
         manager.ToggleDisplayName(NPCName);
+        manager.StartDialogue(this);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
