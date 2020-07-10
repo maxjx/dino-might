@@ -4,14 +4,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
     public string DM_tag;    // this gameobject's own tag, make sure it is unique
     public List<Canvas> dialogueCanvases;   // Each dialogue canvas stores the dialogues that form 1 whole conversation. 
+    public List<int> dialogueCanvasesTaskValue;     // Each Value corresponds to the task number that the same element in dialogue canvases corresponds to.
     public GameObject NPCCamera;            // Optional, depends on whether there is a need for zooming in
     public GameObject player;
     public bool recordConvo = true;
+    [Space]
+    public UnityEvent startDialoguesEvent;    // invokes these events when start dialogues triggered
+    public UnityEvent endDialoguesEvent;    // invokes these events when end dialogues triggered
 
     private Canvas dialogueCanvas;           // This dialogueCanvas refers to the chosen 1 that fits the story at this point in time.
     private Animator dialogueBackground;
@@ -20,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue currentDialogue;
     private List<Dialogue> dialogueList = new List<Dialogue>();    // list of dialogues under canvas that are entry points to the dialogue thread
     private DialogueTrigger npcTrigger;     //DEPENDENCY
-    
+
     private playerMovement pm;
     private Attack attack;
     private PlayerHealth health;
@@ -32,31 +37,35 @@ public class DialogueManager : MonoBehaviour
         pm = player.GetComponent<playerMovement>();
         attack = player.GetComponent<Attack>();
         health = player.GetComponent<PlayerHealth>();
-    }
 
-    void Start()
-    {
+        if (endDialoguesEvent == null)
+            endDialoguesEvent = new UnityEvent();
+        // }
+
+        // void Start()
+        // {
         // Choose dialogue canvas from list
         // Canvas to use: Global.questNumber == 0 || 1 - canvas[0], 2 || 3 - canvas[1], ...
         if (dialogueCanvases.Count > 1)
         {
-            switch (Global.questNumber)
-            {
-                case 0:
-                case 1:
-                    dialogueCanvas = dialogueCanvases[0];
-                    break;
-                case 2:
-                    dialogueCanvas = dialogueCanvases[1];
-                    // Restart dialogue since new dialogue
-                    RecordDialogueIdInGlobal(0);
-                    break;
-                case 3:
-                    dialogueCanvas = dialogueCanvases[1];
-                    break;
-                default:
-                    break;
-            }
+            // switch (Global.questNumber)
+            // {
+            //     case 0:
+            //     case 1:
+            //         dialogueCanvas = dialogueCanvases[0];
+            //         break;
+            //     case 2:
+            //         dialogueCanvas = dialogueCanvases[1];
+            //         // Restart dialogue since new dialogue
+            //         RecordDialogueIdInGlobal(0);
+            //         break;
+            //     case 3:
+            //         dialogueCanvas = dialogueCanvases[1];
+            //         break;
+            //     default:
+            //         break;
+            // }
+            dialogueCanvas = dialogueCanvases[GetIndex()];
         }
         else
         {
@@ -135,9 +144,31 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public int GetIndex()
+    {
+        int index = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
+        if (index != -1)
+        {
+            return index;
+        }
+        else
+        {
+            // quest number must be nearest value but not smaller to use that canvas
+            for (int i = 0; i < dialogueCanvasesTaskValue.Count; i++)
+            {
+                if (Global.questNumber < dialogueCanvasesTaskValue[i])
+                {
+                    return i;
+                }
+            }
+            return dialogueCanvasesTaskValue.Count;
+        }
+    }
 
     public void StartDialogue(DialogueTrigger trigger)
     {
+        startDialoguesEvent.Invoke();
+
         if (npcTrigger == null)
         {
             npcTrigger = trigger;
@@ -191,6 +222,8 @@ public class DialogueManager : MonoBehaviour
         {
             npcTrigger.TurnOnPrompt();
         }
+
+        endDialoguesEvent.Invoke();
     }
 
     public void ToggleDisplayName(string NPCName)
@@ -207,7 +240,20 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // used by Dialogue to tell this manager that that Dialogue is the current and latest Dialogue triggered
+    public void SwitchName(string name)
+    {
+        if (nameDisplayed)
+        {
+            nameBox.text = name;
+        }
+        else
+        {
+            nameBox.text = name;
+            nameDisplayed = true;
+        }
+    }
+
+    // used by Dialogue script to tell this manager that that Dialogue is the current and latest Dialogue triggered
     public void UpdateDialogueRef(Dialogue d)
     {
         currentDialogue = d;

@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     public DialogueManager manager;
     public GameObject prompt;
     public string NPCName;
-    public bool autoTrigger = false;        // For making dialogues with ownself
+    public bool autoTrigger = false;        // For making dialogues with ownself, still have to go into collider
     private bool autoTriggered = false;
 
     void Start()

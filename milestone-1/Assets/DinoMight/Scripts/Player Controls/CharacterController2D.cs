@@ -20,7 +20,7 @@ public class CharacterController2D : MonoBehaviour
     private Vector2 crouchColliderSize = new Vector2(0.66f, 0.33f);
     private Vector2 crouchColliderOffset = new Vector2(0.13f, 0.03f);
 
-    const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+    const float k_GroundedRadius = .02f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded = true;            // Whether or not the player is grounded.
     private bool falling = false;
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
@@ -161,6 +161,7 @@ public class CharacterController2D : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
+            m_Rigidbody2D.velocity = Vector2.zero;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 
             CreateDust();
