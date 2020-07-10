@@ -683,7 +683,7 @@ MonoBehaviour:
   altName: 
   typingSpeed: 0.01
   sentences:
-  - Go on.
+  - Great. Watch out for traps.
   choices: []
   nextDialogue: {fileID: 0}
   tutorial: 0
@@ -7097,7 +7097,7 @@ MonoBehaviour:
   altName: 
   typingSpeed: 0.01
   sentences:
-  - Have you talked to the old man yet?
+  - Have you talked to the wizard yet?
   choices:
   - {fileID: 1114967285}
   - {fileID: 1877283511}
@@ -21707,7 +21707,12 @@ PrefabInstance:
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: dialogueCanvases.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
+        type: 3}
+      propertyPath: dialogueCanvasesTaskValue.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
@@ -21753,6 +21758,16 @@ PrefabInstance:
         type: 3}
       propertyPath: DM_tag
       value: RedDM
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
+        type: 3}
+      propertyPath: dialogueCanvasesTaskValue.Array.data[0]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
+        type: 3}
+      propertyPath: dialogueCanvasesTaskValue.Array.data[1]
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2810647202009954046, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
@@ -27863,21 +27878,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestPrompt
       objectReference: {fileID: 0}
-    - target: {fileID: 8044215237762446500, guid: 6f599ced647231343a044e3b155c2dfa,
-        type: 3}
-      propertyPath: taskNumbers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8044215237762446500, guid: 6f599ced647231343a044e3b155c2dfa,
-        type: 3}
-      propertyPath: taskNumbers.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8044215237762446500, guid: 6f599ced647231343a044e3b155c2dfa,
-        type: 3}
-      propertyPath: taskNumbers.Array.data[1]
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f599ced647231343a044e3b155c2dfa, type: 3}
 --- !u!222 &9063346394015953568
@@ -28398,8 +28398,7 @@ MonoBehaviour:
   altName: 
   typingSpeed: 0.01
   sentences:
-  - "I don\u2019t think your level is high enough for the <Insert map name>, train
-    more at the <Insert map name> first."
+  - The wizard wants to see you first.
   choices: []
   nextDialogue: {fileID: 0}
   tutorial: 0

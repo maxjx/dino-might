@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     public UnityEvent endDialoguesEvent;    // invokes these events when end dialogues triggered
 
     private Canvas dialogueCanvas;           // This dialogueCanvas refers to the chosen 1 that fits the story at this point in time.
+    private int previousCanvasId = 0;           // to know when to reset dialogue id in global
     private Animator dialogueBackground;
     private TextMeshProUGUI nameBox;         // TMPro textbox for name
     //private Animator escapeButton;
@@ -65,7 +66,13 @@ public class DialogueManager : MonoBehaviour
             //     default:
             //         break;
             // }
-            dialogueCanvas = dialogueCanvases[GetIndex()];
+            int canvasIndex = GetCanvasIndex();
+            if (canvasIndex != previousCanvasId)
+            {
+                RecordDialogueIdInGlobal(0);
+            }
+            dialogueCanvas = dialogueCanvases[canvasIndex];
+            previousCanvasId = canvasIndex;
         }
         else
         {
@@ -144,7 +151,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public int GetIndex()
+    public int GetCanvasIndex()
     {
         int index = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
         if (index != -1)
