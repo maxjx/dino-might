@@ -42,7 +42,7 @@ namespace Tests
             Global.priorities = 1;
             Global.challenges = 2;
             Global.habits = 0;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
 
             Assert.AreEqual(1, bar1.value);
             Assert.AreEqual(2, bar2.value);
@@ -55,7 +55,7 @@ namespace Tests
             Global.priorities = 1;
             Global.challenges = 2;
             Global.habits = 0;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
 
             Assert.AreEqual(0.5f, bar1.normalizedValue);
             Assert.AreEqual(1, bar2.normalizedValue);
