@@ -14,9 +14,13 @@ public class SummaryCatBar : MonoBehaviour
     private Slider Sliderfill;
     private float updateSpeedSeconds = 0.5f;
 
-    void Start()
+    void Awake()
     {
         Sliderfill = GetComponent<Slider>();
+    }
+
+    void Start()
+    {
         Sliderfill.maxValue = 2;
         Sliderfill.value = GetFillValue();
         StartCoroutine(FillUp(Sliderfill.value));

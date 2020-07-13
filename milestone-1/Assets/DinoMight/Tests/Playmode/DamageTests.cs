@@ -42,6 +42,21 @@ namespace Tests
         }
 
         [UnityTest]
+        public IEnumerator PlayerDoesNotGetHurtByProximityAttackFarAway()
+        {
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+
+            int beforeHealth = playerHealth.currentHealth;
+            player.transform.position = Vector3.zero;
+            mob.transform.position = new Vector3(100f, 0, 0);
+
+            yield return new WaitForSeconds(0.01f);
+            int afterHealth = playerHealth.currentHealth;
+
+            Assert.AreEqual(beforeHealth, afterHealth);
+        }
+
+        [UnityTest]
         public IEnumerator MobGetsHurtByKick()
         {
             player.transform.position = Vector3.zero;
@@ -57,6 +72,21 @@ namespace Tests
         }
 
         [UnityTest]
+        public IEnumerator MobDoesNotGetHurtByKickFarAway()
+        {
+            player.transform.position = Vector3.zero;
+            mob.transform.position = new Vector3(100f, 0, 0);
+
+            yield return new WaitForSeconds(0.01f);
+
+            player.GetComponent<Attack>().UseKickAttack();
+
+            yield return new WaitForSeconds(0.01f);
+
+            Assert.AreEqual(mob.GetComponent<MobHealth>().currentHealth, 2);
+        }
+
+        [UnityTest]
         public IEnumerator MobGetsHurtByFireball()
         {
             player.transform.position = Vector3.zero;
@@ -69,6 +99,21 @@ namespace Tests
             yield return new WaitForSeconds(0.05f);
 
             Assert.AreEqual(mob.GetComponent<MobHealth>().currentHealth, 0);
+        }
+
+        [UnityTest]
+        public IEnumerator MobDoesNotGetHurtByFireballFarAway()
+        {
+            player.transform.position = Vector3.zero;
+            mob.transform.position = new Vector3(100f, 0, 0);
+
+            yield return new WaitForSeconds(0.01f);
+
+            player.GetComponent<Attack>().UseFireball();
+
+            yield return new WaitForSeconds(0.05f);
+
+            Assert.AreEqual(mob.GetComponent<MobHealth>().currentHealth, 2);
         }
 
         [TearDown]

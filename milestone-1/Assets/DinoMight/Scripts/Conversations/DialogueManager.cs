@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     public UnityEvent endDialoguesEvent;    // invokes these events when end dialogues triggered
 
     private Canvas dialogueCanvas;           // This dialogueCanvas refers to the chosen 1 that fits the story at this point in time.
+    private int previousCanvasId = 0;           // to know when to reset dialogue id in global
     private Animator dialogueBackground;
     private TextMeshProUGUI nameBox;         // TMPro textbox for name
     //private Animator escapeButton;
@@ -32,7 +33,7 @@ public class DialogueManager : MonoBehaviour
     private bool immune = false;            // to toggle health
     private bool nameDisplayed = false;
 
-    void Awake()
+    void Start()
     {
         pm = player.GetComponent<playerMovement>();
         attack = player.GetComponent<Attack>();
@@ -45,27 +46,15 @@ public class DialogueManager : MonoBehaviour
         // void Start()
         // {
         // Choose dialogue canvas from list
-        // Canvas to use: Global.questNumber == 0 || 1 - canvas[0], 2 || 3 - canvas[1], ...
         if (dialogueCanvases.Count > 1)
         {
-            // switch (Global.questNumber)
-            // {
-            //     case 0:
-            //     case 1:
-            //         dialogueCanvas = dialogueCanvases[0];
-            //         break;
-            //     case 2:
-            //         dialogueCanvas = dialogueCanvases[1];
-            //         // Restart dialogue since new dialogue
-            //         RecordDialogueIdInGlobal(0);
-            //         break;
-            //     case 3:
-            //         dialogueCanvas = dialogueCanvases[1];
-            //         break;
-            //     default:
-            //         break;
-            // }
-            dialogueCanvas = dialogueCanvases[GetIndex()];
+            int canvasIndex = GetCanvasIndex();
+            if (canvasIndex != previousCanvasId)
+            {
+                RecordDialogueIdInGlobal(0);
+            }
+            dialogueCanvas = dialogueCanvases[canvasIndex];
+            previousCanvasId = canvasIndex;
         }
         else
         {
@@ -98,7 +87,7 @@ public class DialogueManager : MonoBehaviour
             // Ensure tag is appropriate for recording purposes
             if (DM_tag == "")
             {
-                Debug.LogWarning("Tag for DialogueManager is null. Recording this to Global might cause undesirable side effects.");
+                Debug.LogWarning("DMTag for DialogueManager is null. Recording this to Global might cause undesirable side effects.");
             }
 
             // Initialise list of dialogues
@@ -144,7 +133,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public int GetIndex()
+    public int GetCanvasIndex()
     {
         int index = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
         if (index != -1)
@@ -161,7 +150,7 @@ public class DialogueManager : MonoBehaviour
                     return i;
                 }
             }
-            return dialogueCanvasesTaskValue.Count;
+            return dialogueCanvasesTaskValue.Count - 1;
         }
     }
 
@@ -240,6 +229,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Used by Dialogue to imitate 2 way conversation with no choices
     public void SwitchName(string name)
     {
         if (nameDisplayed)
