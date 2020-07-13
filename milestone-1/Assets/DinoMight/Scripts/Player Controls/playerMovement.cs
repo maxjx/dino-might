@@ -65,6 +65,10 @@ public class playerMovement : MonoBehaviour
             Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
             transform.position = new Vector3(101f, 9f, 0f);
         }
+        if (Input.GetKey("5")) {
+            Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
+            transform.position = new Vector3(54f, -7f, 0f);
+        }
         // EVERYTHING ABOVE THIS LINE MUST BE DELETED FOR FINAL PRODUCT
 
     }
