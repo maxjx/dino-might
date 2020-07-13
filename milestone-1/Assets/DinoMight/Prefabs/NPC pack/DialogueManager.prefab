@@ -43,9 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de5db009cd154c41b65cd9ff7dc715a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DM_tag: 
   dialogueCanvases:
-  - {fileID: 0}
+  - {fileID: 6951740204885832918, guid: 5b8f9cf8b981c3d4b9fee8b6bc05c6b5, type: 3}
+  dialogueCanvasesTaskValue: 
   NPCCamera: {fileID: 0}
   player: {fileID: 0}
   recordConvo: 1
-  dialogueCanvas: {fileID: 0}
+  startDialoguesEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endDialoguesEvent:
+    m_PersistentCalls:
+      m_Calls: []

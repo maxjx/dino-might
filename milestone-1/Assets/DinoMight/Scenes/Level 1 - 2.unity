@@ -3430,7 +3430,7 @@ PrefabInstance:
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: DM_tag
-      value: Lvl3DM
+      value: Lvl1-2DM
       objectReference: {fileID: 0}
     - target: {fileID: 2810647202009954046, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
@@ -4157,6 +4157,11 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: levelTransitionObj
+      value: 
+      objectReference: {fileID: 1419006326}
     - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: respawner
@@ -6948,7 +6953,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5241652
+      value: -2.9241648
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -10340,13 +10345,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2096276025}
         m_MethodName: UpdateGlobalChoice
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 3workout
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &7849932874544970483
