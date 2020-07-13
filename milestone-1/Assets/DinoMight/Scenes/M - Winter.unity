@@ -5527,6 +5527,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: levelTransitionObj
+      value: 
+      objectReference: {fileID: 552123582}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: sceneName
+      value: Room of Enchantment
+      objectReference: {fileID: 0}
     - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: respawner
@@ -6289,6 +6299,86 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5749333924885881923, guid: d73cb74195fce4ea287d06638831691b,
     type: 3}
   m_PrefabInstance: {fileID: 552123581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &559213611
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1845026008}
+    m_Modifications:
+    - target: {fileID: 6623454799164984710, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_Name
+      value: Lava floor (to RoE)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3536.2627
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159025079373665544, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+        type: 3}
+      propertyPath: levelTransitionObj
+      value: 
+      objectReference: {fileID: 552123582}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c, type: 3}
+--- !u!4 &559213612 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6623454799164984712, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 559213611}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &560831123
 GameObject:
@@ -8000,7 +8090,7 @@ Transform:
   - {fileID: 1168003145}
   - {fileID: 1240853136}
   m_Father: {fileID: 1845026008}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1101525097
 PrefabInstance:
@@ -10882,8 +10972,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1164054399}
-  - {fileID: 1953218991}
   - {fileID: 1085164442}
+  - {fileID: 559213612}
   - {fileID: 1614134067}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -11139,91 +11229,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8876953, y: 0.9132881}
   m_EdgeRadius: 0
---- !u!1001 &1953218990
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1845026008}
-    m_Modifications:
-    - target: {fileID: 922148143744724627, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_Name
-      value: Lava floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 22.808956
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7.5490513
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3536.2627
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.3194335
-      objectReference: {fileID: 0}
-    - target: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6071875
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 695a754fb258f5f429784e2ab9264814, type: 3}
---- !u!4 &1953218991 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 922148143744724637, guid: 695a754fb258f5f429784e2ab9264814,
-    type: 3}
-  m_PrefabInstance: {fileID: 1953218990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1963569559
 GameObject:
   m_ObjectHideFlags: 0
@@ -12482,8 +12487,8 @@ BoxCollider2D:
   m_Offset: {x: 0.018103302, y: -0.33951116}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.27, y: 0.31}
+    pivot: {x: 0.3965076, y: 0.46815628}
+    oldSize: {x: 0.45, y: 0.45}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12550,7 +12555,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1927739661900964652, guid: cf2f9ae2b3f632143b531d803407aedf,
+  m_Sprite: {fileID: 2601641590881763183, guid: 96abddf4764adba478f309ba615579b2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
