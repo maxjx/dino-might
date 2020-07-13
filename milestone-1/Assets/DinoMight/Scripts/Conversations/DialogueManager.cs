@@ -249,18 +249,25 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = d;
     }
 
-    public void UpdateGlobalChoice(int category)
+    public class Pair
     {
-        switch (category)
+        public int category;
+        public string identifier;
+    }
+    // Used when making choices in dialogues
+    // identifier variable is used to identify the choice made, which is then recorded to global for summary.
+    public void UpdateGlobalChoice(string CategoryIdentifier)
+    {
+        switch (int.Parse(CategoryIdentifier[0].ToString()))
         {
-            case 1:
-                Global.priorities++;
+            case 1: 
+                Global.priorities.Add(CategoryIdentifier.Remove(0,1));//.identifier);
                 break;
             case 2:
-                Global.challenges++;
+                Global.challenges.Add(CategoryIdentifier.Remove(0,1));//.identifier);
                 break;
             case 3:
-                Global.habits++;
+                Global.habits.Add(CategoryIdentifier.Remove(0,1));//.identifier);
                 break;
             default:
                 break;
