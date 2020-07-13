@@ -1155,11 +1155,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 803679418}
+  altName: 
   typingSpeed: 0.01
   sentences:
   - "Ah! I didn\u2019t know meal timings were that important, thanks!"
   - See you around town mister! I'll treat you lunch when I'm done with my homework!
   choices: []
+  nextDialogue: {fileID: 0}
   tutorial: 0
   tutorialInstruction: {fileID: 0}
 --- !u!114 &177823231
@@ -2054,6 +2056,11 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: levelTransitionObj
+      value: 
+      objectReference: {fileID: 1549404150}
     - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: respawner
@@ -2726,7 +2733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305103625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000023841858, y: 3.508304, z: -10}
+  m_LocalPosition: {x: 0.00000011920929, y: 3.508304, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1595324078}
@@ -11788,12 +11795,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 803679418}
+  altName: 
   typingSpeed: 0.01
   sentences:
   - "Hmm, I\u2019m not sure if I should skip lunch\u2026 But I guess i will give
     it a go\u2026"
   - '*Frantically studies*'
   choices: []
+  nextDialogue: {fileID: 0}
   tutorial: 0
   tutorialInstruction: {fileID: 0}
 --- !u!114 &1723213092
@@ -12304,7 +12313,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000023841858
+      value: 0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -14845,6 +14854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 803679418}
+  altName: 
   typingSpeed: 0.01
   sentences:
   - 'Oh hi... I''m just wondering mister, '
@@ -14854,6 +14864,7 @@ MonoBehaviour:
   choices:
   - {fileID: 556266692}
   - {fileID: 862262804}
+  nextDialogue: {fileID: 0}
   tutorial: 0
   tutorialInstruction: {fileID: 0}
 --- !u!1 &6783704597529057205

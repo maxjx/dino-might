@@ -26,13 +26,12 @@ namespace Tests
         [UnityTest]
         public IEnumerator FindStraightPath()
         {
-            Transform mobTransform = mob.transform;
-            mobTransform.position = Vector3.zero;
+            mob.transform.position = Vector3.zero;
             Vector3 target = new Vector3(10f, 0, 0);
             Seeker seeker = mob.GetComponent<Seeker>();
             yield return null;
 
-            seeker.StartPath(mobTransform.position, target, OnPathComplete);
+            seeker.StartPath(mob.transform.position, target, OnPathComplete);
 
             while (path == null)
             {
@@ -41,24 +40,81 @@ namespace Tests
 
             float displacement = 0f;
             int currentWaypoint = 0;
-            Debug.Log(path.vectorPath.Count);
-            while (currentWaypoint < path.vectorPath.Count - 1)
+            float nextWaypointDistance = 0.00001f;
+
+            while (mob.transform.position.x != target.x)
             {
-                displacement += Vector3.Distance(mobTransform.position, path.vectorPath[currentWaypoint]);
-                Debug.Log(displacement);    
-                mobTransform.position = path.vectorPath[currentWaypoint];
-                currentWaypoint++;
+                if (Vector3.Distance(mob.transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
+                {
+                    if (currentWaypoint + 1 < path.vectorPath.Count)
+                    {
+                        currentWaypoint++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    displacement += Vector3.Distance(path.vectorPath[currentWaypoint], mob.transform.position);
+                    mob.transform.position = path.vectorPath[currentWaypoint];
+                }
+            }
+            Assert.Greater(displacement, 10f);
+        }
+
+        [UnityTest]
+        public IEnumerator FindNonStraightPath()
+        {
+            GameObject newGO = new GameObject();
+            newGO.AddComponent<BoxCollider2D>();
+            newGO.transform.position = new Vector3(5f, 0, 0);
+
+            mob.transform.position = Vector3.zero;
+            Vector3 target = new Vector3(10f, 0, 0);
+            Seeker seeker = mob.GetComponent<Seeker>();
+            yield return null;
+
+            seeker.StartPath(mob.transform.position, target, OnPathComplete);
+
+            while (path == null)
+            {
+                yield return null;
             }
 
-            Assert.AreEqual(10f, displacement);
+            float displacement = 0f;
+            int currentWaypoint = 0;
+            float nextWaypointDistance = 0.00001f;
+
+            while (mob.transform.position.x != target.x)
+            {
+                if (Vector3.Distance(mob.transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
+                {
+                    if (currentWaypoint + 1 < path.vectorPath.Count)
+                    {
+                        currentWaypoint++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    displacement += Vector3.Distance(path.vectorPath[currentWaypoint], mob.transform.position);
+                    mob.transform.position = path.vectorPath[currentWaypoint];
+                }
+            }
+            Assert.Greater(displacement, 10.05f);
         }
 
         void OnPathComplete(Path p)
+        {
+            if (!p.error)
             {
-                if (!p.error)
-                {
-                    path = p;
-                }
+                path = p;
             }
+        }
     }
 }

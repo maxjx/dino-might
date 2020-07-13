@@ -1200,7 +1200,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5200002
+      value: 1.5200001
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -15650,7 +15650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320452239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3053672, y: 1.2700053, z: -10}
+  m_LocalPosition: {x: 2.99892, y: 1.2700044, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963331862}
@@ -17624,7 +17624,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609192683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.4, y: -4.2, z: 0}
+  m_LocalPosition: {x: 27.01, y: -4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 596900715}
@@ -19126,6 +19126,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: levelTransitionObj
+      value: 
+      objectReference: {fileID: 423839323}
     - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: respawner
@@ -22304,6 +22309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 294904215}
+  altName: 
   typingSpeed: 0.01
   sentences:
   - Hey hey kid, you alright?
@@ -22312,6 +22318,7 @@ MonoBehaviour:
   - Head over to the tree at the end of the road and you'll be on your way.
   choices:
   - {fileID: 665008118005085742}
+  nextDialogue: {fileID: 0}
   tutorial: 1
   tutorialInstruction: {fileID: 556743221}
 --- !u!222 &6783704596418799955
