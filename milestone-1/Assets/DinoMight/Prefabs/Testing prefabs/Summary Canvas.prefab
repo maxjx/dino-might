@@ -873,6 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   categoryNumber: 1
+  maxValue: 2
   gradient:
     serializedVersion: 2
     key0: {r: 0.6556604, g: 0.95813906, b: 1, a: 1}
@@ -1084,6 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   categoryNumber: 2
+  maxValue: 2
   gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0.8709767, b: 0.5613208, a: 1}
@@ -1377,6 +1379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   categoryNumber: 3
+  maxValue: 2
   gradient:
     serializedVersion: 2
     key0: {r: 0.6886792, g: 0.48679763, b: 0.3930669, a: 1}
@@ -1584,7 +1587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8964615455706534205
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1662,13 +1665,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0

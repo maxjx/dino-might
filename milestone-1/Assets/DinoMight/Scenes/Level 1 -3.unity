@@ -4787,7 +4787,7 @@ PrefabInstance:
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: DM_tag
-      value: Lvl2DM
+      value: Lvl1-3DM
       objectReference: {fileID: 0}
     - target: {fileID: 2810647202009954046, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
@@ -5572,7 +5572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941184706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.4, y: 4.19, z: -10}
+  m_LocalPosition: {x: 55.4, y: 4.15148, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 761340310}
@@ -6519,7 +6519,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.19
+      value: 3.7900004
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -10861,8 +10861,9 @@ MonoBehaviour:
   altName: 
   typingSpeed: 0.01
   sentences:
-  - A terrible enemy resides here, are you sure you want to enter? Have you saved
-    the game?
+  - A terrible enemy resides here.
+  - Are you sure you want to enter? You will not be able to save the game while inside
+    the boss stage.
   choices:
   - {fileID: 6694647344292453561}
   - {fileID: 6694647344098474710}
@@ -12035,13 +12036,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 813739997}
         m_MethodName: UpdateGlobalChoice
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 3hwbreak
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &7301570542460067449

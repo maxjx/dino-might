@@ -8,6 +8,7 @@ using System.Globalization;
 public class SummaryCatBar : MonoBehaviour
 {
     public int categoryNumber;      // 1: Prioritising, 2: Handling challenges, 3: Good habits
+    public int maxValue = 2;            // number of questions for this category
     public Gradient gradient;
     public Image fillColor;
     public Text precentageTextBox;
@@ -21,7 +22,7 @@ public class SummaryCatBar : MonoBehaviour
 
     void Start()
     {
-        Sliderfill.maxValue = 2;
+        Sliderfill.maxValue = this.maxValue;
         Sliderfill.value = GetFillValue();
         StartCoroutine(FillUp(Sliderfill.value));
     }
@@ -31,11 +32,11 @@ public class SummaryCatBar : MonoBehaviour
         switch (categoryNumber)
         {
             case 1:
-                return Global.priorities;
+                return Global.priorities.Count;
             case 2:
-                return Global.challenges;
+                return Global.challenges.Count;
             case 3:
-                return Global.habits;
+                return Global.habits.Count;
             default:
                 return Sliderfill.maxValue;
         }
