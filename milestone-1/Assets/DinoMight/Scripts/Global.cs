@@ -18,8 +18,8 @@ public static class Global {
     public static int questNumber;
 
     // Summary
-    public static int priorities;
-    public static int challenges;
-    public static int habits;
+    public static HashSet<string> priorities;
+    public static HashSet<string> challenges;
+    public static HashSet<string> habits;
 
 }
