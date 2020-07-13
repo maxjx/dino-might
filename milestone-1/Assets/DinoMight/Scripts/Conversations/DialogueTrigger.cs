@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour
     public string NPCName;
     public bool autoTrigger = false;        // For making dialogues with ownself, still have to go into collider
     private bool autoTriggered = false;
+    private bool talking = false;
 
     void Start()
     {
@@ -30,7 +31,8 @@ public class DialogueTrigger : MonoBehaviour
                     autoTriggered = true;
                 }
             }
-            else if (Input.GetKeyDown("c")) // and not autotrigger
+            // if the correct trigger keys are pressed
+            else if (TriggerKeysPressed()) // and not autotrigger
             {
                 prompt.SetActive(false);
                 TriggerDialogue();
@@ -39,15 +41,21 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    public bool TriggerKeysPressed()
+    {
+        return Input.GetKeyDown("c");
+    }
+
     void TriggerDialogue()
     {
         manager.ToggleDisplayName(NPCName);
         manager.StartDialogue(this);
+        talking = true;
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && (talking == false))
         {
             prompt.SetActive(true);
         }
@@ -63,6 +71,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TurnOnPrompt()
     {
-        prompt.SetActive(true);
+        talking = false;
     }
 }

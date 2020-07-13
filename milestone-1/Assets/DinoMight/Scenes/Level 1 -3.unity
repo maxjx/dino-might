@@ -1260,6 +1260,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: levelTransitionObj
+      value: 
+      objectReference: {fileID: 568516835}
     - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: healthBar
@@ -4505,7 +4510,7 @@ PrefabInstance:
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: DM_tag
-      value: Lvl2DM
+      value: Lvl1-3DM
       objectReference: {fileID: 0}
     - target: {fileID: 2810647202009954046, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
@@ -5880,7 +5885,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.19
+      value: 3.7900004
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -9978,8 +9983,9 @@ MonoBehaviour:
   altName: 
   typingSpeed: 0.01
   sentences:
-  - A terrible enemy resides here, are you sure you want to enter? Have you saved
-    the game?
+  - A terrible enemy resides here.
+  - Are you sure you want to enter? You will not be able to save the game while inside
+    the boss stage.
   choices:
   - {fileID: 6694647344292453561}
   - {fileID: 6694647344098474710}
@@ -11152,13 +11158,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 813739997}
         m_MethodName: UpdateGlobalChoice
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 3hwbreak
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!224 &7301570542460067449

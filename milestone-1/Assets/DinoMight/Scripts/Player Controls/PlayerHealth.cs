@@ -75,18 +75,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         if (deathPrefab != null)
             Instantiate(deathPrefab, transform.position, transform.rotation);
 
-        // 2nd argument is spawnPointNumber, indicates where its corresponding spawn point is, cached in the Respawner
-        // Player's spawnPointNumber = 0
-        try
-        {
-            Respawner.Instance.RespawnCharacter(gameObject, 0);
-        }
-        catch (NullReferenceException e)
-        {
-            Console.WriteLine("{0}, respawner not found in scene", e);
-        }
-
-        gameObject.SetActive(false);
+        GetComponent<PlayerTransition>().ManualTransition();
     }
 
     public void AddHealth(int amount)

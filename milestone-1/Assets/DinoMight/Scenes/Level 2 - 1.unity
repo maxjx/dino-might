@@ -885,13 +885,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1372147145}
         m_MethodName: UpdateGlobalChoice
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 2ownup
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &269359691
@@ -1718,13 +1718,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1372147145}
         m_MethodName: UpdateGlobalChoice
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 2ownup
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &468407635
@@ -18708,6 +18708,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: levelTransitionObj
+      value: 
+      objectReference: {fileID: 1536883350}
     - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: respawner
@@ -18744,6 +18749,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e493565915a5e4ee7b19335f7e984661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1559838330 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1954848053756986439, guid: 6532af9c37f4c1e4f9e6e683c59dd9d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1101617968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1590722636
 GameObject:
   m_ObjectHideFlags: 0
@@ -18997,6 +19008,7 @@ RectTransform:
   m_Children:
   - {fileID: 1337464523}
   - {fileID: 1314495950}
+  - {fileID: 1559838330}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
