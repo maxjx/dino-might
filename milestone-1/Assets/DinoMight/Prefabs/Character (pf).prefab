@@ -4802,6 +4802,7 @@ GameObject:
   - component: {fileID: 1471507954652336058}
   - component: {fileID: 1471507954652336035}
   - component: {fileID: 7693562226768043826}
+  - component: {fileID: 4914853333214801624}
   m_Layer: 8
   m_Name: Character (pf)
   m_TagString: Player
@@ -5066,7 +5067,23 @@ MonoBehaviour:
   currentHealth: 0
   deathPrefab: {fileID: 3805308594577563534, guid: 942d742119ba4394f9e88f6f24f74d85,
     type: 3}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 5126192519594144456, guid: e2ebb2fdbb2edb543b15dae300a15a3e,
+    type: 3}
+--- !u!114 &4914853333214801624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471507954652336052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa7be5fc8bb2b94ebbebaec6a260f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: -1
+  sceneName: null
+  levelTransitionObj: {fileID: 0}
 --- !u!1 &1471507954997537492
 GameObject:
   m_ObjectHideFlags: 0

@@ -3843,7 +3843,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 703923562}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &415426418
+  m_GameObject: {fileID: 713442365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4200001, y: -16.98, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &715750831
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7697,10 +7705,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5749333925638417295, guid: d73cb74195fce4ea287d06638831691b,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5749333925638417297, guid: d73cb74195fce4ea287d06638831691b,
+      propertyPath: noFriction
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e0fee93324e78b49ae8f2c595ccda51, type: 2}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: levelTransitionObj
+      value: 
+      objectReference: {fileID: 990292198}
+    - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: screen
       value: 
