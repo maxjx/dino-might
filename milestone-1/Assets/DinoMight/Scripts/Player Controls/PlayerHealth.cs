@@ -5,7 +5,7 @@ using System;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
-    public int maxHealth = 5;
+    public int maxHealth = 15;
     public int currentHealth;
     public GameObject deathPrefab;  // Death animation, intentionally seperated from player
     public HealthBar healthBar;     // This is a health bar object that needs to be created externally.
@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     void OnEnable()
     {
+        maxHealth = Global.playerMaxHealth;
         // If player just started playing or static health was not set before or died and respawned
         if (Global.playerHealth == 0)
         {
@@ -88,5 +89,13 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void Immunity(bool b)
     {
         immune = b;
+    }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        healthBar.setMaxHealth(maxHealth);
+        Global.playerMaxHealth = maxHealth;
+        Global.playerHealth = maxHealth;
     }
 }
