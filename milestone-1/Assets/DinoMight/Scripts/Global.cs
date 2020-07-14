@@ -17,6 +17,9 @@ public static class Global {
     // Indicates which quest the player is currently doing.
     public static int questNumber;
 
+    public static float musicVolume = 0.5f;
+    public static float effectsVolume = 0.5f;
+
     // Summary
     public static HashSet<string> priorities;
     public static HashSet<string> challenges;
