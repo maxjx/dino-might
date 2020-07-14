@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6623454799164984712}
   - component: {fileID: 6623454799164984713}
-  - component: {fileID: 7159025079373665544}
+  - component: {fileID: 5194101052928088156}
   m_Layer: 0
   m_Name: Lava floor (to RoE)
   m_TagString: Untagged
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6623454799164984710}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.808956, y: -7.5490513, z: 3536.2627}
   m_LocalScale: {x: 2.3194335, y: 0.6071875, z: 1}
   m_Children: []
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 37.96591, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7159025079373665544
+--- !u!114 &5194101052928088156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6623454799164984710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa7be5fc8bb2b94ebbebaec6a260f4a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e6a5a6c2d0704c16b4cf891c617c6a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: -1

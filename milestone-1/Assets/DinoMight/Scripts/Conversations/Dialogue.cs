@@ -16,7 +16,7 @@ public class Dialogue : MonoBehaviour
     public bool tutorial = false;                   // To toggle tutorial instruction
     public ToggleActivation tutorialInstruction;     // "Press any key to continue"
 
-    private TextMeshProUGUI textBox;
+    protected TextMeshProUGUI textBox;
     private int index = 0;
     private bool conversing = false;
     private bool typing;
@@ -28,7 +28,7 @@ public class Dialogue : MonoBehaviour
         HideChoices();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (!typing && conversing && Input.anyKeyDown)
         {
@@ -49,7 +49,7 @@ public class Dialogue : MonoBehaviour
     }
 
     // Is accessed by DialogueTrigger and Buttons and flowing dialogues
-    public void NextSentence()
+    public virtual void NextSentence()
     {
         if (altName != "")
         {
@@ -134,7 +134,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void DisplayChoices()
+    protected void DisplayChoices()
     {
         foreach (Button choice in choices)
         {
@@ -142,7 +142,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void EndDialogue()
+    public virtual void EndDialogue()
     {
         conversing = false;
         StopCoroutine(NextSentenceCoroutine());
