@@ -52,7 +52,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questToggleButton: {fileID: 5544560806894966819}
   questBoardText: {fileID: 2580379558186698974}
-  isInTown: 0
 --- !u!1 &2580379557521085708
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,8 +88,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -410, y: -41}
-  m_SizeDelta: {x: 503.5, y: 255}
+  m_AnchoredPosition: {x: -394.7, y: 33.7}
+  m_SizeDelta: {x: 346.4276, y: 171.15045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2580379557521085697
 CanvasRenderer:
@@ -182,8 +181,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 446.52933, y: 185.99472}
+  m_AnchoredPosition: {x: 1.88, y: 0.48}
+  m_SizeDelta: {x: 301.12344, y: 113.83414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2580379558186698973
 CanvasRenderer:
@@ -241,8 +240,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -443,7 +442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quest!
+  m_text: 'Task!
 
 '
   m_isRightToLeft: 0
@@ -455,8 +454,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279440147
-  m_fontColor: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
+    rgba: 4280098077
+  m_fontColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -474,14 +473,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 32
-  m_textAlignment: 258
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -491,7 +490,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -515,7 +514,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5544560806596837556}
-    characterCount: 7
+    characterCount: 6
     spriteCount: 0
     spaceCount: 1
     wordCount: 1
@@ -574,7 +573,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 137.4, y: 50}
+  m_SizeDelta: {x: 77, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5544560806662108212
 CanvasRenderer:
@@ -597,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9716981, g: 0.8187626, b: 0.55460125, a: 1}
+  m_Color: {r: 0.909804, g: 0.7372549, b: 0.4431373, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -649,7 +648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -60.4, y: 109.79999}
+  m_AnchoredPosition: {x: -99.4, y: 130}
   m_SizeDelta: {x: 160.3, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5544560806894966813
