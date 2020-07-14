@@ -5,6 +5,7 @@ using UnityEngine;
 public static class Global {
     public static int playerId;
     public static int playerHealth;
+    public static int playerMaxHealth = 15;
     public static int playerLevel;
     public static float Xcoordinate;
     public static float Ycoordinate;
@@ -21,8 +22,8 @@ public static class Global {
     public static float effectsVolume = 0.5f;
 
     // Summary
-    public static HashSet<string> priorities;
-    public static HashSet<string> challenges;
-    public static HashSet<string> habits;
+    public static HashSet<string> priorities = new HashSet<string>();
+    public static HashSet<string> challenges = new HashSet<string>();
+    public static HashSet<string> habits = new HashSet<string>();
 
 }
