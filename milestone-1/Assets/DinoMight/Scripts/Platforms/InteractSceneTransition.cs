@@ -22,5 +22,14 @@ public class InteractSceneTransition : Interact
         {
             Debug.Log("Invalid level input!");
         }
+
+        if (GetComponent<MusicPlayer>() != null)
+        {
+            GetComponent<MusicPlayer>().ManualTransition();
+        }
+        else
+        {
+            Debug.Log("No music player component");
+        }
     }
 }

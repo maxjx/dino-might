@@ -3527,7 +3527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: f6f82b17eb8ea4a048db43334280f8fe, type: 3}
+  music: {fileID: 8300000, guid: 2fc6280b5954e40529f2576e59c70825, type: 3}
 --- !u!114 &385325592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21626,6 +21626,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5351423377304526322, guid: 165eaa98dc1c44d84a90f854d92b2461,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b,
+        type: 2}
+    - target: {fileID: 5351423377304526322, guid: 165eaa98dc1c44d84a90f854d92b2461,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 5351423377307703817, guid: 165eaa98dc1c44d84a90f854d92b2461,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -22137,6 +22148,7 @@ GameObject:
   - component: {fileID: 2021598998}
   - component: {fileID: 2021599000}
   - component: {fileID: 2021598999}
+  - component: {fileID: 2021599001}
   m_Layer: 11
   m_Name: Wizard castle
   m_TagString: Untagged
@@ -22203,6 +22215,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5876389, y: 3.4168224}
   m_EdgeRadius: 0
+--- !u!114 &2021599001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021598997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: c558ac98597064c7383e54c45acb903b, type: 3}
 --- !u!1 &2046348515
 GameObject:
   m_ObjectHideFlags: 0
