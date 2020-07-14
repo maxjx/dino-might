@@ -306,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6700005
+      value: 0.67000026
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -7150,7 +7150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671151696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6700005, y: -29.16, z: -10}
+  m_LocalPosition: {x: 0.67000026, y: -29.16, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7307,6 +7307,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875c33cc235234049ad35f7f7acbabad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1740920412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5479546350987901134, guid: 0275023642b044a85b8edfb5e35815a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1740920410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1740920413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5479546351419137609, guid: 0275023642b044a85b8edfb5e35815a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1740920410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1849407697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7314,6 +7338,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 730218819341112084, guid: 784773d83b3b34c7eb8af4d25e14fd10,
+        type: 3}
+      propertyPath: effectsVolume
+      value: 
+      objectReference: {fileID: 1740920412}
+    - target: {fileID: 730218819341112084, guid: 784773d83b3b34c7eb8af4d25e14fd10,
+        type: 3}
+      propertyPath: musicVolume
+      value: 
+      objectReference: {fileID: 1740920413}
     - target: {fileID: 730218819341112085, guid: 784773d83b3b34c7eb8af4d25e14fd10,
         type: 3}
       propertyPath: m_Name
