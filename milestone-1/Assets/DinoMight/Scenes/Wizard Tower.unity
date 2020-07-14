@@ -6954,6 +6954,7 @@ GameObject:
   - component: {fileID: 1031249487}
   - component: {fileID: 1031249489}
   - component: {fileID: 1031249488}
+  - component: {fileID: 1031249490}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -7016,6 +7017,19 @@ MonoBehaviour:
   index: -1
   sceneName: Town
   levelTransitionObj: {fileID: 2069080204}
+--- !u!114 &1031249490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031249486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 02cdec15998cb4bc58d2dcce6174f686, type: 3}
 --- !u!1 &1041430241
 GameObject:
   m_ObjectHideFlags: 0
@@ -17019,6 +17033,7 @@ GameObject:
   - component: {fileID: 2014549222}
   - component: {fileID: 2014549224}
   - component: {fileID: 2014549223}
+  - component: {fileID: 2014549225}
   m_Layer: 0
   m_Name: To Moonlight
   m_TagString: Untagged
@@ -17081,6 +17096,19 @@ MonoBehaviour:
   index: -1
   sceneName: Secret-Moonlight
   levelTransitionObj: {fileID: 2069080204}
+--- !u!114 &2014549225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014549221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 3afe99787c62844da9637a29545675e3, type: 3}
 --- !u!1 &2039595076
 GameObject:
   m_ObjectHideFlags: 0
