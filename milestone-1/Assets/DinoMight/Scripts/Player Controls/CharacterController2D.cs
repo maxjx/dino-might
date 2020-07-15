@@ -174,8 +174,8 @@ public class CharacterController2D : MonoBehaviour
             CreateDust();
         }
 
-        // if moving horizontally or in the air, and not crouching and dashing,
-        if (((move != 0f) || !m_Grounded) && !crouch && dash)
+        // if moving horizontally or in the air, and not crouching and dashing, and had not dashed (in air)
+        if (((move != 0f) || !m_Grounded) && !crouch && dash && !hadDashed)
         {
             if (!dashing)
             {
