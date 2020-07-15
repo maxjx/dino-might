@@ -6,20 +6,23 @@ using UnityEngine.Events;
 public class TimedDialogue : Dialogue
 {
     public float timeRemaining = 120;        // in seconds
+    public bool autoAdvanceDialogue = true;     // Automatically advances to the next dialogue referenced in editor, and end current dialogue
     [Space]
     public UnityEvent thingsThatHappenAfterTimesUp;
 
     private bool timerIsRunning = false;
     private string sentence = "Time remaining: ";            // display in front of timer
+    private int index = 0;
 
     // override so that choices can be shown and dialogue can lead to next dialogue
     public override void NextSentence()
     {
         timerIsRunning = true;
         base.DisplayChoices();
-        if (base.sentences.Length > 0)
+        if (base.sentences.Length > index)
         {
-            sentence = base.sentences[0];
+            sentence = base.sentences[index] + sentence;
+            index++;
         }
     }
 
@@ -35,9 +38,11 @@ public class TimedDialogue : Dialogue
             }
             else
             {
-                Debug.Log("Time has run out!");
-                EndDialogue();
-                base.nextDialogue.NextSentence();
+                if (autoAdvanceDialogue)
+                {
+                    EndDialogue();
+                    base.nextDialogue.NextSentence();
+                }
 
                 if (thingsThatHappenAfterTimesUp == null)
                 {
