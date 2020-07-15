@@ -9,63 +9,97 @@ public class playerMovement : MonoBehaviour
     public Animator animator;
 
     public float runSpeed = 20F;
-    float horizontalMove = 0F;
-    bool jump = false;
-    bool crouch = false;
-    private bool canMove = true;
     public PhysicsMaterial2D friction;
     public PhysicsMaterial2D noFriction;
+    public bool canDash = false;           // can be used while walking and jumping
+
+    private float horizontalMove = 0F;
+    private bool jump = false;
+    private bool crouch = false;
+    private bool dash = false;
+    private bool canMove = true;
     private Rigidbody2D rbPlayer;
 
 
-    void Start() {
+    void Start()
+    {
         rbPlayer = gameObject.GetComponent<Rigidbody2D>();
     }
-    void Update() {
-        if (canMove) {
+    void Update()
+    {
+        if (canMove)
+        {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-            if (Input.GetButtonDown("Jump")) {
+            if (Input.GetButtonDown("Jump"))
+            {
                 jump = true;
                 animator.SetBool("isJumping", true);
             }
 
-            if (Input.GetButtonUp("Crouch")) {
+            if (Input.GetButtonUp("Crouch"))
+            {
                 crouch = false;
-            } else if (Input.GetButtonDown("Crouch")) {
+            }
+            else if (Input.GetButtonDown("Crouch"))
+            {
                 crouch = true;
             }
-        } else {
+
+            if (canDash)
+            {
+                if (Input.GetButtonDown("Fire3"))
+                {     // left and right shift
+                    dash = true;
+                    animator.SetTrigger("isDashing");
+                }
+                else if (Input.GetButtonUp("Fire3"))
+                {
+                    dash = false;
+                    animator.ResetTrigger("isDashing");
+                }
+            }
+        }
+        else
+        {
             horizontalMove = 0;
         }
 
         // If the input is moving the player...
-        if (horizontalMove == 0) {
+        if (horizontalMove == 0)
+        {
             animator.SetBool("isRunning", false);   //animate standing still
             rbPlayer.sharedMaterial = friction;
-        } else {
+        }
+        else
+        {
             animator.SetBool("isRunning", true);    //animate running
             rbPlayer.sharedMaterial = noFriction;
         }
 
         // EVERYTHING BELOW THIS LINE MUST BE DELETED FOR FINAL PRODUCT
         // Demo hack teleport script
-        if (Input.GetKey("1")) {
+        if (Input.GetKey("1"))
+        {
             Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
             transform.position = new Vector3(46.5f, -3f, 0f);
         }
-        if (Input.GetKey("2")) {
+        if (Input.GetKey("2"))
+        {
             Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
             transform.position = new Vector3(65.5f, 18f, 0f);
         }
-        if (Input.GetKey("3")) {
+        if (Input.GetKey("3"))
+        {
             Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
             transform.position = new Vector3(0f, 5f, 0f);
         }
-        if (Input.GetKey("4")) {
+        if (Input.GetKey("4"))
+        {
             Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
             transform.position = new Vector3(101f, 9f, 0f);
         }
-        if (Input.GetKey("5")) {
+        if (Input.GetKey("5"))
+        {
             Debug.Log("If you see this message, this is for the game demo, delete in PlayerMovement");
             transform.position = new Vector3(54f, -7f, 0f);
         }
@@ -87,11 +121,12 @@ public class playerMovement : MonoBehaviour
     {
         crouch = false;
     }
-    
+
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump, dash);
         jump = false;
+        dash = false;
     }
 
     // Character follows momentum of a moving platform
@@ -109,12 +144,14 @@ public class playerMovement : MonoBehaviour
             this.transform.parent = null;
         }
     }
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Coin")) {
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
             Destroy(other.gameObject);
         }
     }
-    
+
     public void ToggleStartStopMovement()
     {
         canMove = !canMove;
