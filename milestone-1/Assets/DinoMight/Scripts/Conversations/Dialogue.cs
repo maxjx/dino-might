@@ -13,8 +13,8 @@ public class Dialogue : MonoBehaviour
     public string[] sentences;
     public Button[] choices;
     public Dialogue nextDialogue;                   // Only used if choices size == 0 and nextDialogue != null
-    public bool tutorial = false;                   // To toggle tutorial instruction
-    public ToggleActivation tutorialInstruction;     // "Press any key to continue"
+    // public bool tutorial = false;                   // To toggle tutorial instruction
+    // public ToggleActivation tutorialInstruction;     // "Press any key to continue"
 
     protected TextMeshProUGUI textBox;
     private int index = 0;
@@ -68,13 +68,13 @@ public class Dialogue : MonoBehaviour
             typingcoroutine = StartCoroutine(Type());
             yield return typingcoroutine;    // Waits for typing to finish
 
-            // Show "press any key to continue"
-            if (tutorial && index == 0)
-            {
-                yield return new WaitForSeconds(0.5f);
-                tutorialInstruction.Activate();
-                tutorial = false;
-            }
+            // // Show "press any key to continue"
+            // if (tutorial && index == 0)
+            // {
+            //     yield return new WaitForSeconds(0.5f);
+            //     tutorialInstruction.Activate();
+            //     tutorial = false;
+            // }
 
             index++;
         }
