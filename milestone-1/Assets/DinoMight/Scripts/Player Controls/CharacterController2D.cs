@@ -14,13 +14,14 @@ public class CharacterController2D : MonoBehaviour
     public Transform m_CeilingCheck;                            // A position marking where to check for ceilings
     public BoxCollider2D m_CrouchResizeCollider;				// A collider that will be resized when crouching
     public ParticleSystem dust;
+    public float dashForce = 300f;                             // Amount of force added when player dashes
 
     private Vector2 standingColliderSize = new Vector2(0.4106f, 0.497f);
     private Vector2 standingColliderOffset = new Vector2(0f, 0.08f);
     private Vector2 crouchColliderSize = new Vector2(0.66f, 0.33f);
     private Vector2 crouchColliderOffset = new Vector2(0.13f, 0.03f);
 
-    const float k_GroundedRadius = .02f; // Radius of the overlap circle to determine if grounded
+    const float k_GroundedRadius = 0.2057883f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded = true;            // Whether or not the player is grounded.
     private bool falling = false;
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
@@ -38,6 +39,8 @@ public class CharacterController2D : MonoBehaviour
 
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
+    private bool dashing = false;           // will be reset to false after dashing by animation state
+    private bool hadDashed = false;         // dash midair once only
 
     private void Awake()
     {
@@ -55,7 +58,7 @@ public class CharacterController2D : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
-        if (m_Rigidbody2D.velocity.y < 0f)
+        if (m_Rigidbody2D.velocity.y < 0f && !wasGrounded)
         {
             falling = true;
         }
@@ -73,12 +76,13 @@ public class CharacterController2D : MonoBehaviour
             {
                 // if (m_Rigidbody2D.velocity.y == 0)
                 //{
-                    m_Grounded = true;
+                m_Grounded = true;
                 //}
                 if (!wasGrounded && falling)
                 {
                     OnLandEvent.Invoke();
                     falling = false;
+                    hadDashed = false;
 
                     CreateDust();
                 }
@@ -87,7 +91,7 @@ public class CharacterController2D : MonoBehaviour
     }
 
 
-    public void Move(float move, bool crouch, bool jump)
+    public void Move(float move, bool crouch, bool jump, bool dash)
     {
         // If crouching, check to see if the character can stand up
         if (!crouch)
@@ -115,7 +119,7 @@ public class CharacterController2D : MonoBehaviour
                 // Reduce the speed by the crouchSpeed multiplier
                 move *= m_CrouchSpeed;
 
-                // Disable one of the colliders when crouching
+                // Alter top collider for crouching when crouching
                 if (m_CrouchResizeCollider != null)
                 {
                     m_CrouchResizeCollider.size = crouchColliderSize;
@@ -124,7 +128,7 @@ public class CharacterController2D : MonoBehaviour
             }
             else
             {
-                // Enable the collider when not crouching
+                // Alter top collider for standing when not crouching
                 if (m_CrouchResizeCollider != null)
                 {
                     m_CrouchResizeCollider.size = standingColliderSize;
@@ -138,10 +142,13 @@ public class CharacterController2D : MonoBehaviour
                 }
             }
 
-            // Move the character by finding the target velocity
-            Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-            // And then smoothing it out and applying it to the character
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+            if (!dashing)
+            {
+                // Move the character by finding the target velocity
+                Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+                // And then smoothing it out and applying it to the character
+                m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+            }
 
             // If the input is moving the player right and the player is facing left...
             if (move > 0 && !m_FacingRight)
@@ -161,10 +168,40 @@ public class CharacterController2D : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            //m_Rigidbody2D.velocity = Vector2.zero;
+            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f);
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 
             CreateDust();
+        }
+
+        // if moving horizontally or in the air, and not crouching and dashing,
+        if (((move != 0f) || !m_Grounded) && !crouch && dash)
+        {
+            if (!dashing)
+            {
+                m_Rigidbody2D.gravityScale = 0;
+
+                if (m_FacingRight)
+                {
+                    dashForce = dashForce < 0 ? -dashForce : dashForce;
+                }
+                else
+                {
+                    dashForce = dashForce < 0 ? dashForce : -dashForce;
+                }
+
+                if (!m_Grounded)
+                {
+                    m_Rigidbody2D.AddForce(new Vector2(dashForce, 0f));
+                }
+                else if (move != 0)
+                {
+                    m_Rigidbody2D.AddForce(new Vector2(dashForce, 0f));
+                }
+
+                hadDashed = true;
+                dashing = true;
+            }
         }
     }
 
@@ -181,5 +218,12 @@ public class CharacterController2D : MonoBehaviour
     {
         // Plays dust particle system
         dust.Play();
+    }
+
+    public void StopDash()
+    {
+        m_Rigidbody2D.gravityScale = 4f;
+        m_Rigidbody2D.velocity = Vector2.zero;
+        dashing = false;
     }
 }
