@@ -32,6 +32,8 @@ public class Attack : MonoBehaviour, IDamage
 
         rightDisplacement = new Vector3(kickRange, 0, 0);
         leftDisplacement = new Vector3(-kickRange, 0, 0);
+
+        kickDamage = Global.kickDmg;
     }
 
     // Update is called once per frame
@@ -119,5 +121,11 @@ public class Attack : MonoBehaviour, IDamage
         {
             colliderHealth.TakeDamage(kickDamage, attackRightwards);
         }
+    }
+
+    public void IncreaseKickDamage(int amount)
+    {
+        kickDamage+= amount;
+        Global.kickDmg = kickDamage;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Recording this type of dialogue not implemented
 public class TimedDialogue : Dialogue
 {
     public float timeRemaining = 120;        // in seconds
@@ -12,14 +13,13 @@ public class TimedDialogue : Dialogue
 
     private bool timerIsRunning = false;
     private string sentence = "Time remaining: ";            // display in front of timer
-    private int index = 0;
 
     // override so that choices can be shown and dialogue can lead to next dialogue
     public override void NextSentence()
     {
         timerIsRunning = true;
         base.DisplayChoices();
-        if (base.sentences.Length > index)
+        if (index < base.sentences.Length)
         {
             sentence = base.sentences[index] + sentence;
             index++;
