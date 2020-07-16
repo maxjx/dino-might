@@ -180,8 +180,6 @@ MonoBehaviour:
     go and talk to him about it then.
   choices: []
   nextDialogue: {fileID: 1401922305}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &4684202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3024,8 +3022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6a5a6c2d0704c16b4cf891c617c6a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
-  sceneName: null
+  index: -1
+  sceneName: Town
   levelTransitionObj: {fileID: 568516835}
 --- !u!61 &453213244
 BoxCollider2D:
@@ -5302,8 +5300,6 @@ MonoBehaviour:
   - Boss?? What are you doing here?
   choices: []
   nextDialogue: {fileID: 4684201}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &919998468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5715,7 +5711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941184706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.84, y: 5.3800006, z: -10}
+  m_LocalPosition: {x: 59.73669, y: 5.380002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7907,8 +7903,6 @@ MonoBehaviour:
   - ... Why are you being so nice?
   choices: []
   nextDialogue: {fileID: 1962599971}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1401922306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10201,8 +10195,6 @@ MonoBehaviour:
   - {fileID: 1114832244856885510}
   - {fileID: 1114832245317220201}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1962599972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10822,8 +10814,6 @@ MonoBehaviour:
   - You must be the Wizard's minion! You are not getting my Crown!
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!224 &1114832244642837746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11532,8 +11522,6 @@ MonoBehaviour:
   - Ah I've been looking for you.
   choices: []
   nextDialogue: {fileID: 919998467}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!222 &1114832245097208799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11978,8 +11966,6 @@ MonoBehaviour:
   - ...You are working for the Wizard! You are not getting my Crown!
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!224 &1114832245616924292
 RectTransform:
   m_ObjectHideFlags: 0
