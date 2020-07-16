@@ -17,7 +17,7 @@ public class Dialogue : MonoBehaviour
     // public ToggleActivation tutorialInstruction;     // "Press any key to continue"
 
     protected TextMeshProUGUI textBox;
-    private int index = 0;
+    protected int index = 0;
     private bool conversing = false;
     private bool typing;
     private Coroutine typingcoroutine;      // reference used to stop this coroutine
@@ -126,7 +126,7 @@ public class Dialogue : MonoBehaviour
         typing = false;
     }
 
-    public void HideChoices()
+    public virtual void HideChoices()
     {
         foreach (Button choice in choices)
         {
