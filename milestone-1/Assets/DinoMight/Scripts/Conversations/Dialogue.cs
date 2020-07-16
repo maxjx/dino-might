@@ -13,10 +13,10 @@ public class Dialogue : MonoBehaviour
     public string[] sentences;
     public Button[] choices;
     public Dialogue nextDialogue;                   // Only used if choices size == 0 and nextDialogue != null
-    public bool tutorial = false;                   // To toggle tutorial instruction
-    public ToggleActivation tutorialInstruction;     // "Press any key to continue"
+    // public bool tutorial = false;                   // To toggle tutorial instruction
+    // public ToggleActivation tutorialInstruction;     // "Press any key to continue"
 
-    private TextMeshProUGUI textBox;
+    protected TextMeshProUGUI textBox;
     private int index = 0;
     private bool conversing = false;
     private bool typing;
@@ -28,7 +28,7 @@ public class Dialogue : MonoBehaviour
         HideChoices();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (!typing && conversing && Input.anyKeyDown)
         {
@@ -49,7 +49,7 @@ public class Dialogue : MonoBehaviour
     }
 
     // Is accessed by DialogueTrigger and Buttons and flowing dialogues
-    public void NextSentence()
+    public virtual void NextSentence()
     {
         if (altName != "")
         {
@@ -68,13 +68,13 @@ public class Dialogue : MonoBehaviour
             typingcoroutine = StartCoroutine(Type());
             yield return typingcoroutine;    // Waits for typing to finish
 
-            // Show "press any key to continue"
-            if (tutorial && index == 0)
-            {
-                yield return new WaitForSeconds(0.5f);
-                tutorialInstruction.Activate();
-                tutorial = false;
-            }
+            // // Show "press any key to continue"
+            // if (tutorial && index == 0)
+            // {
+            //     yield return new WaitForSeconds(0.5f);
+            //     tutorialInstruction.Activate();
+            //     tutorial = false;
+            // }
 
             index++;
         }
@@ -134,7 +134,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void DisplayChoices()
+    protected void DisplayChoices()
     {
         foreach (Button choice in choices)
         {
@@ -142,7 +142,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void EndDialogue()
+    public virtual void EndDialogue()
     {
         conversing = false;
         StopCoroutine(NextSentenceCoroutine());
