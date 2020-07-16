@@ -13,11 +13,12 @@ namespace Tests
         private Slider bar1;
         private Slider bar2;
         private Slider bar3;
+        private GameObject summaryCanvas;
 
         [SetUp]
         public void SetUp()
         {
-            GameObject summaryCanvas = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DinoMight/Prefabs/Testing prefabs/Summary Canvas.prefab"));
+            summaryCanvas = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DinoMight/Prefabs/Testing prefabs/Summary Canvas.prefab"));
             summaryCanvas.GetComponent<SummaryCanvas>().enabled = false;
             foreach (Transform child in summaryCanvas.transform)
             {
@@ -84,6 +85,7 @@ namespace Tests
             GameObject.Destroy(bar1);
             GameObject.Destroy(bar2);
             GameObject.Destroy(bar3);
+            GameObject.Destroy(summaryCanvas);
         }
     }
 }
