@@ -53,4 +53,9 @@ public class QuestManager : MonoBehaviour
         Global.questNumber++;
         UpdateQuestText();
     }
+
+    public void TempQuest(string description)
+    {
+        questBoardText.text = description;
+    }
 }
