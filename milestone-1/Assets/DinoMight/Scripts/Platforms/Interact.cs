@@ -21,7 +21,7 @@ public class Interact : MonoBehaviour
         // If prompt is active (Player is in collider), and either "c" is pressed or it is auto triggered,
         if (prompt.activeSelf && (Input.GetKeyDown("c") || autoTrigger))
         {
-            prompt.SetActive(false);
+            //prompt.SetActive(false);
             TriggerAction();
         }
     }

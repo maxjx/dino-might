@@ -69,6 +69,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    // when talking is done and want to show the prompt again,
     public void TurnOnPrompt()
     {
         talking = false;
