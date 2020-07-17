@@ -4664,6 +4664,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 452277693}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &452277696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5749333925638417297, guid: d73cb74195fce4ea287d06638831691b,
+    type: 3}
+  m_PrefabInstance: {fileID: 452277693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452277695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eec50f2e53414c88bde12bd41874fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &459434015
 GameObject:
   m_ObjectHideFlags: 0
@@ -23267,15 +23279,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 452277696}
+        m_MethodName: NextLevelAnimation
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 3 - 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1976409803
