@@ -168,4 +168,9 @@ public class playerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         crouch = false;
     }
+
+    public void EnableDash()
+    {
+        canDash = true;
+    }
 }

@@ -36,7 +36,7 @@ public class DialogueWithPages : Dialogue
             textBox.text = sentences[index];
             index++;
         }
-        
+
         if (index == sentences.Length)
         {
             DisplayNextDialogueChoice();
@@ -77,7 +77,11 @@ public class DialogueWithPages : Dialogue
         {
             choices[choices.Length - 1].gameObject.SetActive(true);
         }
-        nextDialogueChoices[nextDialogueChoiceIndex].gameObject.SetActive(false);
+        // set any next dialogue choice to be false
+        foreach (Button NDChoice in nextDialogueChoices)
+        {
+            NDChoice.gameObject.SetActive(false);
+        }
     }
 
     public override void HideChoices()
@@ -86,7 +90,11 @@ public class DialogueWithPages : Dialogue
         {
             choice.gameObject.SetActive(false);
         }
-        nextDialogueChoices[nextDialogueChoiceIndex].gameObject.SetActive(false);
+        // set any next dialogue choice to be false
+        foreach (Button NDChoice in nextDialogueChoices)
+        {
+            NDChoice.gameObject.SetActive(false);
+        }
     }
 
     public override void EndDialogue()
