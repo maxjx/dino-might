@@ -6,14 +6,23 @@ using UnityEngine.UI;
 // Recording this type of dialogue not implemented
 public class DialogueWithPages : Dialogue
 {
-    public Button nextDialogueChoice;       // choice that leads to the next dialogue
+    public Button[] nextDialogueChoices;       // choice that leads to the next dialogue
+    protected int nextDialogueChoiceIndex = 0;     // index to choose the next dialogue button which can lead to diff endings
     public bool timedFinish = false;                // changes finish button based on duration stayed in this dialogue
+    public float timeRemaining = 180f;
 
     protected override void Update()
     {
         if (timedFinish)
         {
-
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                nextDialogueChoiceIndex = 1;
+            }
         }
     }
 
@@ -59,7 +68,7 @@ public class DialogueWithPages : Dialogue
         {
             choices[choices.Length - 1].gameObject.SetActive(false);
         }
-        nextDialogueChoice.gameObject.SetActive(true);
+        nextDialogueChoices[nextDialogueChoiceIndex].gameObject.SetActive(true);
     }
 
     protected void UndisplayNextDialogueChoice()
@@ -68,7 +77,7 @@ public class DialogueWithPages : Dialogue
         {
             choices[choices.Length - 1].gameObject.SetActive(true);
         }
-        nextDialogueChoice.gameObject.SetActive(false);
+        nextDialogueChoices[nextDialogueChoiceIndex].gameObject.SetActive(false);
     }
 
     public override void HideChoices()
@@ -77,7 +86,7 @@ public class DialogueWithPages : Dialogue
         {
             choice.gameObject.SetActive(false);
         }
-        nextDialogueChoice.gameObject.SetActive(false);
+        nextDialogueChoices[nextDialogueChoiceIndex].gameObject.SetActive(false);
     }
 
     public override void EndDialogue()
