@@ -2652,8 +2652,6 @@ MonoBehaviour:
   choices:
   - {fileID: 1783539365}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &321946430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3152,8 +3150,6 @@ MonoBehaviour:
   - {fileID: 385655495}
   - {fileID: 377762425}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &345964279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3657,8 +3653,6 @@ MonoBehaviour:
   - Another room has been opened in the upper lounge. I advise you to check it out.
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &417434609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4827,8 +4821,6 @@ MonoBehaviour:
   - {fileID: 283353486}
   - {fileID: 64557974}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &551250942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6212,8 +6204,6 @@ MonoBehaviour:
     magical caves.
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &872667820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12087,8 +12077,6 @@ MonoBehaviour:
   - You can find him by following the path west of the town, deeper into the forest.
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1230169310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12775,8 +12763,6 @@ MonoBehaviour:
   - 
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1422512217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12972,8 +12958,6 @@ MonoBehaviour:
   choices:
   - {fileID: 990006209}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1494448581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13153,7 +13137,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.7700005
+      value: 6.77
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -13883,8 +13867,6 @@ MonoBehaviour:
   - 
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1648122713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14171,8 +14153,6 @@ MonoBehaviour:
   choices:
   - {fileID: 343040893}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1774469201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16221,7 +16201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1837628562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.7700005, y: -27, z: -10}
+  m_LocalPosition: {x: 6.77, y: -27, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16403,8 +16383,6 @@ MonoBehaviour:
   - ... when will I be able to get home ...
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1928791103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16565,8 +16543,6 @@ MonoBehaviour:
   - {fileID: 1001554572}
   - {fileID: 149313650}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &1933960183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16729,15 +16705,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7385789195546760866, guid: d6b3392484b7447f6a34347b889f6214,
         type: 3}
+    - target: {fileID: 2420729071064145084, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071064145084, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.609375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071064145084, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.96875
+      objectReference: {fileID: 0}
     - target: {fileID: 2420729071064145085, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.910863
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2420729071064145085, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3384457
+      value: -2.37
       objectReference: {fileID: 0}
     - target: {fileID: 2420729071064145085, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
@@ -16784,6 +16775,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2420729071064145085, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071064145085, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2420729071064145086, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
       propertyPath: m_Size.x
@@ -16792,7 +16793,22 @@ PrefabInstance:
     - target: {fileID: 2420729071064145086, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.093758136
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071064145086, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 3.609375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071064145086, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.96875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071064145086, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 2420729071519247320, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
@@ -16807,7 +16823,12 @@ PrefabInstance:
     - target: {fileID: 2420729071519247320, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.447
+      value: 0.812
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071519247320, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.171
       objectReference: {fileID: 0}
     - target: {fileID: 2420729071519247323, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
@@ -16842,12 +16863,27 @@ PrefabInstance:
     - target: {fileID: 2420729071519247324, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2420729071519247324, guid: d729f64ccd00db140b9a574a60280d9b,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: -1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071519247324, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071519247324, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -0.0487628
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420729071519247324, guid: d729f64ccd00db140b9a574a60280d9b,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -0.2031784
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d729f64ccd00db140b9a574a60280d9b, type: 3}
@@ -17566,8 +17602,6 @@ MonoBehaviour:
     magical caves.
   choices: []
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!114 &2118037718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20162,8 +20196,6 @@ MonoBehaviour:
   choices:
   - {fileID: 730488442}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!222 &7491116509281567649
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20641,8 +20673,6 @@ MonoBehaviour:
   - {fileID: 7491116510140966504}
   - {fileID: 7491116509680631815}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!222 &7491116509871680689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21120,8 +21150,6 @@ MonoBehaviour:
   choices:
   - {fileID: 935398360}
   nextDialogue: {fileID: 0}
-  tutorial: 0
-  tutorialInstruction: {fileID: 0}
 --- !u!222 &7491116510391919087
 CanvasRenderer:
   m_ObjectHideFlags: 0
