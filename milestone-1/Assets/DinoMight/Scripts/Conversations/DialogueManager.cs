@@ -133,6 +133,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Find the right canvas to use using the list of task values
     public int GetCanvasIndex()
     {
         int index = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
@@ -142,7 +143,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // quest number must be nearest value but not smaller to use that canvas
+            // quest number must be nearest smaller value to use that canvas
             for (int i = 0; i < dialogueCanvasesTaskValue.Count; i++)
             {
                 if (Global.questNumber < dialogueCanvasesTaskValue[i])
@@ -249,11 +250,6 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = d;
     }
 
-    public class Pair
-    {
-        public int category;
-        public string identifier;
-    }
     // Used when making choices in dialogues
     // identifier variable is used to identify the choice made, which is then recorded to global for summary.
     public void UpdateGlobalChoice(string CategoryIdentifier)
