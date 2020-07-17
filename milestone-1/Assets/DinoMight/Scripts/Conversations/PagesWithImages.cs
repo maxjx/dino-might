@@ -8,7 +8,7 @@ public class PagesWithImages : DialogueWithPages
     public Image[] images;
     private int imageIndex;
 
-    // next sentence is also next image, if sentences less than images, show last sentence, if images less than sentence, dont show image
+    // next sentence is also next image, if sentences less than images, show last sentence, vice versa
     public override void NextSentence()
     {
         int sentencesLen = sentences.Length;
@@ -31,16 +31,20 @@ public class PagesWithImages : DialogueWithPages
             {
                 images[index - 1].gameObject.SetActive(false);
             }
+            if (index + 1 < imagesLen)
+            {
+                images[index + 1].gameObject.SetActive(false);
+            }
             images[index].gameObject.SetActive(true);
         }
         else if (imagesLen > 0)         // index is greater tha images length ...
         {
-            images[index].gameObject.SetActive(false);
+            images[imagesLen - 1].gameObject.SetActive(true);
         }
 
         index++;
 
-        if (index == sentencesLen && index == imagesLen)
+        if (index >= sentencesLen && index >= imagesLen)
         {
             DisplayNextDialogueChoice();
         }
@@ -58,5 +62,15 @@ public class PagesWithImages : DialogueWithPages
             index = 0;
         }
         NextSentence();
+    }
+
+    public override void EndDialogue()
+    {
+        HideChoices();
+        textBox.text = "";
+        if (images.Length > 0)
+        {
+            images[images.Length - 1].gameObject.SetActive(false);
+        }
     }
 }
