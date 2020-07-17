@@ -4832,7 +4832,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -6937636503438456112, guid: 4109eacc5f1a7374998e9e9830989f5b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4955,8 +4955,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   deathExplosion: {fileID: 0}
-  respawner: {fileID: 0}
   allowKnockback: 1
+  canRespawn: 1
 --- !u!1 &750318952952454214
 GameObject:
   m_ObjectHideFlags: 0
