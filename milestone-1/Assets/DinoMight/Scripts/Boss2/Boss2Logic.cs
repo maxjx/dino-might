@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Boss2Logic : MonoBehaviour
 {
     public GameObject player;
-    public GameObject TeleportShrine;
+    [Space]
+    public UnityEvent deathEvents;      // invoked upon death animation
 
     private Animator animator;
     private BoxCollider2D thisCollider;
@@ -18,6 +20,10 @@ public class Boss2Logic : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         thisCollider = GetComponent<BoxCollider2D>();
+        if (deathEvents == null)
+        {
+            deathEvents = new UnityEvent();
+        }
     }
 
     public void DoNextAction()
@@ -47,8 +53,13 @@ public class Boss2Logic : MonoBehaviour
         }
     }
 
-    public void ActivateShrine()
+    public void InvokeDeathEvents()
     {
-        TeleportShrine.SetActive(true);
+        deathEvents.Invoke();
+    }
+
+    public void SpareHim()
+    {
+        Global.masterSpared = true;
     }
 }
