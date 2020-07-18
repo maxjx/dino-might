@@ -39,6 +39,8 @@ public class DialogueManager : MonoBehaviour
         attack = player.GetComponent<Attack>();
         health = player.GetComponent<PlayerHealth>();
 
+        if (startDialoguesEvent == null)
+            startDialoguesEvent = new UnityEvent();
         if (endDialoguesEvent == null)
             endDialoguesEvent = new UnityEvent();
         // }
@@ -178,6 +180,24 @@ public class DialogueManager : MonoBehaviour
         currentDialogue.NextSentence();
     }
 
+    public void StartDialogue()
+    {
+        startDialoguesEvent.Invoke();
+
+        dialogueBackground.SetTrigger("entry");
+        //escapeButton.SetTrigger("entry");
+
+        // Pan camera into NPC view
+        if (NPCCamera != null)
+        {
+            NPCCamera.SetActive(true);
+        }
+
+        // Disables/Enables player
+        ToggleEnablePlayer();
+        currentDialogue.NextSentence();
+    }
+
     void ToggleEnablePlayer()
     {
         pm.ToggleStartStopMovement();
@@ -256,14 +276,14 @@ public class DialogueManager : MonoBehaviour
     {
         switch (int.Parse(CategoryIdentifier[0].ToString()))
         {
-            case 1: 
-                Global.priorities.Add(CategoryIdentifier.Remove(0,1));//.identifier);
+            case 1:
+                Global.priorities.Add(CategoryIdentifier.Remove(0, 1));//.identifier);
                 break;
             case 2:
-                Global.challenges.Add(CategoryIdentifier.Remove(0,1));//.identifier);
+                Global.challenges.Add(CategoryIdentifier.Remove(0, 1));//.identifier);
                 break;
             case 3:
-                Global.habits.Add(CategoryIdentifier.Remove(0,1));//.identifier);
+                Global.habits.Add(CategoryIdentifier.Remove(0, 1));//.identifier);
                 break;
             default:
                 break;
