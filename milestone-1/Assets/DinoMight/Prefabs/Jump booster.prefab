@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7720154888305868442}
   - component: {fileID: 7720154888305868445}
   - component: {fileID: 7720154888305868444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Jump booster trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4767,7 +4767,7 @@ GameObject:
   - component: {fileID: 7720154888438116372}
   - component: {fileID: 7720154888438116370}
   - component: {fileID: 7720154888438116368}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Jump booster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4870,7 +4870,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalForce: 0
   verticalForce: 1000
-  respawner: {fileID: 0}
 --- !u!95 &7720154888438116368
 Animator:
   serializedVersion: 3
@@ -4901,7 +4900,7 @@ GameObject:
   - component: {fileID: 7720154889306980935}
   - component: {fileID: 7720154889306980933}
   - component: {fileID: 7720154889306980932}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pulse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
