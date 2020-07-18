@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class KingLogic : MonoBehaviour {
 
@@ -8,10 +9,14 @@ public class KingLogic : MonoBehaviour {
 	private bool isFlipped = false;
 	public GameObject king;
 	private GameObject tree;
+	[Space]
+	public UnityEvent deathEvents;
 
 	private void Start() {
-		tree = GameObject.FindGameObjectWithTag("TeleportTree");
-		tree.SetActive(false);
+		if (deathEvents == null)
+		{
+			deathEvents = new UnityEvent();
+		}
 	}
 	public void LookAtPlayer() {
 		Vector3 flipped = transform.localScale;
@@ -38,7 +43,7 @@ public class KingLogic : MonoBehaviour {
 		king.transform.position = new Vector3(68f, 2.68f, 0f);
 	}
 
-	void TeleportTree() {
-		tree.SetActive(true);
+	public void InvokeDeathEvents() {
+		deathEvents.Invoke();
 	}
 }

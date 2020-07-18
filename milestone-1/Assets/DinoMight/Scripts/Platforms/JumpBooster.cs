@@ -7,7 +7,6 @@ public class JumpBooster : MonoBehaviour
 {
     public float horizontalForce = 500f;
     public float verticalForce = 500f;
-    public Respawner respawner;
     private Animator animator;
     private bool used = false;
 
@@ -37,6 +36,9 @@ public class JumpBooster : MonoBehaviour
     void CallRespawner()
     {
         // Will set inactive, then set active after a few seconds
-        respawner.RespawnThing(gameObject);
+        if (Respawner.Instance != null)
+        {
+            Respawner.Instance.RespawnThing(gameObject);
+        }
     }
 }

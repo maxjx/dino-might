@@ -599,7 +599,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.018103302, y: -0.52}
+  m_Offset: {x: 0.018103361, y: -0.105633914}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -610,7 +610,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.23, y: 0.42730778}
+  m_Size: {x: 3.23, y: 1.25604}
   m_EdgeRadius: 0
 --- !u!212 &85510995
 SpriteRenderer:
@@ -3384,7 +3384,7 @@ GameObject:
   - component: {fileID: 276226320}
   - component: {fileID: 276226319}
   m_Layer: 11
-  m_Name: Lamas
+  m_Name: Llamas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3429,12 +3429,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 02f9effaddf8a4bf1a90f3b1856ac08c, type: 3}
+  m_Sprite: {fileID: 1945713664933392944, guid: a317da4090ae96b499d69a3dc690662b,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6, y: 4.9}
+  m_Size: {x: 3.98, y: 2.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3448,7 +3449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276226318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.524479, y: 3.7356625, z: -58626.977}
+  m_LocalPosition: {x: 31.46, y: 3.76, z: -58626.977}
   m_LocalScale: {x: 0.8634326, y: 0.68957466, z: 0.78207755}
   m_Children: []
   m_Father: {fileID: 1004840744}
@@ -23844,6 +23845,9 @@ MonoBehaviour:
   index: -1
   sceneName: Wizard Tower
   levelTransitionObj: {fileID: 452277695}
+  byTask: 0
+  taskNumberToClear: 0
+  dm: {fileID: 0}
 --- !u!61 &2021599000
 BoxCollider2D:
   m_ObjectHideFlags: 0
