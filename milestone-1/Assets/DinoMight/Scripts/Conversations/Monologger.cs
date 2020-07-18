@@ -11,15 +11,20 @@ public class Monologger : MonoBehaviour
     public float typingSpeed = 0.02f;
     public TextMeshProUGUI textbox;
     public Animator MonologueBackgroundAnim;
+    public bool replayable = false;
+
     private int index = 0;
     private bool played = false;        // Monologue has been played
 
     void Start()
     {
-        // Check Global if played
-        if (Global.playedMonologueList.Contains(id))
+        if (!replayable)
         {
-            played = true;
+            // Check Global if played if not replayable. else played is always false.
+            if (Global.playedMonologueList.Contains(id))
+            {
+                played = true;
+            }
         }
     }
 
@@ -50,7 +55,8 @@ public class Monologger : MonoBehaviour
         int sentencesLen = sentences.Length;
         while (index < sentencesLen)
         {
-            if (index == sentencesLen - 1)
+            // if replayable, dont have to record
+            if (!replayable && index == sentencesLen - 1)
             {
                 // It is the last sentence so record it to Global even if monologue is prematurely ended
                 Global.playedMonologueList.Add(id);
@@ -62,6 +68,7 @@ public class Monologger : MonoBehaviour
         }
         textbox.text = "";
         MonologueBackgroundAnim.SetTrigger("exit");
+        index = 0;
     }
 
     private IEnumerator Type()
