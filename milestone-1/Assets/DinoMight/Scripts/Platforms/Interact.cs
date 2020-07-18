@@ -40,7 +40,7 @@ public class Interact : MonoBehaviour
         }
     }
 
-    protected void OnTriggerExit2D(Collider2D collider)
+    protected virtual void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.CompareTag("Player"))
         {
