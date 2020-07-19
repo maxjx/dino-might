@@ -10,8 +10,10 @@ public class InflictDamageDirtSprite : InflictDamage
     public void ManualDamage()
     {
         Collider2D colInfo = Physics2D.OverlapBox(transform.position, boxSize, 0f, attackMask);
-		if (colInfo != null) {
-			colInfo.GetComponent<PlayerHealth>().TakeDamage(damage, true);
+		if (colInfo != null && !coolingDown) {
+			colInfo.GetComponent<PlayerHealth>().TakeDamage(damage, Random.value < 0.5);
+            coolingDown = true;
+            Debug.Log("hit");
 		}
     }
 

@@ -8,7 +8,7 @@ public class InflictDamage : MonoBehaviour, IDamage
     public int damage;
     public float duration = 0.5f;
     private float timer = 0;
-    private bool coolingDown = false;
+    protected bool coolingDown = false;
 
     void FixedUpdate()
     {
