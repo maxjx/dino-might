@@ -11,6 +11,9 @@ public class WizardSummonFactory : MonoBehaviour
             case "ranged":
                 gameObject.GetComponent<WizardSummonerRange>().Summon();
                 break;
+            case "time":
+                gameObject.GetComponent<WizardSummonerTime>().Summon();
+                break;
         }
     }
 }
