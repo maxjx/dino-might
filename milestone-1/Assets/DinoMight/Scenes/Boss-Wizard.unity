@@ -1346,6 +1346,7 @@ GameObject:
   - component: {fileID: 374382062}
   - component: {fileID: 374382068}
   - component: {fileID: 374382067}
+  - component: {fileID: 374382069}
   m_Layer: 9
   m_Name: Wizard sprite
   m_TagString: Enemy
@@ -1549,7 +1550,7 @@ MonoBehaviour:
   prefab: {fileID: 4211013594428625309, guid: 63e3e0b3dc3a44e279a1efcbf4ed1e37, type: 3}
   leftPos: {fileID: 104734779}
   rightPos: {fileID: 237880086}
-  attackSpeed: 0.15
+  attackSpeed: 0.1
   attackSpacing: 0.6
 --- !u!114 &374382068
 MonoBehaviour:
@@ -1563,6 +1564,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b62ea7eda67c4e878df4b945013814c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &374382069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374382058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91d44aadc3d948cca438bfa487fcb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1134069774792716932, guid: fa687b0cc95434b1fb610a139ea0fcde, type: 3}
+  effectTime: 3
 --- !u!1 &459793444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023473097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.28, y: -8.23, z: 0}
+  m_LocalPosition: {x: 12.42, y: -6.78, z: 0}
   m_LocalScale: {x: 1.0089432, y: 1.0089432, z: 1.0089432}
   m_Children: []
   m_Father: {fileID: 0}
