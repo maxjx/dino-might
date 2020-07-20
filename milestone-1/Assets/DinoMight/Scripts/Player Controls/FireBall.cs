@@ -14,6 +14,11 @@ public class FireBall : MonoBehaviour, IDamage
     private Vector2 initialPosition;
     private bool attackRightwards;          // If true, fireball is heading to the right
 
+    void Start()
+    {
+        damage = Global.fireballDmg;
+    }
+
     void OnEnable()
     {
         // Records initial position to calculate distance to destroy this fireball later on
@@ -78,4 +83,9 @@ public class FireBall : MonoBehaviour, IDamage
         }
     }
 
+    public void IncreaseFireballDmg(int amount)
+    {
+        damage += amount;
+        Global.fireballDmg = damage;
+    }
 }

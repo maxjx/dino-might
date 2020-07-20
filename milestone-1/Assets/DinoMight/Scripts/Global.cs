@@ -26,6 +26,9 @@ public static class Global {
     public static int questNumber;
     public static bool kingSpared = false;
     public static bool masterSpared = false;
+    public static string imageAPath;            // in the form of "imageA", can be obtained by using Resources.Load(imageAPath)
+    public static string imageBPath;            // in the form of "imageB"
+    public static string imageCPath;            // in the form of "imageC"
 
     public static float musicVolume = 0.5f;
     public static float effectsVolume = 0.5f;
