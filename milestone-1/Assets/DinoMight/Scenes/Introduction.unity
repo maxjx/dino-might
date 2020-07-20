@@ -11511,6 +11511,7 @@ MonoBehaviour:
   runSpeed: 20
   friction: {fileID: 0}
   noFriction: {fileID: 0}
+  canDash: 0
 --- !u!58 &1471507955239793953
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11571,6 +11572,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 1471507954423839849}
   m_CrouchResizeCollider: {fileID: 1471507955239793958}
   dust: {fileID: 1471507955227564262}
+  dashForce: 300
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -12113,8 +12115,6 @@ MonoBehaviour:
   choices:
   - {fileID: 972999206}
   nextDialogue: {fileID: 0}
-  tutorial: 1
-  tutorialInstruction: {fileID: 451855493}
 --- !u!224 &6281714319504634768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12182,8 +12182,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12395,7 +12395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
