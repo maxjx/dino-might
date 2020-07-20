@@ -6,8 +6,8 @@ using System.IO;
 public class CameraSave : MonoBehaviour
 {
     public RectTransform area;
-    public string folder = "/DinoMight/Textures/Display images";
-    public string name = "/savedImage.png";
+    // Application.dataPath = "...Assets/"
+    public string name = "savedImage";
     public GameObject savedText;       // shows saved upon saving
 
     private RenderTexture savingTexture;      // render texture on which the camera will save the screen to
@@ -23,10 +23,11 @@ public class CameraSave : MonoBehaviour
     public void SaveScreen()
     {
         savingCamera.aspect = area.sizeDelta.x / area.sizeDelta.y;
-        savingCamera.transform.position = area.rect.center;
-        if (File.Exists(Application.dataPath + folder + name))
+        savingCamera.transform.position = area.TransformPoint(0, 0, 0);
+        savingCamera.transform.position = new Vector3(savingCamera.transform.position.x, savingCamera.transform.position.y, -10f);
+        if (File.Exists(Application.dataPath + "/Resources/" + name + ".png"))
         {
-            File.Delete(Application.dataPath + folder + name);
+            File.Delete(Application.dataPath + "/Resources/" + name + ".png");
             Debug.Log("overwriting");
         }
         StartCoroutine(CoSave());
@@ -35,7 +36,6 @@ public class CameraSave : MonoBehaviour
     IEnumerator CoSave()
     {
         yield return new WaitForEndOfFrame();
-        Debug.Log(Application.dataPath);
 
         RenderTexture.active = savingTexture;
 
@@ -44,8 +44,8 @@ public class CameraSave : MonoBehaviour
         savedTexture.Apply();
 
         var data = savedTexture.EncodeToPNG();
-        File.WriteAllBytes(Application.dataPath + folder + name, data);
-        if (File.Exists(Application.dataPath + folder + name))
+        File.WriteAllBytes(Application.dataPath + "/Resources/" + name + ".png", data);
+        if (File.Exists(Application.dataPath + "/Resources/" + name + ".png"))
         {
             StartCoroutine(ShowSaved());
             RecordToGlobal();
@@ -66,6 +66,19 @@ public class CameraSave : MonoBehaviour
 
     void RecordToGlobal()
     {
-        
+        switch (name)
+        {
+            case "imageA":
+                Global.imageAPath = name;
+                break;
+            case "imageB":
+                Global.imageBPath = name;
+                break;
+            case "imageC":
+                Global.imageCPath = name;
+                break;
+            default:
+                break;
+        }
     }
 }
