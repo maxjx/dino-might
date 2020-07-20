@@ -9,8 +9,11 @@ public class Draw : MonoBehaviour
 
     GameObject currentLine;
     LineRenderer lineRenderer;
+    Color color = Color.black;
 
     List<Vector2> mousePositions = new List<Vector2>();
+    int currentOrder = 1;
+    float width = 0.05f;
 
     // Update is called once per frame
     void Update()
@@ -36,6 +39,11 @@ public class Draw : MonoBehaviour
     {
         currentLine = Instantiate(brushPrefab, Vector3.zero, Quaternion.identity);
         lineRenderer = currentLine.GetComponent<LineRenderer>();
+        lineRenderer.material.SetColor("_Color", color);
+        lineRenderer.startWidth = width;
+        lineRenderer.endWidth = width;
+        currentOrder++;
+        lineRenderer.sortingOrder = currentOrder;
         mousePositions.Clear();
         mousePositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         mousePositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
@@ -48,5 +56,55 @@ public class Draw : MonoBehaviour
         mousePositions.Add(newMousePos);
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newMousePos);
+    }
+
+    public void ChangeColor(string setColor)
+    {
+        switch (setColor)
+        {
+            case "black":
+                color = Color.black;
+                break;
+            case "gray":
+                color = Color.gray;
+                break;
+            case "blue":
+                color = Color.blue;
+                break;
+            case "cyan":
+                color = Color.cyan;
+                break;
+            case "green":
+                color = Color.green;
+                break;
+            case "yellow":
+                color = Color.yellow;
+                break;
+            case "red":
+                color = Color.red;
+                break;
+            case "magenta":
+                color = Color.magenta;
+                break;
+            case "white":
+                color = Color.white;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void ClearCanvas()
+    {
+        GameObject[] drawings = GameObject.FindGameObjectsWithTag("Drawing");
+        foreach (GameObject drawing in drawings)
+        {
+            Destroy(drawing);
+        }
+    }
+
+    public void ChangeWidth(float newWidth)
+    {
+        width = newWidth;
     }
 }
