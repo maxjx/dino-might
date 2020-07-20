@@ -93,4 +93,19 @@ public class AudioManager : MonoBehaviour
         effectSource.PlayOneShot(musicClip, volume);
     }
 
+    public void PauseEffect()
+    {
+        effectSource.Pause();
+    }
+
+    public void StopEffect()
+    {
+        effectSource.Stop();
+    }
+
+    public void UnpauseEffect()
+    {
+        effectSource.UnPause();
+    }
+
 }

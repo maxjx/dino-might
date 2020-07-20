@@ -2,39 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class DisplayDrawing : MonoBehaviour
 {
     public string imageID;      // A,B,C
 
-    // Start is called before the first frame update
     void Start()
     {
-        switch (imageID)
-        {
-            case "A":
-                Texture a = Resources.Load<Texture>(Global.imageAPath);
-                if (a!=null)
-                {
-                    GetComponent<RawImage>().texture = a;
-                }
-                break;
-            case "B":
-                Texture b = Resources.Load<Texture>(Global.imageBPath);
-                if (b!=null)
-                {
-                    GetComponent<RawImage>().texture = b;
-                }
-                break;
-            case "C":
-                Texture c = Resources.Load<Texture>(Global.imageCPath);
-                if (c!=null)
-                {
-                    GetComponent<RawImage>().texture = c;
-                }
-                break;
-            default:
-                break;
-        }
+        byte[] bytearr = File.ReadAllBytes(Application.dataPath + "/Resources/" + imageID + ".png");
+        Texture2D tex = new Texture2D(1, 1);
+        ImageConversion.LoadImage(tex, bytearr);
+        GetComponent<RawImage>().texture = tex;
     }
 }
