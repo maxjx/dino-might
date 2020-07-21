@@ -4804,6 +4804,7 @@ GameObject:
   - component: {fileID: 7693562226768043826}
   - component: {fileID: 4914853333214801624}
   - component: {fileID: 7644204579186934315}
+  - component: {fileID: -1292960422830553841}
   m_Layer: 8
   m_Name: Character (pf)
   m_TagString: Player
@@ -5055,6 +5056,7 @@ MonoBehaviour:
   kickableLayers:
     serializedVersion: 2
     m_Bits: 512
+  soundEffects: {fileID: 0}
 --- !u!114 &7693562226768043826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5101,6 +5103,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 3738116951645133580}
+--- !u!114 &-1292960422830553841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471507954652336052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fc1a4938d9b418aa9c38c54ca618a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kick: {fileID: 8300000, guid: 6b75dc64b5c6a4717860d2ed8df20c3c, type: 3}
+  fireball: {fileID: 8300000, guid: 84fd373f9b5e94aedae5dc6a9790b1e5, type: 3}
+  dash: {fileID: 8300000, guid: 792960352cb4e4acfa918b1f62b1493e, type: 3}
+  jump: {fileID: 8300000, guid: 5c6e08c2aad4d8a41932753cce08fcab, type: 3}
+  damage: {fileID: 8300000, guid: 6588ff55a41b1f14da4aafae897b9756, type: 3}
+  cure: {fileID: 8300000, guid: 15d8bbfc11a7d4f8088d6496c4f0212f, type: 3}
 --- !u!1 &1471507954997537492
 GameObject:
   m_ObjectHideFlags: 0
