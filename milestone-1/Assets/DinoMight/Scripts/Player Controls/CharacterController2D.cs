@@ -43,10 +43,13 @@ public class CharacterController2D : MonoBehaviour
     private bool hadDashed = false;         // dash midair once only
     private Animator animator;
 
+    private PlayerSFXControl soundEffect;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        soundEffect = GetComponent<PlayerSFXControl>();
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
@@ -174,6 +177,9 @@ public class CharacterController2D : MonoBehaviour
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 
             CreateDust();
+
+            soundEffect.playJump();
+            Debug.Log("Jumped");
         }
 
         // if moving horizontally or in the air, and not crouching and dashing, and had not dashed (in air)
@@ -203,6 +209,8 @@ public class CharacterController2D : MonoBehaviour
 
                 hadDashed = true;
                 dashing = true;
+
+                soundEffect.playDash();
             }
         }
     }
