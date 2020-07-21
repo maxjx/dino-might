@@ -33,9 +33,9 @@ namespace Tests
         [Test]
         public void AssignValueToGlobal()
         {
-            Global.priorities = new HashSet<string>(){ "" };
-            Global.challenges = new HashSet<string>(){ "", " " };
-            Global.habits = new HashSet<string>();
+            Global.priorities = new List<string>(){ "" };
+            Global.challenges = new List<string>(){ "", " " };
+            Global.habits = new List<string>();
 
             Assert.AreEqual(1, Global.priorities.Count);
             Assert.AreEqual(2, Global.challenges.Count);
@@ -45,9 +45,9 @@ namespace Tests
         [UnityTest]
         public IEnumerator GetSummaryCategoriesValueFromGlobal()
         {
-            Global.priorities = new HashSet<string>(){ "" };
-            Global.challenges = new HashSet<string>(){ "", " " };
-            Global.habits = new HashSet<string>();
+            Global.priorities = new List<string>(){ "" };
+            Global.challenges = new List<string>(){ "", " " };
+            Global.habits = new List<string>();
             yield return new WaitForSeconds(1f);
 
             Assert.AreEqual(1, bar1.value);
@@ -58,9 +58,9 @@ namespace Tests
         [UnityTest]
         public IEnumerator GetSummaryCategoriesNormalizedValueFromGlobal()
         {
-            Global.priorities = new HashSet<string>(){ "" };
-            Global.challenges = new HashSet<string>(){ "", " " };
-            Global.habits = new HashSet<string>();
+            Global.priorities = new List<string>(){ "" };
+            Global.challenges = new List<string>(){ "", " " };
+            Global.habits = new List<string>();
             yield return new WaitForSeconds(1f);
 
             Assert.AreEqual(0.5f, bar1.normalizedValue);
@@ -71,9 +71,9 @@ namespace Tests
         [UnityTest]
         public IEnumerator CheckTipsGeneratedCorrectly()
         {
-            Global.priorities = new HashSet<string>(){ "" };
-            Global.challenges = new HashSet<string>(){ "", " " };
-            Global.habits = new HashSet<string>();
+            Global.priorities = new List<string>(){ "" };
+            Global.challenges = new List<string>(){ "", " " };
+            Global.habits = new List<string>();
             yield return new WaitForSeconds(2f);
 
             // Manual visual check i guess
