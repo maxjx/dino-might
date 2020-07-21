@@ -27,6 +27,8 @@ public class KingHealth : MonoBehaviour, IHealth {
 
 	public void Die()
 	{
+		Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
 		GetComponent<Animator>().SetBool("isDead", true);
 	}
 
