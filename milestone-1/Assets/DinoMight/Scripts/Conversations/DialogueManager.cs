@@ -291,6 +291,7 @@ public class DialogueManager : MonoBehaviour
             default:
                 break;
         }
+        Debug.Log(Global.priorities[0]);
     }
 
     void RecordDialogueIdInGlobal(int id)
