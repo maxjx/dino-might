@@ -9,6 +9,16 @@ $playerLevel = $_POST["playerLevel"];
 $playerHealth = $_POST["playerHealth"];
 $Xcoordinate = $_POST["Xcoordinate"];
 $Ycoordinate = $_POST["Ycoordinate"];
+$playerMaxHealth = $_POST["playerMaxHealth"];
+$kickDmg = $_POST["kickDmg"];
+$fireballDmg = $_POST["fireballDmg"];
+$canDash = $_POST["canDash"];
+$questNumber = $_POST["questNumber"];
+$kingSpared = $_POST["kingSpared"];
+$masterSpared = $_POST["masterSpared"];
+$imageAPath = $_POST["imageAPath"];
+$imageBPath = $_POST["imageBPath"];
+$imageCPath = $_POST["imageCPath"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -23,8 +33,11 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     $sql = "DELETE FROM loaddata WHERE playerId = '". $playerId. "';";
     if ($conn->query($sql) === true) {
-        $sql = "INSERT INTO loaddata (playerId, level, health, Xcoordinate, Ycoordinate)
-        VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "')";
+        $sql = "INSERT INTO loaddata (playerId, level, health, Xcoordinate, Ycoordinate, playerMaxHealth
+            , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, imageAPath, imageBPath, imageCPath)
+            VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
+            , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
+            , '". $kingSpared. "', '". $masterSpared. "', '". $imageAPath. "', '". $imageBPath. "', '". $imageCPath. "')";
         if ($conn->query($sql) === true) {
             echo "Successful update!";
         } else {
@@ -32,8 +45,11 @@ if ($result->num_rows > 0) {
         }
     }
 } else {
-    $sql = "INSERT INTO loaddata (playerId, level, health, Xcoordinate, Ycoordinate)
-    VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "')";
+    $sql = "INSERT INTO loaddata (playerId, level, health, Xcoordinate, Ycoordinate, playerMaxHealth
+        , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, imageAPath, imageBPath, imageCPath)
+        VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
+        , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
+        , '". $kingSpared. "', '". $masterSpared. "', '". $imageAPath. "', '". $imageBPath. "', '". $imageCPath. "')";
     if ($conn->query($sql) === true) {
         echo "Successful save!";
     } else {

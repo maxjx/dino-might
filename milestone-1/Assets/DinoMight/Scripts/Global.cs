@@ -7,7 +7,7 @@ public static class Global {
 
     // player stats
     public static int playerHealth;
-    public static int playerMaxHealth = 15;          // to save
+    public static int playerMaxHealth = 15;     // to save
     public static int kickDmg = 2;              // to save
     public static int fireballDmg = 3;          // to save
     public static bool canDash = false;         // to save
@@ -23,19 +23,19 @@ public static class Global {
     // All monologues distinguished by their ids that are in this list have been played.
     public static List<string> playedMonologueList = new List<string>();
     // Indicates which quest the player is currently doing.
-    public static int questNumber;                   // to save
-    public static bool kingSpared = false;         // to save
-    public static bool masterSpared = false;         // to save
-    public static string imageAPath;            // in the form of "imageA", can be obtained by using Resources.Load(imageAPath)
-    public static string imageBPath;            // in the form of "imageB"
-    public static string imageCPath;            // in the form of "imageC"
+    public static int questNumber;                  // to save
+    public static bool kingSpared = false;          // to save
+    public static bool masterSpared = false;        // to save
+    public static string imageAPath = "null";            // in the form of "imageA", can be obtained by using Resources.Load(imageAPath)
+    public static string imageBPath = "null";            // in the form of "imageB"
+    public static string imageCPath = "null";            // in the form of "imageC"
 
     public static float musicVolume = 0.5f;
     public static float effectsVolume = 0.5f;
 
     // Summary
-    public static HashSet<string> priorities = new HashSet<string>();         // to save
-    public static HashSet<string> challenges = new HashSet<string>();         // to save
-    public static HashSet<string> habits = new HashSet<string>();         // to save
+    public static HashSet<string> priorities = new HashSet<string>();           // to save
+    public static HashSet<string> challenges = new HashSet<string>();           // to save
+    public static HashSet<string> habits = new HashSet<string>();               // to save
 
 }
