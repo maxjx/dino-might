@@ -57,6 +57,17 @@ public class PauseMenu : MonoBehaviour {
         form.AddField("playerHealth", Global.playerHealth);
         form.AddField("Xcoordinate", Global.Xcoordinate.ToString());
         form.AddField("Ycoordinate", Global.Ycoordinate.ToString());
+        form.AddField("playerMaxHealth", Global.playerMaxHealth);
+        form.AddField("kickDmg", Global.kickDmg);
+        form.AddField("fireballDmg", Global.fireballDmg);
+        form.AddField("canDash", Global.canDash.ToString());
+        form.AddField("questNumber", Global.questNumber);
+        form.AddField("kingSpared", Global.kingSpared.ToString());
+        form.AddField("masterSpared", Global.masterSpared.ToString());
+        form.AddField("imageAPath", Global.imageAPath);
+        form.AddField("imageBPath", Global.imageBPath);
+        form.AddField("imageCPath", Global.imageCPath);
+
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Save.php", form))
         {
