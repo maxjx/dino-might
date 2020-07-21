@@ -13,11 +13,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private Animator animator;
     private Rigidbody2D m_rigidbody;
     private bool immune;
+    
+    private PlayerSFXControl soundEffect;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
+        soundEffect = GetComponent<PlayerSFXControl>();
     }
 
     void OnEnable()
@@ -71,6 +74,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             animator.SetBool("dead", true);     // Animator state calls Die() manually
         }
+
+        soundEffect.playDamage();
     }
 
     public void Die()
@@ -96,6 +101,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth = Health.AddHealth(maxHealth, currentHealth, amount);
         healthBar.setHealth(currentHealth);
         Global.playerHealth = currentHealth;
+        soundEffect.playCure();
     }
 
     public void Immunity(bool b)

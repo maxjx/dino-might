@@ -24,6 +24,8 @@ public class Attack : MonoBehaviour, IDamage
     private Vector3 rightDisplacement;      // To calculate displacement of hit effect from hit point
     private Vector3 leftDisplacement;
 
+    public PlayerSFXControl soundEffects;
+
     void Start()
     {
         playerTransform = GetComponent<Transform>();     // Cannot simply use transform.position
@@ -34,6 +36,7 @@ public class Attack : MonoBehaviour, IDamage
         leftDisplacement = new Vector3(-kickRange, 0, 0);
 
         kickDamage = Global.kickDmg;
+        soundEffects = GetComponent<PlayerSFXControl>();
     }
 
     // Update is called once per frame
@@ -76,6 +79,7 @@ public class Attack : MonoBehaviour, IDamage
         // Spawns Fireball object at the position and rotation of the firePoint
         ObjectPooler.Instance.SpawnFromPool("Fireball", firePoint.position, firePoint.rotation);
         playerMovementControl.CrouchOnce();     // For shooting animation
+        soundEffects.playFireball();            // For Fireball SFX
     }
 
     public void UseKickAttack()
@@ -112,6 +116,8 @@ public class Attack : MonoBehaviour, IDamage
                 Damage(enemy);
             }
         }
+
+        soundEffects.playKick();            // Play kick SFX
     }
 
     public void Damage(Collider2D collider)
