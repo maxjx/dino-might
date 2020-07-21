@@ -15,28 +15,17 @@ public class FinalSceneManager : MonoBehaviour
     public Monologger monologger;
     public GameObject fightingWizard;
     public GameObject bosshealthbar;
+    [Space]
+    // Debugging purposes   MUST BE FALSE FOR ACTUAL GAMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+    public bool debugkingSpared = false;
+    public bool debugmasterSpared = false;
 
     private bool wizAttacked = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void CheckSparedBosses()
     {
-        // masterNPC.SetActive(true);
-        // kingSprite.SetActive(true);
-
-        bool kingSpared = Global.kingSpared;
-        bool masterSpared = Global.masterSpared;
+        bool kingSpared = Global.kingSpared || debugkingSpared;
+        bool masterSpared = Global.masterSpared || debugmasterSpared;
         if (kingSpared && !masterSpared)
         {
             kingNPC.SetActive(true);
