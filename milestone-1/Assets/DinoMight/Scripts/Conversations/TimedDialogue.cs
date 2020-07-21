@@ -17,6 +17,12 @@ public class TimedDialogue : Dialogue
     // override so that choices can be shown and dialogue can lead to next dialogue
     public override void NextSentence()
     {
+        if (altName != "")
+        {
+            manager.SwitchName(altName);
+        }
+        manager.UpdateDialogueRef(this);
+        
         timerIsRunning = true;
         base.DisplayChoices();
         if (index < base.sentences.Length)

@@ -29,6 +29,12 @@ public class DialogueWithPages : Dialogue
     // start any dialogue with next sentence, so choices will always be displayed for this dialoguewithpages
     public override void NextSentence()
     {
+        if (altName != "")
+        {
+            manager.SwitchName(altName);
+        }
+        manager.UpdateDialogueRef(this);
+        
         DisplayChoices();
 
         if (index < sentences.Length)

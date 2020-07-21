@@ -43,10 +43,7 @@ public class DialogueManager : MonoBehaviour
             startDialoguesEvent = new UnityEvent();
         if (endDialoguesEvent == null)
             endDialoguesEvent = new UnityEvent();
-        // }
-
-        // void Start()
-        // {
+            
         // Choose dialogue canvas from list
         if (dialogueCanvases.Count > 1)
         {

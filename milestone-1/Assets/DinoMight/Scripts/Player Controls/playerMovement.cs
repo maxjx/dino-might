@@ -24,7 +24,9 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         rbPlayer = gameObject.GetComponent<Rigidbody2D>();
+        canDash = Global.canDash;
     }
+
     void Update()
     {
         if (canMove)
@@ -50,7 +52,7 @@ public class playerMovement : MonoBehaviour
                 if (Input.GetButtonDown("Fire3"))
                 {     // left and right shift
                     dash = true;
-                    animator.SetTrigger("isDashing");
+                    //animator.SetTrigger("isDashing");
                 }
                 else if (Input.GetButtonUp("Fire3"))
                 {
@@ -171,6 +173,7 @@ public class playerMovement : MonoBehaviour
 
     public void EnableDash()
     {
+        Global.canDash = true;
         canDash = true;
     }
 }

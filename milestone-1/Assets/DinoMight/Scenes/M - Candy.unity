@@ -233,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87617413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2162976, y: -28.839996, z: -10}
+  m_LocalPosition: {x: 7.3819127, y: -28.839996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1129107422}
@@ -1199,7 +1199,11 @@ MonoBehaviour:
   manager: {fileID: 1783094680}
   altName: 
   typingSpeed: 0.01
-  sentences: []
+  sentences:
+  - Ok get up from the chair that you've been sitting on for the past hour... or
+    hours
+  - 
+  - 
   choices:
   - {fileID: 237639437}
   - {fileID: 1678895459}
@@ -1227,6 +1231,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 50
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1090514293}
+        m_MethodName: EnableDash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2782,7 +2797,7 @@ MonoBehaviour:
   typingSpeed: 0.01
   sentences:
   - Amazing job! You got a new ability!
-  - Try holding shift to sprint! See you soon!
+  - Try hitting shift to double jump! See you soon!
   choices: []
   nextDialogue: {fileID: 0}
 --- !u!114 &833809361
@@ -3599,6 +3614,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aee0bd053b590b04986302d60267226f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1090514293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1471507954652336061, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+    type: 3}
+  m_PrefabInstance: {fileID: 1090514287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090514289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf15fc4dfd96417bbff6984ce5af015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1097301263
@@ -7326,6 +7353,9 @@ MonoBehaviour:
   index: -1
   sceneName: Room of Enchantment
   levelTransitionObj: {fileID: 197845974}
+  byTask: 0
+  taskNumberToClear: 0
+  dm: {fileID: 0}
 --- !u!61 &1653394924
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8963,7 +8993,7 @@ MonoBehaviour:
   sentences:
   - Welcome to the Candy room. You get a new ability after completing a stress relieving
     activity.
-  - In this room, the activity you must do is to take a break.
+  - In this room, the activity you must do is to do some light exercise.
   - Do you want to do it?
   choices:
   - {fileID: 868327479792871981}
@@ -9153,9 +9183,8 @@ MonoBehaviour:
   altName: 
   typingSpeed: 0.01
   sentences:
-  - Your task is to get a snack and a cup of water and just relax for a moment!
-  - Okay once you press the button below, a timer will start. Come back to me after
-    the time is up!
+  - Your task is to follow the instructions! It will be easy I promise!
+  - Okay once you press the button below, a timer will start.
   choices:
   - {fileID: 303697472}
   nextDialogue: {fileID: 0}
