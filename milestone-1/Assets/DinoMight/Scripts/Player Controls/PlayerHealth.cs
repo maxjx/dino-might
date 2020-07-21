@@ -51,6 +51,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
         animator.SetTrigger("hurt");
 
+        // screen shake
+        if (CinemachineShake.Instance != null)
+        {
+            CinemachineShake.Instance.ShakeCamera(2f, 0.1f);
+        }
+
         // Determine direction of knockback
         if (attackRightwards)
         {
@@ -72,6 +78,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
         currentHealth = 0;
         Global.playerHealth = currentHealth;
         healthBar.setHealth(currentHealth);
+
+        // screen shake
+        if (CinemachineShake.Instance != null)
+        {
+            CinemachineShake.Instance.ShakeCamera(3f, 0.1f);
+        }
 
         if (deathPrefab != null)
             Instantiate(deathPrefab, transform.position, transform.rotation);
