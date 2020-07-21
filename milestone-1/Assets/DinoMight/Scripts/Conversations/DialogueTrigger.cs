@@ -74,4 +74,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         talking = false;
     }
+    public void TurnOffPrompt()
+    {
+        talking = true;
+        prompt.SetActive(false);
+    }
 }

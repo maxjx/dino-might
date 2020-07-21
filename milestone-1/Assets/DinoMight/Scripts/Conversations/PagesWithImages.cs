@@ -11,6 +11,12 @@ public class PagesWithImages : DialogueWithPages
     // next sentence is also next image, if sentences less than images, show last sentence, vice versa
     public override void NextSentence()
     {
+        if (altName != "")
+        {
+            manager.SwitchName(altName);
+        }
+        manager.UpdateDialogueRef(this);
+
         int sentencesLen = sentences.Length;
         int imagesLen = images.Length;
 

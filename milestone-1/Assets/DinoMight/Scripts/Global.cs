@@ -10,7 +10,7 @@ public static class Global {
     public static int playerMaxHealth = 15;
     public static int kickDmg = 2;
     public static int fireballDmg = 3;
-    public static bool canDash = false;     // not rly smooth yet so dunnid save if u see this
+    public static bool canDash = false;
 
     public static int playerLevel;
     public static float Xcoordinate;
