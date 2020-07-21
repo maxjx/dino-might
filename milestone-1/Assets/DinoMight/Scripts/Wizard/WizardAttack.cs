@@ -52,8 +52,8 @@ public class WizardAttack : MonoBehaviour
 
     public void GeneralAttack()
     {
-        string[] attackTypes = new string[] {"ranged", "time"};
-		int result = Random.Range(0, 2);
+        string[] attackTypes = new string[] {"ranged", "time", "cannon"};
+		int result = Random.Range(0, 3);
 		summonHelper.Summon(attackTypes[result]);
     }
 

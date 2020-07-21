@@ -2415,6 +2415,21 @@ GameObject:
   m_Layer: 8
   m_Name: Box
   m_TagString: Untagged
+  - component: {fileID: 374382061}
+  - component: {fileID: 374382060}
+  - component: {fileID: 374382059}
+  - component: {fileID: 374382066}
+  - component: {fileID: 374382065}
+  - component: {fileID: 374382064}
+  - component: {fileID: 374382063}
+  - component: {fileID: 374382062}
+  - component: {fileID: 374382068}
+  - component: {fileID: 374382067}
+  - component: {fileID: 374382069}
+  - component: {fileID: 374382070}
+  m_Layer: 9
+  m_Name: Wizard sprite
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3051,7 +3066,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1134069774792716932, guid: fa687b0cc95434b1fb610a139ea0fcde, type: 3}
   effectTime: 3
---- !u!1 &384509175
+--- !u!114 &374382070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374382058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79374c20bb5f4322a3a5747556d3c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7159543977655609968, guid: 35a7914985b0b41a782c3a5dfe58b542, type: 3}
+--- !u!1 &459793444
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4290,6 +4318,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!50 &561122529
+  player: {fileID: 0}
+  king: {fileID: 1161307332}
+  deathEvents:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!50 &1161307340
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

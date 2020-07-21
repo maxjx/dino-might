@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Cannon : MonoBehaviour
 {
+    public float fireRate = 1.5f;
+    public float sustainedTime = 7f;
     private float timer;
     [SerializeField] private GameObject prefab;
 
+    private void Start()
+    {
+        StartCoroutine(TimedDestroy());
+    }
     private void Update()
     {
         timer += Time.deltaTime;
@@ -14,7 +20,7 @@ public class Cannon : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player" && timer > 4f)
+        if (other.tag == "Player" && timer > fireRate)
         {
             timer = 0f;
             float pos = other.gameObject.transform.position.x;
@@ -29,5 +35,11 @@ public class Cannon : MonoBehaviour
         GameObject bomb = (GameObject)Instantiate(prefab, transform.position, transform.rotation);
 
         bomb.GetComponent<Rigidbody2D>().velocity = new Vector2(xVelocity, 7.67f);
+    }
+
+    private IEnumerator TimedDestroy()
+    {
+        yield return new WaitForSeconds(sustainedTime);
+        Destroy(gameObject);
     }
 }
