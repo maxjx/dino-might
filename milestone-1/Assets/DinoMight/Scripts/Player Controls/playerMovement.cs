@@ -24,7 +24,9 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         rbPlayer = gameObject.GetComponent<Rigidbody2D>();
+        canDash = Global.canDash;
     }
+
     void Update()
     {
         if (canMove)
@@ -171,6 +173,7 @@ public class playerMovement : MonoBehaviour
 
     public void EnableDash()
     {
+        Global.canDash = true;
         canDash = true;
     }
 }
