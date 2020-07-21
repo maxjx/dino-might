@@ -60,6 +60,12 @@ public class MobHealth : MonoBehaviour, IHealth
         deathExplosion.transform.position = transform.position;
         deathExplosion.Play();
 
+        // screen shake
+        if (CinemachineShake.Instance != null)
+        {
+            CinemachineShake.Instance.ShakeCamera(1.5f, 0.2f);
+        }
+
         if (Respawner.Instance != null && canRespawn)
         {
             Respawner.Instance.RespawnCharacter(gameObject, spawnNumber);

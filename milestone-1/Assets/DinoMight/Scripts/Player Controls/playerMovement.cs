@@ -50,7 +50,7 @@ public class playerMovement : MonoBehaviour
                 if (Input.GetButtonDown("Fire3"))
                 {     // left and right shift
                     dash = true;
-                    animator.SetTrigger("isDashing");
+                    //animator.SetTrigger("isDashing");
                 }
                 else if (Input.GetButtonUp("Fire3"))
                 {
