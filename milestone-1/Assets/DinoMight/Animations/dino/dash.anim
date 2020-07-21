@@ -22,8 +22,11 @@ AnimationClip:
     - time: 0
       value: {fileID: -3681330011967546324, guid: fe6dc15e757f34085883ee758eb6e805,
         type: 3}
+    - time: 0.16666667
+      value: {fileID: -6325429355310368049, guid: fe6dc15e757f34085883ee758eb6e805,
+        type: 3}
     - time: 0.5
-      value: {fileID: -3681330011967546324, guid: fe6dc15e757f34085883ee758eb6e805,
+      value: {fileID: -6325429355310368049, guid: fe6dc15e757f34085883ee758eb6e805,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -45,7 +48,8 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -3681330011967546324, guid: fe6dc15e757f34085883ee758eb6e805, type: 3}
-    - {fileID: -3681330011967546324, guid: fe6dc15e757f34085883ee758eb6e805, type: 3}
+    - {fileID: -6325429355310368049, guid: fe6dc15e757f34085883ee758eb6e805, type: 3}
+    - {fileID: -6325429355310368049, guid: fe6dc15e757f34085883ee758eb6e805, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -71,6 +75,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.016666668
+    functionName: StartEcho
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
     functionName: StopDash
     data: 
