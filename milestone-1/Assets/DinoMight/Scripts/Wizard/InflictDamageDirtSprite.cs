@@ -13,7 +13,6 @@ public class InflictDamageDirtSprite : InflictDamage
 		if (colInfo != null && !coolingDown) {
 			colInfo.GetComponent<PlayerHealth>().TakeDamage(damage, Random.value < 0.5);
             coolingDown = true;
-            Debug.Log("hit");
 		}
     }
 
