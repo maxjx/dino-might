@@ -14,6 +14,9 @@ public class WizardSummonFactory : MonoBehaviour
             case "time":
                 gameObject.GetComponent<WizardSummonerTime>().Summon();
                 break;
+            case "cannon":
+                gameObject.GetComponent<WizardSummonerCannon>().Summon();
+                break;
         }
     }
 }
