@@ -14,7 +14,7 @@ public class CharacterController2D : MonoBehaviour
     public Transform m_CeilingCheck;                            // A position marking where to check for ceilings
     public BoxCollider2D m_CrouchResizeCollider;				// A collider that will be resized when crouching
     public ParticleSystem dust;
-    public float dashForce = 300f;                             // Amount of force added when player dashes
+    public float dashForce = 600f;                             // Amount of force added when player dashes
 
     private Vector2 standingColliderSize = new Vector2(0.4106f, 0.497f);
     private Vector2 standingColliderOffset = new Vector2(0f, 0.08f);
@@ -41,9 +41,11 @@ public class CharacterController2D : MonoBehaviour
     private bool m_wasCrouching = false;
     private bool dashing = false;           // will be reset to false after dashing by animation state
     private bool hadDashed = false;         // dash midair once only
+    private Animator animator;
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnLandEvent == null)
@@ -175,28 +177,28 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // if moving horizontally or in the air, and not crouching and dashing, and had not dashed (in air)
-        if (((move != 0f) || !m_Grounded) && !crouch && dash && !hadDashed)
+        if ((!m_Grounded) && !crouch && dash && !hadDashed)
         {
             if (!dashing)
             {
-                m_Rigidbody2D.gravityScale = 0;
+                animator.SetTrigger("isDashing");
+                m_Rigidbody2D.gravityScale = 2f;
+                m_Rigidbody2D.drag = 1f;
+                m_Rigidbody2D.velocity = Vector2.zero;
 
                 if (m_FacingRight)
                 {
-                    dashForce = dashForce < 0 ? -dashForce : dashForce;
+                    m_Rigidbody2D.AddForce(new Vector2(dashForce, 150f));
                 }
                 else
                 {
-                    dashForce = dashForce < 0 ? dashForce : -dashForce;
+                    m_Rigidbody2D.AddForce(new Vector2(-dashForce, 150f));
                 }
 
-                if (!m_Grounded)
+                // screen shake
+                if (CinemachineShake.Instance != null)
                 {
-                    m_Rigidbody2D.AddForce(new Vector2(dashForce, 0f));
-                }
-                else if (move != 0)
-                {
-                    m_Rigidbody2D.AddForce(new Vector2(dashForce, 0f));
+                    CinemachineShake.Instance.ShakeCamera(4f, 0.2f);
                 }
 
                 hadDashed = true;
@@ -223,7 +225,8 @@ public class CharacterController2D : MonoBehaviour
     public void StopDash()
     {
         m_Rigidbody2D.gravityScale = 4f;
-        m_Rigidbody2D.velocity = Vector2.zero;
+        m_Rigidbody2D.drag = 0f;
+        //m_Rigidbody2D.velocity = Vector2.zero;
         dashing = false;
     }
 }
