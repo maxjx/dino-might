@@ -11,9 +11,7 @@ public class SetSelectedGO : MonoBehaviour
     {
         if (onEnable)
         {
-            //StartCoroutine(SelectThis());
             EventSystem.current.SetSelectedGameObject(gameObject);
-            Debug.Log(EventSystem.current.currentSelectedGameObject);
         }
     }
 }
