@@ -26,9 +26,9 @@ public static class Global {
     public static int questNumber = 0;                  // to save
     public static bool kingSpared = false;              // to save
     public static bool masterSpared = false;            // to save
-    public static byte[] imageAPath;
-    public static byte[] imageBPath;
-    public static byte[] imageCPath;
+    public static byte[] imageAPath = new byte[]{};
+    public static byte[] imageBPath = new byte[]{};
+    public static byte[] imageCPath = new byte[]{};
 
     public static float musicVolume = 0.5f;
     public static float effectsVolume = 0.5f;
