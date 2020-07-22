@@ -16,9 +16,8 @@ $canDash = $_POST["canDash"];
 $questNumber = $_POST["questNumber"];
 $kingSpared = $_POST["kingSpared"];
 $masterSpared = $_POST["masterSpared"];
-$imageAPath = $_POST["imageAPath"];
-$imageBPath = $_POST["imageBPath"];
-$imageCPath = $_POST["imageCPath"];
+$choices = $_POST["choices"];
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -34,10 +33,10 @@ if ($result->num_rows > 0) {
     $sql = "DELETE FROM loaddata WHERE playerId = '". $playerId. "';";
     if ($conn->query($sql) === true) {
         $sql = "INSERT INTO loaddata (playerId, level, health, Xcoordinate, Ycoordinate, playerMaxHealth
-            , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, imageAPath, imageBPath, imageCPath)
-            VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
-            , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
-            , '". $kingSpared. "', '". $masterSpared. "', '". $imageAPath. "', '". $imageBPath. "', '". $imageCPath. "')";
+        , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, choices)
+        VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
+        , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
+        , '". $kingSpared. "', '". $masterSpared. "', '". $choices. "')";
         if ($conn->query($sql) === true) {
             echo "Successful update!";
         } else {
@@ -46,10 +45,10 @@ if ($result->num_rows > 0) {
     }
 } else {
     $sql = "INSERT INTO loaddata (playerId, level, health, Xcoordinate, Ycoordinate, playerMaxHealth
-        , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, imageAPath, imageBPath, imageCPath)
+        , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, choices)
         VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
         , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
-        , '". $kingSpared. "', '". $masterSpared. "', '". $imageAPath. "', '". $imageBPath. "', '". $imageCPath. "')";
+        , '". $kingSpared. "', '". $masterSpared. "', '". $choices. "')";
     if ($conn->query($sql) === true) {
         echo "Successful save!";
     } else {

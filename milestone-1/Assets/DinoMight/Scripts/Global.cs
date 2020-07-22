@@ -23,7 +23,7 @@ public static class Global {
     // All monologues distinguished by their ids that are in this list have been played.
     public static List<string> playedMonologueList = new List<string>();
     // Indicates which quest the player is currently doing.
-    public static int questNumber;                  // to save
+    public static int questNumber = 0;                  // to save
     public static bool kingSpared = false;          // to save
     public static bool masterSpared = false;        // to save
     public static string imageAPath = "null";            // in the form of "imageA", can be obtained by using Resources.Load(imageAPath)
