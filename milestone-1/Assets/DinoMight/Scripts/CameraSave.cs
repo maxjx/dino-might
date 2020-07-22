@@ -7,7 +7,7 @@ public class CameraSave : MonoBehaviour
 {
     public RectTransform area;
     // Application.dataPath = "...Assets/"
-    public string name = "savedImage";
+    public string imageName = "savedImage";
     public GameObject savedText;       // shows saved upon saving
 
     private RenderTexture savingTexture;      // render texture on which the camera will save the screen to
@@ -25,9 +25,9 @@ public class CameraSave : MonoBehaviour
         savingCamera.aspect = area.sizeDelta.x / area.sizeDelta.y;
         savingCamera.transform.position = area.TransformPoint(0, 0, 0);
         savingCamera.transform.position = new Vector3(savingCamera.transform.position.x, savingCamera.transform.position.y, -10f);
-        if (File.Exists(Application.dataPath + "/Resources/" + name + ".png"))
+        if (File.Exists(Application.dataPath + "/Resources/" + imageName + ".png"))
         {
-            File.Delete(Application.dataPath + "/Resources/" + name + ".png");
+            File.Delete(Application.dataPath + "/Resources/" + imageName + ".png");
             Debug.Log("overwriting");
         }
         StartCoroutine(CoSave());
@@ -44,8 +44,8 @@ public class CameraSave : MonoBehaviour
         savedTexture.Apply();
 
         var data = savedTexture.EncodeToPNG();
-        File.WriteAllBytes(Application.dataPath + "/Resources/" + name + ".png", data);
-        if (File.Exists(Application.dataPath + "/Resources/" + name + ".png"))
+        File.WriteAllBytes(Application.dataPath + "/Resources/" + imageName + ".png", data);
+        if (File.Exists(Application.dataPath + "/Resources/" + imageName + ".png"))
         {
             StartCoroutine(ShowSaved());
             RecordToGlobal();
@@ -61,21 +61,21 @@ public class CameraSave : MonoBehaviour
 
     public void ChangeSavedName(string newName)
     {
-        name = newName;
+        imageName = newName;
     }
 
     void RecordToGlobal()
     {
-        switch (name)
+        switch (imageName)
         {
             case "imageA":
-                Global.imageAPath = name;
+                Global.imageAPath = imageName;
                 break;
             case "imageB":
-                Global.imageBPath = name;
+                Global.imageBPath = imageName;
                 break;
             case "imageC":
-                Global.imageCPath = name;
+                Global.imageCPath = imageName;
                 break;
             default:
                 break;

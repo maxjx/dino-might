@@ -30,7 +30,7 @@ public class Respawner : MonoBehaviour
 
     public IEnumerator RespawnPlayer(GameObject obj)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.02f);
         // To "teleport" the camera
         playerVcam.gameObject.SetActive(false);
         

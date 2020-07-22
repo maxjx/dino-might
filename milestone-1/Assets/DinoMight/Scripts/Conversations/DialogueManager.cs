@@ -35,15 +35,18 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        pm = player.GetComponent<playerMovement>();
-        attack = player.GetComponent<Attack>();
-        health = player.GetComponent<PlayerHealth>();
+        if (player != null)
+        {
+            pm = player.GetComponent<playerMovement>();
+            attack = player.GetComponent<Attack>();
+            health = player.GetComponent<PlayerHealth>();
+        }
 
         if (startDialoguesEvent == null)
             startDialoguesEvent = new UnityEvent();
         if (endDialoguesEvent == null)
             endDialoguesEvent = new UnityEvent();
-            
+
         // Choose dialogue canvas from list
         if (dialogueCanvases.Count > 1)
         {
@@ -197,10 +200,13 @@ public class DialogueManager : MonoBehaviour
 
     void ToggleEnablePlayer()
     {
-        pm.ToggleStartStopMovement();
-        attack.enabled = !attack.enabled;
-        immune = !immune;
-        health.Immunity(immune);
+        if (player != null)
+        {
+            pm.ToggleStartStopMovement();
+            attack.enabled = !attack.enabled;
+            immune = !immune;
+            health.Immunity(immune);
+        }
     }
 
     public void EndDialogues()
@@ -285,6 +291,7 @@ public class DialogueManager : MonoBehaviour
             default:
                 break;
         }
+        Debug.Log(Global.priorities[0]);
     }
 
     void RecordDialogueIdInGlobal(int id)
