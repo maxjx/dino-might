@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
         , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, choices)
         VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
         , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
-        , '". $kingSpared. "', '". $masterSpared. "', '". $choices. "')";
+        , '". $kingSpared. "', '". $masterSpared. "', '". $choices. "', '". $imageAPath. "', '". $imageBPath. "', '". $imageCPath. "')";
         if ($conn->query($sql) === true) {
             echo "Successful update!";
         } else {
@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
         , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, choices)
         VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
         , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
-        , '". $kingSpared. "', '". $masterSpared. "', '". $choices. "')";
+        , '". $kingSpared. "', '". $masterSpared. "', '". $choices. "', '". $imageAPath. "', '". $imageBPath. "', '". $imageCPath. "')";
     if ($conn->query($sql) === true) {
         echo "Successful save!";
     } else {
