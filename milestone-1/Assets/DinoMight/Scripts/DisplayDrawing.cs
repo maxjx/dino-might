@@ -17,21 +17,21 @@ public class DisplayDrawing : MonoBehaviour
         switch (imageID)
         {
             case "imageA":
-                if (Global.imageAPath != null)
+                if (Global.imageAPath.Length > 0)
                 {
                     ImageConversion.LoadImage(tex, Global.imageAPath);
                     GetComponent<RawImage>().texture = tex;
                 }
                 break;
             case "imageB":
-                if (Global.imageBPath != null)
+                if (Global.imageBPath.Length > 0)
                 {
                     ImageConversion.LoadImage(tex, Global.imageBPath);
                     GetComponent<RawImage>().texture = tex;
                 }
                 break;
             case "imageC":
-                if (Global.imageCPath != null)
+                if (Global.imageCPath.Length > 0)
                 {
                     ImageConversion.LoadImage(tex, Global.imageCPath);
                     GetComponent<RawImage>().texture = tex;
