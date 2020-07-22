@@ -62,6 +62,10 @@ public class StartMenuLogic : MonoBehaviour {
                     Global.priorities = gs.priorities;
                     Global.challenges = gs.challenges;
                     Global.habits = gs.habits;
+                    Global.imageAPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageAPath"].ToString());
+                    Global.imageBPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageBPath"].ToString());
+                    Global.imageCPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageCPath"].ToString());
+
                     transition.GetComponent<LevelLoader>().NextLevelAnimationLoad(index, x, y);
                     loadMusic.GetComponent<MusicLoader>().PlayMusic(index);
                 }
