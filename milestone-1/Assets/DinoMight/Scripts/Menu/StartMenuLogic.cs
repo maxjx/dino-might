@@ -46,10 +46,22 @@ public class StartMenuLogic : MonoBehaviour {
                 if (www.downloadHandler.text.Contains("No saved data found")) {
                     errorMessage.text = www.downloadHandler.text;
                 } else {
+                    Debug.Log(www.downloadHandler.text);
                     var textArray = JSON.Parse(www.downloadHandler.text);
                     int index = textArray[0]["level"];
                     float x = textArray[0]["Xcoordinate"];
                     float y = textArray[0]["Ycoordinate"];
+                    Global.playerMaxHealth = (int) textArray[0]["playerMaxHealth"];
+                    Global.kickDmg = (int) textArray[0]["kickDmg"];
+                    Global.fireballDmg = textArray[0]["fireballDmg"];
+                    Global.canDash = textArray[0]["canDash"] == "1" ? true : false;
+                    Global.questNumber = (int) textArray[0]["questNumber"];
+                    Global.kingSpared = textArray[0]["kingSpared"] == "1" ? true : false;
+                    Global.masterSpared = textArray[0]["masterSpared"] == "1" ? true : false;
+                    GlobalSave gs = JsonUtility.FromJson<GlobalSave>(textArray[0]["choices"]);
+                    Global.priorities = gs.priorities;
+                    Global.challenges = gs.challenges;
+                    Global.habits = gs.habits;
                     transition.GetComponent<LevelLoader>().NextLevelAnimationLoad(index, x, y);
                     loadMusic.GetComponent<MusicLoader>().PlayMusic(index);
                 }
