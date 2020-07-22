@@ -7,7 +7,7 @@ public static class Global {
 
     // player stats
     public static int playerHealth;
-    public static int playerMaxHealth = 15;          // to save
+    public static int playerMaxHealth = 15;     // to save
     public static int kickDmg = 2;              // to save
     public static int fireballDmg = 3;          // to save
     public static bool canDash = false;         // to save
@@ -23,9 +23,9 @@ public static class Global {
     // All monologues distinguished by their ids that are in this list have been played.
     public static List<string> playedMonologueList = new List<string>();
     // Indicates which quest the player is currently doing.
-    public static int questNumber;                   // to save
-    public static bool kingSpared = false;         // to save
-    public static bool masterSpared = false;         // to save
+    public static int questNumber = 0;                  // to save
+    public static bool kingSpared = false;              // to save
+    public static bool masterSpared = false;            // to save
     public static byte[] imageAPath;
     public static byte[] imageBPath;
     public static byte[] imageCPath;
