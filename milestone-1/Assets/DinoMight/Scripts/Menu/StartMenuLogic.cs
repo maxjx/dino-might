@@ -15,7 +15,7 @@ public class StartMenuLogic : MonoBehaviour {
 
     public void Play() {
         loadMusic.GetComponent<MusicLoader>().PlayMusic(1);
-        transition.GetComponent<LevelLoader>().NextLevelAnimation(1);
+        transition.GetComponent<LevelLoader>().NextLevelAnimation("Introduction");
         Debug.Log(Global.playerId);
     }
     public void PlayImmediate() {

@@ -484,7 +484,7 @@ MonoBehaviour:
   typingSpeed: 0.01
   sentences:
   - A terrible enemy resides here.
-  - Are you sure you want to enter? You will not be able to save the game while inside
+  - Are you sure you want to enter? You won't be able to save the game while inside
     the boss stage.
   choices:
   - {fileID: 1655665646}
@@ -3367,7 +3367,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.078431375}
     m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.19607843}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 0.39215687}
-    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.5882353}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.14117648}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3932,6 +3932,7 @@ GameObject:
   - component: {fileID: 1655665648}
   - component: {fileID: 1655665647}
   - component: {fileID: 1655665646}
+  - component: {fileID: 1655665649}
   m_Layer: 5
   m_Name: Choice1
   m_TagString: Untagged
@@ -3982,7 +3983,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.078431375}
     m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.19607843}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 0.39215687}
-    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.5882353}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0.14117648}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4072,6 +4073,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655665644}
   m_CullTransparentMesh: 0
+--- !u!114 &1655665649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655665644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439cc2c5bf8177a4cb6439d70cf23aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnable: 1
 --- !u!1001 &1658547610
 PrefabInstance:
   m_ObjectHideFlags: 0
