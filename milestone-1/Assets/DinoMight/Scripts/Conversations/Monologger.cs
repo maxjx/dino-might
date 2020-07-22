@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class Monologger : MonoBehaviour
 {
@@ -12,12 +13,16 @@ public class Monologger : MonoBehaviour
     public TextMeshProUGUI textbox;
     public Animator MonologueBackgroundAnim;
     public bool replayable = false;
+    [Space]
+    public UnityEvent endingThings;
 
     private int index = 0;
     private bool played = false;        // Monologue has been played
 
     void Start()
     {
+        if (endingThings == null)
+            endingThings = new UnityEvent();
         if (!replayable)
         {
             // Check Global if played if not replayable. else played is always false.
@@ -69,6 +74,7 @@ public class Monologger : MonoBehaviour
         textbox.text = "";
         MonologueBackgroundAnim.SetTrigger("exit");
         index = 0;
+        endingThings.Invoke();
     }
 
     private IEnumerator Type()

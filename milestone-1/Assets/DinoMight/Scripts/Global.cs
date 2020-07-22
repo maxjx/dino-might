@@ -34,8 +34,8 @@ public static class Global {
     public static float effectsVolume = 0.5f;
 
     // Summary
-    public static HashSet<string> priorities = new HashSet<string>();           // to save
-    public static HashSet<string> challenges = new HashSet<string>();           // to save
-    public static HashSet<string> habits = new HashSet<string>();               // to save
+    public static List<string> priorities = new List<string>();         // to save
+    public static List<string> challenges = new List<string>();         // to save
+    public static List<string> habits = new List<string>();         // to save
 
 }
