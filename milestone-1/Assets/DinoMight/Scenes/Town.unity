@@ -5330,6 +5330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &640681715
 GameObject:
   m_ObjectHideFlags: 0
@@ -5633,7 +5634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82f96f7084bec345b8a3f75e6bb44f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 1566913810}
+  manager: {fileID: 295392217}
   altName: 
   typingSpeed: 0.01
   sentences:
@@ -8019,6 +8020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 992410325}
   - component: {fileID: 992410326}
+  - component: {fileID: 992410327}
   m_Layer: 10
   m_Name: Barrier (1)
   m_TagString: Untagged
@@ -8066,6 +8068,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08965937, y: 1.38591}
   m_EdgeRadius: 0
+--- !u!114 &992410327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992410324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f992af0160bb5b44a23552d804f0494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questNumber: 3
 --- !u!1 &993504961
 GameObject:
   m_ObjectHideFlags: 0
@@ -13082,6 +13097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046445152}
   - component: {fileID: 1046445153}
+  - component: {fileID: 1046445154}
   m_Layer: 10
   m_Name: Barrier
   m_TagString: Untagged
@@ -13129,6 +13145,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09560395, y: 1.4738979}
   m_EdgeRadius: 0
+--- !u!114 &1046445154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046445151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f992af0160bb5b44a23552d804f0494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questNumber: 6
 --- !u!1 &1048994183
 GameObject:
   m_ObjectHideFlags: 0
@@ -16989,6 +17018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1001 &1122447447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17361,6 +17391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1275743534}
   - component: {fileID: 1275743535}
+  - component: {fileID: 1275743536}
   m_Layer: 10
   m_Name: Barrier
   m_TagString: Untagged
@@ -17408,6 +17439,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08965937, y: 1.38591}
   m_EdgeRadius: 0
+--- !u!114 &1275743536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275743533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f992af0160bb5b44a23552d804f0494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questNumber: 9
 --- !u!1 &1277125648
 GameObject:
   m_ObjectHideFlags: 0
@@ -17827,7 +17871,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1275743533}
+      - m_Target: {fileID: 992410324}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -17908,6 +17952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &1364113301
 GameObject:
   m_ObjectHideFlags: 0
@@ -18845,7 +18890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82f96f7084bec345b8a3f75e6bb44f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 1566913810}
+  manager: {fileID: 295392217}
   altName: 
   typingSpeed: 0.01
   sentences:
@@ -19316,8 +19361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.33999634, y: -60}
-  m_SizeDelta: {x: 436.3109, y: 120}
+  m_AnchoredPosition: {x: -0.33999634, y: -90}
+  m_SizeDelta: {x: 436.3109, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1485269925
 Animator:
@@ -19732,7 +19777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82f96f7084bec345b8a3f75e6bb44f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 1566913810}
+  manager: {fileID: 295392217}
   altName: 
   typingSpeed: 0.01
   sentences:
@@ -20635,7 +20680,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1275743533}
+      - m_Target: {fileID: 992410324}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -21116,7 +21161,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueCanvases.Array.data[1]
       value: 
-      objectReference: {fileID: 6970014087147682811}
+      objectReference: {fileID: 1340156553}
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: dialogueCanvasesTaskValue.Array.data[0]
@@ -21993,6 +22038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &1979802849
 GameObject:
   m_ObjectHideFlags: 0
@@ -24781,8 +24827,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.34, y: -90}
-  m_SizeDelta: {x: 436.3109, y: 180}
+  m_AnchoredPosition: {x: -0.34, y: -60}
+  m_SizeDelta: {x: 436.3109, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5222673324840700077
 MonoBehaviour:
@@ -26204,8 +26250,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.34, y: -90}
-  m_SizeDelta: {x: 436.3109, y: 180}
+  m_AnchoredPosition: {x: -0.34, y: -60}
+  m_SizeDelta: {x: 436.3109, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9063346394159755754
 GameObject:
