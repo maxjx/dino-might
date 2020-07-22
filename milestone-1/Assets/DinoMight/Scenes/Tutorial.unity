@@ -1021,6 +1021,11 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 294904215}
+    - target: {fileID: 2248607687321707342, guid: c2ced81405cb1ef48b64124f579630a4,
+        type: 3}
+      propertyPath: autoTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2248607687321707349, guid: c2ced81405cb1ef48b64124f579630a4,
         type: 3}
       propertyPath: m_Name
@@ -1089,7 +1094,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5200006
+      value: 1.5200007
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -1591,12 +1596,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 1863710937}
+      objectReference: {fileID: 0}
     - target: {fileID: 3672735889183606931, guid: 04a417c1e4dc8ab40afb48548de54dcf,
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 1863710937}
+      objectReference: {fileID: 133287873}
     - target: {fileID: 3672735889183606931, guid: 04a417c1e4dc8ab40afb48548de54dcf,
         type: 3}
       propertyPath: m_Lens.FieldOfView
@@ -14510,7 +14515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320452239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.250936, y: 0.87000465, z: -10}
+  m_LocalPosition: {x: 4.604356, y: 0.87001085, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963331862}
@@ -19476,6 +19481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!224 &665008118164993184
 RectTransform:
   m_ObjectHideFlags: 0
