@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class Dialogue : MonoBehaviour
 {
@@ -154,19 +153,18 @@ public class Dialogue : MonoBehaviour
         textBox.text = "";
     }
 
-    protected void SelectChoiceWithKey()
-    {
-        if (choices != null && choices.Length != 0)
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                EventSystem.current.SetSelectedGameObject(choices[choices.Length - 1].gameObject);
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
-            }
-        }
-    }
+    // protected void SelectChoiceWithKey()
+    // {
+    //     if (choices != null && choices.Length != 0)
+    //     {
+    //         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.UpArrow))
+    //         {
+    //             EventSystem.current.SetSelectedGameObject(choices[choices.Length - 1].gameObject);
+    //         }
+    //         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+    //         {
+    //             EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+    //         }
+    //     }
+    // }
 }

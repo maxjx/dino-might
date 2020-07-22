@@ -10,9 +10,26 @@ public class DisplayDrawing : MonoBehaviour
 
     void Start()
     {
-        byte[] bytearr = File.ReadAllBytes(Application.dataPath + "/Resources/" + imageID + ".png");
+        //byte[] bytearr = File.ReadAllBytes(Application.dataPath + "/Resources/" + imageID + ".png");
         Texture2D tex = new Texture2D(1, 1);
-        ImageConversion.LoadImage(tex, bytearr);
-        GetComponent<RawImage>().texture = tex;
+        //ImageConversion.LoadImage(tex, bytearr);
+        //GetComponent<RawImage>().texture = tex;
+        switch (imageID)
+        {
+            case "imageA":
+                ImageConversion.LoadImage(tex, Global.imageAPath);
+                GetComponent<RawImage>().texture = tex;
+                break;
+            case "imageB":
+                ImageConversion.LoadImage(tex, Global.imageBPath);
+                GetComponent<RawImage>().texture = tex;
+                break;
+            case "imageC":
+                ImageConversion.LoadImage(tex, Global.imageCPath);
+                GetComponent<RawImage>().texture = tex;
+                break;
+            default:
+                break;
+        }
     }
 }
