@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System;
 
+[Serializable]
 public class PauseMenu : MonoBehaviour {
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
@@ -51,12 +53,25 @@ public class PauseMenu : MonoBehaviour {
     }
 
     IEnumerator SaveForm() {
+        GlobalSave globalSave = new GlobalSave();
+        string choicesToJson = JsonUtility.ToJson(globalSave);
+        Debug.Log(choicesToJson);
+
         WWWForm form = new WWWForm();
         form.AddField("playerId", Global.playerId);
         form.AddField("playerLevel", SceneManager.GetActiveScene().buildIndex);
         form.AddField("playerHealth", Global.playerHealth);
         form.AddField("Xcoordinate", Global.Xcoordinate.ToString());
         form.AddField("Ycoordinate", Global.Ycoordinate.ToString());
+        form.AddField("playerMaxHealth", Global.playerMaxHealth);
+        form.AddField("kickDmg", Global.kickDmg);
+        form.AddField("fireballDmg", Global.fireballDmg);
+        form.AddField("canDash", Global.canDash?1:0);
+        form.AddField("questNumber", Global.questNumber);
+        form.AddField("kingSpared", Global.kingSpared?1:0);
+        form.AddField("masterSpared", Global.masterSpared?1:0);
+        form.AddField("choices", choicesToJson);
+
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Save.php", form))
         {
