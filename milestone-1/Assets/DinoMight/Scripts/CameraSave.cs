@@ -25,11 +25,11 @@ public class CameraSave : MonoBehaviour
         savingCamera.aspect = area.sizeDelta.x / area.sizeDelta.y;
         savingCamera.transform.position = area.TransformPoint(0, 0, 0);
         savingCamera.transform.position = new Vector3(savingCamera.transform.position.x, savingCamera.transform.position.y, -10f);
-        if (File.Exists(Application.dataPath + "/Resources/" + imageName + ".png"))
-        {
-            File.Delete(Application.dataPath + "/Resources/" + imageName + ".png");
-            Debug.Log("overwriting");
-        }
+        // if (File.Exists(Application.dataPath + "/Resources/" + imageName + ".png"))
+        // {
+        //     File.Delete(Application.dataPath + "/Resources/" + imageName + ".png");
+        //    Debug.Log("overwriting");
+        //}
         StartCoroutine(CoSave());
     }
 
@@ -44,12 +44,12 @@ public class CameraSave : MonoBehaviour
         savedTexture.Apply();
 
         var data = savedTexture.EncodeToPNG();
-        File.WriteAllBytes(Application.dataPath + "/Resources/" + imageName + ".png", data);
-        if (File.Exists(Application.dataPath + "/Resources/" + imageName + ".png"))
-        {
-            StartCoroutine(ShowSaved());
-            RecordToGlobal();
-        }
+        // File.WriteAllBytes(Application.dataPath + "/Resources/" + imageName + ".png", data);
+        // if (File.Exists(Application.dataPath + "/Resources/" + imageName + ".png"))
+        // {
+        StartCoroutine(ShowSaved());
+        RecordToGlobal(data);
+        //}
     }
 
     IEnumerator ShowSaved()
@@ -64,18 +64,18 @@ public class CameraSave : MonoBehaviour
         imageName = newName;
     }
 
-    void RecordToGlobal()
+    void RecordToGlobal(byte[] data)
     {
         switch (imageName)
         {
             case "imageA":
-                Global.imageAPath = imageName;
+                Global.imageAPath = data;
                 break;
             case "imageB":
-                Global.imageBPath = imageName;
+                Global.imageBPath = data;
                 break;
             case "imageC":
-                Global.imageCPath = imageName;
+                Global.imageCPath = data;
                 break;
             default:
                 break;

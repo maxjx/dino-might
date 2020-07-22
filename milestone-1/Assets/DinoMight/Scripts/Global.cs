@@ -24,11 +24,11 @@ public static class Global {
     public static List<string> playedMonologueList = new List<string>();
     // Indicates which quest the player is currently doing.
     public static int questNumber = 0;                  // to save
-    public static bool kingSpared = false;          // to save
-    public static bool masterSpared = false;        // to save
-    public static string imageAPath = "null";            // in the form of "imageA", can be obtained by using Resources.Load(imageAPath)
-    public static string imageBPath = "null";            // in the form of "imageB"
-    public static string imageCPath = "null";            // in the form of "imageC"
+    public static bool kingSpared = false;              // to save
+    public static bool masterSpared = false;            // to save
+    public static byte[] imageAPath;
+    public static byte[] imageBPath;
+    public static byte[] imageCPath;
 
     public static float musicVolume = 0.5f;
     public static float effectsVolume = 0.5f;
