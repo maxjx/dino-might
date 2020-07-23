@@ -13,7 +13,7 @@ public class DialogueWithPages : Dialogue
 
     protected override void Update()
     {
-        if (timedFinish)
+        if (timedFinish && (Time.timeScale > 0f))
         {
             if (timeRemaining > 0)
             {
