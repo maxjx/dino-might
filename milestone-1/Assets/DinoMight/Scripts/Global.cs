@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RotaryHeart.Lib.SerializableDictionary;
 
 public static class Global {
     public static int playerId;
@@ -36,9 +37,9 @@ public static class Global {
 
     // NEW NOT SAVED
     // Key: npc name, value: canvas index
-    public static Dictionary<string, int> NPCCanvasDict = new Dictionary<string, int>();
+    public static DictStringInt NPCCanvasDict = new DictStringInt();
     // Key: NPC's name, Value: corresponding dialogue index.
-    public static Dictionary<string, int> NPCDialogueDict = new Dictionary<string, int>();
+    public static DictStringInt NPCDialogueDict = new DictStringInt();
     // All monologues distinguished by their ids that are in this list have been played.
     public static List<string> playedMonologueList = new List<string>();
 

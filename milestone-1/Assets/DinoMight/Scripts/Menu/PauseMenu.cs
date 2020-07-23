@@ -57,6 +57,11 @@ public class PauseMenu : MonoBehaviour {
         string choicesToJson = JsonUtility.ToJson(globalSave);
         Debug.Log(choicesToJson);
 
+        string NPCDialogueDictJson = JsonUtility.ToJson(Global.NPCDialogueDict);
+        string NPCCanvasDictJson = JsonUtility.ToJson(Global.NPCCanvasDict);
+        Debug.Log(NPCCanvasDictJson);
+        Debug.Log(NPCDialogueDictJson);        
+
         // DictStringInt NPCDialogueDict = Global.NPCDialogueDict;
 
         WWWForm form = new WWWForm();
