@@ -9,7 +9,7 @@ public class DisableCollider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (questNumber < Global.questNumber)
+        if (questNumber <= Global.questNumber)
         {
             GetComponent<Collider2D>().enabled = false;
         }
