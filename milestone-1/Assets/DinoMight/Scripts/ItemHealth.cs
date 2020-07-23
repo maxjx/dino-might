@@ -24,9 +24,9 @@ public class ItemHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
-        // Instantiate(deathExplosion);
-        // deathExplosion.transform.position = transform.position;
-        // deathExplosion.GetComponent<ParticleSystem>().Play();
+        Instantiate(deathExplosion);
+        deathExplosion.transform.position = transform.position;
+        deathExplosion.GetComponent<ParticleSystem>().Play();
 
         gameObject.SetActive(false);
     }
