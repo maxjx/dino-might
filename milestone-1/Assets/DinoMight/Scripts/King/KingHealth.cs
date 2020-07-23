@@ -33,7 +33,6 @@ public class KingHealth : MonoBehaviour, IHealth {
 	}
 
 	private void DestroySelf() {
-		Global.questNumber++;
 		Destroy(gameObject);
 	}
 
