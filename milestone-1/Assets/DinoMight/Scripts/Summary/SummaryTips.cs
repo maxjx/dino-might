@@ -11,7 +11,7 @@ public class SummaryTips : MonoBehaviour
     void Start()
     {
         textbox = GetComponent<TextMeshProUGUI>();
-        textbox.text = "Tips:\n" + FindTip();
+        textbox.text = FindTip();
     }
 
     string FindTip()
@@ -44,7 +44,7 @@ public class SummaryTips : MonoBehaviour
             }
             if (!Global.challenges.Contains("journal"))
             {
-                result += "A journal is a good friend in need when you are facing problems, or to organise your thoughts. Practise writing down your day and reflect on what was good or bad.";
+                result += "A journal is a good friend in need when you are facing problems, or to organise your thoughts. Practise writing down your day and reflect on what was good or bad.\n";
             }
             result += "Embrace challenges as there will be better days!\n\n";
         }
@@ -57,13 +57,13 @@ public class SummaryTips : MonoBehaviour
         {
             if (!Global.habits.Contains("workout"))
             {
-                result += "Do create a positive habit of exercising. Even a short 10 minute stretching in the morning will make you feel so much better throughout the day and keep you performing tip top!";
+                result += "Do create a positive habit of exercising. Even a short 10 minute stretching in the morning will make you feel so much better throughout the day and keep you performing tip top!\n";
             }
             if (!Global.habits.Contains("hwbreak"))
             {
-                result += "Take a break! Remember to schedule breaks in between your work. The Pomodoro Technique calls for work sessions of 25mins followed by a 5min break, with a 15min break at least once every two hours.";
+                result += "Take a break! Remember to schedule breaks in between your work. The Pomodoro Technique calls for work sessions of 25mins followed by a 5min break, with a 15min break at least once every two hours.\n";
             }
-            result += "Regular sleeping and eating patterns are important to make your brain strong. Remember to get in some exercise too!";
+            result += "Regular sleeping and eating patterns are important to make your brain strong!";
         }
         else
         {
