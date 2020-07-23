@@ -58,13 +58,19 @@ public class StartMenuLogic : MonoBehaviour {
                     Global.questNumber = (int) textArray[0]["questNumber"];
                     Global.kingSpared = textArray[0]["kingSpared"] == "1" ? true : false;
                     Global.masterSpared = textArray[0]["masterSpared"] == "1" ? true : false;
+
                     GlobalSave gs = JsonUtility.FromJson<GlobalSave>(textArray[0]["choices"]);
                     Global.priorities = gs.priorities;
                     Global.challenges = gs.challenges;
                     Global.habits = gs.habits;
+                    Global.playedMonologueList = gs.playedMonologueList;
+
                     Global.imageAPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageAPath"].ToString());
                     Global.imageBPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageBPath"].ToString());
                     Global.imageCPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageCPath"].ToString());
+
+                    Global.NPCCanvasDict = JsonUtility.FromJson<DictStringInt>(textArray[0]["NPCCanvasDict"]);
+                    Global.NPCDialogueDict = JsonUtility.FromJson<DictStringInt>(textArray[0]["NPCDialogueDict"]);
 
                     transition.GetComponent<LevelLoader>().NextLevelAnimationLoad(index, x, y);
                     loadMusic.GetComponent<MusicLoader>().PlayMusic(index);
