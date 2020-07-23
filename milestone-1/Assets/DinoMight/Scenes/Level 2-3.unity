@@ -5865,6 +5865,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1683098047}
+        m_MethodName: NextLevelAnimation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Boss-Master
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1114891229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5915,6 +5926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &1133806881
 GameObject:
   m_ObjectHideFlags: 0
@@ -6091,7 +6103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  sceneName: null
+  sceneName: Level 2 - 2
   levelTransitionObj: {fileID: 1683098045}
 --- !u!61 &1147863029
 BoxCollider2D:
@@ -8083,6 +8095,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1683098044}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1683098047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5749333925638417297, guid: d73cb74195fce4ea287d06638831691b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1683098044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683098045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eec50f2e53414c88bde12bd41874fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1694327028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8400,8 +8424,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1719867091}
   - component: {fileID: 1719867090}
-  - component: {fileID: 1719867089}
-  - component: {fileID: 1719867088}
   - component: {fileID: 1719867087}
   m_Layer: 11
   m_Name: Gate to boss 2
@@ -8423,47 +8445,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 8300000, guid: bfe80448cdc714d2d8bca441563abac0, type: 3}
---- !u!114 &1719867088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719867086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e6a5a6c2d0704c16b4cf891c617c6a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 8
-  sceneName: null
-  levelTransitionObj: {fileID: 1683098045}
---- !u!61 &1719867089
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719867086}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.43695068, y: 0.123242855}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.83, y: 3.74}
-    newSize: {x: 4.83, y: 3.74}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.387558, y: 3.9864855}
-  m_EdgeRadius: 0
 --- !u!212 &1719867090
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9986,6 +9967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!114 &6951740204897308636
 MonoBehaviour:
   m_ObjectHideFlags: 0
