@@ -203,7 +203,7 @@ public class CharacterController2D : MonoBehaviour
                 // screen shake
                 if (CinemachineShake.Instance != null)
                 {
-                    CinemachineShake.Instance.ShakeCamera(4f, 0.2f);
+                    CinemachineShake.Instance.ShakeCamera(2f, 0.2f);
                 }
 
                 hadDashed = true;
