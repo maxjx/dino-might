@@ -2009,7 +2009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 8
-  sceneName: null
+  sceneName: Town
   levelTransitionObj: {fileID: 550741362}
 --- !u!61 &393108075
 BoxCollider2D:
@@ -2021,7 +2021,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.044616222, y: 0.123242855}
@@ -4781,7 +4781,7 @@ PrefabInstance:
         type: 3}
       propertyPath: NPCCamera
       value: 
-      objectReference: {fileID: 314203801}
+      objectReference: {fileID: 1956849859}
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: dialogueCanvases.Array.data[0]
@@ -7417,6 +7417,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbf280229c67c064faa2f2fa1c007c4f, type: 3}
+--- !u!1 &1956849859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3672735889183606930, guid: 04a417c1e4dc8ab40afb48548de54dcf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1761676215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1973551660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8447,6 +8453,17 @@ MonoBehaviour:
       - m_Target: {fileID: 644533097}
         m_MethodName: EndDialogues
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 585681243}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
