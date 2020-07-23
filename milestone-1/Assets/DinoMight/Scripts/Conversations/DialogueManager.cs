@@ -137,14 +137,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Global.questNumber = 2;
-        }
-    }
-
     // Find the right canvas to use using the list of task values
     public int GetCanvasIndex()
     {
