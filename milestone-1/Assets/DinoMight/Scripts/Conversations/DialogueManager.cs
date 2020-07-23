@@ -52,7 +52,6 @@ public class DialogueManager : MonoBehaviour
             int currCanvas = GetCanvasIndex();
             int prevCanvas = -1;
             Global.NPCCanvasDict.TryGetValue(DM_tag, out prevCanvas);
-            Debug.Log(DM_tag + prevCanvas);
             if (currCanvas != prevCanvas)
             {
                 RecordDialogueIdInGlobal(0);    // reset dialogue id
