@@ -19,7 +19,6 @@ public class DialogueManager : MonoBehaviour
     public UnityEvent endDialoguesEvent;    // invokes these events when end dialogues triggered
 
     private Canvas dialogueCanvas;           // This dialogueCanvas refers to the chosen 1 that fits the story at this point in time.
-    private int previousCanvasId = 0;           // to know when to reset dialogue id in global
     private Animator dialogueBackground;
     private TextMeshProUGUI nameBox;         // TMPro textbox for name
     //private Animator escapeButton;
@@ -50,13 +49,16 @@ public class DialogueManager : MonoBehaviour
         // Choose dialogue canvas from list
         if (dialogueCanvases.Count > 1)
         {
-            int canvasIndex = GetCanvasIndex();
-            if (canvasIndex != previousCanvasId)
+            int currCanvas = GetCanvasIndex();
+            int prevCanvas = -1;
+            Global.NPCCanvasDict.TryGetValue(DM_tag, out prevCanvas);
+            Debug.Log(DM_tag + prevCanvas);
+            if (currCanvas != prevCanvas)
             {
-                RecordDialogueIdInGlobal(0);
+                RecordDialogueIdInGlobal(0);    // reset dialogue id
+                Global.NPCCanvasDict[DM_tag] = currCanvas;      // record
             }
-            dialogueCanvas = dialogueCanvases[canvasIndex];
-            previousCanvasId = canvasIndex;
+            dialogueCanvas = dialogueCanvases[currCanvas];
         }
         else
         {
@@ -135,13 +137,21 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Global.questNumber = 2;
+        }
+    }
+
     // Find the right canvas to use using the list of task values
     public int GetCanvasIndex()
     {
-        int index = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
-        if (index != -1)
+        int currCanvas = dialogueCanvasesTaskValue.IndexOf(Global.questNumber);
+        if (currCanvas != -1)
         {
-            return index;
+            return currCanvas;
         }
         else
         {

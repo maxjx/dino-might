@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Transformer : MonoBehaviour
 {
-    // change position of this to obj position
-    public void ChangePosition(Transform obj)
+    // change y position of this to obj position
+    public void ChangeYPosition(Transform obj)
     {
-        transform.position = obj.position;
+        transform.position = new Vector2(obj.position.x, transform.position.y);
     }
 }

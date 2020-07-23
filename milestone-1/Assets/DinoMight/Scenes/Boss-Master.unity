@@ -439,7 +439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44618488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1800008, y: -16.211582, z: -10}
+  m_LocalPosition: {x: 2.1800005, y: -16.211582, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1975,6 +1975,7 @@ GameObject:
   - component: {fileID: 393108075}
   - component: {fileID: 393108074}
   - component: {fileID: 393108073}
+  - component: {fileID: 393108078}
   m_Layer: 11
   m_Name: Gate to town
   m_TagString: Untagged
@@ -2100,6 +2101,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393108078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393108072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb5f232571cc794f81a8cfa1c4505b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &409934205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2918,6 +2931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &543061542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4751,7 +4765,7 @@ PrefabInstance:
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: endDialoguesEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
@@ -4812,7 +4826,7 @@ PrefabInstance:
         type: 3}
       propertyPath: endDialoguesEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 614149574}
+      objectReference: {fileID: 393108072}
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: endDialoguesEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4826,7 +4840,7 @@ PrefabInstance:
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: endDialoguesEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
@@ -5127,6 +5141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &1525137823
 GameObject:
   m_ObjectHideFlags: 0
@@ -6877,17 +6892,6 @@ MonoBehaviour:
   deathEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 393108072}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 614149574}
         m_MethodName: SetActive
         m_Mode: 6
@@ -6911,7 +6915,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 585681249}
-        m_MethodName: ChangePosition
+        m_MethodName: ChangeYPosition
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1832282972}
@@ -8263,6 +8267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!114 &975269727683370156
 MonoBehaviour:
   m_ObjectHideFlags: 0
