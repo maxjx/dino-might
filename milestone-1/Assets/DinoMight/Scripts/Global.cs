@@ -38,4 +38,8 @@ public static class Global {
     public static List<string> challenges = new List<string>();         // to save
     public static List<string> habits = new List<string>();         // to save
 
+    // NEW
+    // Key: npc name, value: canvas index
+    public static Dictionary<string, int> NPCCanvasDict = new Dictionary<string, int>();
+
 }

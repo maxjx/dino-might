@@ -32,6 +32,11 @@ public class CinemachineShake : MonoBehaviour
     //         CinemachineShake.Instance.ShakeCamera(0.5f, 0.2f);
     //     }
 
+    public void BigShake()
+    {
+        ShakeCamera(4f, 0.5f);
+    }
+
     // Update is called once per frame
     void Update()
     {
