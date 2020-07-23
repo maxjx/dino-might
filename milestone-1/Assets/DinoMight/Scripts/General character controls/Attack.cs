@@ -20,6 +20,7 @@ public class Attack : MonoBehaviour, IDamage
     private bool attackRightwards;  // If true, player is attacking to the right
     private playerMovement playerMovementControl;
     private Animator animator;
+    private PlayerHealth pHealth;
 
     private Vector3 rightDisplacement;      // To calculate displacement of hit effect from hit point
     private Vector3 leftDisplacement;
@@ -31,6 +32,7 @@ public class Attack : MonoBehaviour, IDamage
         playerTransform = GetComponent<Transform>();     // Cannot simply use transform.position
         playerMovementControl = GetComponent<playerMovement>();
         animator = GetComponent<Animator>();
+        pHealth = GetComponent<PlayerHealth>();
 
         rightDisplacement = new Vector3(kickRange, 0, 0);
         leftDisplacement = new Vector3(-kickRange, 0, 0);
@@ -43,15 +45,18 @@ public class Attack : MonoBehaviour, IDamage
     void Update()
     {
         timer += Time.deltaTime;
-        if (Input.GetButtonDown("Fire2") && timer >= attackRate)
+        if (pHealth.currentHealth != 0)
         {
-            shoot = true;
-            timer = 0;
-        }
-        if (Input.GetButtonDown("Fire1") && timer >= attackRate)
-        {
-            kick = true;     // IMPERFECT KICK TRANSITION (take into account crouching and knockback and jumping)
-            timer = 0;
+            if (Input.GetButtonDown("Fire2") && timer >= attackRate)
+            {
+                shoot = true;
+                timer = 0;
+            }
+            if (Input.GetButtonDown("Fire1") && timer >= attackRate)
+            {
+                kick = true;     // IMPERFECT KICK TRANSITION (take into account crouching and knockback and jumping)
+                timer = 0;
+            }
         }
     }
 
@@ -131,7 +136,7 @@ public class Attack : MonoBehaviour, IDamage
 
     public void IncreaseKickDamage(int amount)
     {
-        kickDamage+= amount;
+        kickDamage += amount;
         Global.kickDmg = kickDamage;
     }
 }
