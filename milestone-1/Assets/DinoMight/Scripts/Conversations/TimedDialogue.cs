@@ -35,7 +35,7 @@ public class TimedDialogue : Dialogue
     // override so that clicking and conversing dont matter
     protected override void Update()
     {
-        if (timerIsRunning)
+        if (timerIsRunning && (Time.timeScale > 0f))
         {
             if (timeRemaining > 0)
             {
