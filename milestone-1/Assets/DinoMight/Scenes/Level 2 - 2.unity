@@ -4321,27 +4321,13 @@ GameObject:
   - component: {fileID: 1004992298}
   - component: {fileID: 1004992297}
   - component: {fileID: 1004992296}
-  - component: {fileID: 1004992295}
   m_Layer: 11
-  m_Name: Gate to town
+  m_Name: Gate to prev
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1004992295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004992294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 02cdec15998cb4bc58d2dcce6174f686, type: 3}
 --- !u!114 &1004992296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4354,8 +4340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6a5a6c2d0704c16b4cf891c617c6a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
-  sceneName: null
+  index: -1
+  sceneName: Level 2 - 1
   levelTransitionObj: {fileID: 1180982366}
 --- !u!61 &1004992297
 BoxCollider2D:
@@ -5285,7 +5271,6 @@ GameObject:
   - component: {fileID: 1205103091}
   - component: {fileID: 1205103090}
   - component: {fileID: 1205103089}
-  - component: {fileID: 1205103088}
   m_Layer: 11
   m_Name: Gate next
   m_TagString: Untagged
@@ -5293,19 +5278,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1205103088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205103087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 02cdec15998cb4bc58d2dcce6174f686, type: 3}
 --- !u!114 &1205103089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5319,7 +5291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: -1
-  sceneName: Town
+  sceneName: Level 2-3
   levelTransitionObj: {fileID: 1180982366}
 --- !u!61 &1205103090
 BoxCollider2D:
@@ -32069,7 +32041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110917105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.65, y: -16.91, z: -10}
+  m_LocalPosition: {x: 3.6500003, y: -16.91, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 876666083}
