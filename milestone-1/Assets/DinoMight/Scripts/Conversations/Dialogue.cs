@@ -30,7 +30,7 @@ public class Dialogue : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (!typing && conversing && Input.anyKeyDown)
+        if (!typing && conversing && Input.anyKeyDown && (Time.timeScale > 0f))
         {
             // if (Input.GetMouseButtonDown(0)
             //     || Input.GetMouseButtonDown(1)
