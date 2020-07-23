@@ -81,7 +81,8 @@ public class PauseMenu : MonoBehaviour {
         form.AddBinaryData("imageAPath", Global.imageAPath);
         form.AddBinaryData("imageBPath", Global.imageBPath);
         form.AddBinaryData("imageCPath", Global.imageCPath);
-        form.AddField("choices", choicesToJson);
+        form.AddField("NPCDialogueDict", NPCDialogueDictJson);
+        form.AddField("NPCCanvasDict", NPCCanvasDictJson);
 
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Save.php", form))
