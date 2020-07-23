@@ -57,6 +57,8 @@ public class PauseMenu : MonoBehaviour {
         string choicesToJson = JsonUtility.ToJson(globalSave);
         Debug.Log(choicesToJson);
 
+        // DictStringInt NPCDialogueDict = Global.NPCDialogueDict;
+
         WWWForm form = new WWWForm();
         form.AddField("playerId", Global.playerId);
         form.AddField("playerLevel", SceneManager.GetActiveScene().buildIndex);
@@ -74,6 +76,7 @@ public class PauseMenu : MonoBehaviour {
         form.AddBinaryData("imageAPath", Global.imageAPath);
         form.AddBinaryData("imageBPath", Global.imageBPath);
         form.AddBinaryData("imageCPath", Global.imageCPath);
+        form.AddField("choices", choicesToJson);
 
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Save.php", form))
