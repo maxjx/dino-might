@@ -55,7 +55,7 @@ public class Parallax : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
-        transform.position += new Vector3(deltaMovement.x * parallaxAmount.x, deltaMovement.y * -parallaxAmount.y);
+        transform.position += new Vector3(deltaMovement.x * -parallaxAmount.x, deltaMovement.y * -parallaxAmount.y);
         lastCameraPosition = cameraTransform.position;
 
         // if (infiniteHorizontal)
