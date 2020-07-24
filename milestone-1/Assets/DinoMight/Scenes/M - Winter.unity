@@ -5252,7 +5252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126808282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7832067, y: -28.27, z: -10}
+  m_LocalPosition: {x: 5.5190635, y: -28.269993, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1402360463}
@@ -5826,6 +5826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &209219787
 GameObject:
   m_ObjectHideFlags: 0
@@ -7006,6 +7007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &434025764
 GameObject:
   m_ObjectHideFlags: 0
@@ -7265,6 +7267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &515990845
 GameObject:
   m_ObjectHideFlags: 0
@@ -7608,6 +7611,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 559213611}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &559213613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6623454799164984710, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 559213611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &559213614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559213613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: c558ac98597064c7383e54c45acb903b, type: 3}
 --- !u!1 &560831123
 GameObject:
   m_ObjectHideFlags: 0
@@ -10200,6 +10222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!114 &1005366317 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 662061081904214956, guid: d9897ac8ddbfe9a4a8387c6705aff8d9,
@@ -11848,6 +11871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &1398257436
 GameObject:
   m_ObjectHideFlags: 0
@@ -13068,6 +13092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &1595349538
 GameObject:
   m_ObjectHideFlags: 0
@@ -13080,6 +13105,7 @@ GameObject:
   - component: {fileID: 1595349541}
   - component: {fileID: 1595349540}
   - component: {fileID: 1595349539}
+  - component: {fileID: 1595349543}
   m_Layer: 11
   m_Name: RoE portal
   m_TagString: Untagged
@@ -13198,6 +13224,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595349543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595349538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: c558ac98597064c7383e54c45acb903b, type: 3}
 --- !u!1 &1614134066
 GameObject:
   m_ObjectHideFlags: 0
@@ -13711,6 +13750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &1801042689
 GameObject:
   m_ObjectHideFlags: 0
@@ -15649,6 +15689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &1992309704
 GameObject:
   m_ObjectHideFlags: 0
@@ -16275,7 +16316,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 16
-      m_TileSpriteIndex: 16
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16284,7 +16325,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 17
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -16695,19 +16736,19 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: -1004029968519066856, guid: 321842e82702e4161b5ca2271508450f,
       type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: -6657230628327124733, guid: 321842e82702e4161b5ca2271508450f,
+    m_Data: {fileID: 9139726149035755977, guid: 321842e82702e4161b5ca2271508450f,
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2947249460430603651, guid: 321842e82702e4161b5ca2271508450f,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 9139726149035755977, guid: 321842e82702e4161b5ca2271508450f,
+    m_Data: {fileID: -6657230628327124733, guid: 321842e82702e4161b5ca2271508450f,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 6466037937482960104, guid: 321842e82702e4161b5ca2271508450f,
       type: 3}
