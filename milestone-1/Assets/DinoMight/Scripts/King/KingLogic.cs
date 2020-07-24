@@ -46,4 +46,9 @@ public class KingLogic : MonoBehaviour {
 	public void InvokeDeathEvents() {
 		deathEvents.Invoke();
 	}
+
+	public void SpareHim()
+    {
+        Global.kingSpared = true;
+    }
 }
