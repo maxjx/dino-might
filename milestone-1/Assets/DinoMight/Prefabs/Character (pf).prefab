@@ -4969,7 +4969,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 1471507955010782964}
   m_CrouchResizeCollider: {fileID: 1471507954652336059}
   dust: {fileID: 1471507954741830267}
-  dashForce: 650
+  dashForce: 500
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5056,6 +5056,7 @@ MonoBehaviour:
   kickableLayers:
     serializedVersion: 2
     m_Bits: 512
+  canAttack: 1
   soundEffects: {fileID: 0}
 --- !u!114 &7693562226768043826
 MonoBehaviour:
