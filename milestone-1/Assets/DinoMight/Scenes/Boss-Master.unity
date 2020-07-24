@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: bfe80448cdc714d2d8bca441563abac0, type: 3}
+  music: {fileID: 8300000, guid: 02cdec15998cb4bc58d2dcce6174f686, type: 3}
 --- !u!114 &393108074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4306,6 +4306,7 @@ GameObject:
   - component: {fileID: 931724993}
   - component: {fileID: 931724992}
   - component: {fileID: 931724991}
+  - component: {fileID: 931724990}
   m_Layer: 11
   m_Name: Transition to 2-3
   m_TagString: Untagged
@@ -4313,6 +4314,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &931724990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931724989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 2fc6280b5954e40529f2576e59c70825, type: 3}
 --- !u!114 &931724991
 MonoBehaviour:
   m_ObjectHideFlags: 0
