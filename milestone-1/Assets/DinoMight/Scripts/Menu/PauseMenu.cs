@@ -34,12 +34,14 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        AudioManager.Instance.PauseEffect();
     }
 
     public void Resume() {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        AudioManager.Instance.UnpauseEffect();
     }
 
     public void LoadMenu() {
