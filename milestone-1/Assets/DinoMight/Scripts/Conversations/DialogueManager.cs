@@ -149,7 +149,7 @@ public class DialogueManager : MonoBehaviour
             // quest number must be nearest smaller value to use that canvas
             for (int i = 0; i < dialogueCanvasesTaskValue.Count; i++)
             {
-                if (Global.questNumber < dialogueCanvasesTaskValue[i])
+                if (Global.questNumber <= dialogueCanvasesTaskValue[i])
                 {
                     return i;
                 }

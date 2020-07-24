@@ -18,6 +18,7 @@ public class QuestManager : MonoBehaviour
         "Hone your skills in the upper lounge if you want to!",                                     // after giving W crown of time
         "Head south east towards the right side of the town and get through the magical caves to find the master in the south.", // 2nd arc
         "Great! Now get the loot back to the wizard!",   // after defeating master
+        "Hone your skills in the upper lounge if you want to!",                                     // after giving W chair of prod
         "Health is wealth. Get wealthy from the Inca ruins to the north!"      // last boss
     };
 
