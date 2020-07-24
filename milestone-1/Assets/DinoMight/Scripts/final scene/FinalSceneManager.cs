@@ -25,10 +25,12 @@ public class FinalSceneManager : MonoBehaviour
     public void CheckSparedBosses()
     {
         bool kingSpared = Global.kingSpared || debugkingSpared;
+        Debug.Log(Global.kingSpared);
         bool masterSpared = Global.masterSpared || debugmasterSpared;
         if (kingSpared && !masterSpared)
         {
             kingNPC.SetActive(true);
+            Debug.Log("here");
         }
         else if (kingSpared && masterSpared)
         {
@@ -122,5 +124,15 @@ public class FinalSceneManager : MonoBehaviour
         {
             CinemachineShake.Instance.ShakeCamera(2f, 0.2f);
         }
+    }
+
+    public void SpareKing()
+    {
+        Global.kingSpared = true;
+    }
+
+    public void SpareMaster()
+    {
+        Global.masterSpared = true;
     }
 }
