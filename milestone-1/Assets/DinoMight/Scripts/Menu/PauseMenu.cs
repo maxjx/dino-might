@@ -97,10 +97,18 @@ public class PauseMenu : MonoBehaviour {
                 informText.text = www.error;
             } else {
                 if (www.isDone) {
-                    if (www.downloadHandler.text.Contains("Successful")) {
-                        informText.text = www.downloadHandler.text;
+                    if (www.downloadHandler.text.Contains("Successful update"))
+                    {
+                        informText.text = "Successful update!";
                         www.Dispose();
-                    } else {
+                    } 
+                    else if (www.downloadHandler.text.Contains("Successful save"))
+                    {
+                        informText.text = "Successful save!";
+                        www.Dispose();
+                    }
+                    else
+                    {
                         informText.text = www.downloadHandler.text;
                     }
                 }
