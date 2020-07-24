@@ -48,8 +48,10 @@ public class PauseMenu : MonoBehaviour {
         levelTransition.GetComponent<LevelLoader>().NextLevelAnimation(0);
     }
 
-    public void QuitGame() {
-        Application.Quit();
+    public void ResetLevel() {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        levelTransition.GetComponent<LevelLoader>().NextLevelAnimation(SceneManager.GetActiveScene().buildIndex);
     }
 
     IEnumerator SaveForm() {
