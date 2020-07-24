@@ -58,4 +58,10 @@ public class QuestManager : MonoBehaviour
     {
         questBoardText.text = description;
     }
+
+    // debugging purposes
+    public void showTaskNum()
+    {
+        Debug.Log(Global.questNumber);
+    }
 }
