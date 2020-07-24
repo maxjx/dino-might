@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System;
+using Newtonsoft.Json;
 
 [Serializable]
 public class PauseMenu : MonoBehaviour {
@@ -61,8 +62,8 @@ public class PauseMenu : MonoBehaviour {
         string choicesToJson = JsonUtility.ToJson(globalSave);
         Debug.Log(choicesToJson);
 
-        string NPCDialogueDictJson = JsonUtility.ToJson(Global.NPCDialogueDict);
-        string NPCCanvasDictJson = JsonUtility.ToJson(Global.NPCCanvasDict);
+        string NPCDialogueDictJson = JsonConvert.SerializeObject(Global.NPCDialogueDict);
+        string NPCCanvasDictJson = JsonConvert.SerializeObject(Global.NPCCanvasDict);
         Debug.Log(NPCCanvasDictJson);
         Debug.Log(NPCDialogueDictJson);        
 
