@@ -233,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87617413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.24, y: -28.84, z: -10}
+  m_LocalPosition: {x: 10.117769, y: -28.839989, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1129107422}
@@ -6884,6 +6884,7 @@ GameObject:
   - component: {fileID: 1653394924}
   - component: {fileID: 1653394923}
   - component: {fileID: 1653394922}
+  - component: {fileID: 1653394926}
   m_Layer: 11
   m_Name: RoE portal
   m_TagString: Untagged
@@ -7002,6 +7003,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1653394926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653394921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: c558ac98597064c7383e54c45acb903b, type: 3}
 --- !u!1001 &1687679464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9696,3 +9710,22 @@ PrefabInstance:
       objectReference: {fileID: 197845974}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c, type: 3}
+--- !u!1 &6280021009951764268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6623454799164984710, guid: 1480f1db0cb6f8f4ba9b74ba8509ec1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6280021009951764267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6280021009951764269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280021009951764268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: c558ac98597064c7383e54c45acb903b, type: 3}
