@@ -34,7 +34,6 @@ public class FallingPlatform : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         _box.enabled = true;
-        Debug.Log("called");
         GetComponent<Transform>().position = _position;
     }
 }
