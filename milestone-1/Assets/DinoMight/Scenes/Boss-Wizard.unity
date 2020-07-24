@@ -302,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14523132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5600003, y: -13.964735, z: -10}
+  m_LocalPosition: {x: -1.5599997, y: -13.964735, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4803,7 +4803,7 @@ PrefabInstance:
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9868257
+      value: -2.9868255
       objectReference: {fileID: 0}
     - target: {fileID: 1097984078132128621, guid: 3e9c45b010d760e418c1cc05ae95341d,
         type: 3}
@@ -5043,6 +5043,11 @@ PrefabInstance:
       propertyPath: sceneName
       value: Level 3 - 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4914853333214801624, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b13a5c23a55f4f1cb63ad2a77a5f830, type: 3}
     - target: {fileID: 7693562226768043826, guid: 0ac4cb4cc8c70d34aaf7ad2a4fbf2004,
         type: 3}
       propertyPath: respawner
@@ -5995,7 +6000,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.84375, y: 3.5625}
+    oldSize: {x: 0.32, y: 0.45}
     newSize: {x: 3.84375, y: 3.5625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6043,7 +6048,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7486092956772349302, guid: ab3c2ac7d33474999b77663969076c42,
+  m_Sprite: {fileID: 4345758652637206247, guid: 6393df3d762b54a1ea2797a5c9e51828,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6064,7 +6069,7 @@ Transform:
   m_GameObject: {fileID: 1023473097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.46, y: -15.28, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.6774683, y: 7.6774683, z: 7.6774683}
   m_Children:
   - {fileID: 1946377298}
   m_Father: {fileID: 0}
@@ -8542,8 +8547,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946377297}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.36, y: -1.77, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -0.003, y: -0.21, z: 0}
+  m_LocalScale: {x: 2.8712168, y: 2.8712182, z: 2.8712182}
   m_Children: []
   m_Father: {fileID: 1023473102}
   m_RootOrder: 0
@@ -9239,7 +9244,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 5
     angle: 4.85
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}

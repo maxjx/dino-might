@@ -7,11 +7,17 @@ using UnityEngine.SceneManagement;
 // PlayerHealth calls ManualTransition which transitions to the same scene, when sceneName is null.
 public class PlayerTransition : LevelTransition
 {
+    public AudioClip music;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (sceneName == "null")
-            sceneName = SceneManager.GetActiveScene().name;   
+        {
+            sceneName = SceneManager.GetActiveScene().name;
+        }
+        if (music != null)
+        {
+            AudioManager.Instance.PlayMusicWithFade(music, 1f);
+        }
     }
 }
