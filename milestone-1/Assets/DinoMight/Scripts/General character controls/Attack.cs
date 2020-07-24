@@ -11,6 +11,7 @@ public class Attack : MonoBehaviour, IDamage
     public float kickRange = 0.5f;
     public int kickDamage = 1;
     public LayerMask kickableLayers;   // Contains info of all objects with specified layer, that can be hit by kick
+    public bool canAttack = true;       // only used in intro scene
 
     private float attackRate = 0.2f;   // Time taken to attack again
     private float timer = 0f;
@@ -45,7 +46,7 @@ public class Attack : MonoBehaviour, IDamage
     void Update()
     {
         timer += Time.deltaTime;
-        if (pHealth.currentHealth != 0)
+        if (pHealth.currentHealth != 0 && canAttack)
         {
             if (Input.GetButtonDown("Fire2") && timer >= attackRate)
             {
