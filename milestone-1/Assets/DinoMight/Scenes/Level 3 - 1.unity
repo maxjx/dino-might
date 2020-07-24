@@ -6657,6 +6657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1001 &715399605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28398,6 +28399,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3712594727523900925, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3712594729181431204, guid: 0275023642b044a85b8edfb5e35815a6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28517,6 +28523,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546349671399279, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546349671399279, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546349880046774, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546349880046774, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546350316704666, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546350316704666, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546350316704666, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546350514461823, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546350514461823, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479546350514461823, guid: 0275023642b044a85b8edfb5e35815a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5479546350987901134, guid: 0275023642b044a85b8edfb5e35815a6,
         type: 3}
@@ -29026,7 +29082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133710285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.180001, y: -18.075247, z: -10}
+  m_LocalPosition: {x: 1.1800035, y: -18.075249, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1210694154}
@@ -34145,6 +34201,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5351423375965311203, guid: 165eaa98dc1c44d84a90f854d92b2461,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 60.399902
+      objectReference: {fileID: 0}
     - target: {fileID: 5351423376416498850, guid: 165eaa98dc1c44d84a90f854d92b2461,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -34264,6 +34325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351423377307703816, guid: 165eaa98dc1c44d84a90f854d92b2461,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.899902
       objectReference: {fileID: 0}
     - target: {fileID: 5351423377307703817, guid: 165eaa98dc1c44d84a90f854d92b2461,
         type: 3}
@@ -40666,6 +40732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!114 &6866121833607345820
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -280,7 +280,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3712594729181431208}
-        m_MethodName: QuitGame
+        m_MethodName: ResetLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -498,7 +498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Reset Level
 --- !u!1 &3712594728546921571
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnable: 1
+  onAnyKey: 0
 --- !u!1 &3712594728924588036
 GameObject:
   m_ObjectHideFlags: 0
