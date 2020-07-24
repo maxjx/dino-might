@@ -22144,6 +22144,7 @@ GameObject:
   - component: {fileID: 1976409803}
   - component: {fileID: 1976409802}
   - component: {fileID: 1976409805}
+  - component: {fileID: 1976409806}
   m_Layer: 5
   m_Name: Choice1
   m_TagString: Untagged
@@ -22236,6 +22237,17 @@ MonoBehaviour:
           m_StringArgument: Level 3 - 1
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1976409806}
+        m_MethodName: ManualTransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1976409803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22287,6 +22299,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onEnable: 1
   onAnyKey: 0
+--- !u!114 &1976409806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976409800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: 2b13a5c23a55f4f1cb63ad2a77a5f830, type: 3}
 --- !u!1 &1979802849
 GameObject:
   m_ObjectHideFlags: 0
