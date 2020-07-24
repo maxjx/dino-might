@@ -57,9 +57,4 @@ public class Boss2Logic : MonoBehaviour
     {
         deathEvents.Invoke();
     }
-
-    public void SpareHim()
-    {
-        Global.masterSpared = true;
-    }
 }

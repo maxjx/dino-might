@@ -22,12 +22,12 @@ public class SummaryComment : MonoBehaviour
         }
         else if (ratio <= 1/3f)
         {
-            return "[Bad ending] Dino walks out of the forest feeling confused and tired."
+            return "[Bad ending] Dino walks out of the forest feeling confused and tired. "
                    + "He realised that he still feels stress and frustrated… Looks like you need to pick up some better stress relief options!";
         }
         else
         {
-            return "[Good ending] Dino walks out of the forest feeling much better than before, while some decisions could be better, most of them were great!"
+            return "[Good ending] Dino walks out of the forest feeling much better than before, while some decisions could be better, most of them were great! "
                    + "Keep up the good job!";
         }
     }

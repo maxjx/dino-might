@@ -13251,6 +13251,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1147576161}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1153858947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153858949}
+  - component: {fileID: 1153858948}
+  m_Layer: 0
+  m_Name: finalscenemanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1153858948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153858947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3593cd2ff37d8c4aa2eb34b80de42f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kingNPC: {fileID: 0}
+  kingSprite: {fileID: 0}
+  masterNPC: {fileID: 0}
+  wizard: {fileID: 0}
+  cloud: {fileID: 0}
+  lightning: {fileID: 0}
+  fist: {fileID: 0}
+  sword: {fileID: 0}
+  monologger: {fileID: 0}
+  fightingWizard: {fileID: 0}
+  bosshealthbar: {fileID: 0}
+  debugkingSpared: 0
+  debugmasterSpared: 0
+--- !u!4 &1153858949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153858947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.2700138, y: -13.552707, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168687932
 GameObject:
   m_ObjectHideFlags: 0
@@ -16246,8 +16302,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 919980908}
-        m_MethodName: SpareHim
+      - m_Target: {fileID: 1153858948}
+        m_MethodName: SpareKing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
