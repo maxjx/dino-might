@@ -25,10 +25,8 @@ public class InflictDamage : MonoBehaviour, IDamage
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.tag);
         if (!coolingDown & other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("damage");
             Damage(other);
             coolingDown = true;
         }
@@ -38,7 +36,6 @@ public class InflictDamage : MonoBehaviour, IDamage
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("card damage");
             if (other.GetComponent<Rigidbody2D>().velocity.magnitude < 0)
             {
                 other.GetComponent<IHealth>().TakeDamage(damage, true);
@@ -47,7 +44,6 @@ public class InflictDamage : MonoBehaviour, IDamage
             {
                 other.GetComponent<IHealth>().TakeDamage(damage, false);
             }
-            Debug.Log("called");
         }
     }
 }
