@@ -23,7 +23,7 @@ public class InflictDamage : MonoBehaviour, IDamage
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         Debug.Log(other.gameObject.tag);
         if (!coolingDown & other.gameObject.CompareTag("Player"))
