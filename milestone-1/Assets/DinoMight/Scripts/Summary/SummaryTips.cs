@@ -67,7 +67,7 @@ public class SummaryTips : MonoBehaviour
         }
         else
         {
-            result += "Regular sleeping and eating patterns are important to make your brain strong. Remember to get in some exercise too!";
+            result += "You know that regular sleeping and eating patterns are important to make your brain strong. Remember to get in some exercise too!";
         }
 
         return result;
