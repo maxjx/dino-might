@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 [Serializable]
 public class PauseMenu : MonoBehaviour {
@@ -62,10 +62,10 @@ public class PauseMenu : MonoBehaviour {
         string choicesToJson = JsonUtility.ToJson(globalSave);
         Debug.Log(choicesToJson);
 
-        string NPCDialogueDictJson = JsonConvert.SerializeObject(Global.NPCDialogueDict);
-        string NPCCanvasDictJson = JsonConvert.SerializeObject(Global.NPCCanvasDict);
-        Debug.Log(NPCCanvasDictJson);
-        Debug.Log(NPCDialogueDictJson);        
+        //string NPCDialogueDictJson = JsonConvert.SerializeObject(Global.NPCDialogueDict);
+        //string NPCCanvasDictJson = JsonConvert.SerializeObject(Global.NPCCanvasDict);
+        //Debug.Log(NPCCanvasDictJson);
+        //Debug.Log(NPCDialogueDictJson);        
 
         // DictStringInt NPCDialogueDict = Global.NPCDialogueDict;
 
@@ -86,8 +86,8 @@ public class PauseMenu : MonoBehaviour {
         form.AddBinaryData("imageAPath", Global.imageAPath);
         form.AddBinaryData("imageBPath", Global.imageBPath);
         form.AddBinaryData("imageCPath", Global.imageCPath);
-        form.AddField("NPCDialogueDict", NPCDialogueDictJson);
-        form.AddField("NPCCanvasDict", NPCCanvasDictJson);
+        //form.AddField("NPCDialogueDict", NPCDialogueDictJson);
+        //form.AddField("NPCCanvasDict", NPCCanvasDictJson);
 
 
         using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Save.php", form))
