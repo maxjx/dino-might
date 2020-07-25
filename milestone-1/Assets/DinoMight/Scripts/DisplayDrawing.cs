@@ -22,6 +22,10 @@ public class DisplayDrawing : MonoBehaviour
                     ImageConversion.LoadImage(tex, Global.imageAPath);
                     GetComponent<RawImage>().texture = tex;
                 }
+                else
+                {
+                    transform.parent.gameObject.SetActive(false);
+                }
                 break;
             case "imageB":
                 if (Global.imageBPath.Length > 0)
@@ -29,12 +33,20 @@ public class DisplayDrawing : MonoBehaviour
                     ImageConversion.LoadImage(tex, Global.imageBPath);
                     GetComponent<RawImage>().texture = tex;
                 }
+                else
+                {
+                    transform.parent.gameObject.SetActive(false);
+                }
                 break;
             case "imageC":
                 if (Global.imageCPath.Length > 0)
                 {
                     ImageConversion.LoadImage(tex, Global.imageCPath);
                     GetComponent<RawImage>().texture = tex;
+                }
+                else
+                {
+                    transform.parent.gameObject.SetActive(false);
                 }
                 break;
             default:
