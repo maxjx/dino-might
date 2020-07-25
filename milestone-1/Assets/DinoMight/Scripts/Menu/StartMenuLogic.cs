@@ -66,9 +66,9 @@ public class StartMenuLogic : MonoBehaviour {
                     Global.habits = gs.habits;
                     Global.playedMonologueList = gs.playedMonologueList;
 
-                    // Global.imageAPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageAPath"].ToString());
-                    // Global.imageBPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageBPath"].ToString());
-                    // Global.imageCPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageCPath"].ToString());
+                    Global.imageAPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageAPath"].ToString());
+                    Global.imageBPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageBPath"].ToString());
+                    Global.imageCPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageCPath"].ToString());
 
                     //Global.NPCCanvasDict = JsonConvert.DeserializeObject<Dictionary<string, int>>(textArray[0]["NPCCanvasDict"]);
                     //Global.NPCDialogueDict = JsonConvert.DeserializeObject<Dictionary<string, int>>(textArray[0]["NPCDialogueDict"]);
