@@ -58,9 +58,9 @@ public class PauseMenu : MonoBehaviour {
     }
 
     IEnumerator SaveForm() {
-        // GlobalSave globalSave = new GlobalSave();
-        // string choicesToJson = JsonUtility.ToJson(globalSave);
-        // Debug.Log(choicesToJson);
+        GlobalSave globalSave = new GlobalSave();
+        string choicesToJson = JsonUtility.ToJson(globalSave);
+        Debug.Log(choicesToJson);
 
         //string NPCDialogueDictJson = JsonConvert.SerializeObject(Global.NPCDialogueDict);
         //string NPCCanvasDictJson = JsonConvert.SerializeObject(Global.NPCCanvasDict);
@@ -82,7 +82,7 @@ public class PauseMenu : MonoBehaviour {
         form.AddField("questNumber", Global.questNumber);
         form.AddField("kingSpared", Global.kingSpared?1:0);
         form.AddField("masterSpared", Global.masterSpared?1:0);
-        // form.AddField("choices", choicesToJson);
+        form.AddField("choices", choicesToJson);
         //form.AddBinaryData("imageAPath", Global.imageAPath);
         //form.AddBinaryData("imageBPath", Global.imageBPath);
         //form.AddBinaryData("imageCPath", Global.imageCPath);
