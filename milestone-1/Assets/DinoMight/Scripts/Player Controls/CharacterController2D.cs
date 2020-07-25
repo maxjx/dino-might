@@ -88,6 +88,7 @@ public class CharacterController2D : MonoBehaviour
                     OnLandEvent.Invoke();
                     falling = false;
                     hadDashed = false;
+                    StopDash();
 
                     CreateDust();
                 }
