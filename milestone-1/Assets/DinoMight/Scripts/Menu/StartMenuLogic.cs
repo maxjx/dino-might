@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System;
 using SimpleJSON;
+using Newtonsoft.Json;
 
 public class StartMenuLogic : MonoBehaviour {
     public GameObject transition;
@@ -69,8 +70,8 @@ public class StartMenuLogic : MonoBehaviour {
                     Global.imageBPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageBPath"].ToString());
                     Global.imageCPath = System.Text.Encoding.ASCII.GetBytes(textArray[0]["imageCPath"].ToString());
 
-                    Global.NPCCanvasDict = JsonUtility.FromJson<DictStringInt>(textArray[0]["NPCCanvasDict"]);
-                    Global.NPCDialogueDict = JsonUtility.FromJson<DictStringInt>(textArray[0]["NPCDialogueDict"]);
+                    Global.NPCCanvasDict = JsonConvert.DeserializeObject<Dictionary<string, int>>(textArray[0]["NPCCanvasDict"]);
+                    Global.NPCDialogueDict = JsonConvert.DeserializeObject<Dictionary<string, int>>(textArray[0]["NPCDialogueDict"]);
 
                     transition.GetComponent<LevelLoader>().NextLevelAnimationLoad(index, x, y);
                     loadMusic.GetComponent<MusicLoader>().PlayMusic(index);
