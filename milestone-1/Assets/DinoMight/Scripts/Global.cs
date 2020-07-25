@@ -36,9 +36,9 @@ public static class Global {
 
     // NEW NOT SAVED
     // Key: npc name, value: canvas index
-    public static Dictionary<string, int> NPCCanvasDict = new Dictionary<string, int>();
+    public static Dictionary<string, int> NPCCanvasDict = new Dictionary<string, int>(){ {"dummyx", 0} };
     // Key: NPC's name, Value: corresponding dialogue index.
-    public static Dictionary<string, int> NPCDialogueDict = new Dictionary<string, int>();
+    public static Dictionary<string, int> NPCDialogueDict = new Dictionary<string, int>(){ {"dummyx", 0} };
     // All monologues distinguished by their ids that are in this list have been played.
     public static List<string> playedMonologueList = new List<string>();
 
