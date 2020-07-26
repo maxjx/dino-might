@@ -233,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1984687, y: -27.959993, z: -10}
+  m_LocalPosition: {x: 0.55000013, y: -27.960001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1809107725}
@@ -1842,7 +1842,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1345541791}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1345541792}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6de5db009cd154c41b65cd9ff7dc715a, type: 3}
@@ -11127,7 +11127,7 @@ PrefabInstance:
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: endDialoguesEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
@@ -11193,7 +11193,7 @@ PrefabInstance:
         type: 3}
       propertyPath: endDialoguesEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1172662583}
+      objectReference: {fileID: 1345541793}
     - target: {fileID: 2810647202009954032, guid: 18372e995c6c95742b798ceeec7262d3,
         type: 3}
       propertyPath: endDialoguesEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -11301,6 +11301,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18372e995c6c95742b798ceeec7262d3, type: 3}
+--- !u!1 &1345541792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2810647202009954046, guid: 18372e995c6c95742b798ceeec7262d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1345541791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1345541793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345541792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622fb726f7845439e8ca5ed1f2dc324d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: c558ac98597064c7383e54c45acb903b, type: 3}
 --- !u!1 &1361270179
 GameObject:
   m_ObjectHideFlags: 0
@@ -14583,6 +14602,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1172662583}
+        m_MethodName: ManualTransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1345541793}
         m_MethodName: ManualTransition
         m_Mode: 1
         m_Arguments:
