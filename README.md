@@ -47,4 +47,4 @@ Interested in the mechanics of game design and raising awareness through story-t
     <li>As a user, the game should not end too fast</li>
   </ul>
 </p>
-<br> https://maxxng.github.io/dino-might/
+<br> https://maxjx.github.io/dino-might/
