@@ -39,4 +39,9 @@ public class TrackingAttack : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Destroy(this.gameObject);
     }
+
+    public void DeleteObjectCo()
+    {
+        StartCoroutine(DeleteObject());
+    }
 }

@@ -38,7 +38,8 @@ public class ProximityAttack : MonoBehaviour
         if (sqdistanceFromPlayer < attackRange && player.activeInHierarchy)
         {
             // Set condition to animation state that invokes Hurt() via an event, to time attack frequency
-            animator.SetTrigger("attack");
+            if (animator != null)
+                animator.SetTrigger("attack");
 
             // Determine direction of attack
             if (playerPosition.x < mobPosition.x)
