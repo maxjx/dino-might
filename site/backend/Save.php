@@ -16,6 +16,9 @@ $canDash = $_POST["canDash"];
 $questNumber = $_POST["questNumber"];
 $kingSpared = $_POST["kingSpared"];
 $masterSpared = $_POST["masterSpared"];
+$choices = $_POST["choices"];
+$NPCCanvasDict = $_POST["NPCCanvasDict"];
+$NPCDialogueDict = $_POST["NPCDialogueDict"];
 
 
 
@@ -33,10 +36,12 @@ if ($result->num_rows > 0) {
     $sql = "DELETE FROM loaddata WHERE playerId = '". $playerId. "';";
     if ($conn->query($sql) === true) {
         $sql = "INSERT INTO loaddata (playerId, level, health, Xcoordinate, Ycoordinate, playerMaxHealth
-        , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared)
+        , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, choices, NPCCanvasDict
+        , NPCDialogueDict)
         VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
         , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
-        , '". $kingSpared. "', '". $masterSpared. "')";
+        , '". $kingSpared. "', '". $masterSpared. "', '". $choices. "', '". $NPCCanvasDict. "', '". $NPCDialogueDict. "'
+        )";
         if ($conn->query($sql) === true) {
             echo "Successful update!";
         } else {
@@ -45,10 +50,12 @@ if ($result->num_rows > 0) {
     }
 } else {
     $sql = "INSERT INTO loaddata (playerId, level, health, Xcoordinate, Ycoordinate, playerMaxHealth
-        , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared)
+        , kickDmg, fireballDmg, canDash, questNumber, kingSpared, masterSpared, choices, NPCCanvasDict
+        , NPCDialogueDict)
         VALUES ('". $playerId. "', '". $playerLevel. "', '". $playerHealth. "', '". $Xcoordinate. "', '". $Ycoordinate. "'
         , '". $playerMaxHealth. "', '". $kickDmg. "', '". $fireballDmg. "', '". $canDash. "', '". $questNumber. "'
-        , '". $kingSpared. "', '". $masterSpared. "')";
+        , '". $kingSpared. "', '". $masterSpared. "', '". $choices. "', '". $NPCCanvasDict. "', '". $NPCDialogueDict. "'
+        )";
     if ($conn->query($sql) === true) {
         echo "Successful save!";
     } else {
