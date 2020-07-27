@@ -25,9 +25,17 @@ public class SummaryBossSpared : MonoBehaviour
             {
                 kingImage.SetActive(true);
             }
+            else
+            {
+                kingImage.SetActive(false);
+            }
             if (Global.masterSpared)
             {
                 masterImage.SetActive(true);
+            }
+            else
+            {
+                masterImage.SetActive(false);
             }
             textBox.text = "Your new friends XD";
         }
