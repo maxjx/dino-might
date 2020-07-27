@@ -42,4 +42,23 @@ public static class Global {
     // All monologues distinguished by their ids that are in this list have been played.
     public static List<string> playedMonologueList = new List<string>();
 
+    public static void ResetGlobal()
+    {
+        playerHealth = 15;
+        playerMaxHealth = 15;
+        kickDmg = 2;
+        fireballDmg = 3;
+        canDash = false;
+        playerLevel = 1;
+        questNumber = 0;        // most impt
+        kingSpared = false;
+        masterSpared = false;
+        priorities = new List<string>();
+        challenges = new List<string>();
+        habits = new List<string>();
+        NPCCanvasDict = new Dictionary<string, int>(){ {"dummyx", 0} };
+        NPCDialogueDict = new Dictionary<string, int>(){ {"dummyx", 0} };
+        playedMonologueList = new List<string>();
+    }
+
 }
