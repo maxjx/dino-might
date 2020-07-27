@@ -15,6 +15,7 @@ public class StartMenuLogic : MonoBehaviour {
     [SerializeField] private GameObject loadMusic;
 
     public void Play() {
+        Global.ResetGlobal();
         loadMusic.GetComponent<MusicLoader>().PlayMusic(1);
         transition.GetComponent<LevelLoader>().NextLevelAnimation("Introduction");
         Debug.Log(Global.playerId);
