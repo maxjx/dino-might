@@ -60,7 +60,7 @@ Interested in the mechanics of game design and raising awareness through story-t
   <li>Music:
     <dd>- The volume of the music and the sound effects can be adjusted separately throughout the game. The adjustment is also linear instead of by decibels.</dd>
     <dd>- Player volume preference can be stored and loaded when logging back in.</dd>
-    <dd>- he game music added helps with the immersive and relaxing game experience.</dd>
+    <dd>- The game music added helps with the immersive and relaxing game experience.</dd>
   </li>
   <li>Mini Stress relief activities:
     <dd>- Short simple stress relief exercises will be implemented within the game play which engages the users.</dd>
@@ -68,8 +68,12 @@ Interested in the mechanics of game design and raising awareness through story-t
     <dd>- Examples include a short 5 min guided meditation session with voice guide and background music, drawing as art therapy and a guide for massaging acupuncture points.</dd>
   </li>
   <li>Questing System
+    <dd>- Able to view current task at hand so that players have an aim to work towards.</dd>
+    <dd>- Also used to determine at which stage of the game the player is at, thus unlocking certain levels and advances NPC conversations.</dd>
   </li>
   <li>Parallax background
+    <dd>- Parallax backgrounds help to add a sense of depth to a 2D game and this helps make the game more immersive in general.</dd>
+    <dd>- The rate of parallax scrolling can be easily changed on the developer’s end.</dd>
   </li>
   <li>Summary page for Stress relief tips:
     <dd>- Collates all choices made in the game and presents it in a concise and digestible format at the end of the game.</dd>
