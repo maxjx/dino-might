@@ -42,6 +42,9 @@ public static class Global {
     // All monologues distinguished by their ids that are in this list have been played.
     public static List<string> playedMonologueList = new List<string>();
 
+
+    public static bool secretMoonlightMusic = true;
+
     public static void ResetGlobal()
     {
         playerHealth = 15;
