@@ -1,8 +1,10 @@
 # Team Cook 
 <p><b>By:</b> Lim Junxue and Max Ng</p>
 <p><b>Project:</b> DinoMight - A 2D platformer with an interactive storyline which aims to promote effective habits that reduces stress.</p>
-<p><b>Proposed level of achievment:</b> Artemis</p>
-<p><b>Game:</b> https://maxjx.github.io/dino-might/</p>
+<p><b>Try our game here:</b> https://maxjx.github.io/dino-might/</p>
+<p><b>Documentation:</b> https://docs.google.com/document/d/1GWRyFvjXlXd7pQjodhNoWo3a-jShSIdEYA2ekIQlSe0/edit?usp=sharing</p>
+<p><b>Video trailer:</b> https://youtu.be/bUDn65XtAFs</p>
+<p><b>More details on the build:</b> </p>
 
 <h2> Project Overview</h2>
 <p><b>Motivation:</b>
