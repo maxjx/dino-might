@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "id13880314_teamcook";
-$password = "XCgg8TruMc>0@Fkg";
-$dbname = "id13880314_dinomightdb";
+$username = "id15545090_teamcook";
+$password = "6Mfn&9[zT2m~sWP+";
+$dbname = "id15545090_dinomight";
 
 $playerId = $_POST["playerId"];
 $playerLevel = $_POST["playerLevel"];
