@@ -38,7 +38,7 @@ public class StartMenuLogic : MonoBehaviour {
         WWWForm form = new WWWForm();
         form.AddField("playerId", playerId);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Load.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight2.000webhostapp.com/backend/Load.php", form))
         {
             yield return www.SendWebRequest();
 
