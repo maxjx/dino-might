@@ -88,7 +88,7 @@ public class PauseMenu : MonoBehaviour {
         form.AddField("NPCCanvasDict", NPCCanvasDictJson);
 
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Save.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight2.000webhostapp.com/backend/Save.php", form))
         {
             yield return www.SendWebRequest();
 

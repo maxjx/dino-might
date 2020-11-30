@@ -8,7 +8,7 @@ public class backend : MonoBehaviour {
     // Purely for debugging purposes
     void Start()
     {
-        StartCoroutine(GetRequest("https://dinomight.000webhostapp.com/backend/GetData.php"));
+        StartCoroutine(GetRequest("https://dinomight2.000webhostapp.com/backend/GetData.php"));
         StartCoroutine(Login("testuser", "12345"));
         StartCoroutine(Registration("testuser", "12345"));
     }
@@ -41,7 +41,7 @@ public class backend : MonoBehaviour {
         form.AddField("inputUsername", username);
         form.AddField("inputPassword", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Login.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight2.000webhostapp.com/backend/Login.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -62,7 +62,7 @@ public class backend : MonoBehaviour {
         form.AddField("inputUsername", username);
         form.AddField("inputPassword", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Registration.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight2.000webhostapp.com/backend/Registration.php", form))
         {
             yield return www.SendWebRequest();
 
