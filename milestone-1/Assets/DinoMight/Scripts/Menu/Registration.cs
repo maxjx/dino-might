@@ -30,7 +30,7 @@ public class Registration : MonoBehaviour {
         form.AddField("inputUsername", username.text);
         form.AddField("inputPassword", password.text);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.000webhostapp.com/backend/Registration.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight2.000webhostapp.com/backend/Registration.php", form))
         {
             yield return www.SendWebRequest();
 
