@@ -2,8 +2,9 @@
 <p><b>By:</b> Lim Junxue and Max Ng</p>
 <p><b>Project:</b> DinoMight - A 2D platformer with an interactive storyline which aims to promote effective habits that reduces stress.</p>
 <p><b>Try our game here:</b> https://maxjx.github.io/dino-might/</p>
-<p><b>Documentation:</b> https://docs.google.com/document/d/1GWRyFvjXlXd7pQjodhNoWo3a-jShSIdEYA2ekIQlSe0/edit?usp=sharing</p>
+<p><b>Documentation:</b> https://docs.google.com/document/d/1mt6SgyHExIwvO-I2PbNucnTOGOtYRP6EHN-Ybl8bovU/edit?usp=sharing</p>
 <p><b>Video trailer:</b> https://youtu.be/bUDn65XtAFs</p>
+<p><b>Feature walkthrough:</b> https://drive.google.com/file/d/1SkLr3tsnfdUyzKQEqfHlY21flEVr7oSm/view?usp=sharing</p>
 <p><b>More details on the build:</b> </p>
 
 <h2> Project Overview</h2>
