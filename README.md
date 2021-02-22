@@ -1,14 +1,16 @@
 # Team Cook 
 <p><b>By:</b> Lim Junxue and Max Ng</p>
 <p><b>Project:</b> DinoMight - A 2D platformer with an interactive storyline which aims to promote effective habits that reduces stress.</p>
-<p><b>Try our game here:</b> https://maxjx.github.io/dino-might/</p>
+
+![poster](docs/dinomight poster v3.1.png)
+<p><b>Try our game here! --></b> https://maxjx.github.io/dino-might/</p>
+<p><b>Watch the game trailer! --></b> https://youtu.be/bUDn65XtAFs</p>
 <p><b>Documentation:</b> https://docs.google.com/document/d/1mt6SgyHExIwvO-I2PbNucnTOGOtYRP6EHN-Ybl8bovU/edit?usp=sharing</p>
-<p><b>Video trailer:</b> https://youtu.be/bUDn65XtAFs</p>
 <p><b>Feature walkthrough:</b> https://drive.google.com/file/d/1SkLr3tsnfdUyzKQEqfHlY21flEVr7oSm/view?usp=sharing</p>
 <p><b>More details on the build:</b> </p>
 
-<h2> Project Overview</h2>
-<p><b>Motivation:</b>
+## Project Overview
+### Motivation:
 <p>
 Stress in Singapore is a significant issue considering that 92% of Singaporeans report feelings of stress, with some even indicating unmanageable levels of stress.
 </p>
@@ -17,8 +19,9 @@ A persistent high level of stress will narrow a person’s ability to think, cop
 </p>
 <p>
 Interested in the mechanics of game design and raising awareness through story-telling, we seek to create an interactive fantasy world where the user controls a dino as the main character. This is a 2D adventure/educational game with an interactive storyline which changes based on the player’s decisions that brings the player through a journey of mental self-discovery.
-</p></p>
-<p><b>Core features:</b> 
+</p>
+
+### Core features: 
 <ol><dl>
   <li>Game account creation:
     <dd>- Players can save their data within the game and continue from where they left off by logging back in to their accounts.</dd>
@@ -86,9 +89,9 @@ Interested in the mechanics of game design and raising awareness through story-t
     <dd>- Global system to keep track to inter-scene item states.</dd>
   </li>
  </dl></ol>
-</p>
-<p><b>User stories:</b>
-  <br><u>High priority:</u>
+
+### User stories:
+  <u>High priority:</u>
   <ul>
     <li>As a busy user, I want to be able to save my progress so that I can save time.</li>
     <li>As a user who wants to destress, I want to be able to have smooth and frictionless player controls so that I enjoy the game and can focus on the storyline.</li>
@@ -99,7 +102,7 @@ Interested in the mechanics of game design and raising awareness through story-t
     <li>As a busy user, I want the game to load quickly.</li>
     <li>As a stressed user, I want to relax while playing the game.</li>
   </ul>
-<br><u>Low Priority:</u>
+<u>Low Priority:</u>
   <ul>
     <li>As a user, I want to be able to adjust the game volume.</li>
     <li>As a user, i want to be able to adjust the effects volume.</li>
@@ -107,5 +110,4 @@ Interested in the mechanics of game design and raising awareness through story-t
     <li>As a user who wants to destress, I want to play the game with interesting and enjoyable music.</li>
     <li>As a user who wants to feel fulfilled, the game should not end too fast.</li>
   </ul>
-</p>
 <p><b>Game:</b> https://maxjx.github.io/dino-might/</p>

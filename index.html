@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
+<style>
+body { background-color: powderblue;}
+button {
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    opacity: 0.75;
+    border-radius: 6px;
+}
+button:hover {
+    opacity: 0.95;
+}
+</style>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | test-site</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
         var unityInstance = UnityLoader.instantiate("unityContainer", "Build/dino-might-1.json", {
             onProgress: UnityProgress
         });
+
+
     </script>
 </head>
 
 <body>
-    <div class="webgl-content">
-        <div id="unityContainer" style="width: 960px; height: 600px"></div>
-        <div class="footer">
-            <div class="webgl-logo"></div>
-            <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        </div>
+<div>
+    <button type="button"><i class="fa fa-gamepad" aria-hidden="true"></i> <b>Watch our game trailer here first!</b></button>
+</div>
+<div>
+    <button type="button"><i class="fa fa-map-o" aria-hidden="true"></i> <b>Feature walkthrough</b></button>
+</div>
+<div class="webgl-content">
+    <div id="unityContainer" style="width: 960px; height: 600px"></div>
+    <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
     </div>
+</div>
 </body>
 
 </html>
