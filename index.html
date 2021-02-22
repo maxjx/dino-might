@@ -28,17 +28,18 @@ button:hover {
         var unityInstance = UnityLoader.instantiate("unityContainer", "Build/dino-might-1.json", {
             onProgress: UnityProgress
         });
-
-
     </script>
 </head>
 
 <body>
 <div>
-    <button type="button" onclick="document.location='https://youtu.be/bUDn65XtAFs'"><i class="fa fa-gamepad" aria-hidden="true"></i> <b>Watch our game trailer here first!</b></button>
+    <button type="button" onclick="document.location='https://youtu.be/bUDn65XtAFs'">
+        <i class="fa fa-gamepad" aria-hidden="true"></i> <b>Watch our game trailer here first!</b></button>
 </div>
 <div>
-    <button type="button"onclick="document.location='https://drive.google.com/file/d/1SkLr3tsnfdUyzKQEqfHlY21flEVr7oSm/view?usp=sharing'"><i class="fa fa-map-o" aria-hidden="true"></i> <b>Feature walkthrough</b></button>
+    <button type="button"
+            onclick="document.location='https://drive.google.com/file/d/1SkLr3tsnfdUyzKQEqfHlY21flEVr7oSm/view?usp=sharing'">
+        <i class="fa fa-map-o" aria-hidden="true"></i> <b>Feature walkthrough</b></button>
 </div>
 <div class="webgl-content">
     <div id="unityContainer" style="width: 960px; height: 600px"></div>
@@ -46,6 +47,7 @@ button:hover {
         <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
     </div>
+    * It will take a short while on the first load.
 </div>
 </body>
 
