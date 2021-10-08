@@ -65,7 +65,7 @@ public class PauseMenu : MonoBehaviour {
         string NPCDialogueDictJson = JsonConvert.SerializeObject(Global.NPCDialogueDict);
         string NPCCanvasDictJson = JsonConvert.SerializeObject(Global.NPCCanvasDict);
         Debug.Log(NPCCanvasDictJson);
-        Debug.Log(NPCDialogueDictJson);        
+        Debug.Log(NPCDialogueDictJson);
 
         WWWForm form = new WWWForm();
         form.AddField("playerId", Global.playerId);
@@ -88,7 +88,7 @@ public class PauseMenu : MonoBehaviour {
         form.AddField("NPCCanvasDict", NPCCanvasDictJson);
 
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight2.000webhostapp.com/backend/Save.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.herokuapp.com/Save.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -100,7 +100,7 @@ public class PauseMenu : MonoBehaviour {
                     {
                         informText.text = "Successful update!";
                         www.Dispose();
-                    } 
+                    }
                     else if (www.downloadHandler.text.Contains("Successful save"))
                     {
                         informText.text = "Successful save!";
