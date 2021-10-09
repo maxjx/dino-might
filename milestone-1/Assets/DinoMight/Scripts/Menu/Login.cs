@@ -12,7 +12,7 @@ public class Login : MonoBehaviour
     public GameObject loadingCircle;
     public Text errorMessage;
     public GameObject canvas;
-    
+
     public void OnLoginButton() {
         LoginButton.interactable = false;
         loadingCircle.SetActive(true);
@@ -25,7 +25,7 @@ public class Login : MonoBehaviour
         form.AddField("inputUsername", username);
         form.AddField("inputPassword", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight2.000webhostapp.com/backend/Login.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://dinomight.herokuapp.com/Login.php", form))
         {
             yield return www.SendWebRequest();
 
